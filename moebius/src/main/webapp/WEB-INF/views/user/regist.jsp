@@ -20,8 +20,8 @@ function noClick() {
 </head>
 <body>
 	<form:form action="regist" method="post" commandName="userVO" id="frmRegist">
-		<table>
-			<caption>회원 가입</caption>
+		<table align="center">
+			<caption><h1>회원 가입</h1></caption>
 			<tr>
 				<th>아이디</th>
 					<td>
@@ -123,11 +123,10 @@ function noClick() {
 						<form:errors path="user_addr2" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
+			<tr><td><br/><br/><br/><br/></td></tr>
 			<tr>
-				<td colspan="2">
-					<div class="center">
+				<td colspan="2" align="right">
 					<input type="submit" value="가입완료" id="btnRegistOk" />
-					</div>
 				</td>
 			</tr>
 		</table>

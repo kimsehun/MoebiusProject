@@ -31,8 +31,8 @@
 		         <li class='last'><a href='#'><span>문의사항</span></a></li>
 		      </ul>
 		   </li>
-		   <li class='right'><a href='user/login'><span>로그인</span></a></li>
-		   <li class='right'><a href='user/regist'><span>회원가입</span></a></li>
+		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
+		   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
 		</ul>
 	</div>
 
