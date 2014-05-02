@@ -12,7 +12,7 @@
 
 .top_menu {width: 200px; float: left;}
 
-.top_userInfo {width:80px;float:right;}
+.top_userInfo {float:right;}
 
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
