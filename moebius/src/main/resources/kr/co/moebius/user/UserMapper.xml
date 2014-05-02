@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper      
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"      
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.moebius.user.UserMapper">
+	<!-- 회원가입 -->
+	<insert id="registUser" parameterType="UserVO" >
+	INSERT INTO m_user(
+				user_id,user_name,user_pwd,user_age,user_pwd_hint,user_pwd_answer,
+				user_gender,user_jumin1,user_jumin2,user_email,user_phone,user_zipcode,
+				user_addr1,user_addr2)
+	VALUES(		
+				#{user_id},#{user_name},#{user_pwd},#{user_age},#{user_pwd_hint},#{user_pwd_answer},
+				#{user_gender},#{user_jumin1},#{user_jumin2},#{user_email},#{user_phone},#{user_zipcode},
+				#{user_addr1},#{user_addr2})
+	</insert>
+	
+	<!-- zipcode 리스트 불러오기 -->
+	<select id="searchZipcode" resultType="ZipcodeVO" parameterType="String" >
+	SELECT substr(zipcode, 1, 3) AS zipcode1,
+	   substr(zipcode, 5, 3) AS zipcode2,
+	   trim(sido || ' ' || gugun || ' ' || dong || ' ' ||
+	   ri || ' ' || bunji) AS addr1
+	FROM zipcode
+	WHERE dong like '%' || #{area} || '%'
+	</select>
+	
+	<!-- id 중복 체크 -->
+	<select id="searchId" resultType="UserVO" parameterType="String">
+	SELECT user_id
+	FROM m_user
+	WHERE user_id = #{user_id}
+	</select>
+</mapper>
