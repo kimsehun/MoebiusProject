@@ -23,7 +23,6 @@
 			<property name="dataSource" ref="dataSource" />
 			<property name="typeAliasesPackage" value="kr.co.moebius.user" />
 		</bean>
-	
 
 		<bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 			<property name="mapperInterface" value="kr.co.moebius.user.UserMapper" />
