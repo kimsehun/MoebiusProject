@@ -8,8 +8,8 @@
 </head>
 <body>
 			<p align="center">						
-			<a href="regist"  data-role="button" data-inline="true">회원가입</a>
-			<a href="login" data-role="button" data-inline="true">로그인</a>
+			<a href="regist"  type="button" data-inline="true">회원가입</a>
+			<a href="login" type="button" data-inline="true">로그인</a>
 			</p>
 </body>
 </html>
