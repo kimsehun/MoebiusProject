@@ -1,5 +1,7 @@
 package kr.co.moebius.board;
 
+import kr.co.moebius.user.UserVO;
+
 public class BoardInfoVO {
 
 	private int bno;

@@ -3,13 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.co</groupId>
-	<artifactId>oraclejava</artifactId>
+	<artifactId>moebius</artifactId>
 	<name>springdev</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
+		<!-- email을 사용하기 위해서는 3.2.2 이상의 버전 금지!!! -->
+		<org.springframework-version>3.2.2.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.7.0</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -19,12 +20,14 @@
   			<id>geotools</id>
   			<url>http://download.osgeo.org/webdav/geotools/</url>
   		</repository>
-  		<!-- ojdbc -->
+  		
+  		<!-- ojdbc(DB를 사용하기 위해 꼭 필요!!) -->
   		<repository>
   			<id>mesir-repo</id>
   			<url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
   		</repository>
   		
+  		<!-- Email이 자동 처리 되지 않을때 주입한다.-->
   		<repository>
   			<id>Java.Net</id>
   			<url>http://download.java.net/maven/2/</url>
@@ -72,7 +75,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
-            
 		
 		<!-- Logging -->
 		<dependency>
@@ -207,16 +209,7 @@
 			<artifactId>spring-ibatis</artifactId>
 			<version>2.0.8</version>
 		</dependency>
-		
-		<!-- ibatis bridge -->   
-		<!-- ibatis-sqlmap 2.3.4.726 -->     
-		<dependency>
-			<groupId>org.apache.ibatis</groupId>
-			<artifactId>ibatis-sqlmap</artifactId>
-			<version>2.3.4.726</version>
-		</dependency>
-		
-		
+	
         <!-- MyBatis -->
         <dependency>
 			<groupId>org.mybatis</groupId>
@@ -238,19 +231,6 @@
 			<version>1.9</version>
 		</dependency>
 
-
-
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>1.7.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty.orbit</groupId>
-			<artifactId>javax.mail.glassfish</artifactId>
-			<version>1.4.1.v201005082020</version>
-		</dependency>
-			
 		<!-- spring-oxm -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -270,7 +250,6 @@
 			<version>1.9.13</version>
 		</dependency>
 		
-		
 		<!-- java mail  -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -278,11 +257,11 @@
 			<version>1.4.3</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<version>1.0.0.RELEASE</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-test</artifactId> -->
+<!-- 			<version>1.0.0.RELEASE</version> -->
+<!-- 		</dependency> -->
 		
 		<!-- Sitemesh -->
 		<dependency>
@@ -290,7 +269,6 @@
 			<artifactId>sitemesh</artifactId>
 			<version>2.4.2</version>
 		</dependency>
-            
 		
 	</dependencies>
     

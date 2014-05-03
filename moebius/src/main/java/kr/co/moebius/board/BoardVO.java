@@ -1,5 +1,7 @@
 package kr.co.moebius.board;
 
+import kr.co.moebius.user.UserVO;
+
 public class BoardVO{
 	private int board_no;
 	private String board_title;

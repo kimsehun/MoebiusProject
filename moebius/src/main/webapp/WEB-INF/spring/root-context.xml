@@ -17,18 +17,20 @@
 		<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 			<property name="dataSource" ref="dataSource" />
 		</bean>
-		
+				
 		<!-- mybatis start -->
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
 			<property name="dataSource" ref="dataSource" />
-			<property name="typeAliasesPackage" value="kr.co.moebius.user" />
+			<property name="typeAliasesPackage" value="kr.co.moebius.mybatis" />
 		</bean>
 
+		<!-- user Mapper -->
 		<bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 			<property name="mapperInterface" value="kr.co.moebius.user.UserMapper" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
 		
+		<!-- board Mapper -->
 		<bean id="BoardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 			<property name="mapperInterface" value="kr.co.moebius.board.BoardMapper" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
