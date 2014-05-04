@@ -42,17 +42,4 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<filter>
-	  	<filter-name>sitemesh</filter-name>
-	  	<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
-	</filter>
-	  
-	<!-- 모든 사이트에 sitemesh를 적용하겠다 -->
-	<filter-mapping>
-	  	<filter-name>sitemesh</filter-name>
-	  	<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-
 </web-app>

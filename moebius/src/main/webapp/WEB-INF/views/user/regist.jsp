@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
-<script type="text/javascript" src='<c:url value="/resources/js/regist.js"/>'></script>
+<script type="text/javascript" src="<c:url value="/resources/js/regist.js"/>"></script>
 <script type="text/javascript">
 function noClick() {
 	if(!document.getElementById('user_zipcode').value) {
@@ -47,7 +47,7 @@ function noClick() {
 			<tr>
 				<th>이름</th>
 					<td>
-						<input type="text" name="user_name" value="${userVO.user_name }" /><br/>
+						<input type="text" name="user_name" value="${userVO.user_name}" /><br/>
 						<form:errors path="user_name" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
@@ -123,7 +123,6 @@ function noClick() {
 						<form:errors path="user_addr2" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
-			<tr><td><br/><br/><br/><br/></td></tr>
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="가입완료" id="btnRegistOk" />

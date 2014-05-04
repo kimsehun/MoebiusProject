@@ -7,11 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" />
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-	<script type='text/javascript' src='menu_jquery.js'></script>
+<!-- site mesh 처리할때 menu_jquery.js하고 main.css안에 내포된 png파일의 그림 오류 해결할것!! -->
+
+<%-- <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" /> --%>
+<!-- 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' /> -->
+<!-- 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /> -->
+<!-- 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script> -->
+<!-- 	<script type='text/javascript' src='menu_jquery.js'></script> -->
 </head>
 <body>
 	<div id='header'>

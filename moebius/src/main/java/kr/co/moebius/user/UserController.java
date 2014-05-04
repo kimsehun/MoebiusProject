@@ -41,13 +41,4 @@ public class UserController {
 		model.addAttribute("area", area);
 	}
 	
-	@RequestMapping(value = "/idCheck", method=RequestMethod.GET)
-	public void idCheck() {}
-	
-	@RequestMapping(value = "/idCheck", method=RequestMethod.POST)
-	public void idCheckAction(String user_id, Model model) throws Exception {
-		List<UserVO> list = userService.searchId(user_id);
-		model.addAttribute("list", list);
-		logger.info(model.toString());
-	}
 }

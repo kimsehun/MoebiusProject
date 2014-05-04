@@ -117,10 +117,12 @@ CREATE TABLE m_user
 	user_addr1 varchar2(100) NOT NULL,
 	user_addr2 varchar2(50) NOT NULL,
 	user_regdate date DEFAULT sysdate NOT NULL,
-	user_point number NOT NULL,
+	user_point number DEFAULT 0 NOT NULL,
 	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
+
+--관리자 임의로 미리 생성
 
 
 CREATE TABLE m_reserve
@@ -268,4 +270,4 @@ create table zipcode (
 	bunji	varchar2(60)
 );
 
-select * from zipcode;
+select count(*) as cnt from zipcode;
