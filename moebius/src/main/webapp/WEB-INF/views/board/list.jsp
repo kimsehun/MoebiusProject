@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 </head>
 <body>
 <input type="hidden" id="bno" value="${bno}">
