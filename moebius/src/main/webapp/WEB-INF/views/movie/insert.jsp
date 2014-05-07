@@ -24,18 +24,20 @@
 					</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<th>스토리</th>
+				<td>
 					<textarea rows="10" cols="10" name="movie_story"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					파일 : <input type="file" name="movie_poster" />
+				<th>파일</th>
+				<td>
+				 	<input type="file" name="movie_poster" />
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					영화 상영 시작일
+				<th>영화 상영 시작일</th>
+				<td>
 					<input type="number" name="year" 
 						min="${year - 10}" max="${year + 10}" value="${year}" />년
 					<input type="number" name="month" min="1" max="12" value="${month}" />월
@@ -43,8 +45,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					영화 상영 종료일
+				<th>영화 상영 종료일</th>
+				<td>
 					<input type="number" name="year" 
 						min="${year - 10}" max="${year + 10}" value="${year}" />년
 					<input type="number" name="month" min="1" max="12" value="${month}" />월
@@ -52,13 +54,21 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					영화 등급 : <input type="number" name="movie_grade"/>
+				<td>
+					영화 등급
+				</td>
+				<td>
+					<select name="movie_grade">
+						<option value="1">15</option>
+						<option value="2">19</option>
+						<option value="3">전체관람</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					영화 포인트 가격 : <input type="number" name="movie_point"/>
+				<td>영화 포인트 가격</td>
+				<td>
+					<input type="number" min="3000" max="5000" step="500" name="movie_point"/>
 				</td>
 			</tr>
 			<tr>

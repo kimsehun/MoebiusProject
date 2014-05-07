@@ -13,14 +13,14 @@
 <!-- 임시적으로 site mesh를 봉인했음... site mesh를 사용하면 javascipt연결이 안되서 해결방법을 알때까지 site mesh 봉인하겠음-->
 	 <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
-		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>영화</span></a>
+		   <li class='has-sub'><a href='/moebius/movie/insert'><span>영화</span></a>
 		      <ul>
 		         <li><a href='#'><span>현재상영작</span></a></li>
 		         <li><a href='#'><span>상영예정작</span></a></li>
 		      </ul>
 		   </li>
 		   <li class='last'><a href='#'><span>극장</span></a></li>
-		   <li class='has-sub'><a href='#'><span>고객센터</span></a>
+		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
 		      <ul>
 		         <li><a href='#'><span>공지사항</span></a></li>
 		         <li><a href='#'><span>자주하는질문</span></a></li>
