@@ -8,7 +8,7 @@ public class BoardVO{
 	private String board_content;
 	private String board_regdate;
 	private int board_count;
-	private UserVO user_id;
+	private UserVO userVO;
 	private int bno;
 	
 	public int getBoard_no() {
@@ -41,11 +41,12 @@ public class BoardVO{
 	public void setBoard_count(int board_count) {
 		this.board_count = board_count;
 	}
-	public UserVO getUser_id() {
-		return user_id;
+	
+	public UserVO getUserVO() {
+		return userVO;
 	}
-	public void setUser_id(UserVO user_id) {
-		this.user_id = user_id;
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
 	}
 	public int getBno() {
 		return bno;
@@ -53,16 +54,15 @@ public class BoardVO{
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "BoardVO [board_no=" + board_no + ", board_title=" + board_title
 				+ ", board_content=" + board_content + ", board_regdate="
-				+ board_regdate + ", board_count=" + board_count + ", user_id="
-				+ user_id + ", bno=" + bno + "]";
+				+ board_regdate + ", board_count=" + board_count + ", userVO="
+				+ userVO + ", bno=" + bno + "]";
 	}
 	
+
 	
 	
 }

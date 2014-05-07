@@ -8,4 +8,6 @@ public interface BoardMapper {
 
 	BoardInfoVO getBoardInfo(int bno) throws Exception;
 
+	void insertBoard(BoardVO boardVO) throws Exception;
+
 }
