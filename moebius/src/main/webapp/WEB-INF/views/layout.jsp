@@ -7,30 +7,31 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
+<decorator:head></decorator:head>
 <!-- site mesh 처리할때 menu_jquery.js하고 main.css안에 내포된 png파일의 그림 오류 해결할것!! -->
 
-<%-- <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" /> --%>
-<!-- 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' /> -->
-<!-- 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /> -->
-<!-- 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script> -->
-<!-- 	<script type='text/javascript' src='menu_jquery.js'></script> -->
+<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script type='text/javascript' src='menu_jquery.js'></script>
 </head>
 <body>
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
-		   <li class='has-sub'><a href='#'><span>영화</span></a>
+		   <li class='has-sub'><a href='/moebius/movie/insert'><span>영화</span></a>
 		      <ul>
 		         <li><a href='#'><span>현재상영작</span></a></li>
 		         <li><a href='#'><span>상영예정작</span></a></li>
 		      </ul>
 		   </li>
 		   <li class='last'><a href='#'><span>극장</span></a></li>
-		   <li class='has-sub'><a href='#'><span>고객센터</span></a>
+		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
 		      <ul>
-		         <li><a href='#'><span>공지사항</span></a></li>
-		         <li><a href='#'><span>자주하는질문</span></a></li>
-		         <li class='last'><a href='#'><span>문의사항</span></a></li>
+		         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+		         <li><a href='/moebius/board/2/1/'><span>자주하는질문</span></a></li>
+		         <li class='last'><a href='/moebius/board/3/1/'><span>문의사항</span></a></li>
 		      </ul>
 		   </li>
 		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
