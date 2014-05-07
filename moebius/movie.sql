@@ -256,4 +256,18 @@ ALTER TABLE m_screen
 ;
 
 
+select * from m_user;
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '공지사항','admin');
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '자주하는질문','admin');
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '문의사항','admin');
+
 
