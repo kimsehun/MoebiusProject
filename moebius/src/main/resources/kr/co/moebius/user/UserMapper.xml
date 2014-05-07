@@ -28,9 +28,15 @@
 	</select>
 	
 	<!-- id 중복 체크 -->
-	<select id="searchId" resultType="UserVO" parameterType="String">
-	SELECT user_id
+	<select id="searchId" resultType="int" parameterType="String">
+	SELECT count(*) AS cnt
 	FROM m_user
 	WHERE user_id = #{user_id}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="getUser" resultType="UserVO" parameterType="UserVO">
+	SELECT user_id, user_name FROM m_user
+	WHERE user_id=#{user_id} AND user_pwd=#{user_pwd}
 	</select>
 </mapper>

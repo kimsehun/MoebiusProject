@@ -24,8 +24,14 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public List<UserVO> searchId(String user_id) throws Exception {
+	public int searchId(String user_id) throws Exception {
 		// TODO Auto-generated method stub
 		return userMapper.searchId(user_id);
+	}
+	
+	@Override
+	public UserVO getUser(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getUser(userVO);
 	}
 }

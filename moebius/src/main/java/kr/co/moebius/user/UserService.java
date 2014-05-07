@@ -8,6 +8,8 @@ public interface UserService {
 
 	List<ZipcodeVO> searchZipcode(String area) throws Exception;
 
-	List<UserVO> searchId(String user_id) throws Exception;
+	int searchId(String user_id) throws Exception;
+
+	UserVO getUser(UserVO userVO) throws Exception;
 
 }

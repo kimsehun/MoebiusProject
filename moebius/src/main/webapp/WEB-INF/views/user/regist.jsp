@@ -8,8 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href='<c:url value="/resources/css/board.css"/>'
+	type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/regist.js"/>"></script>
+<script type="text/javascript" src='<c:url value="/resources/js/regist.js"/>'></script>
 <script type="text/javascript">
 function noClick() {
 	if(!document.getElementById('user_zipcode').value) {
@@ -20,12 +22,12 @@ function noClick() {
 </head>
 <body>
 	<form:form action="regist" method="post" commandName="userVO" id="frmRegist">
-		<table align="center">
-			<caption><h1>회원 가입</h1></caption>
+		<table>
+			<caption>회원 가입</caption>
 			<tr>
 				<th>아이디</th>
 					<td>
-						<input type="text" name="user_id" id="user_id" autofocus="autofocus" value="${userVO.user_id }"/>
+						<input type="text" name="user_id" id="user_id" autofocus="autofocus" value="${user_id }"/>
 						<input type="button" name="check_id" value="ID중복체크" id="btnidCheck" />
 						<div id="user_id_msg" calss="msg_warn"><form:errors path="user_id" cssClass="msg_warn" /><br/></div> 
 					</td>
@@ -47,7 +49,7 @@ function noClick() {
 			<tr>
 				<th>이름</th>
 					<td>
-						<input type="text" name="user_name" value="${userVO.user_name}" /><br/>
+						<input type="text" name="user_name" value="${userVO.user_name }" /><br/>
 						<form:errors path="user_name" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
@@ -124,8 +126,10 @@ function noClick() {
 					</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right">
+				<td colspan="2">
+					<div class="center">
 					<input type="submit" value="가입완료" id="btnRegistOk" />
+					</div>
 				</td>
 			</tr>
 		</table>
