@@ -28,5 +28,11 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		boardMapper.insertBoard(boardVO);
 	}
+
+	@Override
+	public BoardVO getDetail(int no) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getDetail(no);
+	}
 	
 }

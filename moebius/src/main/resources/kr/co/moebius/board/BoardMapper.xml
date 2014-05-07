@@ -22,4 +22,11 @@
 			INSERT INTO m_board(board_no, board_title, user_id, board_content, bno)
 			VALUES(seq_board_no.nextval, #{board_title}, #{userVO.user_id}, #{board_content}, #{bno})
 		</insert>
+		
+		<select id="getDetail" parameterType="int" resultType="BoardVO">
+			SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id", b.board_regdate, b.board_count, b.board_content
+			FROM m_user u join m_board b
+							on u.user_id = b.user_id
+			WHERE b.board_no=#{board_no}
+		</select>
 </mapper>

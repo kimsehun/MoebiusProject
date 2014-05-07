@@ -10,4 +10,6 @@ public interface BoardService {
 
 	void insertBoard(BoardVO boardVO) throws Exception;
 
+	BoardVO getDetail(int no) throws Exception;
+
 }
