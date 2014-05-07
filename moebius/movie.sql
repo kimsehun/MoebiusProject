@@ -12,8 +12,6 @@ DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 DROP TABLE m_schedule CASCADE CONSTRAINTS;
 
-
-
 /* Drop Sequences */
 
 DROP SEQUENCE seq_movie_no;
@@ -27,7 +25,7 @@ DROP SEQUENCE seq_seat_no;
 DROP SEQUENCE seq_reserve_no;
 
 
-
+select * from m_user;
 
 /* Create Sequences */
 
@@ -109,8 +107,8 @@ CREATE TABLE m_user
 	user_pwd_hint varchar2(200) NOT NULL,
 	user_pwd_answer varchar2(100) NOT NULL,
 	user_gender number(1) DEFAULT 1 NOT NULL,
-	user_jumin1 varchar2(6) NOT NULL,
-	user_jumin2 varchar2(7) NOT NULL,
+	user_jumin1 number(6) NOT NULL,
+	user_jumin2 number(7) NOT NULL,
 	user_email varchar2(60) NOT NULL,
 	user_phone varchar2(16) NOT NULL,
 	user_zipcode varchar2(7) NOT NULL,
@@ -121,8 +119,6 @@ CREATE TABLE m_user
 	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
-
---관리자 임의로 미리 생성
 
 
 CREATE TABLE m_reserve
@@ -260,14 +256,4 @@ ALTER TABLE m_screen
 ;
 
 
-create table zipcode (
-	id		number(5)	primary key,
-	zipcode	varchar2(7),
-	sido	varchar2(6),
-	gugun	varchar2(21),
-	dong	varchar2(36),
-	ri		varchar2(60),
-	bunji	varchar2(60)
-);
 
-select count(*) as cnt from zipcode;
