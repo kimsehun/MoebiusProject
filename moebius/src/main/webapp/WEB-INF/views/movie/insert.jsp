@@ -35,38 +35,20 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<%
-						Calendar cal = Calendar.getInstance();
-						int year = 0;
-						int month = 0;
-						int day = 0;
-						try {
-							year = Integer.parseInt(request.getParameter("year"));
-							month = Integer.parseInt(request.getParameter("month"));
-							day = Integer.parseInt(request.getParameter("day"));
-							cal.set(year, month - 1, 1);
-						} catch(NumberFormatException e) {
-							// year와 month값이 파라메터로 전달되지 않은 경우
-							// 이때는 현재시간으로 월을 설정
-							year = cal.get(Calendar.YEAR);
-							month= cal.get(Calendar.MONTH) + 1;
-							day = cal.get(Calendar.DATE);
-						}
-					%>
 					영화 상영 시작일
 					<input type="number" name="year" 
-						min="<%=year - 10 %>" max="<%=year + 10 %>" value="<%=year %>" />년
-					<input type="number" name="month" min="1" max="12" value="<%=month %>" />월
-					<input type="number" name="day" min="1" max="30" value="<%=day %>" />일
+						min="${year - 10}" max="${year + 10}" value="${year}" />년
+					<input type="number" name="month" min="1" max="12" value="${month}" />월
+					<input type="number" name="day" min="1" max="30" value="${day}" />일
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					영화 상영 종료일
 					<input type="number" name="year" 
-						min="<%=year - 10 %>" max="<%=year + 10 %>" value="<%=year %>" />년
-					<input type="number" name="month" min="1" max="12" value="<%=month %>" />월
-					<input type="number" name="day" min="1" max="30" value="<%=day+7 %>" />일
+						min="${year - 10}" max="${year + 10}" value="${year}" />년
+					<input type="number" name="month" min="1" max="12" value="${month}" />월
+					<input type="number" name="day" min="1" max="30" value="${day+7}" />일
 				</td>
 			</tr>
 			<tr>
