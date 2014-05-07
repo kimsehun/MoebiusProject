@@ -71,13 +71,11 @@
   display: block;
 }
 #header > ul li.has-sub > a {
-  background-image: url('images/caret.png');
   background-repeat: no-repeat;
   background-position: 90% -95%;
 }
 #header > ul li.has-sub > a.active,
 #header > ul li.has-sub > a:hover {
-  background: #d80041 url('images/caret.png') no-repeat;
   background-position: 90% 195%;
 }
 #header > ul li a {
@@ -101,7 +99,6 @@
     display: block;
   }
   #header > ul li#responsive-tab a {
-    background: url('images/menu.png') no-repeat;
     background-position: 95% -35%;
   }
   #header > ul li#responsive-tab a:hover {

@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>영화등록</title>
 </head>
 <body>
-<form action="movieInsert" method="post">
+<form action="insert" method="post">
 	<table>
 			<caption>영화 등록</caption>
 			<tr>
@@ -26,7 +26,7 @@
 			<tr>
 				<th>스토리</th>
 				<td>
-					<textarea rows="10" cols="10" name="movie_story"></textarea>
+					<textarea rows="10" cols="30" name="movie_story"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -38,19 +38,19 @@
 			<tr>
 				<th>영화 상영 시작일</th>
 				<td>
-					<input type="number" name="year" 
+					<input type="number" name="s_year" 
 						min="${year - 10}" max="${year + 10}" value="${year}" />년
-					<input type="number" name="month" min="1" max="12" value="${month}" />월
-					<input type="number" name="day" min="1" max="30" value="${day}" />일
+					<input type="number" name="s_month" min="1" max="12" value="${month}" />월
+					<input type="number" name="s_day" min="1" max="30" value="${day}" />일
 				</td>
 			</tr>
 			<tr>
 				<th>영화 상영 종료일</th>
 				<td>
-					<input type="number" name="year" 
+					<input type="number" name="e_year" 
 						min="${year - 10}" max="${year + 10}" value="${year}" />년
-					<input type="number" name="month" min="1" max="12" value="${month}" />월
-					<input type="number" name="day" min="1" max="30" value="${day+7}" />일
+					<input type="number" name="e_month" min="1" max="12" value="${month}" />월
+					<input type="number" name="e_day" min="1" max="30" value="${day+7}" />일
 				</td>
 			</tr>
 			<tr>

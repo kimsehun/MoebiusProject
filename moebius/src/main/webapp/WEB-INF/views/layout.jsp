@@ -14,7 +14,6 @@
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-	<script type='text/javascript' src='menu_jquery.js'></script>
 </head>
 <body>
 	<div id='header'>
