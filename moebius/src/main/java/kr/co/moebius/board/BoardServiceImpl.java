@@ -23,4 +23,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getBoardInfo(bno);
 	}
 
+	@Override
+	public void insertBoard(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		boardMapper.insertBoard(boardVO);
+	}
+	
 }

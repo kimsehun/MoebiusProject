@@ -257,6 +257,7 @@ ALTER TABLE m_screen
 
 
 select * from m_user;
+select * from m_board;
 
 -- 게시판 준비
 insert into m_board_info(bno, bname, user_id)

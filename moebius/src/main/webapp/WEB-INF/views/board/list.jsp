@@ -9,9 +9,10 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 </head>
 <body>
+<form action="insert" method="GET" >
 <input type="hidden" id="bno" value="${bno}">
 <table border="1">
-	<caption>${boardInfo.bname} 리스트</caption>
+	<caption>${boardInfo.bname}</caption>
 	<tr>
 		<td colspan="5">총 게시물 수 : ${result.recordCount}</td>
 	</tr>
@@ -24,15 +25,17 @@
 	</tr>
 	<c:forEach items="${list}" var="vo" varStatus="st">
 	<tr>
-		<td>${vo.no}</td>
-		<td><a href="${vo.no}/">${vo.title}</a></td>
+		<td>${vo.board_no}</td>
+		<td><a href="${vo.board_no}/">${vo.board_title}</a></td>
 		<td>${vo.userVO.user_name}(${vo.userVO.user_id})</td>
-		<td>${vo.regdate}</td>
-		<td align="right">${vo.count}</td>
+		<td>${vo.board_regdate}</td>
+		<td align="right">${vo.board_count}</td>
 	</tr>
 	</c:forEach>
+	<td colspan="5" align="center">
+			<input type="submit" value="글쓰기" id="btnOk"/>
+	</td>
 </table><br/>
-<a href="insert">글쓰기</a>
-
+</form>
 </body>
 </html>
