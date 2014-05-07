@@ -30,9 +30,15 @@
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
 		
-		<!-- board Mapper 이거 안먹음 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ -->
+		<!-- board Mapper -->
 		<bean id="BoardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 			<property name="mapperInterface" value="kr.co.moebius.board.BoardMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>
+		
+		<!-- movie Mapper -->
+		<bean id="MovieMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.movie.MovieMapper" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
 </beans>
