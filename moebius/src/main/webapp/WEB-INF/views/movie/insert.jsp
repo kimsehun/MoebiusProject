@@ -8,7 +8,7 @@
 <title>영화등록</title>
 </head>
 <body>
-<form action="insert" method="post">
+<form action="insert" method="post" enctype="multipart/form-data">
 	<table>
 			<caption>영화 등록</caption>
 			<tr>
@@ -32,7 +32,7 @@
 			<tr>
 				<th>파일</th>
 				<td>
-				 	<input type="file" name="movie_poster" />
+				 	<input type="file" name="upFile" />
 				</td>
 			</tr>
 			<tr>

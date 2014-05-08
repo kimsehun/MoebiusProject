@@ -8,4 +8,10 @@ public class MovieServiceImpl implements MovieService{
 
 	@Autowired
 	private MovieMapper movieMapper;
+
+	@Override
+	public void insertAction(MovieVO movieVO) {
+		movieMapper.insertAction(movieVO);
+		
+	}
 }

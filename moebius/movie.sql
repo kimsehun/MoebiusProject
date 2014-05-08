@@ -150,12 +150,13 @@ CREATE TABLE m_movie
 	movie_count number DEFAULT 0 NOT NULL,
 	movie_sdate date NOT NULL,
 	movie_grade number NOT NULL,
-	movie_point number NOT NULL,
+	movie_point number DEFAULT 5000 NOT NULL,
 	movie_edate date NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (movie_no)
 );
 
+select * from M_MOVIE;
 
 CREATE TABLE m_comment
 (

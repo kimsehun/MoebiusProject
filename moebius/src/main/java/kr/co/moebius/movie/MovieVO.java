@@ -1,8 +1,10 @@
 package kr.co.moebius.movie;
 
+import java.io.Serializable;
+
 import kr.co.moebius.user.UserVO;
 
-public class MovieVO {
+public class MovieVO implements Serializable{
 
 	private int movie_no;
 	private String movie_title;
@@ -14,7 +16,7 @@ public class MovieVO {
 	private String movie_grade;
 	private String movie_point;
 	private String movie_edate;
-	private UserVO user_id;
+	private UserVO userVO;
 	
 	public int getMovie_no() {
 		return movie_no;
@@ -76,13 +78,12 @@ public class MovieVO {
 	public void setMovie_edate(String movie_edate) {
 		this.movie_edate = movie_edate;
 	}
-	public UserVO getUser_id() {
-		return user_id;
+	public UserVO getUserVO() {
+		return userVO;
 	}
-	public void setUser_id(UserVO user_id) {
-		this.user_id = user_id;
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
 	}
-	
 	@Override
 	public String toString() {
 		return "MovieVO [movie_no=" + movie_no + ", movie_title=" + movie_title
@@ -91,6 +92,6 @@ public class MovieVO {
 				+ ", movie_count=" + movie_count + ", movie_sdate="
 				+ movie_sdate + ", movie_grade=" + movie_grade
 				+ ", movie_point=" + movie_point + ", movie_edate="
-				+ movie_edate + ", user_id=" + user_id + "]";
+				+ movie_edate + ", userVO=" + userVO + "]";
 	}
 }
