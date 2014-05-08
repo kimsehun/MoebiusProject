@@ -29,4 +29,18 @@
 							on u.user_id = b.user_id
 			WHERE b.board_no=#{board_no}
 		</select>
+		
+		<update id="updateBoard" parameterType="BoardVO">
+			UPDATE m_board SET board_title=#{board_title}, board_content=#{board_content}			
+			WHERE board_no=#{board_no} AND user_id=#{userVO.user_id}
+		</update>
+		
+		<delete id="deleteBoard" parameterType="BoardVO">
+			DELETE m_board WHERE board_no=#{board_no} AND user_id=#{userVO.user_id}
+		</delete>
+		
+		<update id="updateCount" parameterType="int">
+			UPDATE m_board SET board_count=board_count+1
+			WHERE board_no=#{board_no}
+		</update>
 </mapper>

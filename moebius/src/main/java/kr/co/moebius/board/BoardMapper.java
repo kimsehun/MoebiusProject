@@ -12,4 +12,10 @@ public interface BoardMapper {
 
 	BoardVO getDetail(int no) throws Exception;
 
+	int updateBoard(BoardVO boardVO) throws Exception;
+
+	int deleteBoard(BoardVO boardVO) throws Exception;
+
+	void updateCount(int board_no) throws Exception;
+
 }

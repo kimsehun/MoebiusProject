@@ -67,7 +67,7 @@
 </table><br/>
 <div class="right">
 <input type="button" value="목록" id="btnList">
-<c:if test="${sessionScope.user_id == vo.userVO.user_id}">
+<c:if test="${sessionScope.user_id == boardVO.userVO.user_id}">
 	<input type="button" value="수정" id="btnUpdate" />
 	<input type="button" value="삭제" id="btnDelete"/>
 </c:if>
