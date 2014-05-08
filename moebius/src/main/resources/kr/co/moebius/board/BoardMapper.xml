@@ -8,7 +8,7 @@
 			SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id", b.board_regdate, b.board_count
 			FROM m_user u JOIN m_board b
 							ON u.user_id = b.user_id
-			WHERE b.board_no=#{bno}
+			WHERE b.bno=#{bno}
 			ORDER BY b.board_no DESC
 		</select>
 		

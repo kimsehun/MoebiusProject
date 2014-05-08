@@ -23,18 +23,20 @@
 		<th>작성일</th>
 		<th>조회수</th>
 	</tr>
-	<c:forEach items="${list}" var="vo" varStatus="st">
+	<c:forEach items="${list}" var="boardVO" varStatus="st">
 	<tr>
-		<td>${vo.board_no}</td>
-		<td><a href="${vo.board_no}/">${vo.board_title}</a></td>
-		<td>${vo.userVO.user_name}(${vo.userVO.user_id})</td>
-		<td>${vo.board_regdate}</td>
-		<td align="right">${vo.board_count}</td>
+		<td>${boardVO.board_no}</td>
+		<td><a href="${boardVO.board_no}/">${boardVO.board_title}</a></td>
+		<td>${boardVO.userVO.user_name}</td>
+		<td>${boardVO.board_regdate}</td>
+		<td align="right">${boardVO.board_count}</td>
 	</tr>
 	</c:forEach>
-	<td colspan="5" align="center">
+	<tr>
+		<td colspan="5">
 			<input type="submit" value="글쓰기" id="btnOk"/>
-	</td>
+		</td>
+	</tr>
 </table><br/>
 </form>
 </body>

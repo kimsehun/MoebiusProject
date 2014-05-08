@@ -30,7 +30,7 @@ public class BoardController {
 		List<BoardVO> list = boardService.getBoardList(p);
 		BoardInfoVO boardInfo = boardService.getBoardInfo(bno);
 		
-		model.addAttribute("bno",bno);
+
 		model.addAttribute("list",list);
 		model.addAttribute("boardInfo",boardInfo);
 	
