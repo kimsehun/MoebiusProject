@@ -3,7 +3,9 @@ package kr.co.moebius.movie;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -55,7 +57,7 @@ public class MovieController {
 		model.addAttribute("day",day);
 	}
 	
-	@RequestMapping(value="insert", method=RequestMethod.POST)
+	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insertAction(MovieVO movieVO,
 								FileUploadCommand fuc,
 								String s_year,
@@ -116,6 +118,40 @@ public class MovieController {
 			model.addAttribute("url", "javascript:history.back();");
 			return "result";
 		}
+	}
+	
+	@RequestMapping(value="/ranking")
+	public void ranking(){
+		
+	}
+	
+	@RequestMapping(value="/plan")
+	public void plan(Model model) {
+		// 오늘 날짜 계산해서 넣어준다.
+		Calendar cal = Calendar.getInstance();
+
+		String year = cal.get(Calendar.YEAR) + "";
+		String month = (cal.get(Calendar.MONTH) + 1) + "";
+		String day = cal.get(Calendar.DATE) + "";
+		if (month.length() == 1) {
+			month = "0" + month;
+		}
+		if (day.length() == 1) {
+			day = "0" + day;
+		}
+
+		String today = year + month + day;
+
+		// 영화정보를 가져와서 오늘 날짜와 비교한다.
+		List<MovieVO> list = movieService.search();
+		//상영작만 따로 저장할 list를 만든다.
+		List<MovieVO> list2 = new ArrayList<MovieVO>();
+		for (MovieVO vo : list) {
+			if (Integer.parseInt(vo.getMovie_sdate()) > Integer.parseInt(today)) {
+				list2.add(vo);
+			}
+		}
+		model.addAttribute("list2",list2);
 	}
 
 	//파일 디렉토리 없으면 생성

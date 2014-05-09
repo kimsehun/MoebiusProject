@@ -24,6 +24,30 @@
 					</td>
 			</tr>
 			<tr>
+				<th>장르</th>
+					<td>
+						<input type="text" name="movie_genre" /><br/>
+					</td>
+			</tr>
+			<tr>
+				<th>국가</th>
+					<td>
+						<input type="text" name="movie_nation" /><br/>
+					</td>
+			</tr>
+			<tr>
+				<th>배우들</th>
+					<td>
+						<input type="text" name="movie_actor" /><br/>
+					</td>
+			</tr>
+			<tr>
+				<th>상영시간</th>
+					<td>
+						<input type="number" min="100" max="130"name="movie_runningtime" />분<br/>
+					</td>
+			</tr>
+			<tr>
 				<th>스토리</th>
 				<td>
 					<textarea rows="10" cols="30" name="movie_story"></textarea>

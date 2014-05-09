@@ -6,11 +6,18 @@
 
 <mapper namespace="kr.co.moebius.movie.MovieMapper">
 <insert id="insertAction" parameterType="MovieVO">
-INSERT INTO m_movie(movie_no, movie_title, movie_directer, movie_story, 
-				movie_poster, movie_sdate, movie_grade,
-				movie_edate, user_id)
-VALUES(seq_movie_no.nextval, #{movie_title}, #{movie_directer}, #{movie_story}, 
-				#{movie_poster}, #{movie_sdate}, #{movie_grade},
-				#{movie_edate}, #{userVO.user_id} )
-</insert>	
+INSERT INTO m_movie(movie_no, movie_title, movie_directer,
+				movie_genre, movie_nation, movie_runningtime, 
+				movie_actor, movie_story, movie_poster, 
+				movie_sdate, movie_grade, movie_edate, user_id)
+VALUES(seq_movie_no.nextval, #{movie_title}, #{movie_directer},
+		#{movie_genre}, #{movie_nation}, #{movie_runningtime}, 
+		#{movie_actor}, #{movie_story},	#{movie_poster}, 
+		#{movie_sdate}, #{movie_grade},	#{movie_edate}, #{userVO.user_id} )
+</insert>
+
+<select id="search" resultType="MovieVO">
+SELECT *
+FROM m_movie
+</select>	
 </mapper>

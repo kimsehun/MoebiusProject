@@ -21,8 +21,8 @@
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
 		   <li class='has-sub'><a href='/moebius/movie/insert'><span>영화</span></a>
 		      <ul>
-		         <li><a href='#'><span>현재상영작</span></a></li>
-		         <li><a href='#'><span>상영예정작</span></a></li>
+		         <li><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
+		         <li><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
 		      </ul>
 		   </li>
 		   <li class='last'><a href='#'><span>극장</span></a></li>

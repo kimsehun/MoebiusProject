@@ -9,6 +9,10 @@ public class MovieVO implements Serializable{
 	private int movie_no;
 	private String movie_title;
 	private String movie_directer;
+	private String movie_genre;
+	private String movie_nation;
+	private int movie_runningtime;
+	private String movie_actor;
 	private String movie_story;
 	private String movie_poster;
 	private int movie_count;
@@ -35,6 +39,30 @@ public class MovieVO implements Serializable{
 	}
 	public void setMovie_directer(String movie_directer) {
 		this.movie_directer = movie_directer;
+	}
+	public String getMovie_genre() {
+		return movie_genre;
+	}
+	public void setMovie_genre(String movie_genre) {
+		this.movie_genre = movie_genre;
+	}
+	public String getMovie_nation() {
+		return movie_nation;
+	}
+	public void setMovie_nation(String movie_nation) {
+		this.movie_nation = movie_nation;
+	}
+	public int getMovie_runningtime() {
+		return movie_runningtime;
+	}
+	public void setMovie_runningtime(int movie_runningtime) {
+		this.movie_runningtime = movie_runningtime;
+	}
+	public String getMovie_actor() {
+		return movie_actor;
+	}
+	public void setMovie_actor(String movie_actor) {
+		this.movie_actor = movie_actor;
 	}
 	public String getMovie_story() {
 		return movie_story;
@@ -84,14 +112,18 @@ public class MovieVO implements Serializable{
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
+	
 	@Override
 	public String toString() {
 		return "MovieVO [movie_no=" + movie_no + ", movie_title=" + movie_title
-				+ ", movie_directer=" + movie_directer + ", movie_story="
-				+ movie_story + ", movie_poster=" + movie_poster
-				+ ", movie_count=" + movie_count + ", movie_sdate="
-				+ movie_sdate + ", movie_grade=" + movie_grade
-				+ ", movie_point=" + movie_point + ", movie_edate="
-				+ movie_edate + ", userVO=" + userVO + "]";
+				+ ", movie_directer=" + movie_directer + ", movie_genre="
+				+ movie_genre + ", movie_nation=" + movie_nation
+				+ ", movie_runningtime=" + movie_runningtime + ", movie_actor="
+				+ movie_actor + ", movie_story=" + movie_story
+				+ ", movie_poster=" + movie_poster + ", movie_count="
+				+ movie_count + ", movie_sdate=" + movie_sdate
+				+ ", movie_grade=" + movie_grade + ", movie_point="
+				+ movie_point + ", movie_edate=" + movie_edate + ", userVO="
+				+ userVO + "]";
 	}
 }

@@ -1,5 +1,7 @@
 package kr.co.moebius.movie;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,15 @@ public class MovieServiceImpl implements MovieService{
 	public void insertAction(MovieVO movieVO) {
 		movieMapper.insertAction(movieVO);
 		
+	}
+
+	@Override
+	public List<MovieVO> plan(String today) {
+		return movieMapper.plan(today);
+	}
+	
+	@Override
+	public List<MovieVO> search() {
+		return movieMapper.search();
 	}
 }

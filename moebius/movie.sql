@@ -145,13 +145,19 @@ CREATE TABLE m_movie
 	movie_no number NOT NULL,
 	movie_title varchar2(100) NOT NULL,
 	movie_directer varchar2(40) NOT NULL,
+	
+	movie_genre varchar2(40) NOT NULL,
+	movie_nation varchar2(30) NOT NULL,
+	movie_runningtime number NOT NULL,
+	movie_actor varchar2(2000) NOT NULL,
+	
 	movie_story varchar2(2000) NOT NULL,
 	movie_poster varchar2(20) NOT NULL,
 	movie_count number DEFAULT 0 NOT NULL,
-	movie_sdate date NOT NULL,
+	movie_sdate varchar2(20) NOT NULL,
 	movie_grade number NOT NULL,
 	movie_point number DEFAULT 5000 NOT NULL,
-	movie_edate date NOT NULL,
+	movie_edate varchar2(20) NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (movie_no)
 );
