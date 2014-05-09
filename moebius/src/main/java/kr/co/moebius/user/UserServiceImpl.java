@@ -24,14 +24,25 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public int searchId(String user_id) throws Exception {
-		// TODO Auto-generated method stub
-		return userMapper.searchId(user_id);
-	}
-	
-	@Override
 	public UserVO getUser(UserVO userVO) throws Exception {
 		// TODO Auto-generated method stub
 		return userMapper.getUser(userVO);
+	}
+	
+	@Override
+	public void deleteUser(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		userMapper.deleteUser(userVO);
+	}
+	
+	@Override
+	public int idCheck(String user_id) throws Exception {
+		return userMapper.idCheck(user_id);
+	}
+	
+	@Override
+	public UserVO getUserInfo(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getUserInfo(userVO);
 	}
 }

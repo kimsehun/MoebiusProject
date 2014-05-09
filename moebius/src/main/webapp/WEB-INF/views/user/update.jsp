@@ -1,59 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href='<c:url value="/resources/css/board.css"/>'
-	type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src='<c:url value="/resources/js/regist.js"/>'></script>
-<script type="text/javascript">
-
-	function noClick() {
-		if (!document.getElementById('user_zipcode').value) {
-			alert('아 옆에 누르샘');
-		}
-	}
-	//아이디 중복 체크
-	$(document).ready(function() {
-		$('#btnidCheck').bind('click', function() {
-			var userid = $('#user_id').val();
-			var idUrl = '<c:url value="/user/idCheck"/>';
-			$.ajax({
-				url : idUrl,
-				type : 'POST',
-				data : {
-					user_id : userid
-				},
-				success : function(data) {
-					$('#user_id_msg').html(data.msg);
-				}
-			});
-		});
-	});
-</script>
 </head>
 <body>
-	<form:form action="regist" method="post" commandName="userVO" id="frmRegist">
+	<form action="update" method="post">
 		<table>
-			<caption>회원 가입</caption>
+			<caption>회원 정보 수정</caption>
 			<tr>
 				<th>아이디</th>
 					<td>
-						<input type="text" name="user_id" id="user_id" autofocus="autofocus" value="${user_id }"/>
-						<input type="button" name="check_id" value="ID중복체크" id="btnidCheck" />
-						<div id="user_id_msg" class="msg_warn"><form:errors path="user_id" cssClass="msg_warn" /><br/></div> 
+						<input type="text" name="user_id" id="user_id" value="${userVO.user_id }" readonly="readonly"/>
 					</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
 					<td>
-						<input type="password" name="user_pwd" id="user_pwd" value="${userVO.user_pwd }" /><br/>
+						<input type="password" name="user_pwd" id="user_pwd" /><br/>
 						<form:errors path="user_name" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
@@ -67,8 +37,7 @@
 			<tr>
 				<th>이름</th>
 					<td>
-						<input type="text" name="user_name" value="${userVO.user_name }" /><br/>
-						<form:errors path="user_name" cssClass="msg_warn" /><br/>
+						<input type="text" name="user_name" value="${userVO.user_name }" readonly="readonly"/>
 					</td>
 			</tr>
 			<tr>
@@ -83,27 +52,6 @@
 					<td>
 						<input type="text" name="user_pwd_answer" class="input_text_300" value="${userVO.user_pwd_answer }" /><br/>
 						<form:errors path="user_pwd_answer" cssClass="msg_warn" /><br/>
-					</td>
-			</tr>
-			<tr>
-				<th>주민등록번호</th>
-					<td>
-						<input type="text" name="user_jumin1" id="user_jumin1" value="${userVO.user_jumin1 }"/>-
-						<input type="password" name="user_jumin2" id="user_jumin2" value="${userVO.user_jumin2 }"/>
-					</td>
-			</tr>
-			<tr>
-				<th>나이</th>
-					<td>
-						<input type="text" name="user_age" id="user_age" readonly="readonly" value="${userVO.user_age }" /><br/>
-						<form:errors path="user_age" cssClass="msg_warn" /><br/>
-					</td>
-			</tr>
-			<tr>
-				<th>성별</th>
-					<td>
-						<input type="radio" name="user_gender" id="user_gender_1" value="1" />남자
-						<input type="radio" name="user_gender" id="user_gender_2" value="2" />여자
 					</td>
 			</tr>
 			<tr>
@@ -146,11 +94,11 @@
 			<tr>
 				<td colspan="2">
 					<div class="center">
-					<input type="submit" value="가입완료" id="btnRegistOk" />
+					<input type="submit" value="수정완료" id="btnRegistOk" />
 					</div>
 				</td>
 			</tr>
 		</table>
-	</form:form>
+	</form>
 </body>
 </html>

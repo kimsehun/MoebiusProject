@@ -1,6 +1,8 @@
 package kr.co.moebius.user;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,10 +10,12 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,6 +26,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	//--------------------------------회원가입----------------------------------
 	@RequestMapping(value = "/regist", method=RequestMethod.GET)
 	public void regist() {}
 	
@@ -29,11 +34,10 @@ public class UserController {
 	public String registAction(UserVO userVO, Model model) throws Exception {
 		model.addAttribute("userVO", userVO);
 		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
-		logger.info(userVO.toString());
 		userService.registUser(userVO);
 		return "/user/registAction";
 	}
-	
+	//--------------------------------우편검호----------------------------------
 	@RequestMapping(value = "/zipcode", method=RequestMethod.GET)
 	public void zipcode(){}
 
@@ -44,22 +48,22 @@ public class UserController {
 		model.addAttribute("area", area);
 	}
 	
-	@RequestMapping(value = "/idCheck", method=RequestMethod.GET)
-	public void idCheck() {}
-	
-	@RequestMapping(value = "/idCheck", method=RequestMethod.POST)
-	public String idCheckAction(String user_id, Model model) throws Exception {
-		if (userService.searchId(user_id) >0 ) {
-			model.addAttribute("msg", "아이디가 존재합니다.");
-			model.addAttribute("url", "redirect:..");
-			return "/user/result";
+	//--------------------------------아이디 중복 검사----------------------------------
+	@RequestMapping(value = "/idCheck",
+			headers="Accept=application/json;charset=UTF-8",
+			produces={MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public Map idCheckAction(String user_id) throws Exception {
+		Map<String, String> m = new HashMap<String, String>();
+		if(userService.idCheck(user_id) != 0 ){
+			m.put("msg", "가입불가");
 		} else {
-			model.addAttribute("msg", "아이디를 사용하실 수 있습니다.");
-			model.addAttribute("url", "redirect:..");
-			return "/user/regist";
+			m.put("msg", "가입가능");
 		}
+		return m;
 	}
 	
+	//--------------------------------로그인----------------------------------
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public void login() {}
 	
@@ -88,4 +92,49 @@ public class UserController {
 		
 		return mav;
 	}
+	
+	//--------------------------------로그아웃----------------------------------
+	@RequestMapping("/logout")
+	public String logout(HttpSession session, Model model){
+		String user_name = (String) session.getAttribute("user_name");
+		String user_id = (String) session.getAttribute("user_id");
+		String msg = user_name + "("+user_id+")님이 로그아웃 하셨습니다.";
+		
+		session.invalidate();
+		model.addAttribute("msg",msg);
+		model.addAttribute("url","..");
+		
+		return "result";
+	}
+	
+	//--------------------------------회원탈퇴----------------------------------
+	@RequestMapping(value = "/delete", method=RequestMethod.GET)
+	public void delete() {}
+	
+	@RequestMapping(value = "/delete", method=RequestMethod.POST)
+	public String delete(UserVO userVO, Model model, HttpSession session) throws Exception {
+		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
+		userService.deleteUser(userVO);
+		session.invalidate();
+		model.addAttribute("msg", "탈퇴 되었습니다.");
+		model.addAttribute("url", "..");
+		return "result";
+	}
+	
+	//--------------------------------회원정보수정----------------------------------
+	@RequestMapping(value = "/update", method=RequestMethod.GET)
+	public String update(UserVO userVO, Model model, HttpSession session) throws Exception {
+		userVO.setUser_id((String)session.getAttribute("user_id"));
+		userVO = userService.getUserInfo(userVO);
+		model.addAttribute("userVO", userVO);
+		return "/user/update";
+	}
+	
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
+	public void updateAction(UserVO userVO, Model model, HttpSession session) throws Exception {
+		userVO.setUser_id((String)session.getAttribute("user_id"));
+		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
+		//userService.updateUser(userVO);
+	}
+	
 }

@@ -8,8 +8,14 @@ public interface UserMapper {
 
 	List<ZipcodeVO> searchZipcode(String area) throws Exception;
 
-	int searchId(String user_id) throws Exception;
+	int searchId(UserVO userVO) throws Exception;
 
 	UserVO getUser(UserVO userVO) throws Exception;
+
+	void deleteUser(UserVO userVO) throws Exception;
+
+	int idCheck(String user_id) throws Exception;
+
+	UserVO getUserInfo(UserVO userVO) throws Exception;
 
 }

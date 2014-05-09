@@ -28,7 +28,7 @@
 	</select>
 	
 	<!-- id 중복 체크 -->
-	<select id="searchId" resultType="int" parameterType="String">
+	<select id="idCheck" resultType="int" parameterType="String">
 	SELECT count(*) AS cnt
 	FROM m_user
 	WHERE user_id = #{user_id}
@@ -38,5 +38,20 @@
 	<select id="getUser" resultType="UserVO" parameterType="UserVO">
 	SELECT user_id, user_name FROM m_user
 	WHERE user_id=#{user_id} AND user_pwd=#{user_pwd}
+	</select>
+
+	<!-- 회원탈퇴 -->
+	<delete id="deleteUser" parameterType="UserVO" >
+	DELETE FROM m_user
+	WHERE user_id=#{user_id} AND user_pwd=#{user_pwd}
+	</delete>
+	
+	<!-- 회원 수정시 회원 정보 가져오기 -->
+	<select id="getUserInfo" resultType="UserVO" parameterType="UserVO">
+	SELECT	user_id,user_name,user_pwd,user_pwd_hint,user_pwd_answer,
+			user_email,user_phone,user_zipcode,
+			user_addr1,user_addr2
+	FROM m_user
+	WHERE user_id=#{user_id}
 	</select>
 </mapper>

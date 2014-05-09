@@ -2,6 +2,7 @@
  * 	회원가입
  */
 $(document).ready(function(){
+	//가입ok버튼 클릭
 	$('#btnRegistOk').click(function(){
 		
 		if (!(4 <= $('#user_id').val().length && 
@@ -21,6 +22,7 @@ $(document).ready(function(){
 		//$('#frmRegist').submit();
 	});
 	
+	//우편번호 검색창
 	$('#btnSearchZipcode').click(function(){
 		window.open('zipcode','zipcode','width=400,height=400');		
 	});
@@ -55,6 +57,33 @@ $(document).ready(function(){
 			$('#user_pwd_confirm_msg')
 				.html("비밀번호를 먼저 입력후 확인하세요")
 				.addClass('msg_warn');
+		}
+	});
+	$('#user_jumin2').blur(function(user_jumin1, user_jumin2, user_gender){
+		var user_jumin1 = $('#user_jumin1').val();
+		var user_jumin2 = $('#user_jumin2').val();
+		var today = new Date();
+		var currYear = today.getFullYear(); //현재년도
+		var birthYear = user_jumin1.substring(0,2); //년도자리 추출
+		var flag = user_jumin2.substring(0,1); //성별 추출
+		if(flag == 1 || flag == 2) {
+			birthYear = 19 + birthYear;
+		} else if(flag == 3 || flag == 4) {
+			birthYear = 20 + birthYear;
+		}
+		if($('#user_jumin1').val() != '') { //주민번호란에 값이 존재
+			$('#user_age').val(currYear - birthYear + 1);
+		}
+		if($('#user_jumin2').val() != '') { //주민 뒷자리 입력시 일단 체크 해제
+			$('#user_gender_1').attr('checked',false);
+			$('#user_gender_2').attr('checked',false);
+			if(flag == 1 || flag == 3) {
+				$('#user_gender_1').attr('checked',true);
+				$('#user_gender_2').attr('checked',false);
+			} else {
+				$('#user_gender_1').attr('checked',false);
+				$('#user_gender_2').attr('checked',true);
+			}
 		}
 	});
 });
