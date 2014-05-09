@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+/* Color Variation - Black Type */
+
+#footer2{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;background:#1c1c1c;text-align:center}
+
+#footer2 ul,#footer2 li,#footer2 a,#footer2 strong,#footer2 img,#footer2 em,#footer2 address,#footer2 span{margin:0;padding:0;color:#afafaf;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,'굴림',Gulim, AppleGothic, Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}
+
+#footer2 a{color:#afafaf;text-decoration:none}
+
+#footer2 a:visited{color:#afafaf;text-decoration:none}
+
+#footer2 a:hover{text-decoration:underline}
+
+#footer2 ul{margin:0 0 10px}
+
+#footer2 ul li{display:inline;position:relative;padding:0 5px 0 7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 0 50% no-repeat;font-size:12px;white-space:nowrap}
+
+#footer2 ul li a:hover,#footer2 ul li a:hover strong{color:#438a01}
+
+#footer2 ul li.frst{padding:0 3px 0 0;background:none}
+
+#footer2 .info{margin:0 0 11px;color:#646464;font-size:11px;line-height:15px}
+
+#footer2 .info2{margin:-3px 0 13px;font-size:11px;line-height:18px}
+
+#footer2 .info2 span{display:inline-block;margin-left:2px;padding-left:7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 1px 50% no-repeat;_background-position:left 10%;font-size:11px}
+
+#footer2 address{font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer2 address img{vertical-align:middle}
+
+#footer2 address a{color:#afafaf;font-family:Tahoma;font-size:9px;font-weight:bold}
+
+#footer2 address a:hover{color:#009bc8}
+
+#footer2 address span{padding-left:2px;font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer2 address em{padding-left:6px;font-family:Verdana;font-size:9px}
+
+#footer2 address .logo{display:inline-block;*display:inline;vertical-align:top;*vertical-align:baseline}
+
+/* //UI Object */

@@ -7,10 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
+<%
+// session으로 값을 받아옴.
+String id = (String)session.getAttribute("user_id");
+String name = (String)session.getAttribute("user_name");
+%>
 <decorator:head></decorator:head>
 <!-- site mesh 처리할때 menu_jquery.js하고 main.css안에 내포된 png파일의 그림 오류 해결할것!! -->
-
 <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/footer.css" />" type="text/css" />
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
@@ -33,17 +38,48 @@
 		         <li class='last'><a href='/moebius/board/3/1/'><span>문의사항</span></a></li>
 		      </ul>
 		   </li>
+		   
+		   <%
+		   //로그아웃 상태이면..
+		   if(id ==null) {
+		   %>
 		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
 		   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
+		   <%
+		   //로그인 상태이면...
+		   } else { 
+		   %>
+		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
+		   <li class='right'><a href='/moebius/user/login'><span>유저정보</span></a>
+		  	 <ul>
+		         <li><a href='/moebius/user/update'><span>정보수정</span></a></li>
+		         <li><a href='/moebius/user/delete'><span>정보삭제</span></a></li>
+		         <li><a href='#'><span>예매정보</span></a></li>
+		      </ul>
+		   </li>
+		   <%} %>
+		   
 		</ul>
 	</div>
 
 	<decorator:body />
 	
-	
-	<div id="footer" class="footer">
-		<hr>
-		<h3>GROUP : MOEBIUS DEVELOPER : MW, SH, JW, YB</h3>
-	</div>	
+<!-- Footer -->
+<div id="footer2">
+    <p class="info">
+        대표이사 : 김민우   |    사업자등록번호 : 111-11-11111   |   통신판매업신고번호 구로
+		개인정보관리 책임자 : 송유빈     
+	</p>
+	 <p class="info">
+	 	  대표이메일 moebius@moebius.com
+		고객센터   1111-1111   ARS 예매  1111-1112
+	</p>
+    <address>
+        <em>GROUP : MOEBIUS</em>
+        <a href="#" target="_blank">DEVELOPER : MW, SH, JW, YB</a>
+        <span>All Rights Reserved.</span>
+    </address>
+</div>
+<!-- //Footer -->
 </body>
 </html>

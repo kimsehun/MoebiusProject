@@ -32,9 +32,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <form action="login" method="post">
-<table>
-	<caption>로그인</caption>
+<table align="center">
 	<tr>
 		<th>아이디</th>
 		<td><input type="text" name="user_id" id="user_id" autofocus="autofocus"></td>
@@ -53,6 +53,7 @@
 	</tr>
 	
 </table>
+<br/><br/><br/><br/><br/><br/><br/>
 </form>
 </body>
 </html>
