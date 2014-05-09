@@ -1,13 +1,24 @@
 package kr.co.moebius.movie;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.renderable.ParameterBlock;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.media.jai.JAI;
+import javax.media.jai.RenderedOp;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.moebius.user.UserVO;
@@ -18,6 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -89,6 +101,12 @@ public class MovieController {
 			cmf.transferTo(saveFile);
 		}
 		
+		// 확장자가 이미지 확장자이면 이미지 크기와 용량을 줄이자
+		if (ext.equals("gif") || ext.equals("jpg") || ext.equals("png")
+				|| ext.equals("bmp")) {
+			createThumbnailImage(originalName, ext);
+		}
+		
 		//파일 경로 vo에 삽입
 		movieVO.setMovie_poster(originalName);
 		
@@ -154,8 +172,52 @@ public class MovieController {
 		model.addAttribute("list2",list2);
 	}
 
-	//파일 디렉토리 없으면 생성
+	@RequestMapping("/download")
+	public void download(String fileName, HttpServletResponse response) throws IOException{
+		File file = new File(uploadUrl, fileName);
+		
+		response.setContentType("aplication/octet-stream");
+		response.setContentLength((int) file.length());
+		response.setHeader("Content-Disposition", "attachment; fileName=\""+URLEncoder.encode(fileName,"UTF-8")+"\"");
+		
+		InputStream is = null;
+		OutputStream os = response.getOutputStream();
+		
+		//받아온 파일을 inputStream을 이용해서 읽어오고 outPutStream을 이용해서 내보냄
+		is=new FileInputStream(file);
+		FileCopyUtils.copy(is, os);
+		
+		if(is != null) try {is.close();} catch(Exception e){}
+		//파일 닫기 전에 flush
+		if(os != null) try { os.flush(); os.close();} catch(Exception e){}
+	}
+	
+	//파일 이미지 축소
+	private void createThumbnailImage(String originalName, String ext) throws IOException {
+		// TODO Auto-generated method stub
+		
+		ParameterBlock pb = new ParameterBlock();
+		
+		//원본 이미지를 pb에 넣기
+		pb.add(uploadUrl + "/" + originalName);
+		//Rendering 작업
+		RenderedOp rOp = JAI.create("fileload", pb);
+		BufferedImage bi = rOp.getAsBufferedImage();
+		
+		//가로길이, 세로길이, 이미지색상타입설정
+		BufferedImage thumb = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+		
+		Graphics2D g = thumb.createGraphics();
+		g.drawImage(bi, 0, 0, 100, 100, null);
+		
+		File file = new File(uploadUrl + "/sm_" + originalName);
+		ImageIO.write(thumb, ext, file);
+		
+	}
+
+	//디렉토리 생성
 	private void createUploadDir() {
+		logger.info("upload 디렉토리 생성");
 		//directory 지정
 		File dir = new File(uploadUrl);
 		
