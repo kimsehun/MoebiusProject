@@ -9,26 +9,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnRegist').bind('click',function(){
-			location.href='regist';
-		});
-		
-		$('#btnLoginOk').bind('click',function(){
-			if($('#user_id').val() == ''){
-				alert('아이디를 입력하세요');
-				$('#user_id').focus();
-				return false;
-			}
-			if($('#user_pwd').val() == ''){
-				alert('비밀번호를 입력하세요');
-				$('#user_pwd').focus();
-				return false;
-			}
-		});
-	});
-</script>
+<script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
 <title>Insert title here</title>
 </head>
 <body>
