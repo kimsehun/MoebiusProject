@@ -26,4 +26,9 @@ public class MovieServiceImpl implements MovieService{
 	public List<MovieVO> search() {
 		return movieMapper.search();
 	}
+	
+	@Override
+	public MovieVO detail(int movie_no) {
+		return movieMapper.detail(movie_no);
+	}
 }

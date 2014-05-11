@@ -24,7 +24,7 @@ String name = (String)session.getAttribute("user_name");
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
-		   <li class='has-sub'><a href='/moebius/movie/insert'><span>영화</span></a>
+		   <li class='has-sub'><a href='#'><span>영화</span></a>
 		      <ul>
 		         <li><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
 		         <li><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
@@ -46,8 +46,13 @@ String name = (String)session.getAttribute("user_name");
 		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
 		   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
 		   <%
-		   //로그인 상태이면...
-		   } else { 
+		   //관리자 로그인 상태이면...
+		   } else if(id.equals("admin")) { 
+		   %>
+		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
+		   <li class='right'><a href='/moebius/movie/insert'><span>영화 등록</span></a></li>
+		   <%//회원들 로그인 상태이면..
+		   } else {
 		   %>
 		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
 		   <li class='right'><a href='/moebius/user/login'><span>유저정보</span></a>

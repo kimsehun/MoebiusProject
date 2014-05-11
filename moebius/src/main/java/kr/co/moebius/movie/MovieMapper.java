@@ -10,4 +10,6 @@ public interface MovieMapper {
 
 	List<MovieVO> search();
 
+	MovieVO detail(int movie_no);
+
 }

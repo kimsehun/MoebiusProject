@@ -19,5 +19,11 @@ VALUES(seq_movie_no.nextval, #{movie_title}, #{movie_directer},
 <select id="search" resultType="MovieVO">
 SELECT *
 FROM m_movie
+</select>
+
+<select id="detail" parameterType="int" resultType="MovieVO">
+SELECT *
+FROM m_movie
+WHERE movie_no = #{movie_no}
 </select>	
 </mapper>

@@ -44,7 +44,7 @@
 			<tr>
 				<th>상영시간</th>
 					<td>
-						<input type="number" min="100" max="130"name="movie_runningtime" />분<br/>
+						<input type="number" min="100" max="160"name="movie_runningtime" />분<br/>
 					</td>
 			</tr>
 			<tr>

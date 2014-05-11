@@ -129,7 +129,7 @@ public class MovieController {
 		
 		try {
 			movieService.insertAction(movieVO);
-			return "home";
+			return "main/home";
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			model.addAttribute("msg", "영화 등록 실패");
@@ -166,6 +166,8 @@ public class MovieController {
 		List<MovieVO> list2 = new ArrayList<MovieVO>();
 		for (MovieVO vo : list) {
 			if (Integer.parseInt(vo.getMovie_sdate()) > Integer.parseInt(today)) {
+				//상영날짜까지 남은 시간을 계산
+				vo.setDday(Integer.parseInt(vo.getMovie_sdate())-Integer.parseInt(today));
 				list2.add(vo);
 			}
 		}

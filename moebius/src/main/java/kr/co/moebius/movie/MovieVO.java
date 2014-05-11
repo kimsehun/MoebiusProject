@@ -2,6 +2,8 @@ package kr.co.moebius.movie;
 
 import java.io.Serializable;
 
+import org.eclipse.jetty.jndi.local.localContextRoot;
+
 import kr.co.moebius.user.UserVO;
 
 public class MovieVO implements Serializable{
@@ -20,6 +22,7 @@ public class MovieVO implements Serializable{
 	private String movie_grade;
 	private String movie_point;
 	private String movie_edate;
+	private int dday;
 	private UserVO userVO;
 	
 	public int getMovie_no() {
@@ -112,7 +115,12 @@ public class MovieVO implements Serializable{
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
-	
+	public int getDday() {
+		return dday;
+	}
+	public void setDday(int dday) {
+		this.dday = dday;
+	}
 	@Override
 	public String toString() {
 		return "MovieVO [movie_no=" + movie_no + ", movie_title=" + movie_title
@@ -123,7 +131,7 @@ public class MovieVO implements Serializable{
 				+ ", movie_poster=" + movie_poster + ", movie_count="
 				+ movie_count + ", movie_sdate=" + movie_sdate
 				+ ", movie_grade=" + movie_grade + ", movie_point="
-				+ movie_point + ", movie_edate=" + movie_edate + ", userVO="
-				+ userVO + "]";
+				+ movie_point + ", movie_edate=" + movie_edate + ", dday="
+				+ dday + ", userVO=" + userVO + "]";
 	}
 }

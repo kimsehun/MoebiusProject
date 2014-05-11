@@ -24,8 +24,9 @@
 		<c:if test="${movieVO.movie_grade == 3 }">
 			(전체관람)
 		</c:if>
-			${movieVO.movie_title}
+			<a href="detail/${movieVO.movie_no}/">${movieVO.movie_title}</a>
 		</th>
+		<th rowspan="4" ><h1>D-${movieVO.dday}</h1></th>
 	</tr>
 	<tr>
 		<td>
