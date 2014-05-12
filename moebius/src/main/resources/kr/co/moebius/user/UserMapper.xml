@@ -54,4 +54,11 @@
 	FROM m_user
 	WHERE user_id=#{user_id}
 	</select>
+	
+	<!-- email 주소 받아오기 -->
+	<select id="emailaddr" parameterType="String" resultType="UserVO">
+	SELECT user_email
+	FROM m_user
+	WHERE user_id=#{user_id}
+	</select>
 </mapper>

@@ -35,7 +35,7 @@ String name = (String)session.getAttribute("user_name");
 		      <ul>
 		         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
 		         <li><a href='/moebius/board/2/1/'><span>자주하는질문</span></a></li>
-		         <li class='last'><a href='/moebius/board/3/1/'><span>문의사항</span></a></li>
+		         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
 		      </ul>
 		   </li>
 		   

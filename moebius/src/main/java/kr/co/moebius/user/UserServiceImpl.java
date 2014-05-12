@@ -45,4 +45,9 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.getUserInfo(userVO);
 	}
+	
+	@Override
+	public UserVO emailaddr(String user_id) throws Exception {
+		return userMapper.emailaddr(user_id);
+	}
 }

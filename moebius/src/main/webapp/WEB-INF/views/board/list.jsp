@@ -14,7 +14,7 @@
    <ul>
 	   <li class='active'><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
 	   <li class='active'><a href='/moebius/board/2/1/'><span>자주하는 질문</span></a></li>
-	   <li class='active'><a href='/moebius/board/3/1/'><span>문의 사항</span></a></li>
+	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
 	</ul>
 </div>
 

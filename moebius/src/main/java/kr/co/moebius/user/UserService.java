@@ -16,5 +16,5 @@ public interface UserService {
 
 	UserVO getUserInfo(UserVO userVO) throws Exception;
 
-
+	UserVO emailaddr(String user_id) throws Exception;
 }
