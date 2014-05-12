@@ -30,8 +30,8 @@
 			<tr>
 				<th>비밀번호 확인</th>
 					<td>
-						<input type="password" name="user_pwd_confirm" id="user_pwd_confirm" /><br/>
-						<div id="user_pwd_confirm_msg"></div>
+						<input type="password" name="user_pwd_ok" id="user_pwd_ok" /><br/>
+						<div id="user_pwd_ok_msg"></div>
 					</td>
 			</tr>
 			<tr>
