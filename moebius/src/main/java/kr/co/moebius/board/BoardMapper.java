@@ -18,4 +18,6 @@ public interface BoardMapper {
 
 	void updateCount(int board_no) throws Exception;
 
+	int totalRecord(int bno) throws Exception;
+
 }

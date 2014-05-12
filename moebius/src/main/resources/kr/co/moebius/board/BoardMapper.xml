@@ -5,11 +5,14 @@
 
 <mapper namespace="kr.co.moebius.board.BoardMapper">
 		<select id="getBoardList" parameterType="Pagination" resultType="BoardVO">
-			SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id", b.board_regdate, b.board_count
-			FROM m_user u JOIN m_board b
-							ON u.user_id = b.user_id
-			WHERE b.bno=#{bno}
-			ORDER BY b.board_no DESC
+					SELECT B.*
+					FROM (SELECT rownum as rnum, A.*
+						  FROM (SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id", b.board_regdate, b.board_count
+						  		FROM m_user u JOIN m_board b
+										      ON u.user_id = b.user_id
+								WHERE b.bno=#{bno}
+								ORDER BY b.board_no DESC) A ) B
+			<![CDATA[ WHERE ${startnum} <= rnum AND rnum <= ${endnum} ]]>
 		</select>
 		
 		<select id="getBoardInfo" parameterType="int" resultType="BoardInfoVO">
@@ -43,4 +46,10 @@
 			UPDATE m_board SET board_count=board_count+1
 			WHERE board_no=#{board_no}
 		</update>
+		
+		<select id="totalRecord" parameterType="int" resultType="int">
+			SELECT count(*) AS cnt
+			FROM   m_board
+			WHERE bno=#{bno}
+		</select>
 </mapper>

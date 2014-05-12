@@ -1,5 +1,121 @@
 /*°Ô½ÃÆÇ CSS*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @CHARSET "UTF-8";
 table {border-collapse:collapse;}
 table caption {font-family:³ª´®°íµñÄÚµù; font-size:1.5em; padding-bottom:5px;}
 table th, table td {font-family: monospace; padding:10px; border:solid 1px gray; padding-bottom:10px;}
+
+A:link {color:black; text-decoration:none;}
+A:visited {color:black; text-decoration:none;}
+A:hover {color:black; text-decoration:none;}
+A:active {color:black; text-decoration:none;}
+
+
+#content {
+	float: left; 
+	/* Opera5.02 will show a space at 
+	right when there is no scroll bar */
+	padding: 10px 2% 10px 2%;
+	margin: 0px;
+	width: 76%; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 81%;
+	height: 100%;
+	}
+html>body #content {
+	width: 81%; /* ie5win fudge ends */
+	}
+
+
+#sidebar {
+	float: left;
+	margin: 0px;
+	border: 1px;
+	width: 50%; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 15%;
+	font-family: 'Nanum Gothic', Dotum, sans-serif;
+	font-size: 15px;
+	line-height: 60px;
+	text-transform: uppercase;
+	text-align: left;
+	padding-top: 10px;
+	}
+html>body #sidebar {
+	width: 15%; /* ie5win fudge ends */
+	}
+	
+#sidebar_info {
+	padding: 10px 2% 10px 2%;
+}
+
+#sidebar > ul {
+  width: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+#sidebar > ul li#responsive-tab {
+  display: none;
+  /* Hide for large screens */
+
+}
+#sidebar > ul li {
+  width: 100%;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+#sidebar > ul li a {
+  display: block;
+  padding: 12px 24px 11px 24px;
+  text-decoration: none;
+  color: #747474;
+  text-shadow: 0px 1px 0px #fff;
+}
+#sidebar > ul li a.active,
+#sidebar > ul li a:hover {
+  background: #d80041;
+  color: #fff;
+  text-shadow: 0px 1px 0px #000;
+}
+@media (max-width: 600px) {
+  #sidebar > ul {
+    width: 100%;
+  }
+  #sidebar > ul li#responsive-tab {
+    display: block;
+  }
+  #sidebar > ul li#responsive-tab a {
+    background-position: 95% -35%;
+  }
+  #sidebar > ul li#responsive-tab a:hover {
+    background-color: #d80041;
+    background-position: 95% 135%;
+  }
+  #sidebar > ul li {
+    display: none;
+  }
+}
+/* Make sure they show even if hidden in mobile view by JS */
+@media (min-width: 600px) {
+  #sidebar > ul > li.collapsed {
+    display: inline-block !important;
+    *display: inline;
+    zoom: 1;
+  }
+  #sidebar > ul ul li.collapsed {
+    display: block !important;
+  }
+}
+
+
