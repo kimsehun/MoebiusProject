@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import kr.co.moebius.mail.MailAction;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -136,5 +138,50 @@ public class UserController {
 		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
 		//userService.updateUser(userVO);
 	}
+
+	//--------------------------------아이디 찾기----------------------------------
+	@RequestMapping(value="/searchid", method=RequestMethod.GET)
+	public void searchId(){}
+
+	@RequestMapping(value="/searchid", method=RequestMethod.POST)
+	public String searchIdAction(UserVO userVO, Model model) throws Exception {
+		userVO = userService.searchId(userVO);
+		model.addAttribute("userVO", userVO);
+		
+		String smtpHost = "mx2.naver.com";
+		String fromAddr = "administrator@oraclejava.co.kr"; 
+		String toAddr = userVO.getUser_email();
+		String subject = "moebius. 찾으시는 고객님의 ID 정보 입니다.";
+		String mailBody = userVO.getUser_name()+"님이 찾으시는 아이디는 " + userVO.getUser_id() + "입니다.";
+		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
+		if(result) {
+			logger.info("아이디 찾기 메일 발송 완료");
+		}else {
+			logger.info("아이디 찾기 메일 발송 실패");
+		}
+		return "/user/searchid";
+	}
 	
+	//--------------------------------비밀번호 찾기----------------------------------
+	@RequestMapping(value = "/searchpwd", method=RequestMethod.GET)
+	public void searchPwd() {}
+	
+	@RequestMapping(value="/searchpwd", method=RequestMethod.POST)
+	public String searchPwdAction(UserVO userVO, Model model) throws Exception {
+		userVO = userService.searchPwd(userVO);
+		model.addAttribute("userVO", userVO);
+		
+		String smtpHost = "mx2.naver.com";
+		String fromAddr = "administrator@oraclejava.co.kr"; 
+		String toAddr = userVO.getUser_email();
+		String subject = "moebius. 찾으시는 고객님의 비밀번호 정보 입니다.";
+		String mailBody = userVO.getUser_name()+"님이 찾으시는 비밀번호는 " + userVO.getUser_pwd_ok() + "입니다.";
+		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
+		if(result) {
+			logger.info("비밀번호 찾기 메일 발송 완료");
+		}else {
+			logger.info("비밀번호 찾기 메일 발송 실패");
+		}
+		return "/user/searchpwd";
+	}
 }

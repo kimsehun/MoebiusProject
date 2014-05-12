@@ -61,4 +61,25 @@
 	FROM m_user
 	WHERE user_id=#{user_id}
 	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="searchId" resultType="UserVO" parameterType="UserVO">
+	SELECT user_id,user_email,user_name
+	FROM m_user
+	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="searchPwd" resultType="UserVO" parameterType="UserVO">
+	SELECT user_pwd_ok, user_name, user_email
+	FROM m_user
+	WHERE user_pwd_hint=#{user_pwd_hint} AND user_pwd_answer=#{user_pwd_answer}	
+	</select>
+	
+	<!-- 회원가입 중복 방지를 위한 주민번호 체크 -->
+	<select id="searchJumin">
+	SELECT count(*) AS cnt
+	FROM m_user
+	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
+	</select>
 </mapper>

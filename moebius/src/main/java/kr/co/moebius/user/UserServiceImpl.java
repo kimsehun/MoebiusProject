@@ -50,4 +50,16 @@ public class UserServiceImpl implements UserService {
 	public UserVO emailaddr(String user_id) throws Exception {
 		return userMapper.emailaddr(user_id);
 	}
+	
+	@Override
+	public UserVO searchId(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.searchId(userVO);
+	}
+	
+	@Override
+	public UserVO searchPwd(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.searchPwd(userVO);
+	}
 }

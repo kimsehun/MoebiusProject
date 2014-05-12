@@ -7,6 +7,7 @@ public class UserVO implements Serializable {
 	private String user_name; 
 	private int user_age;
 	private String user_pwd;
+	private String user_pwd_ok;
 	private String user_pwd_hint;
 	private String user_pwd_answer; 
 	private int user_gender;
@@ -43,6 +44,12 @@ public class UserVO implements Serializable {
 	}
 	public void setUser_pwd(String user_pwd) {
 		this.user_pwd = user_pwd;
+	}
+	public String getUser_pwd_ok() {
+		return user_pwd_ok;
+	}
+	public void setUser_pwd_ok(String user_pwd_ok) {
+		this.user_pwd_ok = user_pwd_ok;
 	}
 	public String getUser_pwd_hint() {
 		return user_pwd_hint;
@@ -126,15 +133,15 @@ public class UserVO implements Serializable {
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_name=" + user_name
 				+ ", user_age=" + user_age + ", user_pwd=" + user_pwd
-				+ ", user_pwd_hint=" + user_pwd_hint + ", user_pwd_answer="
-				+ user_pwd_answer + ", user_gender=" + user_gender
-				+ ", user_jumin1=" + user_jumin1 + ", user_jumin2="
-				+ user_jumin2 + ", user_email=" + user_email + ", user_phone="
-				+ user_phone + ", user_zipcode=" + user_zipcode
-				+ ", user_addr1=" + user_addr1 + ", user_addr2=" + user_addr2
-				+ ", user_regdate=" + user_regdate + ", user_point="
-				+ user_point + ", user_status=" + user_status + "]";
+				+ ", user_pwd_ok=" + user_pwd_ok + ", user_pwd_hint="
+				+ user_pwd_hint + ", user_pwd_answer=" + user_pwd_answer
+				+ ", user_gender=" + user_gender + ", user_jumin1="
+				+ user_jumin1 + ", user_jumin2=" + user_jumin2
+				+ ", user_email=" + user_email + ", user_phone=" + user_phone
+				+ ", user_zipcode=" + user_zipcode + ", user_addr1="
+				+ user_addr1 + ", user_addr2=" + user_addr2 + ", user_regdate="
+				+ user_regdate + ", user_point=" + user_point
+				+ ", user_status=" + user_status + "]";
 	}
-	
 	
 }
