@@ -278,4 +278,4 @@ values(seq_bno.nextval, '자주하는질문','admin');
 insert into m_board_info(bno, bname, user_id)
 values(seq_bno.nextval, '문의사항','admin');
 
-
+select * from m_user;

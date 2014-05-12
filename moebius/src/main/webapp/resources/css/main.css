@@ -52,12 +52,22 @@
 #header > ul li.has-sub {
   position: relative;
 }
+#header > ul li.has-sub-right {
+  position: relative;
+    float:right;
+
+}
+
 #header > ul li.has-sub:hover ul {
   display: block;
 }
+#header > ul li.has-sub-right:hover ul {
+  display: block;
+    float:right;
+}
 #header > ul li.has-sub ul {
   display: none;
-  width: 250px;
+  width: 145px;
   position: absolute;
   margin: 0;
   padding: 0;
@@ -67,16 +77,43 @@
   border-bottom: 3px solid #d9ced2;
   border-top: 0 none;
 }
+#header > ul li.has-sub-right ul {
+  display: none;
+  width: 108px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: #ffffff;
+  border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;
+  border-top: 0 none;
+  float:right;
+}
 #header > ul li.has-sub ul li {
   display: block;
 }
+#header > ul li.has-sub-right ul li {
+  display: block;
+  float:right;
+  width:100%;
+}
 #header > ul li.has-sub > a {
+  background-repeat: no-repeat;
+  background-position: 90% -95%;
+}
+#header > ul li.has-sub-right > a {
   background-repeat: no-repeat;
   background-position: 90% -95%;
 }
 #header > ul li.has-sub > a.active,
 #header > ul li.has-sub > a:hover {
   background-position: 90% 195%;
+}
+#header > ul li.has-sub-right > a.active,
+#header > ul li.has-sub-right > a:hover {
+  background-position: 90% 195%;
+
 }
 #header > ul li a {
   display: block;

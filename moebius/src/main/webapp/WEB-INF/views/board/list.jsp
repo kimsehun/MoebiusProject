@@ -17,7 +17,6 @@
 	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
 	</ul>
 </div>
-
 <div id="content" align="center">
 <form action="insert" method="GET" >
 <input type="hidden" id="bno" value="${bno}">

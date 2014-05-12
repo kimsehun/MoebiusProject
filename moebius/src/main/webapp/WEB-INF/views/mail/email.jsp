@@ -10,7 +10,17 @@
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 </head>
 <body>
+<div id='sidebar'>
+   <ul>
+	   <li class='active'><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+	   <li class='active'><a href='/moebius/board/2/1/'><span>자주하는 질문</span></a></li>
+	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
+	</ul>
+</div>
+
 <br>
+
+<div id="content" align="center">
 <form action="email" method="post">
 	<table>
 	<caption>E-MAIL 문의</caption>
@@ -39,5 +49,6 @@
 <br>
 <br>
 <br>
+</div>
 </body>
 </html>
