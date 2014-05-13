@@ -104,7 +104,6 @@ CREATE TABLE m_user
 	user_name varchar2(20) NOT NULL,
 	user_age number NOT NULL,
 	user_pwd varchar2(100) NOT NULL,
-	user_pwd_ok varchar2(100) NOT NULL,
 	user_pwd_hint varchar2(200) NOT NULL,
 	user_pwd_answer varchar2(100) NOT NULL,
 	user_gender number(1) DEFAULT 1 NOT NULL,
@@ -146,17 +145,24 @@ CREATE TABLE m_movie
 	movie_no number NOT NULL,
 	movie_title varchar2(100) NOT NULL,
 	movie_directer varchar2(40) NOT NULL,
+	
+	movie_genre varchar2(40) NOT NULL,
+	movie_nation varchar2(30) NOT NULL,
+	movie_runningtime number NOT NULL,
+	movie_actor varchar2(2000) NOT NULL,
+	
 	movie_story varchar2(2000) NOT NULL,
 	movie_poster varchar2(20) NOT NULL,
 	movie_count number DEFAULT 0 NOT NULL,
-	movie_sdate date NOT NULL,
+	movie_sdate varchar2(20) NOT NULL,
 	movie_grade number NOT NULL,
-	movie_point number NOT NULL,
-	movie_edate date NOT NULL,
+	movie_point number DEFAULT 5000 NOT NULL,
+	movie_edate varchar2(20) NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (movie_no)
 );
 
+select * from M_MOVIE;
 
 SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
 		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
@@ -174,7 +180,7 @@ CREATE TABLE m_comment
 	PRIMARY KEY (comment_no)
 );
 
-select * from m_comment;
+
 
 /* Create Foreign Keys */
 
@@ -261,5 +267,20 @@ ALTER TABLE m_screen
 	REFERENCES m_movie (movie_no)
 ;
 
+
+select * from m_user;
+select * from m_board;
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '공지사항','admin');
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '자주하는질문','admin');
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_bno.nextval, '문의사항','admin');
 
 
