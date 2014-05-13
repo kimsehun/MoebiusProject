@@ -62,4 +62,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.searchPwd(userVO);
 	}
+	
+	@Override
+	public void updateUser(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		if(userMapper.updateUser(userVO) == 0 ) {
+			throw new RuntimeException("정보를 수정 할 수 없습니다.");
+		}
+	}
 }

@@ -48,12 +48,20 @@
 	
 	<!-- 회원 수정시 회원 정보 가져오기 -->
 	<select id="getUserInfo" resultType="UserVO" parameterType="UserVO">
-	SELECT	user_id,user_name,user_pwd,user_pwd_hint,user_pwd_answer,
+	SELECT	user_id,user_name,user_pwd,user_pwd_ok,user_pwd_hint,user_pwd_answer,
 			user_email,user_phone,user_zipcode,
 			user_addr1,user_addr2
 	FROM m_user
 	WHERE user_id=#{user_id}
 	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="updateUser" parameterType="UserVO" >
+	UPDATE m_user
+	SET user_phone=#{user_phone}, user_email=#{user_email}, user_pwd_answer=#{user_pwd_answer}
+		user_zipcode=#{user_zipcode}, user_addr1=#{user_addr1}, user_addr2=#{user_addr2}
+	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
+	</update>
 	
 	<!-- email 주소 받아오기 -->
 	<select id="emailaddr" parameterType="String" resultType="UserVO">

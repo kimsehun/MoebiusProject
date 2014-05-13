@@ -21,4 +21,7 @@ public interface UserService {
 	UserVO searchId(UserVO userVO) throws Exception;
 
 	UserVO searchPwd(UserVO userVO) throws Exception;
+
+	void updateUser(UserVO userVO) throws Exception;
+	
 }

@@ -22,4 +22,6 @@ public interface UserMapper {
 
 	UserVO emailaddr(String user_id) throws Exception;
 
+	int updateUser(UserVO userVO) throws Exception;
+
 }

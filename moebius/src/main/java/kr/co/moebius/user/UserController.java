@@ -114,13 +114,14 @@ public class UserController {
 	public void delete() {}
 	
 	@RequestMapping(value = "/delete", method=RequestMethod.POST)
-	public String delete(UserVO userVO, Model model, HttpSession session) throws Exception {
+	public ModelAndView delete(UserVO userVO, Model model, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView("result");
 		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
 		userService.deleteUser(userVO);
 		session.invalidate();
-		model.addAttribute("msg", "탈퇴 되었습니다.");
-		model.addAttribute("url", "..");
-		return "result";
+		mav.addObject("msg", "탈퇴 되었습니다.");
+		mav.addObject("url", "..");
+		return mav;
 	}
 	
 	//--------------------------------회원정보수정----------------------------------
@@ -133,21 +134,25 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/update", method=RequestMethod.POST)
-	public void updateAction(UserVO userVO, Model model, HttpSession session) throws Exception {
+	public String updateAction(UserVO userVO, HttpSession session) throws Exception {
 		userVO.setUser_id((String)session.getAttribute("user_id"));
 		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
-		//userService.updateUser(userVO);
+		userService.updateUser(userVO);
+		return "/user/update";
 	}
-
+	
+	//--------------------------------비밀번호수정----------------------------------
+	
 	//--------------------------------아이디 찾기----------------------------------
 	@RequestMapping(value="/searchid", method=RequestMethod.GET)
 	public void searchId(){}
 
 	@RequestMapping(value="/searchid", method=RequestMethod.POST)
-	public String searchIdAction(UserVO userVO, Model model) throws Exception {
+	public ModelAndView searchIdAction(UserVO userVO, Model model) throws Exception {
 		userVO = userService.searchId(userVO);
 		model.addAttribute("userVO", userVO);
 		
+		ModelAndView mav = new ModelAndView("result");
 		String smtpHost = "mx2.naver.com";
 		String fromAddr = "administrator@oraclejava.co.kr"; 
 		String toAddr = userVO.getUser_email();
@@ -156,10 +161,15 @@ public class UserController {
 		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
 		if(result) {
 			logger.info("아이디 찾기 메일 발송 완료");
+			mav.addObject("msg", "메일로 발송 하였습니다.");
+			mav.addObject("url", "../user/login");
+			return mav;
 		}else {
 			logger.info("아이디 찾기 메일 발송 실패");
+			mav.addObject("msg", "메일 발송이 실패 하였습니다.");
+			mav.addObject("url", "../user/searchid");
+			return mav;
 		}
-		return "/user/searchid";
 	}
 	
 	//--------------------------------비밀번호 찾기----------------------------------
@@ -167,21 +177,28 @@ public class UserController {
 	public void searchPwd() {}
 	
 	@RequestMapping(value="/searchpwd", method=RequestMethod.POST)
-	public String searchPwdAction(UserVO userVO, Model model) throws Exception {
+	public ModelAndView searchPwdAction(UserVO userVO, Model model) throws Exception {
 		userVO = userService.searchPwd(userVO);
 		model.addAttribute("userVO", userVO);
 		
+		ModelAndView mav = new ModelAndView("result");
 		String smtpHost = "mx2.naver.com";
 		String fromAddr = "administrator@oraclejava.co.kr"; 
 		String toAddr = userVO.getUser_email();
 		String subject = "moebius. 찾으시는 고객님의 비밀번호 정보 입니다.";
 		String mailBody = userVO.getUser_name()+"님이 찾으시는 비밀번호는 " + userVO.getUser_pwd_ok() + "입니다.";
 		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
+		
 		if(result) {
 			logger.info("비밀번호 찾기 메일 발송 완료");
+			mav.addObject("msg", "메일로 발송 하였습니다.");
+			mav.addObject("url", "../user/login");
+			return mav;
 		}else {
 			logger.info("비밀번호 찾기 메일 발송 실패");
+			mav.addObject("msg", "메일 발송이 실패 하였습니다.");
+			mav.addObject("url", "../user/searchpwd");
+			return mav;
 		}
-		return "/user/searchpwd";
 	}
 }
