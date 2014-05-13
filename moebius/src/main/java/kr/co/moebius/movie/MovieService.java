@@ -12,4 +12,6 @@ public interface MovieService {
 
 	MovieVO detail(int movie_no);
 
+	List<MovieVO> ranking();
+
 }

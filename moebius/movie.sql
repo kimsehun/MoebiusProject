@@ -164,6 +164,11 @@ CREATE TABLE m_movie
 
 select * from M_MOVIE;
 
+SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
+		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
+FROM m_movie
+ORDER BY movie_count DESC;
+
 CREATE TABLE m_comment
 (
 	user_id varchar2(20) NOT NULL,
@@ -175,7 +180,7 @@ CREATE TABLE m_comment
 	PRIMARY KEY (comment_no)
 );
 
-
+select * from m_comment;
 
 /* Create Foreign Keys */
 

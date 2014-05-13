@@ -12,4 +12,6 @@ public interface MovieMapper {
 
 	MovieVO detail(int movie_no);
 
+	List<MovieVO> ranking();
+
 }

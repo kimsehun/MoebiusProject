@@ -31,4 +31,9 @@ public class MovieServiceImpl implements MovieService{
 	public MovieVO detail(int movie_no) {
 		return movieMapper.detail(movie_no);
 	}
+	
+	@Override
+	public List<MovieVO> ranking() {
+		return movieMapper.ranking();
+	}
 }

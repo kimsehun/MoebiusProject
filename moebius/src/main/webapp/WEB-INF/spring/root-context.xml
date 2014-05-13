@@ -58,4 +58,10 @@
 			<property name="mapperInterface" value="kr.co.moebius.movie.MovieMapper" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
+		
+		<!-- comment Mapper -->
+		<bean id="CommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.comment.CommentMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>
 </beans>
