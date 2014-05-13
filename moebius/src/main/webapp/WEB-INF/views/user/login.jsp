@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnRegist').bind('click',function(){
-			location.href='regist';
+			location.href='user/regist';
 		});
 		
 		$('#btnLoginOk').bind('click',function(){

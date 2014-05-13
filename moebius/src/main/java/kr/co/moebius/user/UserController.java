@@ -155,7 +155,7 @@ public class UserController {
 		userVO.setUser_id((String)session.getAttribute("user_id"));
 		userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
 		userService.updateUser(userVO);
-		return "/user/update";
+		return "/main/home";
 	}
 	
 	//--------------------------------아이디 찾기----------------------------------
