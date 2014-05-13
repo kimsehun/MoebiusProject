@@ -8,5 +8,10 @@ public interface CommentService {
 
 	List<CommentVO> getCommentList(int movie_no);
 
+	int avgstar(int movie_no);
+
+	void deleteComment(CommentVO commentVO);
+
+
 
 }
