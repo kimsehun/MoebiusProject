@@ -35,7 +35,7 @@ String name = (String)session.getAttribute("user_name");
 		      <ul>
 		         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
 		         <li><a href='/moebius/board/2/1/'><span>자주하는질문</span></a></li>
-		         <li class='last'><a href='/moebius/board/3/1/'><span>문의사항</span></a></li>
+		         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
 		      </ul>
 		   </li>
 		   
@@ -55,10 +55,10 @@ String name = (String)session.getAttribute("user_name");
 		   } else {
 		   %>
 		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
-		   <li class='right'><a href='/moebius/user/login'><span>유저정보</span></a>
+		   <li class='has-sub-right'><a href='/moebius/user/login'><span>유저정보</span></a>
 		  	 <ul>
-		         <li><a href='/moebius/user/update'><span>정보수정</span></a></li>
-		         <li><a href='/moebius/user/delete'><span>정보삭제</span></a></li>
+		         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
+		         <li><a href='/moebius/user/delete'><span>정보삭제</span><br></a></li>
 		         <li><a href='#'><span>예매정보</span></a></li>
 		      </ul>
 		   </li>

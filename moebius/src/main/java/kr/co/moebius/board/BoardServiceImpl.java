@@ -59,4 +59,12 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.updateCount(board_no);
 	}
 	
+	
+	//전체 게시물 수
+	@Override
+	public int totalRecord(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.totalRecord(bno);
+	}
+	
 }

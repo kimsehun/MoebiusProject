@@ -8,8 +8,18 @@
 <title>글 쓰기</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
+<script type="text/javascript">
+	if($('#user_id').val()){
+		alert('로그인 했음');
+	}
+	else {
+		alert('잘못된 접근입니다.');
+		location.href='../../../user/login';
+	}
+</script>
 </head>
 <body>
+<input type="hidden" id="user_id" value="${user_id}">
 <form action="insert" method="post">
 <table>
 	<caption>글 쓰기</caption>

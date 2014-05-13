@@ -22,8 +22,8 @@
 	<%//로그아웃 상태일때
 	if(id==null) {
 	%>
-		<form action="user/login" method="post">
-			<table border="1" align="center">
+	<form action="user/login" method="post">
+			<table class="login">
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" name="user_id" id="user_id" autofocus="autofocus"></td>
@@ -35,14 +35,13 @@
 				</tr>
 				
 				<tr>
-				<td></td>
-					<td align="center">
+					<td colspan="2" align="center">
 						<input type="submit" value="로그인" id="btnLoginOk"/>
 						<input type="button" value="회원가입" id="btnRegist"/>
 					<div>ID/PW찾기</div>
 					</td>
 				</tr>
-		</table>
+		  </table>
 	</form>
 	<%//로그인 상태일떄
 	} else {

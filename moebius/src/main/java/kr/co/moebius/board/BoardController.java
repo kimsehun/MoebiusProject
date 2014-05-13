@@ -24,21 +24,61 @@ public class BoardController {
 	private BoardService boardService;
 
 	@RequestMapping(value="/")
-	public String list(@PathVariable int bno,Model model) throws Exception{
+	public String list(@PathVariable int bno,@PathVariable int pg,HttpSession session, Model model) throws Exception{
 		
+		String user_id = (String) session.getAttribute("user_id");
+		
+		//페이징 처리
 		Pagination p = new Pagination(bno);
+
+		//표현 될 페이지 수
+		int pageSize = 5;
+		
+		p.setBno(bno);
+		p.setStartnum((pg-1)*pageSize+1);
+		p.setEndnum(pg*pageSize);
+		
+		
+		//전체 레코드 수
+		int totalRecord = boardService.totalRecord(bno);
+		
+		//페이지 갯수
+		int pageCount = totalRecord / pageSize;
+		if(totalRecord % pageSize != 0){
+			pageCount++;
+		}
+		
+		int blockSize = 5;
+		int startPage = (pg -1) / blockSize * blockSize +1;
+		int endPage = (pg -1) / blockSize * blockSize + blockSize;
+		if(endPage > pageCount){
+			endPage = pageCount;
+		}
+		
+		
 		List<BoardVO> list = boardService.getBoardList(p);
 		BoardInfoVO boardInfo = boardService.getBoardInfo(bno);
 		
-
+		
+		model.addAttribute("totalRecord",totalRecord);
+		
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("pageCount",pageCount);
+		model.addAttribute("blockSize",blockSize);
+	
+		model.addAttribute("pg",pg);
 		model.addAttribute("list",list);
 		model.addAttribute("boardInfo",boardInfo);
-	
+		model.addAttribute("user_id",user_id);
+		
 		return "board/list";
 	}
 
 	@RequestMapping(value="/insert",method=RequestMethod.GET)
-	public String insert(@PathVariable int bno, Model model) throws Exception{
+	public String insert(@PathVariable int bno, HttpSession session, Model model) throws Exception{
+		String user_id = (String) session.getAttribute("user_id");
+		model.addAttribute("user_id",user_id);
 		return "board/insert";
 	}
 	

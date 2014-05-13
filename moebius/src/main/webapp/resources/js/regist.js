@@ -28,33 +28,33 @@ $(document).ready(function(){
 	});
 	
 	$('#user_pwd').keyup(function(){
-		$('#user_pwd_confirm').val('');
-		$('#user_pwd_confirm_msg').html('');
+		$('#user_pwd_ok').val('');
+		$('#user_pwd_ok_msg').html('');
 	});
 	
-	$('#user_pwd_confirm').keyup(function(){
+	$('#user_pwd_ok').keyup(function(){
 		if ($('#user_pwd').val() != '') {	// 비밀번호에 값이 존재
-			if ($('#user_pwd_confirm').val() == '') {	
+			if ($('#user_pwd_ok').val() == '') {	
 				// 비밀번호 확인에 값이 존재하지 않을때
-				$('#user_pwd_confirm_msg').removeClass();
-				$('#user_pwd_confirm_msg')
+				$('#user_pwd_ok_msg').removeClass();
+				$('#user_pwd_ok_msg')
 					.html("비밀번호와 일치하게 재 입력하세요.")
 					.addClass('msg_ok');
-			} else if ($('#user_pwd').val() == $('#user_pwd_confirm').val()) { 
+			} else if ($('#user_pwd').val() == $('#user_pwd_ok').val()) { 
 				// 비밀번호와 비밀번호 확인이 같으면
-				$('#user_pwd_confirm_msg').removeClass();				
-				$('#user_pwd_confirm_msg')
+				$('#user_pwd_ok_msg').removeClass();				
+				$('#user_pwd_ok_msg')
 					.html("비밀번호가 맞습니다.")
 					.addClass('msg_ok');
 			} else {
-				$('#user_pwd_confirm_msg').removeClass();
-				$('#user_pwd_confirm_msg')
+				$('#user_pwd_ok_msg').removeClass();
+				$('#user_pwd_ok_msg')
 					.html("비밀번호가 틀립니다.")
 					.addClass('msg_warn');
 			}
 			
 		} else {							// 비밀번호에 값이 존재하지 않음
-			$('#user_pwd_confirm_msg')
+			$('#user_pwd_ok_msg')
 				.html("비밀번호를 먼저 입력후 확인하세요")
 				.addClass('msg_warn');
 		}
