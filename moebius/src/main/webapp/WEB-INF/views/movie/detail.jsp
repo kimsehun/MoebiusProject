@@ -15,6 +15,7 @@
  	var commentList;
  	$(document).ready(function(){
  		 		
+ 		//상세보기 페이지 읽어오는 순간 ajax를 읽어서 댓글 리스트를 뿌려준다.
  		$.ajax({
  			url:'<c:url value="/comment/${movieVO.movie_no}" />',
  			type:'POST',
@@ -34,6 +35,7 @@
  			}
  		});
  		
+ 		//댓글 insert부분
  		$('#btnCommentOk').bind('click', function(){
 			var user_id = '${sessionScope.user_id}';
 			var comment_review = $('#taComment').val();
@@ -68,6 +70,7 @@
 		});
 	});
  	
+ 	//댓글 삭제 부분
 	function deleteComment(cno) {
 		if (confirm(cno+'번 댓글 삭제?')) {
 		$.ajax({
@@ -91,6 +94,7 @@
 		}
 	}
  	
+ 	//리스트 부분을 테이블 형식을 빌어 뿌려준다.
  	function setCommentList() {
  		commentList += '<tr>';
  		commentList += '<td>' + this['user_id'] + '</td>';

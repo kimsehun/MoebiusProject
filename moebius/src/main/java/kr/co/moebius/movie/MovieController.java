@@ -46,6 +46,7 @@ public class MovieController {
 	
 	private static final Logger logger =LoggerFactory.getLogger(MovieController.class);
 	
+	// 영화 입력 화면을 가기전 오늘 날짜를 읽어와서 화면에 뿌려준다.
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public void moiveInsert(HttpServletRequest request, Model model){
 		Calendar cal = Calendar.getInstance();
@@ -69,6 +70,7 @@ public class MovieController {
 		model.addAttribute("day",day);
 	}
 	
+	// 모든 정보를 읽어와서 db에 연결시킨다.
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insertAction(MovieVO movieVO,
 								FileUploadCommand fuc,
@@ -138,6 +140,7 @@ public class MovieController {
 		}
 	}
 	
+	// 영화정보를 count 순으로 화면에 뿌려준다.
 	@RequestMapping(value="/ranking")
 	public void ranking(Model model){
 		String today = calday();
@@ -154,6 +157,7 @@ public class MovieController {
 		model.addAttribute("rankinglist",rankinglist);
 	}
 	
+	// 미개봉 영화 정보를 화면에 뿌려준다.
 	@RequestMapping(value="/plan")
 	public void plan(Model model) {
 		// 오늘 날짜 계산해서 넣어준다.
@@ -189,6 +193,7 @@ public class MovieController {
 		return year + month + day;
 	}
 
+	//파일을 읽어와서 화면에 뿌려준다.
 	@RequestMapping("/download")
 	public void download(String fileName, HttpServletResponse response) throws IOException{
 		File file = new File(uploadUrl, fileName);

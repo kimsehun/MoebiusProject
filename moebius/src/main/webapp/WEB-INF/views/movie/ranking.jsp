@@ -10,27 +10,30 @@
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('img').each(function(index, item){
-		$(item).mouseover(function() {
-			$(item).css('opacity', 0.7);
-			$('#btnDetail').toggle('slow');
-		}),
-		$(item).mouseout(function(){
-			$(item).css('opacity', 1.0);
-		}),
-		$(item).click(function(){
-			location.href="";
-		});
-		
-	});
-});
 </script>
 </head>
 <body>
-<c:forEach items="${rankinglist}" var="movieVO">
-	<img src="download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/><br/><br/>
-		<p style="display:none" id="btnDetail"> 예매 / 상세보기 </p>
-</c:forEach>
+<table align="center" cellspacing="50" >
+	<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
+		<c:choose>
+			<c:when test="${st.index == 5 }">
+				<tr>
+					<td>
+						${st.index +1}
+						<img src="download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
+						<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+					</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<td>
+					${st.index +1}
+					<img src="download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
+					<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+				</td>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</table>
 </body>
 </html>

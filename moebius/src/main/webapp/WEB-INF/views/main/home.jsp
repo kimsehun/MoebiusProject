@@ -68,7 +68,23 @@
 	</td>
 </tr>
 <tr>
-	<td height = "200"colspan="3" bgcolor="gray" align="center">무비 차트</td>
+	<td height = "200"colspan="3" bgcolor="gray" align="center">
+	<table cellspacing="50">
+		<tr>
+		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
+		<c:choose>
+			<c:when test="${st.index < 5 }">
+					<td>
+						${st.index +1}
+						<img src="download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
+						<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+					</td>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		</tr>
+	</table>
+	</td>
 </tr>
 <tr>
 	<td height = "200">광고2</td>
