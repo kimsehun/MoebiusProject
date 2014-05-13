@@ -36,7 +36,7 @@
 	
 	<c:forEach items="${list}" var="boardVO" varStatus="st">
 	<tr>
-		<td>${boardVO.board_no}</td>
+		<td>${totalRecord-((pg-1)*blockSize+st.index)}</td>
 		<td><a href="${boardVO.board_no}/">${boardVO.board_title}</a></td>
 		<td>${boardVO.userVO.user_name}</td>
 		<td>${boardVO.board_regdate}</td>

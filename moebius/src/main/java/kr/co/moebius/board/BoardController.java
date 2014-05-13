@@ -48,7 +48,7 @@ public class BoardController {
 			pageCount++;
 		}
 		
-		int blockSize = 10;
+		int blockSize = 5;
 		int startPage = (pg -1) / blockSize * blockSize +1;
 		int endPage = (pg -1) / blockSize * blockSize + blockSize;
 		if(endPage > pageCount){
@@ -65,6 +65,7 @@ public class BoardController {
 		model.addAttribute("startPage",startPage);
 		model.addAttribute("endPage",endPage);
 		model.addAttribute("pageCount",pageCount);
+		model.addAttribute("blockSize",blockSize);
 	
 		model.addAttribute("pg",pg);
 		model.addAttribute("list",list);
