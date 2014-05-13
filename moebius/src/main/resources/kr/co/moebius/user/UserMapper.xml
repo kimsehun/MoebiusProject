@@ -58,7 +58,7 @@
 	<!-- 회원 정보 수정 -->
 	<update id="updateUser" parameterType="UserVO" >
 	UPDATE m_user
-	SET user_phone=#{user_phone}, user_email=#{user_email}, user_pwd_answer=#{user_pwd_answer}
+	SET user_phone=#{user_phone}, user_email=#{user_email}, user_pwd_answer=#{user_pwd_answer},
 		user_zipcode=#{user_zipcode}, user_addr1=#{user_addr1}, user_addr2=#{user_addr2}
 	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
 	</update>

@@ -9,15 +9,26 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src='<c:url value="/resources/js/regist.js"/>'></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#btnUpdateUser').bind('click',function(){
+		if(confirm('정말로 수정하시겠습니까?')){	
+			alert('수정되었습니다.');
+			document.updateCheck.submit();
+		}
+	});
+});
+
+</script>
 </head>
 <body>
-	<form action="update" method="post">
+	<form action="update" method="post" name="updateCheck">
 		<table>
 			<caption>회원 정보 수정</caption>
 			<tr>
 				<th>아이디</th>
 					<td>
-						<input type="text" name="user_id" id="user_id" value="${userVO.user_id }" readonly="readonly"/>
+						${userVO.user_id }
 					</td>
 			</tr>
 			<tr>
@@ -37,7 +48,7 @@
 			<tr>
 				<th>이름</th>
 					<td>
-						<input type="text" name="user_name" value="${userVO.user_name }" readonly="readonly"/>
+						${userVO.user_name }
 					</td>
 			</tr>
 			<tr>
@@ -94,7 +105,7 @@
 			<tr>
 				<td colspan="2">
 					<div class="center">
-					<input type="submit" value="수정완료" id="btnRegistOk" />
+					<input type="button" value="수정완료" id="btnUpdateUser" />
 					</div>
 				</td>
 			</tr>
