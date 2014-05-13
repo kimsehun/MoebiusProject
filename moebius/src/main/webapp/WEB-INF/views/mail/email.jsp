@@ -25,11 +25,6 @@
 	<table>
 	<caption>E-MAIL 문의</caption>
 	<tr>
-		<th>제목</th>
-		<td><input type="text" name="board_title" style="width:645px;"/></td>
-	</tr>
-	
-	<tr>
 		<th>보내는 이</th>
 		<td><input type="text" name="user_email" style="width:645px;" value="${userVO.user_email}"/></td>
 	</tr>

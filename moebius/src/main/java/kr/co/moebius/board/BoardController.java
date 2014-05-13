@@ -24,8 +24,9 @@ public class BoardController {
 	private BoardService boardService;
 
 	@RequestMapping(value="/")
-	public String list(@PathVariable int bno,@PathVariable int pg, Model model) throws Exception{
+	public String list(@PathVariable int bno,@PathVariable int pg,HttpSession session, Model model) throws Exception{
 		
+		String user_id = (String) session.getAttribute("user_id");
 		
 		//페이징 처리
 		Pagination p = new Pagination(bno);
@@ -68,12 +69,15 @@ public class BoardController {
 		model.addAttribute("pg",pg);
 		model.addAttribute("list",list);
 		model.addAttribute("boardInfo",boardInfo);
-	
+		model.addAttribute("user_id",user_id);
+		
 		return "board/list";
 	}
 
 	@RequestMapping(value="/insert",method=RequestMethod.GET)
-	public String insert(@PathVariable int bno, Model model) throws Exception{
+	public String insert(@PathVariable int bno, HttpSession session, Model model) throws Exception{
+		String user_id = (String) session.getAttribute("user_id");
+		model.addAttribute("user_id",user_id);
 		return "board/insert";
 	}
 	

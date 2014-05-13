@@ -20,6 +20,7 @@
 <div id="content" align="center">
 <form action="insert" method="GET" >
 <input type="hidden" id="bno" value="${bno}">
+<input type="hidden" id="user_id" value="${user_id}" />
 <table border="1">
 	<caption>${boardInfo.bname}</caption>
 	<tr>
@@ -42,11 +43,13 @@
 		<td align="right">${boardVO.board_count}</td>
 	</tr>
 	</c:forEach>
+	<c:if test="${user_id == 'admin'}">
 	<tr>
 		<td colspan="5">
 			<input type="submit" value="글쓰기" id="btnOk"/>
 		</td>
 	</tr>
+	</c:if>
 	<tr>
 		<td colspan="5">
 			<c:choose>
