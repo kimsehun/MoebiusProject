@@ -32,6 +32,25 @@
 				},
 				success : function(data) {
 					$('#user_id_msg').html(data.msg);
+					
+				}
+			});
+		});
+		$('#user_jumin2').blur(function(user_name, user_jumin1, user_jumin2) {
+			var user_name = $('#user_name').val();
+			var user_jumin1 = $('#user_jumin1').val();
+			var user_jumin2 = $('#user_jumin2').val();
+			var jmUrl = '<c:url value="/user/Check"/>';
+			$.ajax({
+				url : jmUrl,
+				type : 'POST',
+				data : {
+					user_name : user_name,
+					user_jumin1 : user_jumin1,
+					user_jumin2 : user_jumin2
+				},
+				success : function(data) {
+					$('#user_jumin_msg').html(data.msg);
 				}
 			});
 		});
@@ -39,7 +58,7 @@
 </script>
 </head>
 <body>
-	<form:form action="regist" method="post" commandName="userVO" id="frmRegist">
+	<form:form action="regist" method="post" commandName="userVO" name="frmRegist">
 		<table>
 			<caption>회원 가입</caption>
 			<tr>
@@ -67,7 +86,7 @@
 			<tr>
 				<th>이름</th>
 					<td>
-						<input type="text" name="user_name" value="${userVO.user_name }" /><br/>
+						<input type="text" name="user_name" id="user_name" value="${userVO.user_name }" /><br/>
 						<form:errors path="user_name" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>
@@ -92,7 +111,8 @@
 				<th>주민등록번호</th>
 					<td>
 						<input type="text" name="user_jumin1" id="user_jumin1" value="${userVO.user_jumin1 }"/>-
-						<input type="password" name="user_jumin2" id="user_jumin2" value="${userVO.user_jumin2 }"/>
+						<input type="password" name="user_jumin2" id="user_jumin2" value="${userVO.user_jumin2 }"/><br/>
+						<div id="user_jumin_msg" ></div>
 					</td>
 			</tr>
 			<tr>
@@ -149,7 +169,7 @@
 			<tr>
 				<td colspan="2">
 					<div class="center">
-					<input type="submit" value="가입완료" id="btnRegistOk" />
+					<input type="submit" value="가입완료" id="btnRegistOk"  />
 					</div>
 				</td>
 			</tr>

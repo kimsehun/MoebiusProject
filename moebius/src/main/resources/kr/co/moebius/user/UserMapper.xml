@@ -34,6 +34,13 @@
 	WHERE user_id = #{user_id}
 	</select>
 	
+	<!-- 주민번호 중복 체크 -->
+	<select id="Check" resultType="int" parameterType="UserVO">
+	SELECT count(*) AS cnt
+	FROM m_user
+	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
+	</select>
+	
 	<!-- 로그인 -->
 	<select id="getUser" resultType="UserVO" parameterType="UserVO">
 	SELECT user_id, user_name FROM m_user
@@ -58,8 +65,15 @@
 	<!-- 회원 정보 수정 -->
 	<update id="updateUser" parameterType="UserVO" >
 	UPDATE m_user
-	SET user_phone=#{user_phone}, user_email=#{user_email}, user_pwd_answer=#{user_pwd_answer}
+	SET user_phone=#{user_phone}, user_email=#{user_email}, user_pwd_answer=#{user_pwd_answer},
 		user_zipcode=#{user_zipcode}, user_addr1=#{user_addr1}, user_addr2=#{user_addr2}
+	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
+	</update>
+	
+	<!-- 비밀번호 수정 -->
+	<update id="updatePwd" parameterType="UserVO">
+	UPDATE m_user
+	SET user_pwd=#{user_pwd}
 	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
 	</update>
 	

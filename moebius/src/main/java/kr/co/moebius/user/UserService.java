@@ -14,6 +14,8 @@ public interface UserService {
 
 	int idCheck(String user_id) throws Exception;
 
+	int Check(UserVO userVO) throws Exception;
+
 	UserVO getUserInfo(UserVO userVO) throws Exception;
 
 	UserVO emailaddr(String user_id) throws Exception;
@@ -23,5 +25,8 @@ public interface UserService {
 	UserVO searchPwd(UserVO userVO) throws Exception;
 
 	void updateUser(UserVO userVO) throws Exception;
+
+	void updatePwd(UserVO userVO) throws Exception;
+
 	
 }

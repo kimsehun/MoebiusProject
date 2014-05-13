@@ -16,6 +16,9 @@ $(document).ready(function(){
 			$('#user_email').focus();
 			return false;
 		}
+		if ($('#user_jumin_msg').val().length >= 25) {
+			return false;
+		}
 		
 		//$('#frmRegist').attr('action','tests')
 		//				.attr('method','get');
