@@ -18,6 +18,7 @@
  			url:'<c:url value="/comment/${movieVO.movie_no}" />',
  			type:'POST',
  			success:function(data){
+ 				alert(data);
  				$('#taComment').val('');
  				commentList='<table>';
  				$.each(data, setCommentList);

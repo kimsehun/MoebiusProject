@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#btnDeleteUser').bind('click',function(){
+		if(confirm('정말로 삭제하시겠습니까?')){	
+			document.deleteCheck.submit();
+		}
+	});
+});
+</script>
 </head>
 <body>
-<form action="delete" method="post">
+<form action="delete" method="post" name="deleteCheck">
 <table>
 	<caption>회원탈퇴</caption>
 	<tr>
@@ -20,11 +31,9 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="확인" />
+			<input type="button" value="확인" id="btnDeleteUser"/>
 		</td>
 	</tr>
-	delete 버튼으로 구현해서 아작스로 post로 delete로 넘김.
-	
 </table>
 </form>
 </body>

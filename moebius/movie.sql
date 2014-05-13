@@ -104,6 +104,7 @@ CREATE TABLE m_user
 	user_name varchar2(20) NOT NULL,
 	user_age number NOT NULL,
 	user_pwd varchar2(100) NOT NULL,
+	user_pwd_ok varchar2(100) NOT NULL,
 	user_pwd_hint varchar2(200) NOT NULL,
 	user_pwd_answer varchar2(100) NOT NULL,
 	user_gender number(1) DEFAULT 1 NOT NULL,
@@ -270,6 +271,8 @@ ALTER TABLE m_screen
 
 select * from m_user;
 select * from m_board;
+select * from m_movie;
+select * from M_COMMENT;
 
 -- 게시판 준비
 insert into m_board_info(bno, bname, user_id)

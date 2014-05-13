@@ -18,8 +18,8 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public List<CommentVO> getCommentList(int movie_no) {
-		commentMapper.getCommentList(movie_no);
-		return null;
+		
+		return commentMapper.getCommentList(movie_no);
 	}
 
 }
