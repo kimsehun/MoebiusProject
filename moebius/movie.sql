@@ -56,13 +56,23 @@ CREATE TABLE m_location
 (
 	location_no number NOT NULL,
 	location_name varchar2(20) NOT NULL,
-	locaiton_addr varchar2(200) NOT NULL,
+	location_addr varchar2(200) NOT NULL,
 	location_addx varchar2(20) NOT NULL,
 	location_addy varchar2(20) NOT NULL,
 	location_phone varchar2(11) NOT NULL,
 	movie_no number NOT NULL,
 	PRIMARY KEY (location_no)
 );
+
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
+values (1, '구로 디지털', '서울시 구로구 구로동 221-3', 126.8966655, 37.4830969, '0269254760', 0); 
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
+values (2, '영등포', '서울시 영등포구 영등포동 4가 442', 126.9034013, 37.5172108, '0226382000', 1);
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
+values (3, '용산', '서울특별시 용산구 한강로3가 40-11', 126.9644407, 37.5296968, '0215441123', 2);
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
+values (4, '홍대입구', '서울특별시 마포구 동교동 165', 126.9237910, 37.5568476, '0226382000', 3);
+
 
 
 CREATE TABLE m_board

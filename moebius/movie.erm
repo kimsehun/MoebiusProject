@@ -319,8 +319,8 @@
 			<binary>false</binary>
 			<args></args>
 			<description></description>
-			<logical_name>locaiton_addr</logical_name>
-			<physical_name>locaiton_addr</physical_name>
+			<logical_name>location_addr</logical_name>
+			<physical_name>location_addr</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
