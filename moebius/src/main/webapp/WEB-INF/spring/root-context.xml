@@ -65,4 +65,11 @@
 			<property name="mapperInterface" value="kr.co.moebius.comment.CommentMapper" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
+		
+		<!-- location Mapper -->
+		<bean id="LocationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.location.LocationMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>		
+		
 </beans>

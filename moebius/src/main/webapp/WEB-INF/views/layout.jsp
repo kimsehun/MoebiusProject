@@ -30,7 +30,7 @@ String name = (String)session.getAttribute("user_name");
 		         <li><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
 		      </ul>
 		   </li>
-		   <li class='last'><a href='#'><span>극장</span></a></li>
+		   <li class='last'><a href='/moebius/location/place'><span>극장</span></a></li>
 		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
 		      <ul>
 		         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
