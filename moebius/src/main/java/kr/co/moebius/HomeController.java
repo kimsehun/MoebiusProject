@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import kr.co.moebius.board.BoardController;
+import kr.co.moebius.board.BoardInfoVO;
+import kr.co.moebius.board.BoardService;
+import kr.co.moebius.board.BoardVO;
+import kr.co.moebius.board.Pagination;
 import kr.co.moebius.movie.MovieService;
 import kr.co.moebius.movie.MovieVO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +22,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
+	
+	
 	@Autowired
 	private MovieService movieService;
+	@Autowired
+	private BoardService boardService;
+
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -53,8 +66,104 @@ public class HomeController {
 		}
 		
 		
-	@RequestMapping("/main/board")
-	public String homeBoard(){
-		return "main/board";
+	@RequestMapping("/main/notice")
+	public String homeBoard(Model model) throws Exception{
+		
+		int bno = 1;
+		int pg = 1;
+		//페이징 처리
+		Pagination p = new Pagination(bno);
+
+		//표현 될 페이지 수
+		int pageSize = 5;
+		
+		p.setBno(bno);
+		p.setStartnum((pg-1)*pageSize+1);
+		p.setEndnum(pg*pageSize);
+		
+		
+		//전체 레코드 수
+		int totalRecord = boardService.totalRecord(bno);
+		
+		//페이지 갯수
+		int pageCount = totalRecord / pageSize;
+		if(totalRecord % pageSize != 0){
+			pageCount++;
+		}
+		
+		int blockSize = 5;
+		int startPage = (pg -1) / blockSize * blockSize +1;
+		int endPage = (pg -1) / blockSize * blockSize + blockSize;
+		if(endPage > pageCount){
+			endPage = pageCount;
+		}
+		
+		
+		List<BoardVO> list = boardService.getBoardList(p);
+		BoardInfoVO boardInfo = boardService.getBoardInfo(bno);
+		
+		
+		model.addAttribute("totalRecord",totalRecord);
+		
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("pageCount",pageCount);
+		model.addAttribute("blockSize",blockSize);
+	
+		model.addAttribute("pg",pg);
+		model.addAttribute("list",list);
+		model.addAttribute("boardInfo",boardInfo);
+
+		return "main/notice";
+	}
+	@RequestMapping("/main/question")
+	public String homeBoardQ(Model model) throws Exception{
+		
+		int bno = 2;
+		int pg = 1;
+		//페이징 처리
+		Pagination p = new Pagination(bno);
+		
+		//표현 될 페이지 수
+		int pageSize = 5;
+		
+		p.setBno(bno);
+		p.setStartnum((pg-1)*pageSize+1);
+		p.setEndnum(pg*pageSize);
+		
+		
+		//전체 레코드 수
+		int totalRecord = boardService.totalRecord(bno);
+		
+		//페이지 갯수
+		int pageCount = totalRecord / pageSize;
+		if(totalRecord % pageSize != 0){
+			pageCount++;
+		}
+		
+		int blockSize = 5;
+		int startPage = (pg -1) / blockSize * blockSize +1;
+		int endPage = (pg -1) / blockSize * blockSize + blockSize;
+		if(endPage > pageCount){
+			endPage = pageCount;
+		}
+		
+		
+		List<BoardVO> list = boardService.getBoardList(p);
+		BoardInfoVO boardInfo = boardService.getBoardInfo(bno);
+		
+		
+		model.addAttribute("totalRecord",totalRecord);
+		
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("pageCount",pageCount);
+		model.addAttribute("blockSize",blockSize);
+		
+		model.addAttribute("pg",pg);
+		model.addAttribute("list",list);
+		model.addAttribute("boardInfo",boardInfo);
+		
+		return "main/notice";
 	}
 }

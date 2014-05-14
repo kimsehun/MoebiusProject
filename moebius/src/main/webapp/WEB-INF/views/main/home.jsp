@@ -18,10 +18,10 @@
 <!-- <table align="center" width="1200" height="700"> -->
 <div id="first_first">상영예정작</div>
 <div id="first_second">
-<%//로그아웃 상태일때
-if(id==null) {
-%>
-<form action="user/login" method="post">
+	<%//로그아웃 상태일때
+	if(id==null) {
+	%>
+	<form action="user/login" method="post">
 		<table class="login">
 			<tr>
 				<th>아이디</th>
@@ -76,7 +76,6 @@ if(id==null) {
 			<c:when test="${st.index < 5 }">
 					<td align="center">
 						${st.index +1}
-<!-- css style -->
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
 						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/">상세보기</a> </p>
 					</td>
@@ -87,10 +86,12 @@ if(id==null) {
 	</table>
 </div>
 <!-- 	<td height = "200"> -->
-	<div id="third_first">광고</div>
-	<div id="third_second"><iframe src="/moebius/main/board" width="400px" height="220px" frameborder="0"></iframe> </div>
-	<div id="third_third">자주찾는질문</div>
-	<div><img width="750" height="150" src="<c:url value="/resources/img/image1.jpg"/>" class="footer_img"/></div>
-
+	<div id="third">
+		<div id="third_first">광고</div>
+		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="220px" frameborder="0"></iframe> </div>
+		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="220px" frameborder="0"></iframe></div>
+	</div>
+	<div><img src="<c:url value="/resources/img/image1.jpg"/>" class="main_img"/></div>
+	
 </body>
 </html>

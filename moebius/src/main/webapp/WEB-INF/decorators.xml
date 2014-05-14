@@ -5,7 +5,8 @@
 	</decorator>	
 	
 	<excludes>
-		<pattern>/main/board</pattern>
+		<pattern>/main/notice</pattern>
+		<pattern>/main/question</pattern>
 		<pattern>/user/zipcode</pattern>
 	</excludes>
 	

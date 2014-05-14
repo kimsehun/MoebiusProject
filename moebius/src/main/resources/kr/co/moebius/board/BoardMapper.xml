@@ -7,7 +7,8 @@
 		<select id="getBoardList" parameterType="Pagination" resultType="BoardVO">
 					SELECT B.*
 					FROM (SELECT rownum as rnum, A.*
-						  FROM (SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id", b.board_regdate, b.board_count
+						  FROM (SELECT b.board_no, b.board_title, u.user_name AS "userVO.user_name", u.user_id AS "userVO.user_id",
+						  				to_char(b.board_regdate, 'YY/MM/DD') AS "board_regdate", b.board_count
 						  		FROM m_user u JOIN m_board b
 										      ON u.user_id = b.user_id
 								WHERE b.bno=#{bno}

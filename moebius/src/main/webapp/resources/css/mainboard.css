@@ -1,0 +1,6 @@
+/*°Ô½ÃÆÇ CSS*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@CHARSET "UTF-8";
+table {border-collapse:collapse;}
+table caption {font-family:³ª´®°íµñÄÚµù; padding-bottom:5px;}
+table th, table td {font-family: monospace; padding:2px; border:solid 1px gray; padding-bottom:10px;}

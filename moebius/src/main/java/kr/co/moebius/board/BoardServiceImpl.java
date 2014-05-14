@@ -2,11 +2,15 @@ package kr.co.moebius.board;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BoardServiceImpl implements BoardService{
+	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
+	
 	
 	@Autowired
 	private BoardMapper boardMapper;
@@ -14,6 +18,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<BoardVO> getBoardList(Pagination p) throws Exception {
 		// TODO Auto-generated method stub
+		
 		return boardMapper.getBoardList(p);
 	}
 
