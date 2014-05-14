@@ -78,7 +78,7 @@ if(id==null) {
 					<td align="center">
 						${st.index +1}
 <!-- css style -->
-						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:135px;height:135px" id="btninsert"/>
+						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
 						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/">상세보기</a> </p>
 					</td>
 				</c:when>
@@ -91,7 +91,6 @@ if(id==null) {
 	<div id="third_first">광고2</div>
 	<div id="third_second">공지사항</div>
 	<div id="third_third">자주찾는질문</div>
-
 	<div><img width="750" height="150" src="<c:url value="/resources/img/image1.jpg"/>" class="footer_img"/></div>
 
 </body>
