@@ -22,6 +22,14 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/user/update'><span>회원정보수정</span></a></li>
+	   <li class='active'><a href='/moebius/user/delete'><span>회원탈퇴</span></a></li>
+	   <li class='active'><a href='#'><span>예매정보</span></a></li>
+	</ul>
+</div>
+<div id="content">
 	<form action="update" method="post" name="updateCheck">
 		<table>
 			<caption>회원 정보 수정</caption>
@@ -111,5 +119,6 @@ $(document).ready(function() {
 			</tr>
 		</table>
 	</form>
+</div>
 </body>
 </html>

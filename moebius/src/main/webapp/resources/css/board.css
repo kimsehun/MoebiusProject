@@ -18,7 +18,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:³ª´®°íµñÄÚµù;font-size:14px;font
 #container{width:1200px; display:inline-block}
 #container:after{display:block;clear:both;content:''}
 
-#header,#container{padding:15px;border:2px solid #bfbfbf; width:auto}
+#header,#container{padding:15px;border:2px solid #bfbfbf; width:1200px;}
 
 .snb,#content{margin-top:10px;border:1px solid #bdbdbd;text-align:center}
 
@@ -39,6 +39,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:³ª´®°íµñÄÚµù;font-size:14px;font
 	}
 html>body #content {
 	width: 75%; /* ie5win fudge ends */
+	float: right;
 	}
 
 
@@ -133,3 +134,18 @@ html>body .snb {
 }
 
 
+#btninsert {
+	background-color: antiquewhite;
+	width: 100px;
+	height: 100px;
+}
+
+
+.mailContent {
+	width:600px;
+	height:268px;
+}
+
+.mailTitle {
+	width:600px;
+}
