@@ -9,11 +9,11 @@
 INSERT INTO m_movie(movie_no, movie_title, movie_directer,
 				movie_genre, movie_nation, movie_runningtime, 
 				movie_actor, movie_story, movie_poster, 
-				movie_sdate, movie_grade, movie_edate, user_id)
+				movie_sdate, movie_grade, movie_edate, movie_point, user_id)
 VALUES(seq_movie_no.nextval, #{movie_title}, #{movie_directer},
 		#{movie_genre}, #{movie_nation}, #{movie_runningtime}, 
 		#{movie_actor}, #{movie_story},	#{movie_poster}, 
-		#{movie_sdate}, #{movie_grade},	#{movie_edate}, #{userVO.user_id} )
+		#{movie_sdate}, #{movie_grade},	#{movie_edate}, #{movie_point}, #{userVO.user_id} )
 </insert>
 
 <select id="search" resultType="MovieVO">
@@ -33,5 +33,6 @@ SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_r
 		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
 FROM m_movie
 ORDER BY movie_count DESC
-</select>	
+</select>
+
 </mapper>

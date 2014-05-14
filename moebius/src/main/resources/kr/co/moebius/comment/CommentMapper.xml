@@ -25,7 +25,24 @@
 	
 	<delete id="deleteComment" parameterType="CommentVO">
 	DELETE FROM m_comment
-	WHERE comment_no = #{comment_no}
+	WHERE comment_no = #{comment_no} AND movie_no=#{movie_no}
 	</delete>
 	
+	<select id="overId" parameterType="CommentVO" resultType="int">
+	SELECT count(*) AS cnt
+	FROM m_comment
+	WHERE user_id=#{user_id} AND movie_no=#{movie_no}
+	</select>
+	
+	<select id="compareCount" parameterType="CommentVO" resultType="int">
+	SELECT comment_count
+	FROM m_comment
+	WHERE user_id=#{user_id} AND movie_no=#{movie_no}
+	</select>
+	
+	<update id="countUp">
+	UPDATE m_comment SET
+	comment_count=comment_count+1
+	WHERE user_id=#{user_id} AND movie_no=#{movie_no}
+	</update>
 </mapper>

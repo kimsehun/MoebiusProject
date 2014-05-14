@@ -103,12 +103,6 @@ public class MovieController {
 			cmf.transferTo(saveFile);
 		}
 		
-		// 확장자가 이미지 확장자이면 이미지 크기와 용량을 줄이자
-		if (ext.equals("gif") || ext.equals("jpg") || ext.equals("png")
-				|| ext.equals("bmp")) {
-			createThumbnailImage(originalName, ext);
-		}
-		
 		//파일 경로 vo에 삽입
 		movieVO.setMovie_poster(originalName);
 		
@@ -212,29 +206,6 @@ public class MovieController {
 		if(is != null) try {is.close();} catch(Exception e){}
 		//파일 닫기 전에 flush
 		if(os != null) try { os.flush(); os.close();} catch(Exception e){}
-	}
-	
-	//파일 이미지 축소
-	private void createThumbnailImage(String originalName, String ext) throws IOException {
-		// TODO Auto-generated method stub
-		
-		ParameterBlock pb = new ParameterBlock();
-		
-		//원본 이미지를 pb에 넣기
-		pb.add(uploadUrl + "/" + originalName);
-		//Rendering 작업
-		RenderedOp rOp = JAI.create("fileload", pb);
-		BufferedImage bi = rOp.getAsBufferedImage();
-		
-		//가로길이, 세로길이, 이미지색상타입설정
-		BufferedImage thumb = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-		
-		Graphics2D g = thumb.createGraphics();
-		g.drawImage(bi, 0, 0, 100, 100, null);
-		
-		File file = new File(uploadUrl + "/sm_" + originalName);
-		ImageIO.write(thumb, ext, file);
-		
 	}
 
 	//디렉토리 생성

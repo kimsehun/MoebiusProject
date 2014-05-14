@@ -131,6 +131,7 @@ CREATE TABLE m_user
 	PRIMARY KEY (user_id)
 );
 
+SELECT * FROM m_user;
 
 CREATE TABLE m_reserve
 (
@@ -167,7 +168,7 @@ CREATE TABLE m_movie
 	movie_count number DEFAULT 0 NOT NULL,
 	movie_sdate varchar2(20) NOT NULL,
 	movie_grade number NOT NULL,
-	movie_point number DEFAULT 5000 NOT NULL,
+	movie_point number NOT NULL,
 	movie_edate varchar2(20) NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (movie_no)
@@ -188,10 +189,11 @@ CREATE TABLE m_comment
 	movie_no number NOT NULL,
 	comment_avgstar number DEFAULT 0 NOT NULL,
 	comment_no number NOT NULL,
+	comment_count number DEFAULT 0 NOT NULL,
 	PRIMARY KEY (comment_no)
 );
 
-
+select * from M_COMMENT;
 
 /* Create Foreign Keys */
 

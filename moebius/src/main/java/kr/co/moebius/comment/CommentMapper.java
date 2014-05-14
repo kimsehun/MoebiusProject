@@ -12,4 +12,10 @@ public interface CommentMapper {
 
 	public void deleteComment(CommentVO commentVO);
 
+	public int overId(CommentVO commentVO);
+
+	public int compareCount(CommentVO commentVO);
+
+	public int countUp(CommentVO commentVO);
+
 }
