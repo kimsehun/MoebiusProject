@@ -3,5 +3,11 @@
 	<decorator name="basic" page="layout.jsp">
 		<pattern>/*</pattern>
 	</decorator>	
+	
+	<excludes>
+		<pattern>/main/board</pattern>
+		<pattern>/user/zipcode</pattern>
+	</excludes>
+	
 </decorators>
 

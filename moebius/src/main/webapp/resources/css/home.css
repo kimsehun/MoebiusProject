@@ -12,9 +12,8 @@ table th, table td .login{font-family: monospace; padding:10px; padding-bottom:1
 
 
 
-#first_first {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center;}
-#first_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center;}
-#first_third {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+#first_first {border:1px solid #bdbdbd; width: 800px; float: left; height: 200px; text-align: center;}
+#first_second {border:1px solid #bdbdbd; width: 396px; float: left; height: 200px; text-align: center;}
 
 #second {clear: left; height: 200px; background-color: gray;}
 
@@ -26,3 +25,5 @@ table th, table td .login{font-family: monospace; padding:10px; padding-bottom:1
 
 .footer_img {margin-left: 225px;}
 .login {margin: 0 73px 0;}
+
+.poster_img{width:135px;height:135px}
