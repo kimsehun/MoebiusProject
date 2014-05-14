@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/movie.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
 /**
@@ -110,10 +111,11 @@
 </script>
 </head>
 <body>
-<table>
+<table align="center">
 	<tr>
 		<td rowspan="4" align="center">
-		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" />
+<!-- css style -->
+		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:300px"/>
 		</td>
 		<th>
 			${movieVO.movie_title}
