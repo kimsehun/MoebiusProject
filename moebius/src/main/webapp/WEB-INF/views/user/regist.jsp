@@ -50,7 +50,13 @@
 					user_jumin2 : user_jumin2
 				},
 				success : function(data) {
-					$('#user_jumin_msg').html(data.msg);
+					if(data.result == "true") {
+						$('#user_jumin_msg').html(data.msg);
+						document.getElementById('btnRegistOk').disabled = false;
+					} else {
+						$('#user_jumin_msg').html(data.msg);
+						document.getElementById('btnRegistOk').disabled = true;
+					}
 				}
 			});
 		});

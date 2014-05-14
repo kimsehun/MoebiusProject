@@ -70,13 +70,6 @@
 	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
 	</update>
 	
-	<!-- 비밀번호 수정 -->
-	<update id="updatePwd" parameterType="UserVO">
-	UPDATE m_user
-	SET user_pwd=#{user_pwd}
-	WHERE user_pwd=#{user_pwd} AND user_id=#{user_id}
-	</update>
-	
 	<!-- email 주소 받아오기 -->
 	<select id="emailaddr" parameterType="String" resultType="UserVO">
 	SELECT user_email
@@ -104,4 +97,17 @@
 	FROM m_user
 	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
 	</select>
+	
+	<!-- 비밀번호 변경 시 기존 비밀번호 가져오는거 -->
+	<select id="getPwd" resultType="String" parameterType="InfoVO">
+	SELECT user_pwd
+	FROM m_user
+	</select>
+	
+	<!-- 비밀번호 수정 -->
+	<update id="changePwd" parameterType="InfoVO" >
+	UPDATE m_user
+	SET user_pwd=#{new_pwd}, user_pwd_ok=#{new_pwd_ok}
+	WHERE user_id=#{user_id} AND user_pwd=#{user_inpwd}
+	</update>
 </mapper>

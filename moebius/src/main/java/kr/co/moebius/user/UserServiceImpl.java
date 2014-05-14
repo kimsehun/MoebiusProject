@@ -78,10 +78,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void updatePwd(UserVO userVO) throws Exception {
+	public int changePwd(InfoVO infoVO) throws Exception {
 		// TODO Auto-generated method stub
-		if(userMapper.updatePwd(userVO) == 0 ) {
-			throw new RuntimeException("비밀번호를 수정할 수 없습니다.");
-		}
+		return userMapper.changePwd(infoVO);
 	}
 }

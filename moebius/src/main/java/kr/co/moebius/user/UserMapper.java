@@ -26,7 +26,7 @@ public interface UserMapper {
 
 	int updateUser(UserVO userVO) throws Exception;
 
-	int updatePwd(UserVO userVO) throws Exception;
+	int changePwd(InfoVO infoVO) throws Exception;
 
 
 }
