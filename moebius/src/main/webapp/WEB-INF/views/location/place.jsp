@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <!-- 숨겨진 테이블 보이기 -->
 <script type="text/javascript" src="/moebius/resources/js/jquery-2.0.2.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript">
 var name, addx, addy, addr, ph;
 	$(document).ready(function() {
@@ -77,6 +78,12 @@ var name, addx, addy, addr, ph;
 </script>
 </head>
 <body>
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/location/place'><span>극장정보</span></a></li>
+	</ul>
+</div>
+<div id="content">
 <!-- 극장선택 -->
 <select name="location_no" id="location_no">
 	<option value="1" selected="selected">구로 디지털</option>
@@ -85,29 +92,30 @@ var name, addx, addy, addr, ph;
 	<option value="4">홍대입구</option>	
 </select>
 <input type="button" id="btnLocation" value="확인"><br/>
-<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
-<div id="view" style="display:none">
-	<table border=1 cellpadding=0>
-		<tr>
-			<td colspan="2">
-			<!-- 네이버 지도 -->
-				<script type="text/javascript"	src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=983caf927eed44efd87b9874510e036d"></script>
-				<div id="testMap" style="border: 1px solid #000; width: 500px; height: 400px; margin: 20px;"></div>
-			</td>
-		</tr>
-		<tr>
-			<td>극장명</td>
-			<td><div id="td1">${vo.location_name}</div></td>
-		</tr>
-		<tr>
-			<td>주소</td>
-			<td><div id="td2">${vo.location_addr}</div></td>
-		</tr>
-		<tr>
-			<td>전화번호</td>
-			<td><div id="td3">${vo.location_phone}</div></td>
-		</tr>
-	</table>
+	<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
+	<div id="view" style="display:none">
+		<table border=1 cellpadding=0>
+			<tr>
+				<td colspan="2">
+				<!-- 네이버 지도 -->
+					<script type="text/javascript"	src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=983caf927eed44efd87b9874510e036d"></script>
+					<div id="testMap" style="border: 1px solid #000; width: 500px; height: 400px; margin: 20px;"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>극장명</td>
+				<td><div id="td1">${vo.location_name}</div></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td><div id="td2">${vo.location_addr}</div></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><div id="td3">${vo.location_phone}</div></td>
+			</tr>
+		</table>
+	</div>
 </div>
 </body>
 </html>

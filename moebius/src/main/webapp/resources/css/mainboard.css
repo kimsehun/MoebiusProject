@@ -2,6 +2,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @CHARSET "UTF-8";
 body {overflow-y: hidden; overflow-x: hidden;}
-table {border-collapse:collapse; margin: auto;}
+table {border-collapse:collapse; margin: auto; text-align:center;}
 table caption {font-family:³ª´®°íµñÄÚµù; padding-bottom:5px;}
 table th, table td {font-family: monospace; padding:2px; border:solid 1px gray; padding-bottom:10px;}

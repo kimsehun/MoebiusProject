@@ -13,6 +13,13 @@
 </script>
 </head>
 <body>
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
+	   <li class='active'><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
+	</ul>
+</div>
+<div id="content">
 <table align="center" cellspacing="50" >
 	<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>
@@ -36,5 +43,6 @@
 		</c:choose>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>
