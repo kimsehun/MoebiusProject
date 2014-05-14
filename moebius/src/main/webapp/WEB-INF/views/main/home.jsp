@@ -6,8 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />" type="text/css" />
+<link rel="stylesheet" href=" <c:url value="/resources/css/flexslider.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="<c:url value="/resources/js/jquery.flexslider.js"/>"></script>
 <title>Main</title>
 <%
 	String id = (String)session.getAttribute("user_id");
