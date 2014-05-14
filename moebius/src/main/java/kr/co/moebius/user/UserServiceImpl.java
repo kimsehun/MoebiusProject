@@ -41,6 +41,12 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public int Check(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.Check(userVO);
+	}
+	
+	@Override
 	public UserVO getUserInfo(UserVO userVO) throws Exception {
 		// TODO Auto-generated method stub
 		return userMapper.getUserInfo(userVO);
@@ -67,7 +73,15 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(UserVO userVO) throws Exception {
 		// TODO Auto-generated method stub
 		if(userMapper.updateUser(userVO) == 0 ) {
-			throw new RuntimeException("정보를 수정 할 수 없습니다.");
+			throw new RuntimeException("정보를 수정할 수 없습니다.");
+		}
+	}
+	
+	@Override
+	public void updatePwd(UserVO userVO) throws Exception {
+		// TODO Auto-generated method stub
+		if(userMapper.updatePwd(userVO) == 0 ) {
+			throw new RuntimeException("비밀번호를 수정할 수 없습니다.");
 		}
 	}
 }

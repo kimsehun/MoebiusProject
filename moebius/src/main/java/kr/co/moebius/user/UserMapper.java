@@ -14,6 +14,8 @@ public interface UserMapper {
 
 	int idCheck(String user_id) throws Exception;
 
+	int Check(UserVO userVO) throws Exception;
+
 	UserVO getUserInfo(UserVO userVO) throws Exception;
 
 	UserVO searchId(UserVO userVO) throws Exception;
@@ -23,5 +25,8 @@ public interface UserMapper {
 	UserVO emailaddr(String user_id) throws Exception;
 
 	int updateUser(UserVO userVO) throws Exception;
+
+	int updatePwd(UserVO userVO) throws Exception;
+
 
 }

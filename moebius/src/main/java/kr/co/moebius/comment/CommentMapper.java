@@ -8,6 +8,8 @@ public interface CommentMapper {
 
 	public List<CommentVO> getCommentList(int movie_no);
 
+	public int avgstar(int movie_no);
 
+	public void deleteComment(CommentVO commentVO);
 
 }

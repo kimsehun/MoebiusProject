@@ -16,4 +16,16 @@
 	WHERE  movie_no = #{movie_no}
 	ORDER  BY comment_no DESC
 	</select>
+	
+	<select id="avgstar" parameterType="int" resultType="int">
+	SELECT count(*) AS cnt
+	FROM   m_comment
+	WHERE movie_no = #{movie_no}
+	</select>
+	
+	<delete id="deleteComment" parameterType="CommentVO">
+	DELETE FROM m_comment
+	WHERE comment_no = #{comment_no}
+	</delete>
+	
 </mapper>

@@ -30,6 +30,7 @@ public class MovieDetailController {
 	@Autowired
 	private MovieService movieService;
 	
+	// 영화 상세보기페이지에 영화 정보를 db에서 읽어와서 뿌려준다.
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String detail(@PathVariable int movie_no, Model model) {
 		MovieVO movieVO = movieService.detail(movie_no);
@@ -37,6 +38,7 @@ public class MovieDetailController {
 		return "movie/detail";
 	}
 	
+	//그림을 받아와서 뿌려준다.
 	@RequestMapping("/download")
 	public void download(String fileName, HttpServletResponse response) throws IOException{
 		File file = new File(uploadUrl, fileName);

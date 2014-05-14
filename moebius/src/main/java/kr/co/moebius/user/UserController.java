@@ -65,6 +65,23 @@ public class UserController {
 		return m;
 	}
 	
+	//--------------------------------같은 주민 번호인지 검사----------------------------------
+	@RequestMapping(value = "/Check",
+			headers="Accept=application/json;charset=UTF-8",
+			produces={MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public Map CheckAction(UserVO userVO) throws Exception {
+		Map<String, String> m = new HashMap<String, String>();
+		if(userService.Check(userVO) != 0) {
+			m.put("msg", "해당 사용자의 계정이 존재합니다.");
+			m.put("result", "false");
+			return m;
+		} else {
+			m.put("msg", "회원가입 가능 합니다.");
+			m.put("result", "true");
+			return m;
+		}
+	}
 	//--------------------------------로그인----------------------------------
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public void login() {}
@@ -140,8 +157,6 @@ public class UserController {
 		userService.updateUser(userVO);
 		return "/main/home";
 	}
-	
-	//--------------------------------비밀번호수정----------------------------------
 	
 	//--------------------------------아이디 찾기----------------------------------
 	@RequestMapping(value="/searchid", method=RequestMethod.GET)

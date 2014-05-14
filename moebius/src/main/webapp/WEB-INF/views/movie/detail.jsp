@@ -14,20 +14,28 @@
  */
  	var commentList;
  	$(document).ready(function(){
+ 		 		
+ 		//상세보기 페이지 읽어오는 순간 ajax를 읽어서 댓글 리스트를 뿌려준다.
  		$.ajax({
  			url:'<c:url value="/comment/${movieVO.movie_no}" />',
  			type:'POST',
  			success:function(data){
- 				alert(data);
  				$('#taComment').val('');
  				commentList='<table>';
- 				$.each(data, setCommentList);
+ 				commentList += '<tr>';
+ 		 		commentList += '<td>' + '아이디' + '</td>';
+ 		 		commentList += '<td>' + '내용' + '</td>';
+ 		 		commentList += '<td>' + '별점' + '</td>';
+ 		 		commentList += '<td>' + '삭제' + '</td></tr>';
+ 				$.each(data.list, setCommentList);
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
+ 				$('#avg').html(data.avg);
  			}
  		});
  		
+ 		//댓글 insert부분
  		$('#btnCommentOk').bind('click', function(){
 			var user_id = '${sessionScope.user_id}';
 			var comment_review = $('#taComment').val();
@@ -44,25 +52,54 @@
 					'movie_no':movie_no
 				},
 				success:function(data){
-					console.log('1');
 					$('#comment_star').val('');
 					$('#taComment').val('');
 					commentList='<table>';
-					$.each(data, setCommentList);
+					commentList += '<tr>';
+	 		 		commentList += '<td>' + '아이디' + '</td>';
+	 		 		commentList += '<td>' + '내용' + '</td>';
+	 		 		commentList += '<td>' + '별점' + '</td>';
+	 		 		commentList += '<td>' + '삭제' + '</td></tr>';
+					$.each(data.list, setCommentList);
 					commentList += '</table>';
 					
 					$('#commentDisplay').html(commentList);
+					$('#avg').html(data.avg);
 				}
 			});
 		});
 	});
  	
+ 	//댓글 삭제 부분
+	function deleteComment(cno) {
+		if (confirm(cno+'번 댓글 삭제?')) {
+		$.ajax({
+			url:'<c:url value="/comment/${movieVO.movie_no}/" />' + cno + '/delete',
+			type:'POST',
+			success:function(data){
+				$('#taComment').val('');
+				commentList='<table>';
+				commentList += '<tr>';
+ 		 		commentList += '<td>' + '아이디' + '</td>';
+ 		 		commentList += '<td>' + '내용' + '</td>';
+ 		 		commentList += '<td>' + '별점' + '</td>';
+ 		 		commentList += '<td>' + '삭제' + '</td></tr>';
+				$.each(data.list, setCommentList);
+				commentList += '</table>';
+				
+				$('#commentDisplay').html(commentList);
+				$('#avg').html(data.avg);
+			}
+		});
+		}
+	}
+ 	
+ 	//리스트 부분을 테이블 형식을 빌어 뿌려준다.
  	function setCommentList() {
  		commentList += '<tr>';
  		commentList += '<td>' + this['user_id'] + '</td>';
  		commentList += '<td>' + this['comment_review'] + '</td>';
  		commentList += '<td>' + this['comment_star'] + '</td><td>';
- 		commentList += '<td>' + this['comment_avgstar'] + '</td><td>';
 		if (this['user_id'] == '${sessionScope.user_id}') {
 			var _cno = this['comment_no'];
 			commentList += '<input type="button" value="삭제" onclick="javascript:deleteComment('+_cno+');" />';
@@ -73,7 +110,6 @@
 </script>
 </head>
 <body>
-	<input type="hidden" name="no" value="${movieVO.movie_no}">
 <table>
 	<tr>
 		<td rowspan="4" align="center">
@@ -120,11 +156,11 @@
 	</tr>
 </table>
 <br/>
-	<div id="commentDisplay"></div>
+영화 평점 : <div id="avg"></div><br/>	
 	<c:if test="${sessionScope.user_id != null }">
 	<table>
 		<tr>
-			<td colspan="2">평점<input type="number" id="comment_star" min="0" max="5" step="0.5"/></td>
+			<td colspan="2">별점<input type="number" id="comment_star" min="0" max="5" step="0.5"/></td>
 		</tr>
 		<tr>
 			<td class="comment" name="user_id">${sessionScope.user_id}</td>
@@ -134,6 +170,7 @@
 		</tr>
 	</table>
 	</c:if>
+	<div id="commentDisplay"></div>
 <br/>
 </body>
 </html>
