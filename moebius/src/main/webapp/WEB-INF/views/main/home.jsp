@@ -6,11 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />" type="text/css" />
-<link rel="stylesheet" href=" <c:url value="/resources/css/flexslider.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="<c:url value="/resources/js/jquery.flexslider.js"/>"></script>
 <title>Main</title>
 <%
 	String id = (String)session.getAttribute("user_id");
@@ -70,23 +68,8 @@
 </div>
 </div>
 <div id="second">
-
 <!-- 	<td height = "200"colspan="3" bgcolor="gray" align="center"> -->
-	<table>
-		<tr>
-		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
-		<c:choose>
-			<c:when test="${st.index < 5 }">
-					<td align="center">
-						${st.index +1}
-						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
-						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/">상세보기</a> </p>
-					</td>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		</tr>
-	</table>
+<iframe src="/moebius/main/rank" width="1000px" height="230px" frameborder="0"></iframe>
 </div>
 <!-- 	<td height = "200"> -->
 	<div id="third">

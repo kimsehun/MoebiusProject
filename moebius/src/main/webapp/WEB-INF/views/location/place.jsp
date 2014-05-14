@@ -85,6 +85,8 @@ var name, addx, addy, addr, ph;
 </div>
 <div id="content">
 <!-- 극장선택 -->
+<h3>
+영화관 선택 :
 <select name="location_no" id="location_no">
 	<option value="1" selected="selected">구로 디지털</option>
 	<option value="2">영등포</option>
@@ -92,6 +94,8 @@ var name, addx, addy, addr, ph;
 	<option value="4">홍대입구</option>	
 </select>
 <input type="button" id="btnLocation" value="확인"><br/>
+</h3>
+<img src="<c:url value="/resources/img/screen.jpg" />" width="657" height="292"><br/>
 	<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
 	<div id="view" style="display:none">
 		<table border=1 cellpadding=0>
