@@ -26,7 +26,7 @@ public interface UserService {
 
 	void updateUser(UserVO userVO) throws Exception;
 
-	void updatePwd(UserVO userVO) throws Exception;
+	int changePwd(InfoVO infoVO) throws Exception;
 
 	
 }

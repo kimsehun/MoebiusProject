@@ -24,7 +24,7 @@ String name = (String)session.getAttribute("user_name");
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
-		   <li class='has-sub'><a href='#'><span>영화</span></a>
+		   <li class='has-sub'><a href='/moebius/movie/ranking'><span>영화</span></a>
 		      <ul>
 		         <li><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
 		         <li><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>

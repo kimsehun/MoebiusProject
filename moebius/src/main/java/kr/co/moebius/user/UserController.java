@@ -158,6 +158,28 @@ public class UserController {
 		return "/main/home";
 	}
 	
+	//--------------------------------비밀번호 수정----------------------------------
+	@RequestMapping(value = "change", method=RequestMethod.GET)
+	public void change() {}
+	
+	@RequestMapping(value = "/change", method=RequestMethod.POST)
+	public ModelAndView changeAction(InfoVO infoVO, UserVO userVO) throws Exception {
+		ModelAndView mav = new ModelAndView("result");
+		infoVO.setUser_inpwd(DigestUtils.md5Hex(infoVO.getUser_inpwd()));
+		infoVO.setNew_pwd(DigestUtils.md5Hex(infoVO.getNew_pwd()));
+		try {
+			if(userService.changePwd(infoVO) != 0 ) {
+				mav.addObject("msg", "비밀번호를 변경하였습니다.");
+			} else {
+				mav.addObject("msg", "아이디 혹은 비밀번호가 틀립니다.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("비밀번호 변경 실패");
+		}
+		return mav;
+	}
+	
 	//--------------------------------아이디 찾기----------------------------------
 	@RequestMapping(value="/searchid", method=RequestMethod.GET)
 	public void searchId(){}
@@ -175,17 +197,16 @@ public class UserController {
 		String mailBody = userVO.getUser_name()+"님이 찾으시는 아이디는 " + userVO.getUser_id() + "입니다.";
 		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
 		if(result) {
-			logger.info("아이디 찾기 메일 발송 완료");
 			mav.addObject("msg", "메일로 발송 하였습니다.");
 			mav.addObject("url", "../user/login");
 			return mav;
 		}else {
-			logger.info("아이디 찾기 메일 발송 실패");
 			mav.addObject("msg", "메일 발송이 실패 하였습니다.");
 			mav.addObject("url", "../user/searchid");
 			return mav;
 		}
 	}
+	
 	
 	//--------------------------------비밀번호 찾기----------------------------------
 	@RequestMapping(value = "/searchpwd", method=RequestMethod.GET)
@@ -205,12 +226,10 @@ public class UserController {
 		boolean result = MailAction.sendMail(smtpHost, fromAddr, toAddr, subject, mailBody);
 		
 		if(result) {
-			logger.info("비밀번호 찾기 메일 발송 완료");
 			mav.addObject("msg", "메일로 발송 하였습니다.");
 			mav.addObject("url", "../user/login");
 			return mav;
 		}else {
-			logger.info("비밀번호 찾기 메일 발송 실패");
 			mav.addObject("msg", "메일 발송이 실패 하였습니다.");
 			mav.addObject("url", "../user/searchpwd");
 			return mav;
