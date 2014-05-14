@@ -1,33 +1,16 @@
 package kr.co.moebius;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URLEncoder;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletResponse;
 
 import kr.co.moebius.movie.MovieService;
 import kr.co.moebius.movie.MovieVO;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
@@ -68,4 +51,10 @@ public class HomeController {
 			}
 			return year + month + day;
 		}
+		
+		
+	@RequestMapping("/main/board")
+	public String homeBoard(){
+		return "main/board";
+	}
 }
