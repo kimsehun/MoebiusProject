@@ -10,17 +10,18 @@
 </head>
 <body>
 <input type="hidden" name="pg" value="${pg}" />
-<div id='sidebar'>
+<input type="hidden" id="bno" value="${bno}">
+<input type="hidden" id="user_id" value="${user_id}" />
+<div class="snb">
    <ul>
 	   <li class='active'><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
 	   <li class='active'><a href='/moebius/board/2/1/'><span>자주하는 질문</span></a></li>
 	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
 	</ul>
 </div>
-<div id="content" align="center">
+<div id="content">
+
 <form action="insert" method="GET" >
-<input type="hidden" id="bno" value="${bno}">
-<input type="hidden" id="user_id" value="${user_id}" />
 <table border="1">
 	<caption>${boardInfo.bname}</caption>
 	<tr>

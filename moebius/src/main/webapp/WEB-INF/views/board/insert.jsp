@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
-	if($('#user_id').val()){
+	if($('#user_id').equals('admin')){
 		alert('로그인 했음');
 	}
 	else {
@@ -21,6 +21,14 @@
 <body>
 <input type="hidden" id="user_id" value="${user_id}">
 <form action="insert" method="post">
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+	   <li class='active'><a href='/moebius/board/2/1/'><span>자주하는 질문</span></a></li>
+	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
+	</ul>
+</div>
+<div id="content">
 <table>
 	<caption>글 쓰기</caption>
 	<tr>
@@ -38,6 +46,7 @@
 		</td>
 	</tr>
 </table>
+</div>
 </form>
 </body>
 </html>

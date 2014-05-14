@@ -1,27 +1,70 @@
 @CHARSET "UTF-8";
-.footer {text-align:center;}
 
-.top_menu {width: 200px; float: left;}
+/* UI Object */
+body{_text-align:center}
+div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14px;font-weight:bold}
+#wrap{width:1300px;margin:0 auto;_text-align:left; padding:10px;border:1px solid #bdbdbd;}}
+#header{width:100%; margin-top:10px;}
+#container{width:1266px; display:inline-block}
+#container:after{display:block;clear:both;content:''}
 
-.top_userInfo {width:80px;float:right;}
+#header,#container{padding:15px;border:2px solid #bfbfbf;}
 
-.bottom {width : 200px; float:center;}
+.snb,#content{margin-top:10px;text-align:center}
 
-@CHARSET "UTF-8";
-.footer {text-align:center;}
+.snb{float:left;width:180px}
+#content{float:right;width:1250px}
+#footer{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;text-align:center}
 
-.top_menu {width: 200px; float: left;}
+#footer ul,#footer li,#footer a,#footer strong,#footer img,#footer em,#footer address,#footer span{margin:0;padding:0;color:#afafaf;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,'굴림',Gulim, AppleGothic, Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}
 
-.top_userInfo {float:right;}
+#footer a{color:#afafaf;text-decoration:none}
+
+#footer a:visited{color:#afafaf;text-decoration:none}
+
+#footer a:hover{text-decoration:underline}
+
+#footer ul{margin:0 0 10px}
+
+#footer ul li{display:inline;position:relative;padding:0 5px 0 7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 0 50% no-repeat;font-size:12px;white-space:nowrap}
+
+#footer ul li a:hover,#footer ul li a:hover strong{color:#438a01}
+
+#footer ul li.frst{padding:0 3px 0 0;background:none}
+
+#footer .info{margin:0 0 11px;color:#646464;font-size:11px;line-height:15px}
+
+#footer .info2{margin:-3px 0 13px;font-size:11px;line-height:18px}
+
+#footer .info2 span{display:inline-block;margin-left:2px;padding-left:7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 1px 50% no-repeat;_background-position:left 10%;font-size:11px}
+
+#footer address{font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer address img{vertical-align:middle}
+
+#footer address a{color:#afafaf;font-family:Tahoma;font-size:9px;font-weight:bold}
+
+#footer address a:hover{color:#009bc8}
+
+#footer address span{padding-left:2px;font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer address em{padding-left:6px;font-family:Verdana;font-size:9px}
+
+#footer address .logo{display:inline-block;*display:inline;vertical-align:top;*vertical-align:baseline}
 
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+
+
+/* Menu Bar*/
+
+
 #header {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
   font-size: 15px;
   line-height: 15px;
   text-transform: uppercase;
   text-align: left;
+  width: auto;
 }
 #header > ul {
   width: auto;

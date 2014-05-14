@@ -33,6 +33,14 @@
 </script>
 </head>
 <body>
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+	   <li class='active'><a href='/moebius/board/2/1/'><span>자주하는 질문</span></a></li>
+	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
+	</ul>
+</div>
+<div id="content">
 <input type="hidden" name="no" value="${boardVO.board_no}">
 <input type="hidden" name="bno" value="${bno}">
 <input type="hidden" name="session_user_id" value="${sessionScope.user_id}" >
@@ -73,5 +81,6 @@
 </c:if>
 </div>
 <br>
+</div>
 </body>
 </html>

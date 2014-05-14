@@ -21,6 +21,7 @@ String name = (String)session.getAttribute("user_name");
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 </head>
 <body>
+<div id="wrap">
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
@@ -69,22 +70,22 @@ String name = (String)session.getAttribute("user_name");
 
 	<decorator:body />
 	
-<!-- Footer -->
-<div id="footer2">
-    <p class="info">
-        대표이사 : 김민우   |    사업자등록번호 : 111-11-11111   |   통신판매업신고번호 구로
-		개인정보관리 책임자 : 송유빈     
-	</p>
-	 <p class="info">
-	 	  대표이메일 moebius@moebius.com
-		고객센터   1111-1111   ARS 예매  1111-1112
-	</p>
-    <address>
-        <em>GROUP : MOEBIUS</em>
-        <a href="#" target="_blank">DEVELOPER : MW, SH, JW, YB</a>
-        <span>All Rights Reserved.</span>
-    </address>
+	<!-- Footer -->
+	<div id="footer">
+	    <p class="info">
+	        대표이사 : 김민우   |    사업자등록번호 : 111-11-11111   |   통신판매업신고번호 구로
+			개인정보관리 책임자 : 송유빈     
+		</p>
+		 <p class="info">
+		 	  대표이메일 moebius@moebius.com
+			고객센터   1111-1111   ARS 예매  1111-1112
+		</p>
+	    <address>
+	        <em>GROUP : MOEBIUS</em>
+	        <a href="#" target="_blank">DEVELOPER : MW, SH, JW, YB</a>
+	        <span>All Rights Reserved.</span>
+	    </address>
+	</div>
 </div>
-<!-- //Footer -->
 </body>
 </html>

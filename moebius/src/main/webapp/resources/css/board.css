@@ -10,6 +10,57 @@ A:visited {color:black; text-decoration:none;}
 A:hover {color:black; text-decoration:none;}
 A:active {color:black; text-decoration:none;}
 
+/* UI Object */
+body{_text-align:center}
+div{margin:0 0 10px;padding:10px 0; font-family:³ª´®°íµñÄÚµù;font-size:14px;font-weight:bold}
+#wrap{width:600px;margin:0 auto;_text-align:left; padding:10px;border:1px solid #bdbdbd;}}
+#header{width:100%; margin-top:10px;}
+#container{width:1200px; display:inline-block}
+#container:after{display:block;clear:both;content:''}
+
+#header,#container{padding:15px;border:2px solid #bfbfbf; width:auto}
+
+.snb,#content{margin-top:10px;border:1px solid #bdbdbd;text-align:center}
+
+.snb{float:left;width:180px}
+#content{float:right;width:1200px}
+#footer{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;text-align:center}
+
+#footer ul,#footer li,#footer a,#footer strong,#footer img,#footer em,#footer address,#footer span{margin:0;padding:0;color:#afafaf;font-family:'³ª´®°íµñ',NanumGothic,'µ¸¿ò',Dotum,'±¼¸²',Gulim, AppleGothic, Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}
+
+#footer a{color:#afafaf;text-decoration:none}
+
+#footer a:visited{color:#afafaf;text-decoration:none}
+
+#footer a:hover{text-decoration:underline}
+
+#footer ul{margin:0 0 10px}
+
+#footer ul li{display:inline;position:relative;padding:0 5px 0 7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 0 50% no-repeat;font-size:12px;white-space:nowrap}
+
+#footer ul li a:hover,#footer ul li a:hover strong{color:#438a01}
+
+#footer ul li.frst{padding:0 3px 0 0;background:none}
+
+#footer .info{margin:0 0 11px;color:#646464;font-size:11px;line-height:15px}
+
+#footer .info2{margin:-3px 0 13px;font-size:11px;line-height:18px}
+
+#footer .info2 span{display:inline-block;margin-left:2px;padding-left:7px;background:url(http://static.naver.com/common/footer/bu_bar2.gif) 1px 50% no-repeat;_background-position:left 10%;font-size:11px}
+
+#footer address{font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer address img{vertical-align:middle}
+
+#footer address a{color:#afafaf;font-family:Tahoma;font-size:9px;font-weight:bold}
+
+#footer address a:hover{color:#009bc8}
+
+#footer address span{padding-left:2px;font-family:Verdana;font-size:9px;line-height:14px}
+
+#footer address em{padding-left:6px;font-family:Verdana;font-size:9px}
+
+#footer address .logo{display:inline-block;*display:inline;vertical-align:top;*vertical-align:baseline}
 
 #content {
 	float: left; 
@@ -24,11 +75,11 @@ A:active {color:black; text-decoration:none;}
 	height: 100%;
 	}
 html>body #content {
-	width: 81%; /* ie5win fudge ends */
+	width: 75%; /* ie5win fudge ends */
 	}
 
 
-#sidebar {
+.snb {
 	float: left;
 	margin: 0px;
 	border: 1px;
@@ -43,15 +94,15 @@ html>body #content {
 	text-align: left;
 	padding-top: 10px;
 	}
-html>body #sidebar {
-	width: 15%; /* ie5win fudge ends */
+html>body .snb {
+	width: 20%; /* ie5win fudge ends */
 	}
 	
-#sidebar_info {
+.snb_info {
 	padding: 10px 2% 10px 2%;
 }
 
-#sidebar > ul {
+.snb > ul {
   width: auto;
   list-style-type: none;
   padding: 0;
@@ -64,56 +115,56 @@ html>body #sidebar {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-#sidebar > ul li#responsive-tab {
+.snb > ul li#responsive-tab {
   display: none;
   /* Hide for large screens */
 
 }
-#sidebar > ul li {
+.snb > ul li {
   width: 100%;
   display: inline-block;
   *display: inline;
   zoom: 1;
 }
-#sidebar > ul li a {
+.snb > ul li a {
   display: block;
   padding: 12px 24px 11px 24px;
   text-decoration: none;
   color: #747474;
   text-shadow: 0px 1px 0px #fff;
 }
-#sidebar > ul li a.active,
-#sidebar > ul li a:hover {
+.snb > ul li a.active,
+.snb > ul li a:hover {
   background: #d80041;
   color: #fff;
   text-shadow: 0px 1px 0px #000;
 }
 @media (max-width: 600px) {
-  #sidebar > ul {
+  .snb > ul {
     width: 100%;
   }
-  #sidebar > ul li#responsive-tab {
+  .snb > ul li#responsive-tab {
     display: block;
   }
-  #sidebar > ul li#responsive-tab a {
+  .snb > ul li#responsive-tab a {
     background-position: 95% -35%;
   }
-  #sidebar > ul li#responsive-tab a:hover {
+  .snb > ul li#responsive-tab a:hover {
     background-color: #d80041;
     background-position: 95% 135%;
   }
-  #sidebar > ul li {
+  .snb > ul li {
     display: none;
   }
 }
 /* Make sure they show even if hidden in mobile view by JS */
 @media (min-width: 600px) {
-  #sidebar > ul > li.collapsed {
+  .snb > ul > li.collapsed {
     display: inline-block !important;
     *display: inline;
     zoom: 1;
   }
-  #sidebar > ul ul li.collapsed {
+  .snb > ul ul li.collapsed {
     display: block !important;
   }
 }
