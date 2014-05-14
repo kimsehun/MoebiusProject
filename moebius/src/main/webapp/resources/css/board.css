@@ -149,3 +149,9 @@ html>body .snb {
 .mailTitle {
 	width:600px;
 }
+
+.theaterInfo {
+	border:1px;
+	cellpadding:0;
+	margin:auto;
+}

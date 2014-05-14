@@ -98,7 +98,7 @@ var name, addx, addy, addr, ph;
 <img src="<c:url value="/resources/img/screen.jpg" />" width="657" height="292"><br/>
 	<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
 	<div id="view" style="display:none">
-		<table border=1 cellpadding=0>
+		<table class="theaterInfo">
 			<tr>
 				<td colspan="2">
 				<!-- 네이버 지도 -->
