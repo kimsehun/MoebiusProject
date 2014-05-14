@@ -113,7 +113,7 @@
 <table>
 	<tr>
 		<td rowspan="4" align="center">
-		<img src="download?fileName=${movieVO.movie_poster}" />
+		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" />
 		</td>
 		<th>
 			${movieVO.movie_title}

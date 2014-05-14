@@ -76,8 +76,8 @@
 			<c:when test="${st.index < 5 }">
 					<td>
 						${st.index +1}
-						<img src="download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
-						<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+						<img src="/moebius/movie/download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
+						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/">상세보기</a> </p>
 					</td>
 				</c:when>
 			</c:choose>
