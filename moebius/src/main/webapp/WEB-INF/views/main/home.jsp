@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="<c:url value="/resources/css/login.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/home.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
 <title>Main</title>
@@ -14,62 +14,63 @@
 %>
 </head>
 <body>
-<table align="center" width="1200" height="700">
-<tr>
-	<td >상영예정작</td>
-	<td>광고1</td>
-	<td width="300">
-	<%//로그아웃 상태일때
-	if(id==null) {
-	%>
-	<form action="user/login" method="post">
-			<table class="login">
-				<tr>
-					<th>아이디</th>
-					<td><input type="text" name="user_id" id="user_id" autofocus="autofocus"></td>
-				</tr>
-				
-				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="user_pwd" id="user_pwd"></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="로그인" id="btnLoginOk"/>
-						<input type="button" value="회원가입" id="btnRegist"/>
-					<div>ID/PW찾기</div>
-					</td>
-				</tr>
-		  </table>
+<div id="first">
+<!-- <table align="center" width="1200" height="700"> -->
+<div id="first_first">상영예정작</div>
+<div id="first_second">광고1</div>
+<div id="first_third">
+<%//로그아웃 상태일때
+if(id==null) {
+%>
+<form action="user/login" method="post">
+		<table class="login">
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" name="user_id" id="user_id" autofocus="autofocus"></td>
+			</tr>
+			
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" name="user_pwd" id="user_pwd"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="로그인" id="btnLoginOk"/>
+					<input type="button" value="회원가입" id="btnRegist"/>
+				<div>ID/PW찾기</div>
+				</td>
+			</tr>
+		</table>
+		<%//로그인 상태일떄
+		} else {
+		%>
+		<table>
+			<tr>
+				<td colspan="2" align="left">${sessionScope.user_name}<br/></td>
+				<td align="right"><input type="button" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
+			</tr>
+			<tr>
+				<td class="smallfont">예매내역<br/></td>
+				<td class="smallfont">나의 포인트<br/></td>
+				<td class="smallfont">무비 캘랜더(준비중)<br/></td>
+			</tr>
+			<tr>
+				<td class="smallfont">상영시간표<br/></td>
+				<td class="smallfont">극장찾기<br/></td>
+				<td class="smallfont">관람권등록(준비중)</td>
+			</tr>
+		
+		</table>
+		
+		<%} %>
 	</form>
-	<%//로그인 상태일떄
-	} else {
-	%>
-	<table border="1"  align="center">
-		<tr>
-			<td colspan="2" align="left">${sessionScope.user_name}<br/></td>
-			<td align="right"><input type="button" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
-		</tr>
-		<tr>
-			<td class="smallfont">예매내역<br/></td>
-			<td class="smallfont">나의 포인트<br/></td>
-			<td class="smallfont">무비 캘랜더(준비중)<br/></td>
-		</tr>
-		<tr>
-			<td class="smallfont">상영시간표<br/></td>
-			<td class="smallfont">극장찾기<br/></td>
-			<td class="smallfont">관람권등록(준비중)</td>
-		</tr>
-	
-	</table>
-	
-	<%} %>
-	</td>
-</tr>
-<tr>
-	<td height = "200"colspan="3" bgcolor="gray" align="center">
-	<table cellspacing="50">
+</div>
+</div>
+<div id="second">
+
+<!-- 	<td height = "200"colspan="3" bgcolor="gray" align="center"> -->
+	<table>
 		<tr>
 		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>
@@ -84,16 +85,13 @@
 		</c:forEach>
 		</tr>
 	</table>
-	</td>
-</tr>
-<tr>
-	<td height = "200">광고2</td>
-	<td>공지사항</td>
-	<td>자주찾는질문</td>
-</tr>
-<tr>
-	<td align="center" colspan="3"><img width="750" height="150" src="<c:url value="/resources/img/image1.jpg"/>"/></td>
-</tr>
-</table>
+</div>
+<!-- 	<td height = "200"> -->
+	<div id="third_first">광고2</div>
+	<div id="third_second">공지사항</div>
+	<div id="third_third">자주찾는질문</div>
+
+	<div><img width="750" height="150" src="<c:url value="/resources/img/image1.jpg"/>" class="footer_img"/></div>
+
 </body>
 </html>

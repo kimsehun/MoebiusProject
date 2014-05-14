@@ -14,8 +14,7 @@ String name = (String)session.getAttribute("user_name");
 %>
 <decorator:head></decorator:head>
 <!-- site mesh 처리할때 menu_jquery.js하고 main.css안에 내포된 png파일의 그림 오류 해결할것!! -->
-<link rel="stylesheet" href="<c:url value="/resources/css/main.css" />" type="text/css" />
-<link rel="stylesheet" href="<c:url value="/resources/css/footer.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/layout.css" />" type="text/css" />
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>

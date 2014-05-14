@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+table .login {border-collapse:collapse; align:center;}
+table caption .login {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
+table th, table td .login{font-family: monospace; padding:10px; padding-bottom:10px; background-color: cornflowerblue;}
+
+.smallfont{
+	font-family:'돋움체';
+	font-size:12px;
+}
+
+
+
+
+#first_first {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center;}
+#first_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center;}
+#first_third {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+
+#second {clear: left; height: 200px; background-color: gray;}
+
+#third_first {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center;}
+#third_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center;}
+#third_third {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+
+
+
+.footer_img {margin-left: 225px;}
+.login {margin: 0 73px 0;}
