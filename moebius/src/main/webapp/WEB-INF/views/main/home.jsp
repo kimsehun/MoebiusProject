@@ -14,7 +14,7 @@
 %>
 </head>
 <body>
-<table align="center" width="1300" height="700">
+<table align="center" width="1200" height="700">
 <tr>
 	<td >상영예정작</td>
 	<td>광고1</td>
