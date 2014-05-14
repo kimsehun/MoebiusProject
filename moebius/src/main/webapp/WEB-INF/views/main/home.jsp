@@ -75,9 +75,10 @@ if(id==null) {
 		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>
 			<c:when test="${st.index < 5 }">
-					<td>
+					<td align="center">
 						${st.index +1}
-						<img src="/moebius/movie/download?fileName=sm_${movieVO.movie_poster}"  id="btninsert"/>
+<!-- css style -->
+						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:135px;height:135px" id="btninsert"/>
 						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/">상세보기</a> </p>
 					</td>
 				</c:when>
