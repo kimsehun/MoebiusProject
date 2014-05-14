@@ -18,9 +18,9 @@ table th, table td .login{font-family: monospace; padding:10px; padding-bottom:1
 #second {clear: left; height: 200px; background-color: gray;}
 
 #third {height: 200px;}
-#third_first {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center;}
-#third_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center;}
-#third_third {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+#third_first {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+#third_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
+#third_third {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
 
 .main_img {width:750px; height:150px; margin-left: 225px;}
 .login {margin: 0 73px 0;}

@@ -91,8 +91,8 @@
 <!-- 	<td height = "200"> -->
 	<div id="third">
 		<div id="third_first">광고</div>
-		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="220px" frameborder="0"></iframe> </div>
-		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="220px" frameborder="0"></iframe></div>
+		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="200px" frameborder="0"></iframe> </div>
+		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="200px" frameborder="0"></iframe></div>
 	</div>
 	<div><img src="<c:url value="/resources/img/image1.jpg"/>" class="main_img"/></div>
 	
