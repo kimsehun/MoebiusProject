@@ -24,28 +24,14 @@ public class HomeController {
 
 	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	
 	@Autowired
 	private MovieService movieService;
+	
 	@Autowired
 	private BoardService boardService;
 
-
 	@RequestMapping("/")
-	public String home(Model model) {
-		String today = calday();
-		// 영화정보를 가져와서 오늘 날짜와 비교한다.
-		List<MovieVO> list = movieService.ranking();
-		//상영작만 따로 저장할 list를 만든다.
-		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
-		for (MovieVO vo : list) {
-			if (Integer.parseInt(vo.getMovie_sdate()) < Integer.parseInt(today)) {
-				//상영날짜까지 남은 시간을 계산
-				rankinglist.add(vo);
-			}
-		}
-		model.addAttribute("rankinglist",rankinglist);
-		
+	public String home() {
 		return "main/home";
 	}
 	
@@ -116,6 +102,25 @@ public class HomeController {
 
 		return "main/notice";
 	}
+	
+	@RequestMapping("/main/rank")
+	public String rank(Model model) throws Exception {
+		String today = calday();
+		// 영화정보를 가져와서 오늘 날짜와 비교한다.
+		List<MovieVO> list = movieService.ranking();
+		//상영작만 따로 저장할 list를 만든다.
+		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
+		for (MovieVO vo : list) {
+			if (Integer.parseInt(vo.getMovie_sdate()) < Integer.parseInt(today)) {
+				//상영날짜까지 남은 시간을 계산
+				rankinglist.add(vo);
+			}
+		}
+		model.addAttribute("rankinglist",rankinglist);
+		
+		return "main/rank";
+	}
+	
 	@RequestMapping("/main/question")
 	public String homeBoardQ(Model model) throws Exception{
 		
