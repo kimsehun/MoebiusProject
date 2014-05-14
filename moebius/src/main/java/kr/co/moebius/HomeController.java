@@ -31,10 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
-	
-	@Value("${upload.url}")
-	private String uploadUrl;
-	
+
 	@Autowired
 	private MovieService movieService;
 
@@ -70,26 +67,5 @@ public class HomeController {
 				day = "0" + day;
 			}
 			return year + month + day;
-		}
-		
-		//파일을 읽어와서 화면에 뿌려준다.
-		@RequestMapping("/download")
-		public void download(String fileName, HttpServletResponse response) throws IOException{
-			File file = new File(uploadUrl, fileName);
-			
-			response.setContentType("aplication/octet-stream");
-			response.setContentLength((int) file.length());
-			response.setHeader("Content-Disposition", "attachment; fileName=\""+URLEncoder.encode(fileName,"UTF-8")+"\"");
-			
-			InputStream is = null;
-			OutputStream os = response.getOutputStream();
-			
-			//받아온 파일을 inputStream을 이용해서 읽어오고 outPutStream을 이용해서 내보냄
-			is=new FileInputStream(file);
-			FileCopyUtils.copy(is, os);
-			
-			if(is != null) try {is.close();} catch(Exception e){}
-			//파일 닫기 전에 flush
-			if(os != null) try { os.flush(); os.close();} catch(Exception e){}
 		}
 }
