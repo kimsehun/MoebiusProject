@@ -72,4 +72,10 @@
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>		
 		
+		<!-- reserve Mapper -->
+		<bean id="ReserveMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.reserve.ReserveMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>
+		
 </beans>
