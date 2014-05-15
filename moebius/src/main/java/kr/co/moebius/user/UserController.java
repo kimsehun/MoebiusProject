@@ -99,7 +99,6 @@ public class UserController {
 			session.setAttribute("user_name", userInfo.getUser_name());
 			
 			mav.addObject("msg",userInfo.getUser_id()+ "님이 로그인되었습니다.");
-					 		  // ../board/게시판번호/페이지
 			mav.addObject("url","..");
 			
 		} catch (Exception e) {
@@ -159,7 +158,7 @@ public class UserController {
 	}
 	
 	//--------------------------------비밀번호 수정----------------------------------
-	@RequestMapping(value = "change", method=RequestMethod.GET)
+	@RequestMapping(value = "/change", method=RequestMethod.GET)
 	public void change() {}
 	
 	@RequestMapping(value = "/change", method=RequestMethod.POST)
