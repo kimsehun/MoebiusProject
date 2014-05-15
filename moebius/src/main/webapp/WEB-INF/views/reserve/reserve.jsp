@@ -7,10 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="reserve" style="width:1200px;border:solid 1px gray;">
-		<div id="third_first">광고</div>
-		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="200px" frameborder="0"></iframe> </div>
-		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="200px" frameborder="0"></iframe></div>
+	<div style="width:1200px; height:700px; border:solid 1px gray;" >
+		<div style="width:350px; float:left; margin-left:5%; border:solid 1px gray;">
+		</div>
+		<div style="width:350px; float:left; border:solid 1px gray;">
+		</div>
+		<div style="width:350px; float:left; margin:0,200px,0,0; border:solid 1px gray;">
+		</div>
+		<div style="width:350px; float:left; clear:left;  margin-left:5%; border:solid 1px gray;">
+		</div>
+		<div style="width:350px; float:left; border:solid 1px gray;">
+		</div>
+		<div style="width:350px; float:left; margin:0,200px,0,0; border:solid 1px gray;">
+		</div>
+		
 	</div>
 <br/>
 <hr><br/>
