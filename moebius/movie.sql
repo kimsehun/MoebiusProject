@@ -126,7 +126,7 @@ CREATE TABLE m_user
 	user_addr1 varchar2(100) NOT NULL,
 	user_addr2 varchar2(50) NOT NULL,
 	user_regdate date DEFAULT sysdate NOT NULL,
-	user_point number DEFAULT 0 NOT NULL,
+	user_point number DEFAULT 5000 NOT NULL,
 	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
