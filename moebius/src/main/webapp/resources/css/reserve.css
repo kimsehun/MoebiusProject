@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+
+#reserve_content {width:1200px; height:700px; border:solid 1px gray; padding: 0px;}
+.seat_top {border:solid 1px gray; height:100px; margin-bottom: 0px; text-align:center;}
+.seat_content {border:solid 1px gray; height:557px; margin-top:0px; text-align:center;}
