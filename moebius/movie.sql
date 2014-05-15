@@ -131,7 +131,7 @@ CREATE TABLE m_user
 	PRIMARY KEY (user_id)
 );
 
-SELECT * FROM m_user
+SELECT * FROM m_user;
 
 CREATE TABLE m_reserve
 (

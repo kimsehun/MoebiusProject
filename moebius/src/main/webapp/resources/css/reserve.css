@@ -3,3 +3,15 @@
 #reserve_content {width:1200px; height:700px; border:solid 1px gray; padding: 0px;}
 .seat_top {border:solid 1px gray; height:100px; margin-bottom: 0px; text-align:center;}
 .seat_content {border:solid 1px gray; height:557px; margin-top:0px; text-align:center;}
+
+.reserve_first_first{width:350px; float:left; margin-left:2%; margin-top:40px; margin-bottom:0; border:solid 1px gray;}
+.reserve_first_second {width:350px; float:left; margin-top:40px; margin-bottom:0; border:solid 1px gray;}
+.reserve_first_third {width:100px; float:left; margin-top:40px; margin-bottom:0; border:solid 1px gray;}
+.reserve_first_forth {width:350px; float:left; margin-top:40px; margin-bottom:0; border:solid 1px gray;}
+
+.reserve_second_first {width:350px; height: 500px; float:left; clear:left;  margin-left:2%; border:solid 1px gray;}
+.reserve_second_second {width:350px; height: 500px; float:left; border:solid 1px gray;}
+.reserve_second_third {width:100px; height: 500px; float:left; border:solid 1px gray;}
+.reserve_second_forth {width:350px; height: 500px; float:left; border:solid 1px gray;}
+
+.seat_select {margin-top: 0; margin-bottom: 0;}
