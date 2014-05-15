@@ -20,7 +20,7 @@
 	<c:forEach items="${list2}" var="movieVO">
 	<tr>
 		<td rowspan="4">
-		<img src="download?fileName=${movieVO.movie_poster}" style="width:150px;"/>
+		<img src="download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px"/>
 		</td>
 		<th>
 		<c:if test="${movieVO.movie_grade == 1 }">
