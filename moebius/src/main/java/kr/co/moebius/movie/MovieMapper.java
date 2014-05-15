@@ -1,6 +1,7 @@
 package kr.co.moebius.movie;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MovieMapper {
 
@@ -18,5 +19,8 @@ public interface MovieMapper {
 
 	//상영작을 예매순으로 리스트형식으로 가져온다.
 	List<MovieVO> ranking();
+
+	List<MovieVO> selectMovie();
+
 
 }

@@ -1,9 +1,10 @@
 package kr.co.moebius.movie;
 
 import java.util.List;
+import java.util.Map;
 
-import kr.co.moebius.user.UserMapper;
-import kr.co.moebius.user.UserVO;
+import kr.co.moebius.movie.MovieVO;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,6 @@ public class MovieServiceImpl implements MovieService{
 
 	@Autowired
 	private MovieMapper movieMapper;
-	
-	@Autowired
-	private UserMapper userMapper;
 
 	@Override
 	public void insertAction(MovieVO movieVO) {
@@ -41,5 +39,10 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public List<MovieVO> ranking() {
 		return movieMapper.ranking();
+	}
+
+	@Override
+	public List<MovieVO> selectMovie() {
+		return movieMapper.selectMovie();
 	}
 }

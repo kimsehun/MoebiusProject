@@ -12,4 +12,8 @@
 	WHERE location_no = #{location_no}
 	</select>
 	
+	<select id="selectLocation" resultType="LocationVO">
+		SELECT location_no, location_name
+		FROM m_location
+	</select>
 </mapper>

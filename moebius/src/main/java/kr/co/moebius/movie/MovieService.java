@@ -1,6 +1,7 @@
 package kr.co.moebius.movie;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MovieService {
 
@@ -13,5 +14,7 @@ public interface MovieService {
 	MovieVO detail(int movie_no);
 
 	List<MovieVO> ranking();
+
+	List<MovieVO> selectMovie();
 
 }

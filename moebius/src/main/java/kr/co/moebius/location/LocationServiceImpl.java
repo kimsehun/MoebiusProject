@@ -19,7 +19,10 @@ public class LocationServiceImpl implements LocationService {
 	public LocationVO getSelect(int location_no) throws Exception {
 
 		return locationMapper.getLocationList(location_no);
-		
 	}
 	
+	@Override
+	public List<LocationVO> selectLocation() throws Exception {
+		return locationMapper.selectLocation();
+	}
 }

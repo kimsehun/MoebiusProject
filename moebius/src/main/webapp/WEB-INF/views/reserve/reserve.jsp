@@ -15,9 +15,23 @@
 		<div class="reserve_first_second" align="center">극장</div>
 		<div class="reserve_first_third" align="center">날짜</div>
 		<div class="reserve_first_forth" align="center">시간</div>
-		<div class="reserve_second_first"></div>
-		<div class="reserve_second_second"></div>
-		<div class="reserve_second_third"></div>
+		<div class="reserve_second_first">
+			<c:forEach items="${movieList}" var="movieVO">
+				${movieVO.movie_title}<br/>
+			</c:forEach>
+		</div>
+		<div class="reserve_second_second">
+			<c:forEach items="${locationList}" var="locationVO">
+				${locationVO.location_name}<br/>
+			</c:forEach>
+		</div>
+		<div class="reserve_second_third" align="center">
+			<div class="reserve_year">${year}</div>
+		<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
+			<c:forEach items="${calList}" var="cal">
+				${cal}<br/>
+			</c:forEach>
+		</div>
 		<div class="reserve_second_forth"></div>
 		
 	</div>

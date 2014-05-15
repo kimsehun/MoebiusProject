@@ -32,7 +32,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home() {
-		return "reserve/reserve";
+		return "main/home";
 	}
 	
 	//오늘 날짜를 YYYYMMDD 형식으로 반환한다.

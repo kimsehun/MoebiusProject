@@ -35,4 +35,9 @@ FROM m_movie
 ORDER BY movie_count DESC
 </select>
 
+<select id="selectMovie" resultType="MovieVO">
+SELECT movie_no, movie_title
+FROM m_movie
+ORDER BY movie_title ASC
+</select>
 </mapper>
