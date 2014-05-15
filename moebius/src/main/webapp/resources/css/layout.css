@@ -15,7 +15,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14p
 .snb{float:left;width:180px}
 
 
-#content{float:right;width:1200px}
+/* #content{float:right;width:1200px} */
 #footer{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;text-align:center}
 
 #footer ul,#footer li,#footer a,#footer strong,#footer img,#footer em,#footer address,#footer span{margin:0;padding:0;color:#afafaf;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,'굴림',Gulim, AppleGothic, Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}

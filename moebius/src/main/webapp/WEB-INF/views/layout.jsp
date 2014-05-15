@@ -24,12 +24,14 @@ String name = (String)session.getAttribute("user_name");
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>
+		   <li class='active'><a href='/moebius/reserve/reserve'><span>예매</span></a></li>
 		   <li class='has-sub'><a href='/moebius/movie/ranking'><span>영화</span></a>
 		      <ul>
 		         <li><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
 		         <li><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
 		      </ul>
 		   </li>
+		   
 		   <li class='last'><a href='/moebius/location/place'><span>극장</span></a></li>
 		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
 		      <ul>
@@ -55,7 +57,7 @@ String name = (String)session.getAttribute("user_name");
 		   } else {
 		   %>
 		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
-		   <li class='has-sub-right'><a href='/moebius/user/login'><span>유저정보</span></a>
+		   <li class='has-sub-right'><a href='/moebius/user/userInfo'><span>유저정보</span></a>
 		  	 <ul>
 		         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
 		         <li><a href='/moebius/user/delete'><span>정보삭제</span><br></a></li>

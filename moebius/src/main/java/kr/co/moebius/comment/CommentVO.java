@@ -9,6 +9,7 @@ public class CommentVO implements Serializable{
 	private int movie_no;
 	private double comment_avgstar;
 	private int comment_no;
+	private int comment_count;
 	
 	public String getUser_id() {
 		return user_id;
@@ -47,11 +48,19 @@ public class CommentVO implements Serializable{
 		this.comment_no = comment_no;
 	}
 	
+	public int getComment_count() {
+		return comment_count;
+	}
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
+	
 	@Override
 	public String toString() {
 		return "CommentVO [user_id=" + user_id + ", comment_star="
 				+ comment_star + ", comment_review=" + comment_review
 				+ ", movie_no=" + movie_no + ", comment_avgstar="
-				+ comment_avgstar + ", comment_no=" + comment_no + "]";
+				+ comment_avgstar + ", comment_no=" + comment_no
+				+ ", comment_count=" + comment_count + "]";
 	}
 }

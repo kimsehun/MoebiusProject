@@ -5,14 +5,22 @@
 <html>
 <head>
 <meta charset=UTF-8">
-<title>Insert title here</title>
+<title>CGV - 상영예정작</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 </head>
 <body>
+<div class="snb">
+   <ul>
+	   <li class='active'><a href='/moebius/movie/ranking'><span>현재상영작</span></a></li>
+	   <li class='active'><a href='/moebius/movie/plan'><span>상영예정작</span></a></li>
+	</ul>
+</div>
+<div id="content">
 <table>
 	<c:forEach items="${list2}" var="movieVO">
 	<tr>
 		<td rowspan="4">
-		<img src="download?fileName=sm_${movieVO.movie_poster}" />
+		<img src="download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px"/>
 		</td>
 		<th>
 		<c:if test="${movieVO.movie_grade == 1 }">
@@ -46,5 +54,6 @@
 	</c:forEach>
 	</tr>
 </table>
+</div>
 </body>
 </html>

@@ -9,12 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table align="center" >
+<table>
 	<tr>
 		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>
 			<c:when test="${st.index < 5 }">
-					<td>
+					<td style="width: 350px" align="center">
 						${st.index +1}
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
 						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank">상세보기</a> </p>

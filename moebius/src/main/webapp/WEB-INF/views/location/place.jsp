@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <!-- 숨겨진 테이블 보이기 -->
 <script type="text/javascript" src="/moebius/resources/js/jquery-2.0.2.js"></script>
-<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <script type="text/javascript">
 var name, addx, addy, addr, ph;
 	$(document).ready(function() {
@@ -98,7 +98,7 @@ var name, addx, addy, addr, ph;
 <img src="<c:url value="/resources/img/screen.jpg" />" width="657" height="292"><br/>
 	<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
 	<div id="view" style="display:none">
-		<table border=1 cellpadding=0>
+		<table class="theaterInfo">
 			<tr>
 				<td colspan="2">
 				<!-- 네이버 지도 -->

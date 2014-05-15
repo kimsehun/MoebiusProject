@@ -17,21 +17,18 @@
 	   <li class='active'><a href='/moebius/mail/email'><span>문의 사항</span></a></li>
 	</ul>
 </div>
-
-<br>
-
 <div id="content" align="center">
 <form action="email" method="post">
 	<table>
 	<caption>E-MAIL 문의</caption>
 	<tr>
 		<th>보내는 이</th>
-		<td><input type="text" name="user_email" style="width:645px;" value="${userVO.user_email}"/></td>
+		<td><input type="text" name="user_email" class="mailTitle" value="${userVO.user_email }"/></td>
 	</tr>
 	
 	<tr>
 		<th>문의 내용</th>
-		<td><textarea rows="5" name="board_content" id="content" style="width:645px; height:268px"></textarea>
+		<td><textarea rows="5" name="board_content" class="mailContent"></textarea>
 		</td>
 	</tr>
 	<tr>

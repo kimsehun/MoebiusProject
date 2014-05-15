@@ -28,5 +28,8 @@ public interface UserMapper {
 
 	int changePwd(InfoVO infoVO) throws Exception;
 
+	//포인트 증가
+	void pointUp(String user_id);
+
 
 }

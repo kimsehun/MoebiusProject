@@ -110,4 +110,10 @@
 	SET user_pwd=#{new_pwd}, user_pwd_ok=#{new_pwd_ok}
 	WHERE user_id=#{user_id} AND user_pwd=#{user_inpwd}
 	</update>
+	
+	<update id="pointUp" parameterType="String">
+	UPDATE m_user SET
+	user_point = user_point + 5000
+	WHERE user_id=#{user_id}
+	</update>
 </mapper>

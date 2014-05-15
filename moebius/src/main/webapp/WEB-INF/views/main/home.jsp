@@ -67,7 +67,7 @@
 	</form>
 </div>
 </div>
-<div id="second">
+<div id="second" align="center">
 <!-- 	<td height = "200"colspan="3" bgcolor="gray" align="center"> -->
 <iframe src="/moebius/main/rank" width="1000px" height="230px" frameborder="0"></iframe>
 </div>

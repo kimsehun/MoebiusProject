@@ -5,6 +5,7 @@ table {border-collapse:collapse;}
 table caption {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
 table th, table td {font-family: monospace; padding:10px; border:solid 1px gray; padding-bottom:10px;}
 
+/* 링크 메시지를 계속해서 검정으로 보이게한다.*/
 A:link {color:black; text-decoration:none;}
 A:visited {color:black; text-decoration:none;}
 A:hover {color:black; text-decoration:none;}
@@ -18,7 +19,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14px;font
 #container{width:1200px; display:inline-block}
 #container:after{display:block;clear:both;content:''}
 
-#header,#container{padding:15px;border:2px solid #bfbfbf; width:auto}
+#header,#container{padding:15px;border:2px solid #bfbfbf; width:1200px;}
 
 .snb,#content{margin-top:10px;border:1px solid #bdbdbd;text-align:center}
 
@@ -39,6 +40,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14px;font
 	}
 html>body #content {
 	width: 75%; /* ie5win fudge ends */
+	float: right;
 	}
 
 
@@ -133,3 +135,24 @@ html>body .snb {
 }
 
 
+#btninsert {
+	background-color: antiquewhite;
+	width: 100px;
+	height: 100px;
+}
+
+
+.mailContent {
+	width:600px;
+	height:268px;
+}
+
+.mailTitle {
+	width:600px;
+}
+
+.theaterInfo {
+	border:1px;
+	cellpadding:0;
+	margin:auto;
+}

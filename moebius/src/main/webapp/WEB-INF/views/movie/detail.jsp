@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
-<link rel="stylesheet" href="<c:url value="/resources/css/movie.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
 /**
@@ -21,6 +20,10 @@
  			url:'<c:url value="/comment/${movieVO.movie_no}" />',
  			type:'POST',
  			success:function(data){
+ 				if(data.result=="false") {
+//***alert을 발생시키지 못함!!!!
+ 					alert('data.msg');
+ 				} 
  				$('#taComment').val('');
  				commentList='<table>';
  				commentList += '<tr>';

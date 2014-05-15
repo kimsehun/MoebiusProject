@@ -234,4 +234,8 @@ public class UserController {
 			return mav;
 		}
 	}
+	
+	@RequestMapping("/userInfo")
+	public void userInfo() throws Exception {
+	}
 }
