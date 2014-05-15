@@ -31,7 +31,7 @@
 <div class="progress">
 	<strong class="tit">진행상태</strong>
 	<ol>
-	<li><span>영화선택</span></li>
+	<li><span onclick="javascript:location.href='/moebius/reserve/reserve'">영화선택</span></li>
 	<li><span>극장선택</span></li>
 	<li><span>날짜</span></li>
 	<li><span>시간</span></li>
