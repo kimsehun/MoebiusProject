@@ -88,10 +88,9 @@ var name, addx, addy, addr, ph;
 <h3>
 영화관 선택 :
 <select name="location_no" id="location_no">
-	<option value="1" selected="selected">구로 디지털</option>
-	<option value="2">영등포</option>
-	<option value="3">용산</option>	
-	<option value="4">홍대입구</option>	
+	<c:forEach var="locationVO" items="${list}">
+	<option value="${locationVO.location_no}">${locationVO.location_name}</option>
+	</c:forEach>
 </select>
 <input type="button" id="btnLocation" value="확인"><br/>
 </h3>
