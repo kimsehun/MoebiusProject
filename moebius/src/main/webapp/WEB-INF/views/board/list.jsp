@@ -23,10 +23,10 @@
 
 <form action="insert" method="GET" >
 <table class="clientCenter">
-<%-- 	<caption>${boardInfo.bname}</caption> --%>
-<!-- 	<tr> -->
-<%-- 		<td colspan="5" class="clientCenter" >현재 페이지: ${pg} / 총 게시물 수 : ${totalRecord}</td> --%>
-<!-- 	</tr> -->
+	<caption>${boardInfo.bname}</caption>
+	<tr>
+		<td colspan="5" class="clientCenter" >현재 페이지: ${pg} / 총 게시물 수 : ${totalRecord}</td>
+	</tr>
 	<tr>
 		<th class="clientCenter">글번호</th>
 		<th class="clientCenter">제목</th>
@@ -37,11 +37,11 @@
 	
 	<c:forEach items="${list}" var="boardVO" varStatus="st">
 	<tr>
-		<td>${totalRecord-((pg-1)*blockSize+st.index)}</td>
-		<td><a href="${boardVO.board_no}/">${boardVO.board_title}</a></td>
-		<td>${boardVO.userVO.user_name}</td>
-		<td>${boardVO.board_regdate}</td>
-		<td align="right">${boardVO.board_count}</td>
+		<td class="clientCenter">${totalRecord-((pg-1)*blockSize+st.index)}</td>
+		<td class="clientCenter"><a href="${boardVO.board_no}/">${boardVO.board_title}</a></td>
+		<td class="clientCenter">${boardVO.userVO.user_name}</td>
+		<td class="clientCenter">${boardVO.board_regdate}</td>
+		<td class="clientCenter" align="right">${boardVO.board_count}</td>
 	</tr>
 	</c:forEach>
 	<c:if test="${user_id == 'admin'}">
@@ -52,7 +52,7 @@
 	</tr>
 	</c:if>
 	<tr>
-		<td colspan="5">
+		<td class="clientCenter" colspan="5">
 			<c:choose>
 				<c:when test="${startPage == 1}">
 				</c:when>

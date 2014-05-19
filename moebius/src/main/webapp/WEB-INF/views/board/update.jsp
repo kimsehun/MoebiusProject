@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><textarea rows="5" name="board_content" style="width:645px; height:268px;">${boardVO.board_content}</textarea>
+		<td><textarea rows="5" name="board_content" placeholder="" class="textarea">${boardVO.board_content}</textarea>
 		</td>
 	</tr>
 	<tr>
