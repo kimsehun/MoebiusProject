@@ -6,9 +6,16 @@ table caption {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
 table th, table td {font-family: monospace; padding:10px; padding-bottom:10px;}
 
 table.clientCenter {background-color:white; clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #a8d164;;}
-table td{font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #a8d164}
+table td.clientCenter{font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #a8d164;}
 table th.clientCenter{font:bold 12px gulim, tahoma; background-color:#a8d164;}
 /* border-top:1px solid rgb(142, 230, 212); border-bottom: 1px solid rgb(142, 230, 212); */
+
+/* board detail.css */ 
+table.boardDetail {; clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #a8d164;;}
+table td.boardDetail{border-top: 1px solid #a8d164; font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em;}
+table th.boardDetail{font:bold 12px gulim, tahoma; background-color:#a8d164;}
+
+
 
 
 /* 링크 메시지를 계속해서 검정으로 보이게한다.*/
@@ -165,3 +172,6 @@ html>body .snb {
 
 
 .tableCenter {margin: auto;}
+
+
+.textarea {width:645px; height:268px;}

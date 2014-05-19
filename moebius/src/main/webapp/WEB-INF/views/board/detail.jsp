@@ -44,33 +44,26 @@
 <input type="hidden" name="no" value="${boardVO.board_no}">
 <input type="hidden" name="bno" value="${bno}">
 <input type="hidden" name="session_user_id" value="${sessionScope.user_id}" >
-<table>
+<table class="boardDetail">
 	<caption>글 상세보기</caption>
 	<tr>
-		<th>글번호</th>
-		<td class="width">${boardVO.board_no}</td>
+		<th class="boardDetail">제목</th>
+		<td class="boardDetail" colspan="3">${boardVO.board_title}</td>
 	</tr>
 	<tr>
-		<th>제목</th>
-		<td>${boardVO.board_title}</td>
+		<th class="boardDetail">작성자</th>
+		<td class="boardDetail">${boardVO.userVO.user_name}(${boardVO.userVO.user_id})</td>
+		<th class="boardDetail">조회수</th>
+		<td class="boardDetail">${boardVO.board_count}</td>
 	</tr>
 	<tr>
-		<th>작성자</th>
-		<td>${boardVO.userVO.user_name}(${boardVO.userVO.user_id})</td>
-	</tr>
-	<tr>
-		<th>조회수</th>
-		<td>${boardVO.board_count}</td>
-	</tr>
-	<tr>
-		<th>작성시간</th>
-		<td>${boardVO.board_regdate}</td>
-	</tr>
-	<tr>
-		<th colspan="2">내용</th>
+		<th class="boardDetail" colspan="4">내용</th>
 	</tr>
 	<tr>		
-		<td colspan="2">${boardVO.board_content}</td>
+		<td class="boardDetail" colspan="4"><pre>${boardVO.board_content}</pre></td>
+	</tr>
+	<tr>
+		<td class="boardDetail" colspan="4" align="right">${boardVO.board_regdate}</td>
 	</tr>
 </table><br/>
 <div class="right">

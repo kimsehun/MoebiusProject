@@ -37,7 +37,7 @@
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><textarea rows="5" name="board_content" id="content" style="width:645px; height:268px"></textarea>
+		<td><textarea rows="5" name="board_content" id="content" style="width:645px; height:268px" placeholder=""></textarea>
 		</td>
 	</tr>
 	<tr>

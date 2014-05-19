@@ -3,5 +3,6 @@
 @CHARSET "UTF-8";
 body {overflow-y: hidden; overflow-x: hidden;}
 table {border-collapse:collapse; margin: auto; text-align:center;}
-table caption {font-family:³ª´®°íµñÄÚµù; padding-bottom:5px;}
-table th, table td {font-family: monospace; padding:2px; border:solid 1px gray; padding-bottom:10px;}
+table caption {font:bold 12px gulim, tahoma; background-color:#a8d164; padding:5px;}
+table th {font:bold 12px gulim, tahoma; background-color:#a8d164;  padding:10px;}
+table td {font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #a8d164;  padding:10px;}
