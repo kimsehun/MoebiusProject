@@ -63,19 +63,13 @@
 			<tr>
 				<th>영화 상영 시작일</th>
 				<td>
-					<input type="number" name="s_year" 
-						min="${year - 10}" max="${year + 10}" value="${year}" />년
-					<input type="number" name="s_month" min="1" max="12" value="${month}" />월
-					<input type="number" name="s_day" min="1" max="30" value="${day}" />일
+					<input type="date" name="movie_sdate"/>
 				</td>
 			</tr>
 			<tr>
 				<th>영화 상영 종료일</th>
 				<td>
-					<input type="number" name="e_year" 
-						min="${year - 10}" max="${year + 10}" value="${year}" />년
-					<input type="number" name="e_month" min="1" max="12" value="${month}" />월
-					<input type="number" name="e_day" min="1" max="30" value="${day+7}" />일
+					<input type="date" name="movie_edate"/>
 				</td>
 			</tr>
 			<tr>

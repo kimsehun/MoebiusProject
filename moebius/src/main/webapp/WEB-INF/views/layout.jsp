@@ -7,11 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>CGV</title>
-<%
-// session으로 값을 받아옴.
-String id = (String)session.getAttribute("user_id");
-String name = (String)session.getAttribute("user_name");
-%>
+<c:set var="id" value="${sessionScope.user_id}"/>
+<c:set var="name" value="${sessionScope.user_name }"/>
 <decorator:head></decorator:head>
 <!-- site mesh 처리할때 menu_jquery.js하고 main.css안에 내포된 png파일의 그림 오류 해결할것!! -->
 <link rel="stylesheet" href="<c:url value="/resources/css/layout.css" />" type="text/css" />
@@ -41,22 +38,22 @@ String name = (String)session.getAttribute("user_name");
 		      </ul>
 		   </li>
 		   
-		   <%
-		   //로그아웃 상태이면..
-		   if(id ==null) {
-		   %>
+		   <c:choose>
+		   <c:when test="${id==null }">
 		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
 		   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
-		   <%
-		   //관리자 로그인 상태이면...
-		   } else if(id.equals("admin")) { 
-		   %>
-		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
-		   <li class='right'><a href='/moebius/movie/insert'><span>영화 등록</span></a></li>
-		   <%//회원들 로그인 상태이면..
-		   } else {
-		   %>
-		   <li class='right'><a href='/moebius/user/logout'><span><%=name%>님 로그아웃</span></a></li>
+		   </c:when>
+		   <c:when test="${id == 'admin'}">
+		   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
+		   <li class='has-sub-right'><a href='#'><span>관리자 페이지</span></a>
+		  	 <ul>
+		         <li><a href='/moebius/movie/insert'><span>영화 등록</span><br></a></li>
+		         <li><a href='/moebius/screen/insert'><span>상영관 등록</span><br></a></li>
+		      </ul>
+		   </li>
+		   </c:when>
+		   <c:otherwise>
+		   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
 		   <li class='has-sub-right'><a href='/moebius/user/userInfo'><span>유저정보</span></a>
 		  	 <ul>
 		         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
@@ -64,8 +61,8 @@ String name = (String)session.getAttribute("user_name");
 		         <li><a href='#'><span>예매정보</span></a></li>
 		      </ul>
 		   </li>
-		   <%} %>
-		   
+		   </c:otherwise>
+		   </c:choose>
 		</ul>
 	</div>
 

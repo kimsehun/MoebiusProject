@@ -35,14 +35,13 @@
 	</select>
 	
 	<select id="compareCount" parameterType="CommentVO" resultType="int">
-	SELECT comment_count
-	FROM m_comment
+	SELECT count(*) AS cnt
+	FROM m_comment_total
 	WHERE user_id=#{user_id} AND movie_no=#{movie_no}
 	</select>
 	
-	<update id="countUp">
-	UPDATE m_comment SET
-	comment_count=comment_count+1
-	WHERE user_id=#{user_id} AND movie_no=#{movie_no}
-	</update>
+	<insert id="insertCommentTotal">
+	INSERT INTO m_comment_total(comment_total_no, user_id, movie_no)
+	VALUES(seq_comment_total_no.nextval, #{user_id}, #{movie_no})
+	</insert>
 </mapper>

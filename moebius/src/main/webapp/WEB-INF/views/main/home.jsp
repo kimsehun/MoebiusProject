@@ -10,18 +10,15 @@
 <script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <title>Main</title>
-<%
-	String id = (String)session.getAttribute("user_id");
-%>
+<c:set var="id" value="${sessionScope.user_id}"/>
 </head>
 <body>
 <div id="first">
 <!-- <table align="center" width="1200" height="700"> -->
 <div id="first_first">상영예정작</div>
 <div id="first_second">
-	<%//로그아웃 상태일때
-	if(id==null) {
-	%>
+	<c:choose>
+	<c:when test="${id==null}">
 	<form action="user/login" method="post">
 		<table class="login">
 			<tr>
@@ -42,9 +39,8 @@
 				</td>
 			</tr>
 		</table>
-		<%//로그인 상태일떄
-		} else {
-		%>
+		</c:when>
+		<c:otherwise>
 		<table>
 			<tr>
 				<td colspan="2" align="left">${sessionScope.user_name}<br/></td>
@@ -63,7 +59,8 @@
 		
 		</table>
 		
-		<%} %>
+		</c:otherwise>
+	</c:choose>		
 	</form>
 </div>
 </div>

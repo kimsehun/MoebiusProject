@@ -5,12 +5,15 @@ DROP TABLE m_board CASCADE CONSTRAINTS;
 DROP TABLE m_board_info CASCADE CONSTRAINTS;
 DROP TABLE m_reserve CASCADE CONSTRAINTS;
 DROP TABLE m_seat CASCADE CONSTRAINTS;
+DROP TABLE m_schedule CASCADE CONSTRAINTS;
 DROP TABLE m_screen CASCADE CONSTRAINTS;
 DROP TABLE m_location CASCADE CONSTRAINTS;
 DROP TABLE m_comment CASCADE CONSTRAINTS;
+DROP TABLE m_comment_total CASCADE CONSTRAINTS;
 DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
-DROP TABLE m_schedule CASCADE CONSTRAINTS;
+
+
 
 /* Drop Sequences */
 
@@ -25,7 +28,7 @@ DROP SEQUENCE seq_seat_no;
 DROP SEQUENCE seq_reserve_no;
 
 
-select * from m_user;
+
 
 /* Create Sequences */
 
@@ -33,6 +36,7 @@ CREATE SEQUENCE seq_movie_no nocache;
 CREATE SEQUENCE seq_board_no nocache;
 CREATE SEQUENCE seq_bno nocache;
 CREATE SEQUENCE seq_comment_no nocache;
+CREATE SEQUENCE seq_comment_total_no nocache;
 CREATE SEQUENCE seq_location_no nocache;
 CREATE SEQUENCE seq_schedule_no nocache;
 CREATE SEQUENCE seq_screen_no nocache;
@@ -59,52 +63,97 @@ CREATE TABLE m_location
 	location_addr varchar2(200) NOT NULL,
 	location_addx varchar2(20) NOT NULL,
 	location_addy varchar2(20) NOT NULL,
-	location_phone varchar2(11) NOT NULL,
-	movie_no number NOT NULL,
+	location_phone varchar2(15) NOT NULL,
 	PRIMARY KEY (location_no)
 );
 
-insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
-values (1, '구로 디지털', '서울시 구로구 구로동 221-3', 126.8966655, 37.4830969, '0269254760', 0); 
-insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
-values (2, '영등포', '서울시 영등포구 영등포동 4가 442', 126.9034013, 37.5172108, '0226382000', 1);
-insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
-values (3, '용산', '서울특별시 용산구 한강로3가 40-11', 126.9644407, 37.5296968, '0215441123', 2);
-insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone, movie_no)
-values (4, '홍대입구', '서울특별시 마포구 동교동 165', 126.9237910, 37.5568476, '0226382000', 3);
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone)
+values (seq_location_no.nextval, '구로 디지털', '서울시 구로구 구로동 221-3', 126.8966655, 37.4830969, '02)6925-4760'); 
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone)
+values (seq_location_no.nextval, '영등포', '서울시 영등포구 영등포동 4가 442', 126.9034013, 37.5172108, '02)2638-2000');
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone)
+values (seq_location_no.nextval, '용산', '서울특별시 용산구 한강로3가 40-11', 126.9644407, 37.5296968, '02)1544-1123');
+insert into m_location(location_no, location_name, location_addr, location_addx, location_addy, location_phone)
+values (seq_location_no.nextval, '홍대입구', '서울특별시 마포구 동교동 165', 126.9237910, 37.5568476, '02)2638-2000');
 
-
-
-CREATE TABLE m_board
-(
-	board_no number NOT NULL,
-	board_title varchar2(100) NOT NULL,
-	board_content varchar2(4000) NOT NULL,
-	board_regdate date DEFAULT sysdate NOT NULL,
-	board_count number DEFAULT 0 NOT NULL,
-	user_id varchar2(20) NOT NULL,
-	bno number NOT NULL,
-	PRIMARY KEY (board_no)
-);
 
 
 CREATE TABLE m_screen
 (
 	screen_no number NOT NULL,
-	location_no number NOT NULL,
 	screen_name varchar2(5) NOT NULL,
 	movie_no number NOT NULL,
-	schedule_no number NOT NULL,
+	location_no number NOT NULL,
 	PRIMARY KEY (screen_no)
 );
+
+select * from m_screen;
 
 
 CREATE TABLE m_seat
 (
 	seat_no number NOT NULL,
-	screen_no number NOT NULL,
 	seat_name varchar2(4) NOT NULL,
+	screen_no number NOT NULL,
+	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (seat_no)
+);
+
+
+CREATE TABLE m_reserve
+(
+	user_id varchar2(20) NOT NULL,
+	reserve_no number NOT NULL,
+	screen_no number NOT NULL,
+	seat_no number NOT NULL,
+	PRIMARY KEY (reserve_no)
+);
+
+
+CREATE TABLE m_schedule
+(
+	schedule_no number NOT NULL,
+	schedule_date date NOT NULL,
+	schedule_time date NOT NULL,
+	screen_no number NOT NULL,
+	PRIMARY KEY (schedule_no)
+);
+
+select * from m_schedule;
+
+
+CREATE TABLE m_movie
+(
+	movie_no number NOT NULL,
+	movie_title varchar2(100) NOT NULL,
+	movie_directer varchar2(40) NOT NULL,
+	movie_genre varchar2(40) NOT NULL,
+	movie_nation varchar2(20) NOT NULL,
+	movie_runningtime number,
+	movie_actor varchar2(2000),
+	movie_story varchar2(2000) NOT NULL,
+	movie_poster varchar2(20) NOT NULL,
+	movie_count number DEFAULT 0 NOT NULL,
+	movie_sdate date NOT NULL,
+	movie_grade number NOT NULL,
+	movie_point number NOT NULL,
+	movie_edate date NOT NULL,
+	user_id varchar2(20) NOT NULL,
+	PRIMARY KEY (movie_no)
+);
+
+
+select * from m_movie;
+
+
+CREATE TABLE m_comment
+(
+	comment_star number DEFAULT 0 NOT NULL,
+	comment_review varchar2(200) NOT NULL,
+	comment_no number NOT NULL,
+	user_id varchar2(20) NOT NULL,
+	movie_no number NOT NULL,
+	PRIMARY KEY (comment_no)
 );
 
 
@@ -114,9 +163,9 @@ CREATE TABLE m_user
 	user_name varchar2(20) NOT NULL,
 	user_age number NOT NULL,
 	user_pwd varchar2(100) NOT NULL,
-	user_pwd_ok varchar2(100) NOT NULL,
 	user_pwd_hint varchar2(200) NOT NULL,
 	user_pwd_answer varchar2(100) NOT NULL,
+	user_pwd_ok varchar2(100) NOT NULL,
 	user_gender number(1) DEFAULT 1 NOT NULL,
 	user_jumin1 number(6) NOT NULL,
 	user_jumin2 number(7) NOT NULL,
@@ -131,69 +180,30 @@ CREATE TABLE m_user
 	PRIMARY KEY (user_id)
 );
 
-SELECT * FROM m_user;
+select * from m_user;
 
-CREATE TABLE m_reserve
+CREATE TABLE m_board
 (
+	board_no number NOT NULL,
+	board_title varchar2(100) NOT NULL,
+	board_content varchar2(4000) NOT NULL,
+	board_regdate date DEFAULT sysdate NOT NULL,
+	board_count number DEFAULT 0 NOT NULL,
+	bno number NOT NULL,
 	user_id varchar2(20) NOT NULL,
-	reserve_no number NOT NULL,
-	seat_no number NOT NULL,
-	screen_no number NOT NULL,
-	PRIMARY KEY (reserve_no)
+	PRIMARY KEY (board_no)
 );
 
 
-CREATE TABLE m_schedule
+CREATE TABLE m_comment_total
 (
-	schedule_no number NOT NULL,
-	schedule_date date NOT NULL,
-	schedule_time varchar2(20),
-	PRIMARY KEY (schedule_no)
-);
-
-
-CREATE TABLE m_movie
-(
+	comment_total_no number NOT NULL,
+	user_id varchar2(20) NOT NULL,
 	movie_no number NOT NULL,
-	movie_title varchar2(100) NOT NULL,
-	movie_directer varchar2(40) NOT NULL,
-	
-	movie_genre varchar2(40) NOT NULL,
-	movie_nation varchar2(30) NOT NULL,
-	movie_runningtime number NOT NULL,
-	movie_actor varchar2(2000) NOT NULL,
-	
-	movie_story varchar2(2000) NOT NULL,
-	movie_poster varchar2(20) NOT NULL,
-	movie_count number DEFAULT 0 NOT NULL,
-	movie_sdate varchar2(20) NOT NULL,
-	movie_grade number NOT NULL,
-	movie_point number NOT NULL,
-	movie_edate varchar2(20) NOT NULL,
-	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (movie_no)
+	PRIMARY KEY (comment_total_no)
 );
 
-select * from M_MOVIE;
 
-SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
-		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
-FROM m_movie
-ORDER BY movie_count DESC;
-
-CREATE TABLE m_comment
-(
-	user_id varchar2(20) NOT NULL,
-	comment_star number DEFAULT 0 NOT NULL,
-	comment_review varchar2(200) NOT NULL,
-	movie_no number NOT NULL,
-	comment_avgstar number DEFAULT 0 NOT NULL,
-	comment_no number NOT NULL,
-	comment_count number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (comment_no)
-);
-
-select * from M_COMMENT;
 
 /* Create Foreign Keys */
 
@@ -209,13 +219,19 @@ ALTER TABLE m_screen
 ;
 
 
+ALTER TABLE m_reserve
+	ADD FOREIGN KEY (screen_no)
+	REFERENCES m_screen (screen_no)
+;
+
+
 ALTER TABLE m_seat
 	ADD FOREIGN KEY (screen_no)
 	REFERENCES m_screen (screen_no)
 ;
 
 
-ALTER TABLE m_reserve
+ALTER TABLE m_schedule
 	ADD FOREIGN KEY (screen_no)
 	REFERENCES m_screen (screen_no)
 ;
@@ -227,9 +243,21 @@ ALTER TABLE m_reserve
 ;
 
 
-ALTER TABLE m_movie
-	ADD FOREIGN KEY (user_id)
-	REFERENCES m_user (user_id)
+ALTER TABLE m_screen
+	ADD FOREIGN KEY (movie_no)
+	REFERENCES m_movie (movie_no)
+;
+
+
+ALTER TABLE m_comment
+	ADD FOREIGN KEY (movie_no)
+	REFERENCES m_movie (movie_no)
+;
+
+
+ALTER TABLE m_comment_total
+	ADD FOREIGN KEY (movie_no)
+	REFERENCES m_movie (movie_no)
 ;
 
 
@@ -239,13 +267,7 @@ ALTER TABLE m_board_info
 ;
 
 
-ALTER TABLE m_comment
-	ADD FOREIGN KEY (user_id)
-	REFERENCES m_user (user_id)
-;
-
-
-ALTER TABLE m_board
+ALTER TABLE m_movie
 	ADD FOREIGN KEY (user_id)
 	REFERENCES m_user (user_id)
 ;
@@ -257,45 +279,25 @@ ALTER TABLE m_reserve
 ;
 
 
-ALTER TABLE m_screen
-	ADD FOREIGN KEY (schedule_no)
-	REFERENCES m_schedule (schedule_no)
-;
-
-
-ALTER TABLE m_location
-	ADD FOREIGN KEY (movie_no)
-	REFERENCES m_movie (movie_no)
-;
-
-
 ALTER TABLE m_comment
-	ADD FOREIGN KEY (movie_no)
-	REFERENCES m_movie (movie_no)
+	ADD FOREIGN KEY (user_id)
+	REFERENCES m_user (user_id)
 ;
 
 
-ALTER TABLE m_screen
-	ADD FOREIGN KEY (movie_no)
-	REFERENCES m_movie (movie_no)
+ALTER TABLE m_seat
+	ADD FOREIGN KEY (user_id)
+	REFERENCES m_user (user_id)
 ;
 
 
-select * from m_user;
-select * from m_board;
-select * from m_movie;
-select * from M_COMMENT;
-
--- 게시판 준비
-insert into m_board_info(bno, bname, user_id)
-values(seq_bno.nextval, '공지사항','admin');
-
--- 게시판 준비
-insert into m_board_info(bno, bname, user_id)
-values(seq_bno.nextval, '자주하는질문','admin');
-
--- 게시판 준비
-insert into m_board_info(bno, bname, user_id)
-values(seq_bno.nextval, '문의사항','admin');
+ALTER TABLE m_comment_total
+	ADD FOREIGN KEY (user_id)
+	REFERENCES m_user (user_id)
+;
 
 
+ALTER TABLE m_board
+	ADD FOREIGN KEY (user_id)
+	REFERENCES m_user (user_id)
+;

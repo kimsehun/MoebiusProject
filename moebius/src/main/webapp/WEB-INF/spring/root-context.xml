@@ -78,4 +78,16 @@
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		</bean>
 		
+		<!-- screen Mapper -->
+		<bean id="ScreenMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.screen.ScreenMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>
+		
+		<!-- schedule Mapper -->
+		<bean id="ScheduleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="kr.co.moebius.schedule.ScheduleMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean>
+		
 </beans>
