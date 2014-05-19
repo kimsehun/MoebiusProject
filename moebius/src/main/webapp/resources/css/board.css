@@ -3,7 +3,13 @@
 @CHARSET "UTF-8";
 table {border-collapse:collapse;}
 table caption {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
-table th, table td {font-family: monospace; padding:10px; border:solid 1px gray; padding-bottom:10px;}
+table th, table td {font-family: monospace; padding:10px; padding-bottom:10px;}
+
+table.clientCenter {background-color:white; clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #a8d164;;}
+table td{font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #a8d164}
+table th.clientCenter{font:bold 12px gulim, tahoma; background-color:#a8d164;}
+/* border-top:1px solid rgb(142, 230, 212); border-bottom: 1px solid rgb(142, 230, 212); */
+
 
 /* 링크 메시지를 계속해서 검정으로 보이게한다.*/
 A:link {color:black; text-decoration:none;}
@@ -11,8 +17,8 @@ A:visited {color:black; text-decoration:none;}
 A:hover {color:black; text-decoration:none;}
 A:active {color:black; text-decoration:none;}
 
-/* UI Object */
-body{_text-align:center}
+/* /* UI Object */ */
+/* body{_text-align:center} */
 div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14px;font-weight:bold}
 #wrap{width:600px;margin:0 auto;_text-align:left; padding:10px;border:1px solid #bdbdbd;}}
 #header{width:100%; margin-top:10px;}
@@ -156,3 +162,6 @@ html>body .snb {
 	cellpadding:0;
 	margin:auto;
 }
+
+
+.tableCenter {margin: auto;}

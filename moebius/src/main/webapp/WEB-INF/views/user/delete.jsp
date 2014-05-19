@@ -21,14 +21,15 @@ $(document).ready(function() {
 <body>
 <div class="snb">
    <ul>
+	   <li class='active'><a href='/moebius/user/userInfo'><span>예매정보</span></a></li>
 	   <li class='active'><a href='/moebius/user/update'><span>회원정보수정</span></a></li>
+	   <li class='active'><a href='/moebius/user/change'><span>비밀번호수정</span></a></li>
 	   <li class='active'><a href='/moebius/user/delete'><span>회원탈퇴</span></a></li>
-	   <li class='active'><a href='#'><span>예매정보</span></a></li>
 	</ul>
 </div>
 <div id="content">
 	<form action="delete" method="post" name="deleteCheck">
-	<table>
+	<table class="tableCenter">
 		<caption>회원탈퇴</caption>
 		<tr>
 			<th>아이디</th>

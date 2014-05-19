@@ -22,17 +22,17 @@
 <div id="content">
 
 <form action="insert" method="GET" >
-<table border="1">
-	<caption>${boardInfo.bname}</caption>
+<table class="clientCenter">
+<%-- 	<caption>${boardInfo.bname}</caption> --%>
+<!-- 	<tr> -->
+<%-- 		<td colspan="5" class="clientCenter" >현재 페이지: ${pg} / 총 게시물 수 : ${totalRecord}</td> --%>
+<!-- 	</tr> -->
 	<tr>
-		<td colspan="5">현재 페이지: ${pg} / 총 게시물 수 : ${totalRecord}</td>
-	</tr>
-	<tr>
-		<th>글번호</th>
-		<th>제목</th>
-		<th>작성자</th>
-		<th>작성일</th>
-		<th>조회수</th>
+		<th class="clientCenter">글번호</th>
+		<th class="clientCenter">제목</th>
+		<th class="clientCenter">작성자</th>
+		<th class="clientCenter">작성일</th>
+		<th class="clientCenter">조회수</th>
 	</tr>
 	
 	<c:forEach items="${list}" var="boardVO" varStatus="st">
@@ -45,7 +45,7 @@
 	</tr>
 	</c:forEach>
 	<c:if test="${user_id == 'admin'}">
-	<tr>
+	<tr class=".last">
 		<td colspan="5">
 			<input type="submit" value="글쓰기" id="btnOk"/>
 		</td>

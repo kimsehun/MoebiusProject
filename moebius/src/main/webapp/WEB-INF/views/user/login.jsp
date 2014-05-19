@@ -33,7 +33,7 @@
 </head>
 <body>
 <form action="login" method="post">
-<table>
+<table class="tableCenter">
 	<caption>로그인</caption>
 	<tr>
 		<th>아이디</th>
