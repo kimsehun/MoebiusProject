@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class CommentServiceImpl implements CommentService{
 	
@@ -26,6 +27,7 @@ public class CommentServiceImpl implements CommentService{
 		//이미 댓글을 등록햇으면 두번 등록하지 못함
 		if(commentMapper.overId(commentVO) > 0) throw new RuntimeException();
 		commentMapper.insertComment(commentVO);
+		commentMapper.insertCommentTotal(commentVO);
 	}
 
 	@Override
@@ -45,11 +47,8 @@ public class CommentServiceImpl implements CommentService{
 	
 	@Override
 	public void count(CommentVO commentVO) {
-		if(commentMapper.compareCount(commentVO) == 0) {
-			logger.info(commentVO.toString());
-			if(commentMapper.countUp(commentVO) > 0) {
+		if(commentMapper.compareCount(commentVO) == 1) {
 				userMapper.pointUp(commentVO.getUser_id());
-			}
 		}
 		
 	}

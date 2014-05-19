@@ -9,6 +9,7 @@ import kr.co.moebius.movie.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MovieServiceImpl implements MovieService{
 
@@ -44,5 +45,10 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public List<MovieVO> selectMovie() {
 		return movieMapper.selectMovie();
+	}
+	
+	@Override
+	public MovieVO selectDate(int movie_no) {
+		return movieMapper.selectDate(movie_no);
 	}
 }

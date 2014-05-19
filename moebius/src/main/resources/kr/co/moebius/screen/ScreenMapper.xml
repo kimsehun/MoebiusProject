@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper      
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"      
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.co.moebius.screen.ScreenMapper">
+
+<insert id="insertAction" parameterType="ScreenVO">
+	INSERT INTO m_screen(screen_no, screen_name, movie_no, location_no)
+	VALUES(seq_screen_no.nextval,#{screen_name},#{movie_no},#{location_no})
+</insert>
+
+<select id="selectNo" parameterType="ScreenVO" resultType="int">
+	SELECT MAX(screen_no)
+	FROM m_screen
+	WHERE movie_no=#{movie_no} AND location_no=#{location_no}
+</select>
+</mapper>

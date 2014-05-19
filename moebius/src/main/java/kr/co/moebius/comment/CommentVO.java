@@ -2,6 +2,7 @@ package kr.co.moebius.comment;
 
 import java.io.Serializable;
 
+
 public class CommentVO implements Serializable{
 	private String user_id;
 	private double comment_star;

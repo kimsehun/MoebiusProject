@@ -6,6 +6,7 @@ import org.eclipse.jetty.jndi.local.localContextRoot;
 
 import kr.co.moebius.user.UserVO;
 
+
 public class MovieVO implements Serializable{
 
 	private int movie_no;

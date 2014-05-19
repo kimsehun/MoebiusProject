@@ -3,6 +3,7 @@ package kr.co.moebius.movie;
 import java.util.List;
 import java.util.Map;
 
+
 public interface MovieMapper {
 
 	//영화 등록
@@ -21,6 +22,8 @@ public interface MovieMapper {
 	List<MovieVO> ranking();
 
 	List<MovieVO> selectMovie();
+
+	MovieVO selectDate(int movie_no);
 
 
 }

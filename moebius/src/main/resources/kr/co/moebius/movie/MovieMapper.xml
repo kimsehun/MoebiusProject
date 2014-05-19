@@ -4,6 +4,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"      
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="kr.co.moebius.movie.MovieMapper">
 <insert id="insertAction" parameterType="MovieVO">
 INSERT INTO m_movie(movie_no, movie_title, movie_directer,
@@ -18,7 +19,7 @@ VALUES(seq_movie_no.nextval, #{movie_title}, #{movie_directer},
 
 <select id="search" resultType="MovieVO">
 SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
-		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
+		movie_actor, movie_poster, to_char(movie_sdate,'YYYYMMDD') AS movie_sdate, movie_grade, to_char(movie_edate,'YYYYMMDD') AS movie_edate
 FROM m_movie
 </select>
 
@@ -30,7 +31,7 @@ WHERE movie_no = #{movie_no}
 
 <select id="ranking" resultType="MovieVO">
 SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
-		movie_actor, movie_poster, movie_sdate, movie_grade, movie_edate
+		movie_actor, movie_poster, to_char(movie_sdate,'YYYYMMDD') AS movie_sdate, movie_grade, to_char(movie_edate,'YYYYMMDD') AS movie_edate
 FROM m_movie
 ORDER BY movie_count DESC
 </select>
@@ -39,5 +40,11 @@ ORDER BY movie_count DESC
 SELECT movie_no, movie_title
 FROM m_movie
 ORDER BY movie_title ASC
+</select>
+
+<select id="selectDate" parameterType="int" resultType="MovieVO">
+SELECT movie_no, to_char(movie_sdate,'YYYYMMDD') AS movie_sdate, to_char(movie_edate,'YYYYMMDD') AS movie_edate
+FROM m_movie
+WHERE movie_no = #{movie_no}
 </select>
 </mapper>

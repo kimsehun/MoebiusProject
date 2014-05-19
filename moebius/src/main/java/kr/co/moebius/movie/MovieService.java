@@ -3,6 +3,7 @@ package kr.co.moebius.movie;
 import java.util.List;
 import java.util.Map;
 
+
 public interface MovieService {
 
 	void insertAction(MovieVO movieVO);
@@ -16,5 +17,7 @@ public interface MovieService {
 	List<MovieVO> ranking();
 
 	List<MovieVO> selectMovie();
+
+	MovieVO selectDate(int movie_no);
 
 }

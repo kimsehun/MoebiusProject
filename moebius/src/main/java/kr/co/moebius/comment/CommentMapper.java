@@ -2,6 +2,7 @@ package kr.co.moebius.comment;
 
 import java.util.List;
 
+
 public interface CommentMapper {
 
 	public void insertComment(CommentVO commentVO);
@@ -16,6 +17,6 @@ public interface CommentMapper {
 
 	public int compareCount(CommentVO commentVO);
 
-	public int countUp(CommentVO commentVO);
+	public void insertCommentTotal(CommentVO commentVO);
 
 }

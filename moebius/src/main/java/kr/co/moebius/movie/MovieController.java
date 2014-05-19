@@ -21,6 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.co.moebius.location.LocationService;
+import kr.co.moebius.location.LocationVO;
+import kr.co.moebius.screen.ScreenService;
 import kr.co.moebius.user.UserVO;
 
 import org.slf4j.Logger;
@@ -34,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+
 @Controller
 @RequestMapping("/movie")
 public class MovieController {
@@ -44,42 +48,18 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 	
+	@Autowired
+	private ScreenService screenService;
+	
 	private static final Logger logger =LoggerFactory.getLogger(MovieController.class);
 	
-	// 영화 입력 화면을 가기전 오늘 날짜를 읽어와서 화면에 뿌려준다.
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
-	public void moiveInsert(HttpServletRequest request, Model model){
-		Calendar cal = Calendar.getInstance();
-		int year = 0;
-		int month = 0;
-		int day = 0;
-		try {
-			year = Integer.parseInt(request.getParameter("year"));
-			month = Integer.parseInt(request.getParameter("month"));
-			day = Integer.parseInt(request.getParameter("day"));
-			cal.set(year, month - 1, 1);
-		} catch(NumberFormatException e) {
-			// year와 month값이 파라메터로 전달되지 않은 경우
-			// 이때는 현재시간으로 월을 설정
-			year = cal.get(Calendar.YEAR);
-			month= cal.get(Calendar.MONTH) + 1;
-			day = cal.get(Calendar.DATE);
-		}
-		model.addAttribute("year",year);
-		model.addAttribute("month",month);
-		model.addAttribute("day",day);
-	}
+	public void moiveInsert(Model model){}
 	
 	// 모든 정보를 읽어와서 db에 연결시킨다.
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insertAction(MovieVO movieVO,
 								FileUploadCommand fuc,
-								String s_year,
-								String s_month,
-								String s_day,
-								String e_year,
-								String e_month,
-								String e_day,
 								HttpSession session,
 								Model model) throws IllegalStateException, IOException {
 		
@@ -106,18 +86,6 @@ public class MovieController {
 		//파일 경로 vo에 삽입
 		movieVO.setMovie_poster(originalName);
 		
-		//달과 월이 1자리 숫자이면 0을 붙여서 movieVO의 sdate에 넣어준다.
-		if(s_month.length() == 1) s_month = "0" + s_month;
-		if(s_day.length() == 1) s_day = "0" + s_day;
-		String sdate = new String(s_year + s_month + s_day);
-		movieVO.setMovie_sdate(sdate);
-
-		//달과 월이 1자리 숫자이면 0을 붙여서 movieVO의 sdate에 넣어준다.
-		if(e_month.length() == 1) e_month = "0" + e_month;
-		if(e_day.length() == 1) e_day = "0" + e_day;
-		String edate = new String(e_year + e_month + e_day);
-		movieVO.setMovie_edate(edate);
-		
 		//관리자 등록
 		UserVO userVO = new UserVO();
 		userVO.setUser_id((String)session.getAttribute("user_id"));
@@ -135,56 +103,41 @@ public class MovieController {
 	}
 	
 	// 영화정보를 count 순으로 화면에 뿌려준다.
-	@RequestMapping(value="/ranking")
-	public void ranking(Model model){
+	@RequestMapping(value = "/ranking")
+	public void ranking(Model model) {
 		String today = calday();
 		// 영화정보를 가져와서 오늘 날짜와 비교한다.
 		List<MovieVO> list = movieService.ranking();
-		//상영작만 따로 저장할 list를 만든다.
+		// 상영작만 따로 저장할 list를 만든다.
 		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
 		for (MovieVO vo : list) {
-			if (Integer.parseInt(vo.getMovie_sdate()) < Integer.parseInt(today)) {
-				//상영날짜까지 남은 시간을 계산
+			if (Integer.parseInt(vo.getMovie_sdate()) <= Integer.parseInt(today)) {
+				// 상영날짜까지 남은 시간을 계산
 				rankinglist.add(vo);
 			}
 		}
-		model.addAttribute("rankinglist",rankinglist);
+		model.addAttribute("rankinglist", rankinglist);
 	}
 	
 	// 미개봉 영화 정보를 화면에 뿌려준다.
-	@RequestMapping(value="/plan")
+	@RequestMapping(value = "/plan")
 	public void plan(Model model) {
 		// 오늘 날짜 계산해서 넣어준다.
 		String today = calday();
 
 		// 영화정보를 가져와서 오늘 날짜와 비교한다.
 		List<MovieVO> list = movieService.search();
-		//상영작만 따로 저장할 list를 만든다.
-		List<MovieVO> list2 = new ArrayList<MovieVO>();	// 예정작
+		// 상영작만 따로 저장할 list를 만든다.
+		List<MovieVO> list2 = new ArrayList<MovieVO>(); // 예정작
 		for (MovieVO vo : list) {
 			if (Integer.parseInt(vo.getMovie_sdate()) > Integer.parseInt(today)) {
-				//상영날짜까지 남은 시간을 계산
-				vo.setDday(Integer.parseInt(vo.getMovie_sdate())-Integer.parseInt(today));
+				// 상영날짜까지 남은 시간을 계산
+				vo.setDday(Integer.parseInt(vo.getMovie_sdate())
+						- Integer.parseInt(today));
 				list2.add(vo);
-			} 
+			}
 		}
-		model.addAttribute("list2",list2);
-	}
-
-	//오늘 날짜를 YYYYMMDD 형식으로 반환한다.
-	private String calday() {
-		Calendar cal = Calendar.getInstance();
-
-		String year = cal.get(Calendar.YEAR) + "";
-		String month = (cal.get(Calendar.MONTH) + 1) + "";
-		String day = cal.get(Calendar.DATE) + "";
-		if (month.length() == 1) {
-			month = "0" + month;
-		}
-		if (day.length() == 1) {
-			day = "0" + day;
-		}
-		return year + month + day;
+		model.addAttribute("list2", list2);
 	}
 
 	//파일을 읽어와서 화면에 뿌려준다.
@@ -217,5 +170,22 @@ public class MovieController {
 		//dir이 존재하지 않으면 폴더 생성
 		if(!dir.exists()) dir.mkdir();
 	}
+	
+	//오늘 날짜를 YYYYMMDD 형식으로 반환한다.
+		private String calday() {
+			Calendar cal = Calendar.getInstance();
+
+			String year = cal.get(Calendar.YEAR) + "";
+			String month = (cal.get(Calendar.MONTH) + 1) + "";
+			String day = cal.get(Calendar.DATE) + "";
+			if (month.length() == 1) {
+				month = "0" + month;
+			}
+			if (day.length() == 1) {
+				day = "0" + day;
+			}
+			return year + month + day;
+		}
+
 	
 }
