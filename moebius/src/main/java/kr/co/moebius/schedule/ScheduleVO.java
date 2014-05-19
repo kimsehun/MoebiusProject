@@ -2,6 +2,7 @@ package kr.co.moebius.schedule;
 
 import java.io.Serializable;
 
+
 public class ScheduleVO implements Serializable{
 
 	private int schedule_no;

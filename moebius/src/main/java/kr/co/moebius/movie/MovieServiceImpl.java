@@ -9,6 +9,7 @@ import kr.co.moebius.movie.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MovieServiceImpl implements MovieService{
 

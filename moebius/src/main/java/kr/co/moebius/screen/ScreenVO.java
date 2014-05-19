@@ -2,6 +2,7 @@ package kr.co.moebius.screen;
 
 public class ScreenVO {
 
+	
 	private int screen_no;
 	private String screen_name;
 	private int movie_no;

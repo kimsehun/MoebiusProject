@@ -3,6 +3,7 @@ package kr.co.moebius.movie;
 import java.util.List;
 import java.util.Map;
 
+
 public interface MovieMapper {
 
 	//영화 등록

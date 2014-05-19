@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD SQL Mapper 3.0//EN"      
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="kr.co.moebius.comment.CommentMapper">
 	
 	<insert id="insertComment" parameterType="CommentVO">

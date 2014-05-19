@@ -121,7 +121,6 @@ CREATE TABLE m_schedule
 
 select * from m_schedule;
 
-
 CREATE TABLE m_movie
 (
 	movie_no number NOT NULL,
