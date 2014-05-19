@@ -17,4 +17,17 @@
 	FROM m_screen
 	WHERE movie_no=#{movie_no} AND location_no=#{location_no}
 </select>
+
+<select id="selectReserveScreen" parameterType="int" resultType="ScreenVO">
+	SELECT s.screen_no, s.screen_name, s.movie_no, l.location_no, l.location_name
+	FROM m_location l JOIN m_screen s
+	ON l.location_no = s.location_no
+	WHERE s.movie_no = #{movie_no}
+</select>
+
+<select id="countInsert" parameterType="ScreenVO" resultType="int">
+	SELECT count(*) AS cnt
+	FROM m_screen
+	WHERE movie_no=#{movie_no} AND location_no=#{location_no}
+</select>
 </mapper>

@@ -62,18 +62,28 @@ public class ScreenController {
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String screenInsertAction(ScreenVO screenVO, Model model) {
 		//어느 장소에서 영화를 틀어줄껀지를 정한다.
-		screenService.insertAction(screenVO);
+		try {
+			screenService.insertAction(screenVO);
+		} catch (RuntimeException e) {
+			model.addAttribute("msg", "이미 등록된 정보입니다.");
+			model.addAttribute("url","..");
+			e.printStackTrace();
+		} catch (Exception e) {
+			model.addAttribute("msg", "삽입 실패");
+			model.addAttribute("url","..");
+			return "result";
+		}
 		int screen_no  = screenService.selectNo(screenVO);
 		
 		ScheduleVO scheduleVO = new ScheduleVO();
 		
 		//영화번호를 통해 영화 시작일과 마지막일을 받아옴
 		MovieVO movieVO = movieService.selectDate(screenVO.getMovie_no());
-		
 		for(int i = Integer.parseInt(movieVO.getMovie_sdate()); i < Integer.parseInt(movieVO.getMovie_edate()); i++ ) {
-			int t = (int)(Math.random()*2)+8;
+			logger.info(i+"");
+			int t = (int)(Math.random()*2)+8;//랜덤시
 			int m = (int)(Math.random()*59);// 랜덤분
-			for(; t < 22 ; t=t+2) {
+			for(; t < 22 ; t=t+3) {
 				String schedule_time = t + ":" + m;
 				scheduleVO.setSchedule_date(i+"");
 				scheduleVO.setSchedule_time(schedule_time);

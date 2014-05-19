@@ -1,12 +1,11 @@
 package kr.co.moebius.screen;
 
 public class ScreenVO {
-
-	
 	private int screen_no;
 	private String screen_name;
 	private int movie_no;
 	private int location_no;
+	private String location_name;
 	public int getScreen_no() {
 		return screen_no;
 	}
@@ -32,10 +31,17 @@ public class ScreenVO {
 		this.location_no = location_no;
 	}
 	
+	public String getLocation_name() {
+		return location_name;
+	}
+	public void setLocation_name(String location_name) {
+		this.location_name = location_name;
+	}
+	
 	@Override
 	public String toString() {
 		return "ScreenVO [screen_no=" + screen_no + ", screen_name="
 				+ screen_name + ", movie_no=" + movie_no + ", location_no="
-				+ location_no + "]";
+				+ location_no + ", location_name=" + location_name + "]";
 	}
 }

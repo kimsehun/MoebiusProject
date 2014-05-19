@@ -20,6 +20,7 @@ DROP TABLE m_user CASCADE CONSTRAINTS;
 
 DROP SEQUENCE seq_movie_no;
 DROP SEQUENCE seq_board_no;
+
 DROP SEQUENCE seq_bno;
 DROP SEQUENCE seq_comment_no;
 DROP SEQUENCE seq_location_no;
@@ -35,6 +36,7 @@ DROP SEQUENCE seq_reserve_no;
 
 CREATE SEQUENCE seq_movie_no nocache;
 CREATE SEQUENCE seq_board_no nocache;
+CREATE SEQUENCE seq_board_info nocache;
 CREATE SEQUENCE seq_bno nocache;
 CREATE SEQUENCE seq_comment_no nocache;
 CREATE SEQUENCE seq_comment_total_no nocache;
@@ -203,6 +205,11 @@ CREATE TABLE m_comment_total
 	PRIMARY KEY (comment_total_no)
 );
 
+
+SELECT s.screen_no, s.screen_name, s.movie_no, l.location_no, l.location_name
+	FROM m_location l JOIN m_screen s
+	ON l.location_no = s.location_no
+	WHERE s.movie_no = '2';
 
 
 /* Create Foreign Keys */
