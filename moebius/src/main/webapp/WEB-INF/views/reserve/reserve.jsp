@@ -19,8 +19,6 @@
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/default.js"></script>
 <script type="text/javascript">
 var commentList;
-// $(document).ready(function(){
-// });
 function selectMovie(no) {
 	var movie_no = no
 	var movie_url='<c:url value="/reserve/'+movie_no+'" />';
@@ -30,7 +28,6 @@ function selectMovie(no) {
 		url:movie_url,
 		type:'GET',
 		success:function(data){
-			//alert(data);
 			commentList = "";
 			$.each(data,setCommentList);
 			$('#reserve_second_second').html(commentList);

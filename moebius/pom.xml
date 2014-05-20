@@ -281,6 +281,13 @@
 <!-- 			<artifactId>spring-boot-starter-test</artifactId> -->
 <!-- 			<version>1.0.0.RELEASE</version> -->
 <!-- 		</dependency> -->
+
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 		
 		<!-- Sitemesh -->
 		<dependency>

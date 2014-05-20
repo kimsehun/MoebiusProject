@@ -66,11 +66,11 @@ public class ScreenController {
 			screenService.insertAction(screenVO);
 		} catch (RuntimeException e) {
 			model.addAttribute("msg", "이미 등록된 정보입니다.");
-			model.addAttribute("url","..");
-			e.printStackTrace();
+			model.addAttribute("url","../screen/insert");
+			return "result";
 		} catch (Exception e) {
 			model.addAttribute("msg", "삽입 실패");
-			model.addAttribute("url","..");
+			model.addAttribute("url","../screen/insert");
 			return "result";
 		}
 		int screen_no  = screenService.selectNo(screenVO);

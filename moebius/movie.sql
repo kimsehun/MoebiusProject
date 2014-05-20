@@ -30,6 +30,10 @@ DROP SEQUENCE seq_seat_no;
 DROP SEQUENCE seq_reserve_no;
 
 
+SELECT count(*) AS cnt
+	FROM m_screen
+	WHERE movie_no=3 AND location_no=3;
+
 
 
 /* Create Sequences */
