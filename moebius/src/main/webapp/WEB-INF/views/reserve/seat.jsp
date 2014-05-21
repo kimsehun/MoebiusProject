@@ -8,33 +8,19 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/reserve.css" />" type="text/css" />
 
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/reserveSeat.js"/>"></script>
 
-<title>Insert title here</title>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.resultSeat').bind('click',function(){
-		var seatName = $(this).text();
-		var user_id = '${sessionScope.user_id}';
-		var sit_url = '<c:url value="/reserve/seat/'+seatName+'" />';
-		$.ajax({
-			url:sit_url,
-			type:'POST',
-			data:{
-				'user_id':user_id,
-				'seatName':seatName
-			},
-			success:function(data) {
-				alert("success");
-			}
-		});
-	});
-});
-
-</script>
 </head>
 <body>
 <div id="reserve_content">
-	<div class="seat_top"> 인원수 설정 menu | 상영관정보(뿌려주려면 뿌려주고 말려면 말고) </div>
+	<div class="seat_top">
+		인원 수 : 
+		<select id="movierLimit">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</select>
+	</div>
 	<div class="seat_content">
 		<table border="1" class="seat_table">
 			<% 
@@ -45,8 +31,7 @@ $(document).ready(function() {
 					result = (char)i;
 					out.print("<tr>");
 					for(j = 1; j < 11; j++){
-						out.print("<td>");
-						out.print("<div class='resultSeat' id="+result+j+">"+result+j+"</div>" );
+						out.print("<td class='resultSeat' id="+result+j+">"+result+j);
 						out.print("</td>");
 					} 
 					out.print("</tr>");	

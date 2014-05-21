@@ -19,3 +19,6 @@ td {padding:20px;}
 .seat_top {border:solid 1px gray; height:100px; margin-bottom: 0px; text-align:center;}
 .seat_content {border:solid 1px gray; margin-top:0px; text-align:center;}
 .seat_table {margin:auto; }
+
+.seatSelected { background-color:red; color:white}
+	
