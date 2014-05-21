@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,49 +20,116 @@
 var commentList;
 function selectMovie(no) {
 	var movie_no = no
-	var movie_url='<c:url value="/reserve/'+movie_no+'" />';
-// 	alert(movie_no);
-	$('#reserve_second_second').empty();
+	var movie_url='<c:url value="/reserve/movie/'+movie_no+'" />';
 	$.ajax({
 		url:movie_url,
-		type:'GET',
+		type:'POST',
 		success:function(data){
-			commentList = "";
-			$.each(data,setCommentList);
+			commentList = '';
+			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">'
+			commentList += '<select name="location" size="11">';
+			$.each(data,setCommentLocationList);
+			commentList += '</select>';
 			$('#reserve_second_second').html(commentList);
 		}
 	});
 }
+function selectLocation(no) {
+	var location_no = no;
+	var movie_no = $('#movie_no').val();
+	var location_url='<c:url value="/reserve/location/'+location_no+'" />';
+	$.ajax({
+		url:location_url,
+		type:'POST',
+		data:{
+			'movie_no':movie_no
+		},
+		success:function(data){
+			commentList = '';
+			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">';
+			commentList += '<input type="hidden" id="location_no" value="'+location_no+'">';
+			commentList += '<div class="reserve_year">'+data.year+'</div>';
+			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
+			commentList += '<select name="day" size="11">';
+			$.each(data.calList, setCommentDateList); 
+			commentList += '</select>';
+			$('.reserve_second_third').html(commentList);
+		}
+	});
+}
 
-function setCommentList() {
-	commentList += this['location_name'] + '<br/>'
+function selectSchedule(day) {
+	var movie_no = $('#movie_no').val();
+	var location_no = $('#location_no').val();
+	var day = day;
+	var year = $('.reserve_year').text();
+	var month = $('.reserve_month').text();
+	var schedule_url='<c:url value="/reserve/schedule/'+day+'" />';
+	$.ajax({
+		url:schedule_url,
+		type:'POST',
+		data:{
+			'movie_no':movie_no,
+			'location_no':location_no,
+			'year':year,
+			'month':month
+		},
+		success:function(data){
+			commentList = '';
+			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">';
+			commentList += '<input type="hidden" id="location_no" value="'+location_no+'">';
+			
+			commentList += '<select name="day" size="11">';
+			$.each(data, setCommentScheduleList); 
+			commentList += '</select>';
+			$('.reserve_second_forth').html(commentList);
+		}
+	});
+}
+
+function setCommentScheduleList() {
+	commentList += '<option value='+this['schedule_no']+');">'+this['schedule_time']+'</option>';
+}
+	
+function setCommentDateList() {
+	commentList += '<option value='+[this]+' onmousedown="selectSchedule('+[this]+');">'+[this]+'</option>';
+}
+
+function setCommentLocationList() {
+	commentList += '<option value='+this['loction_no']+' onmousedown="selectLocation('+this['location_no']+');">'+this['location_name']+'</option>';
 }
 </script>
 </head>
 <body>
+<form action = "reserve/seat" method="GET">
 	<div id="reserve_content" >
 		<div class="reserve_first_first" align="center">영화</div>
 		<div class="reserve_first_second" align="center">극장</div>
 		<div class="reserve_first_third" align="center">날짜</div>
 		<div class="reserve_first_forth" align="center">시간</div>
 		<div class="reserve_second_first">
-		<select name="movie" size="11" multiple>
+		<select name="movie" size="11">
 			<c:forEach items="${movieList}" var="movieVO">
 			<option value="${movieVO.movie_no}" onmousedown="javascript:selectMovie(${movieVO.movie_no});">${movieVO.movie_title}</option>
 			</c:forEach>
 		</select>
 		</div>
 		<div class="reserve_second_second" id="reserve_second_second">
+		<select name="location" size="11">
 			<c:forEach items="${locationList}" var="locationVO">
-				${locationVO.location_name}<br/>
+				<option value="${locationVO.location_no}" onmousedown="javascript:selectLocation(${locationVO.location_no});">${locationVO.location_name}</option>
 			</c:forEach>
+		</select>
 		</div>
+		
 		<div class="reserve_second_third" align="center">
 			<div class="reserve_year">${year}</div>
-		<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
-			<c:forEach items="${calList}" var="cal">
-				${cal}<br/>
-			</c:forEach>
+				<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
+			<select name="day" size="11">
+				<c:forEach items="${calList}" var="cal">
+				<option value="${cal}" >${cal}</option>
+				</c:forEach>
+			</select>
 		</div>
 		<div class="reserve_second_forth"></div>
 		
@@ -83,5 +149,7 @@ function setCommentList() {
 </div>
 <!-- //UI Object -->
 </div>
+<input type="submit" value="자리선택"/>
+</form>
 </body>
 </html>
