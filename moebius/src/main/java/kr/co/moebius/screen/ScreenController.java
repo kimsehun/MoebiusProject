@@ -79,7 +79,7 @@ public class ScreenController {
 		
 		//영화번호를 통해 영화 시작일과 마지막일을 받아옴
 		MovieVO movieVO = movieService.selectDate(screenVO.getMovie_no());
-		for(int i = Integer.parseInt(movieVO.getMovie_sdate()); i < Integer.parseInt(movieVO.getMovie_edate()); i++ ) {
+		for(int i = Integer.parseInt(movieVO.getMovie_sdate()); i <= Integer.parseInt(movieVO.getMovie_edate()); i++ ) {
 			logger.info(i+"");
 			int t = (int)(Math.random()*2)+8;//랜덤시
 			int m = (int)(Math.random()*59);// 랜덤분

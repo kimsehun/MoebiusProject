@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/process.css" />" type="text/css" />
 <link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shCore.css"> 
 <link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shThemeDefault.css"> 
-<link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/default.css"> 
+<link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/default.css">
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shCore.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushCss.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushXml.js"></script> 
@@ -26,7 +27,7 @@ function selectMovie(no) {
 		type:'POST',
 		success:function(data){
 			commentList = '';
-			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">'
+			$('#movie_no').val(movie_no);
 			commentList += '<select name="location" size="11">';
 			$.each(data,setCommentLocationList);
 			commentList += '</select>';
@@ -46,8 +47,7 @@ function selectLocation(no) {
 		},
 		success:function(data){
 			commentList = '';
-			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">';
-			commentList += '<input type="hidden" id="location_no" value="'+location_no+'">';
+			$('#location_no').val(location_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
 			commentList += '<select name="day" size="11">';
@@ -76,9 +76,9 @@ function selectSchedule(day) {
 		},
 		success:function(data){
 			commentList = '';
-			commentList += '<input type="hidden" id="movie_no" value="'+movie_no+'">';
-			commentList += '<input type="hidden" id="location_no" value="'+location_no+'">';
-			
+			$('#year').val(year);
+			$('#month').val(month);
+			$('#day').val(day);
 			commentList += '<select name="day" size="11">';
 			$.each(data, setCommentScheduleList); 
 			commentList += '</select>';
@@ -86,9 +86,12 @@ function selectSchedule(day) {
 		}
 	});
 }
+function selectTime(no) {
+	$('#schedule_no').val(no);
+}
 
 function setCommentScheduleList() {
-	commentList += '<option value='+this['schedule_no']+');">'+this['schedule_time']+'</option>';
+	commentList += '<option value='+this['schedule_no']+' onmousedown="selectTime('+this['schedule_no']+');">'+this['schedule_time']+'</option>';
 }
 	
 function setCommentDateList() {
@@ -101,7 +104,6 @@ function setCommentLocationList() {
 </script>
 </head>
 <body>
-<form action = "reserve/seat" method="GET">
 	<div id="reserve_content" >
 		<div class="reserve_first_first" align="center">영화</div>
 		<div class="reserve_first_second" align="center">극장</div>
@@ -121,8 +123,8 @@ function setCommentLocationList() {
 			</c:forEach>
 		</select>
 		</div>
-		
-		<div class="reserve_second_third" align="center">
+
+		<div class="reserve_second_third" id="reserve_second_third" align="center">
 			<div class="reserve_year">${year}</div>
 				<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
 			<select name="day" size="11">
@@ -149,6 +151,13 @@ function setCommentLocationList() {
 </div>
 <!-- //UI Object -->
 </div>
+<form action = "reserve/seat" method="GET">
+<input type="hidden" id="location_no" name="location_no" value=""/>
+<input type="hidden" id="movie_no" name="movie_no" value=""/>
+<input type="hidden" id="year" name="year" value=""/>
+<input type="hidden" id="month" name="month" value=""/>
+<input type="hidden" id="day" name="day" value=""/>
+<input type="hidden" id="schedule_no" name="schedule_no" value=""/>
 <input type="submit" value="자리선택"/>
 </form>
 </body>

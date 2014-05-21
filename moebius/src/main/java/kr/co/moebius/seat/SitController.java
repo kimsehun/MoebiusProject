@@ -21,8 +21,9 @@ public class SitController {
 	private SitService sitService;
 	
 	@RequestMapping(value="/reserve/seat", method=RequestMethod.GET)
-	public String seat(HttpSession session) throws Exception{
-
+	public String seat(HttpSession session, SitVO sitVO) throws Exception{
+		
+		logger.info(sitVO.toString());
 		String user_id = (String) session.getAttribute("user_id");
 		
 		if(user_id == null){
