@@ -173,7 +173,23 @@ public class HomeController {
 	}
 	
 	@RequestMapping("main/plan")
-	public String homePlan() {
+	public String homePlan(Model model) {
+		String today = calday();
+
+		// 영화정보를 가져와서 오늘 날짜와 비교한다.
+		List<MovieVO> list = movieService.search();
+		// 상영작만 따로 저장할 list를 만든다.
+		List<MovieVO> list2 = new ArrayList<MovieVO>(); // 예정작
+		for (MovieVO vo : list) {
+			if (Integer.parseInt(vo.getMovie_sdate()) > Integer.parseInt(today)) {
+				// 상영날짜까지 남은 시간을 계산
+				vo.setDday(Integer.parseInt(vo.getMovie_sdate())
+						- Integer.parseInt(today));
+				list2.add(vo);
+			}
+		}
+		model.addAttribute("list2", list2);
+		
 		return "main/plan";
 	}
 }

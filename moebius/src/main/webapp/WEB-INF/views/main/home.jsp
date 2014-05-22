@@ -15,7 +15,9 @@
 <body>
 <div id="first">
 <!-- <table align="center" width="1200" height="700"> -->
-<div id="first_first"><iframe src="/moebius/main/plan" width="800px" height="200px" frameborder="0"></iframe></div>
+<div id="first_first">
+<iframe src="/moebius/main/plan" width="800px" height="200px" frameborder="0" ></iframe>
+</div>
 <div id="first_second">
 	<c:choose>
 	<c:when test="${id==null}">
