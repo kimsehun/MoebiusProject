@@ -15,7 +15,7 @@
 <body>
 <div id="first">
 <!-- <table align="center" width="1200" height="700"> -->
-<div id="first_first">상영예정작</div>
+<div id="first_first"><iframe src="/moebius/main/plan" width="800px" height="200px" frameborder="0"></iframe></div>
 <div id="first_second">
 	<c:choose>
 	<c:when test="${id==null}">
@@ -70,7 +70,7 @@
 </div>
 <!-- 	<td height = "200"> -->
 	<div id="third">
-		<div id="third_first">광고</div>
+		<div id="third_first" align="center"><a href="http://program.interest.me/ocn/quizofgod4" target="newwin"><img src="<c:url value="/resources/img/ocn.JPG"/>" class="ad_img"/></a></div>
 		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="200px" frameborder="0"></iframe> </div>
 		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="200px" frameborder="0"></iframe></div>
 	</div>

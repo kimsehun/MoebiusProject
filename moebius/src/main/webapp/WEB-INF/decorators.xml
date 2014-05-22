@@ -8,6 +8,7 @@
 		<pattern>/main/notice</pattern>
 		<pattern>/main/question</pattern>
 		<pattern>/main/rank</pattern>
+		<pattern>/main/plan</pattern>
 		<pattern>/user/zipcode</pattern>
 	</excludes>
 	

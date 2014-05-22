@@ -171,4 +171,9 @@ public class HomeController {
 		
 		return "main/notice";
 	}
+	
+	@RequestMapping("main/plan")
+	public String homePlan() {
+		return "main/plan";
+	}
 }

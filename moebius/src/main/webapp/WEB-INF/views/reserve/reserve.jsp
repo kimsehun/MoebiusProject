@@ -48,6 +48,7 @@ function selectLocation(no) {
 		success:function(data){
 			commentList = '';
 			$('#location_no').val(location_no);
+			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
 			commentList += '<select name="day" size="11">';
@@ -117,6 +118,7 @@ function selectMovieDate(no) {
 		success:function(data){
 			commentList = '';
 			$('#movie_no').val(movie_no);
+			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
 			commentList += '<select name="day" size="11">';
@@ -156,7 +158,7 @@ function setCommentLocationList() {
 		<div class="reserve_first_forth" align="center">시간</div>
 		<div class="reserve_second_first">
 		<select name="movie" size="11">
-			<c:forEach items="${movieList}" var="movieVO">
+			<c:forEach items="${rankingList}" var="movieVO">
 			<option value="${movieVO.movie_no}" onmousedown="javascript:selectMovie(${movieVO.movie_no});">${movieVO.movie_title}</option>
 			</c:forEach>
 		</select>
@@ -199,6 +201,7 @@ function setCommentLocationList() {
 <form action = "reserve/seat" method="GET">
 <input type="hidden" id="location_no" name="location_no" value=""/>
 <input type="hidden" id="movie_no" name="movie_no" value=""/>
+<input type="hidden" id="screen_no" name="screen_no" value="" />
 <input type="hidden" id="year" name="year" value=""/>
 <input type="hidden" id="month" name="month" value=""/>
 <input type="hidden" id="day" name="day" value=""/>

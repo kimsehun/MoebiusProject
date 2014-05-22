@@ -74,10 +74,37 @@ public class ReserveController {
 			e.printStackTrace();
 		}
 		
+		String today = calday(cal);
+		//상영중인 영화만 골라낸다
+		List<MovieVO> rankingList = new ArrayList<MovieVO>();
+		for (MovieVO vo : movieList) {
+			if (Integer.parseInt(vo.getMovie_sdate()) <= Integer.parseInt(today)) {
+				// 상영날짜까지 남은 시간을 계산
+				rankingList.add(vo);
+			}
+		}
+		model.addAttribute("rankingList", rankingList);
+		
 		model.addAttribute("movieList", movieList);
 		model.addAttribute("locationList", locationList);
 		model.addAttribute("calList", calList);
 		return "reserve/reserve";
+	}
+
+
+	//오늘 날짜를 가져온다.
+	private String calday(Calendar cal) {
+
+		String year = cal.get(Calendar.YEAR) + "";
+		String month = (cal.get(Calendar.MONTH) + 1) + "";
+		String day = cal.get(Calendar.DATE) + "";
+		if (month.length() == 1) {
+			month = "0" + month;
+		}
+		if (day.length() == 1) {
+			day = "0" + day;
+		}
+		return year + month + day;
 	}
 
 
@@ -96,6 +123,7 @@ public class ReserveController {
 	@ResponseBody
 	public List<ScreenVO> location(@PathVariable int location_no) {
 		List<ScreenVO> screenList = screenService.selectReserveMovie(location_no);
+		
 		logger.info(screenList.toString());
 		return screenList;
 	}
@@ -110,6 +138,14 @@ public class ReserveController {
 		int endday = cal.getActualMaximum((cal.get(Calendar.MONTH)+1));//getActualMaximum() : 그달의 마지막 달을 알려줌
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Object> calList = new ArrayList<Object>();
+		
+		//스크린 넘버 가져오기
+		ScreenVO screenVO = new ScreenVO();
+		screenVO.setLocation_no(location_no);
+		screenVO.setMovie_no(movie_no);
+		int screen_no = screenService.selectNo(screenVO);
+		map.put("screen_no", screen_no);
+		
 		
 		MovieVO movieVO = movieService.selectDate(movie_no);
 		//년,월,일 으로 나누어 주기

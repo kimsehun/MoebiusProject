@@ -37,7 +37,7 @@ ORDER BY movie_count DESC
 </select>
 
 <select id="selectMovie" resultType="MovieVO">
-SELECT movie_no, movie_title
+SELECT movie_no, movie_title, to_char(movie_sdate, 'YYYYMMDD') AS movie_sdate
 FROM m_movie
 ORDER BY movie_title ASC
 </select>

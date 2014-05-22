@@ -18,14 +18,15 @@ A:active {color:black; text-decoration:none;}
 #first_first {border:1px solid #bdbdbd; width: 800px; float: left; height: 200px; text-align: center;}
 #first_second {border:1px solid #bdbdbd; width: 396px; float: left; height: 200px; text-align: center;}
 
-#second {clear: left; height: 200px; background-color: gray;}
+#second {clear: left; height: 200px; background-color:ivory;}
 
 #third {height: 200px;}
-#third_first {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center;}
+#third_first {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center; padding-top:0px;}
 #third_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
 #third_third {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
 
 .main_img {width:750px; height:150px; margin-left: 225px;}
+.ad_img {height:220px; width:392px;}
 .login {margin: 0 73px 0;}
 
 .poster_img{width:135px; height:135px}
