@@ -29,4 +29,9 @@ public class ScreenServiceImpl implements ScreenService{
 	public List<ScreenVO> selectReserveScreen(int movie_no) {
 		return screenMapper.selectReserveScreen(movie_no);
 	}
+	
+	@Override
+	public List<ScreenVO> selectReserveMovie(int location_no) {
+		return screenMapper.selectReserveMovie(location_no);
+	}
 }

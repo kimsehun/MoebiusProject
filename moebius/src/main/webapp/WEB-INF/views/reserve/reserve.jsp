@@ -86,6 +86,51 @@ function selectSchedule(day) {
 		}
 	});
 }
+
+function selectLocationMovie(no) {
+	var location_no = no
+	var location_url='<c:url value="/reserve/locationMovie/'+location_no+'" />';
+	$.ajax({
+		url:location_url,
+		type:'POST',
+		success:function(data){
+			commentList = "";
+			$('#location_no').val(location_no);
+			commentList += '<select name="movie" size="11">';
+			$.each(data, setCommentMovieList);
+			commentList += '</select>';
+			$('.reserve_second_first').html(commentList);
+		}
+	});
+}
+
+function selectMovieDate(no) {
+	var movie_no = no;
+	var location_no = $('#location_no').val();
+	var movie_url='<c:url value="/reserve/location/'+location_no+'" />';
+	$.ajax({
+		url:movie_url,
+		type:'POST',
+		data:{
+			'movie_no':movie_no
+		},
+		success:function(data){
+			commentList = '';
+			$('#movie_no').val(movie_no);
+			commentList += '<div class="reserve_year">'+data.year+'</div>';
+			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
+			commentList += '<select name="day" size="11">';
+			$.each(data.calList, setCommentDateList); 
+			commentList += '</select>';
+			$('.reserve_second_third').html(commentList);
+		}
+	});
+}
+
+function setCommentMovieList() {
+	commentList += '<option value='+this['movie_no']+' onmousedown="selectMovieDate('+this['movie_no']+');">'+this['movie_title']+'</option>';
+}
+
 function selectTime(no) {
 	$('#schedule_no').val(no);
 }
@@ -119,7 +164,7 @@ function setCommentLocationList() {
 		<div class="reserve_second_second" id="reserve_second_second">
 		<select name="location" size="11">
 			<c:forEach items="${locationList}" var="locationVO">
-				<option value="${locationVO.location_no}" onmousedown="javascript:selectLocation(${locationVO.location_no});">${locationVO.location_name}</option>
+				<option value="${locationVO.location_no}" onmousedown="javascript:selectLocationMovie(${locationVO.location_no});">${locationVO.location_name}</option>
 			</c:forEach>
 		</select>
 		</div>

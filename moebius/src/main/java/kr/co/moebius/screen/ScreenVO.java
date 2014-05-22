@@ -6,6 +6,8 @@ public class ScreenVO {
 	private int movie_no;
 	private int location_no;
 	private String location_name;
+	private String movie_title;
+	
 	public int getScreen_no() {
 		return screen_no;
 	}
@@ -36,6 +38,13 @@ public class ScreenVO {
 	}
 	public void setLocation_name(String location_name) {
 		this.location_name = location_name;
+	}
+	
+	public String getMovie_title() {
+		return movie_title;
+	}
+	public void setMovie_title(String movie_title) {
+		this.movie_title = movie_title;
 	}
 	
 	@Override

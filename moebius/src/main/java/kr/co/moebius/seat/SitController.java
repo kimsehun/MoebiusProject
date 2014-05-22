@@ -27,13 +27,9 @@ public class SitController {
 		String user_id = (String) session.getAttribute("user_id");
 		
 		if(user_id == null){
-		
 			return "redirect:/user/login";
-		
 		} else{
-		
 			return "/reserve/seat";
-
 		}
 	}
 	

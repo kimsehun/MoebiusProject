@@ -10,4 +10,6 @@ public interface ScreenService {
 
 	List<ScreenVO> selectReserveScreen(int movie_no);
 
+	List<ScreenVO> selectReserveMovie(int location_no);
+
 }

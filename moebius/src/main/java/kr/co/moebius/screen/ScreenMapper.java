@@ -12,4 +12,6 @@ public interface ScreenMapper {
 
 	int countInsert(ScreenVO screenVO);
 
+	List<ScreenVO> selectReserveMovie(int location_no);
+
 }

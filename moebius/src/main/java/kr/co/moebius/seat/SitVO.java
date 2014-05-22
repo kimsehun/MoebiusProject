@@ -7,6 +7,7 @@ public class SitVO {
 	private String month;
 	private int day;
 	private int schedule_no;
+	
 	public int getLocation_no() {
 		return location_no;
 	}

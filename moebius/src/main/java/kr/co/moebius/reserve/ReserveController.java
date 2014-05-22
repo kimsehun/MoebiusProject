@@ -88,7 +88,17 @@ public class ReserveController {
 	public List<ScreenVO> reserveMovie(@PathVariable int movie_no) {
 		List<ScreenVO> screenList = screenService.selectReserveScreen(movie_no);
 		return screenList;
-		}
+	}
+	
+	@RequestMapping(value="/reserve/locationMovie/{location_no}",
+			headers = "Accept=application/json;charset=UTF-8", 
+			produces = { MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public List<ScreenVO> location(@PathVariable int location_no) {
+		List<ScreenVO> screenList = screenService.selectReserveMovie(location_no);
+		logger.info(screenList.toString());
+		return screenList;
+	}
 	
 	@RequestMapping(value="/reserve/location/{location_no}",
 				headers = "Accept=application/json;charset=UTF-8",
