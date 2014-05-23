@@ -34,7 +34,7 @@ jQuery(function($){
 					<div class=carrousel_box>
 						<ul><c:forEach items="${list2}" var="movieVO">
 							<li>
-								<div class=img_box><img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width: 500px; height: 180px" /></div>
+								<div class=img_box><a href="/moebius/movie/detail/${movieVO.movie_no}/" target="newwin"><img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width: 500px; height: 180px" /></a></div>
 							</li>
 						</c:forEach></ul>
 					</div>

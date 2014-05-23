@@ -27,17 +27,15 @@
 				<tr>
 					<td align="center">
 						${st.index +1}
-<!-- css style -->
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px" id="btninsert"/>
-						<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
 					</td>
 			</c:when>
 			<c:otherwise>
 				<td align="center">
 					${st.index +1}
-<!-- css style -->
 					<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px" id="btninsert"/>
-					<p><a href ="#">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+					<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
 				</td>
 			</c:otherwise>
 		</c:choose>

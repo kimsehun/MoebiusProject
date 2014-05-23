@@ -83,9 +83,10 @@ public class ReserveController {
 				rankingList.add(vo);
 			}
 		}
-		model.addAttribute("rankingList", rankingList);
+		int movie_no = 0;
 		
-		model.addAttribute("movieList", movieList);
+		model.addAttribute("movie_no",movie_no);
+		model.addAttribute("rankingList", rankingList);
 		model.addAttribute("locationList", locationList);
 		model.addAttribute("calList", calList);
 		return "reserve/reserve";
@@ -106,6 +107,28 @@ public class ReserveController {
 		}
 		return year + month + day;
 	}
+	
+	
+	@RequestMapping(value="/reserve/{movie_no}")
+	public String reserveMovieNo(@PathVariable int movie_no, Model model) {
+		List<ScreenVO> locationList = screenService.selectReserveScreen(movie_no);
+		List<MovieVO> movieList = movieService.selectMovie();
+		
+		Calendar cal = Calendar.getInstance();
+		String today = calday(cal);
+		List<MovieVO> rankingList = new ArrayList<MovieVO>();
+		for (MovieVO vo : movieList) {
+			if (Integer.parseInt(vo.getMovie_sdate()) <= Integer.parseInt(today)) {
+				// 상영날짜까지 남은 시간을 계산
+				rankingList.add(vo);
+			}
+		}
+		model.addAttribute("movie_no", movie_no);
+		model.addAttribute("rankingList", rankingList);
+		model.addAttribute("locationList",locationList);
+		return "reserve/reserve";
+	}
+	
 
 
 	@RequestMapping(value="/reserve/movie/{movie_no}", 

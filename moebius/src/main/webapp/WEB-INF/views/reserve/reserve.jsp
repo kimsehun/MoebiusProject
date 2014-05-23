@@ -159,14 +159,28 @@ function setCommentLocationList() {
 		<div class="reserve_second_first">
 		<select name="movie" size="11">
 			<c:forEach items="${rankingList}" var="movieVO">
-			<option value="${movieVO.movie_no}" onmousedown="javascript:selectMovie(${movieVO.movie_no});">${movieVO.movie_title}</option>
+				<c:choose>
+					<c:when test="${movie_no == movieVO.movie_no}">
+						<option value="${movieVO.movie_no}" onmousedown="javascript:selectMovie(${movieVO.movie_no});" selected>${movieVO.movie_title}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${movieVO.movie_no}" onmousedown="javascript:selectMovie(${movieVO.movie_no});">${movieVO.movie_title}</option>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 		</select>
 		</div>
 		<div class="reserve_second_second" id="reserve_second_second">
 		<select name="location" size="11">
 			<c:forEach items="${locationList}" var="locationVO">
-				<option value="${locationVO.location_no}" onmousedown="javascript:selectLocationMovie(${locationVO.location_no});">${locationVO.location_name}</option>
+				<c:choose>
+				<c:when test="${movie_no == 0}">
+					<option value="${locationVO.location_no}" onmousedown="javascript:selectLocationMovie(${locationVO.location_no});">${locationVO.location_name}</option>
+				</c:when>
+				<c:otherwise>
+					<option value="${locationVO.location_no}" onmousedown="javascript:selectLocation(${locationVO.location_no});">${locationVO.location_name}</option>
+				</c:otherwise>
+				</c:choose>
 			</c:forEach>
 		</select>
 		</div>
@@ -200,7 +214,7 @@ function setCommentLocationList() {
 </div>
 <form action = "reserve/seat" method="GET">
 <input type="hidden" id="location_no" name="location_no" value=""/>
-<input type="hidden" id="movie_no" name="movie_no" value=""/>
+<input type="hidden" id="movie_no" name="movie_no" value="${movie_no}"/>
 <input type="hidden" id="screen_no" name="screen_no" value="" />
 <input type="hidden" id="year" name="year" value=""/>
 <input type="hidden" id="month" name="month" value=""/>

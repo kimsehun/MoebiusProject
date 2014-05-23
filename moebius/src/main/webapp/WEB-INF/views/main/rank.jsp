@@ -17,7 +17,7 @@
 					<td style="width: 350px" align="center">
 						${st.index +1}
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
-						<p><a href ="#">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank">상세보기</a> </p>
+						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank">상세보기</a> </p>
 					</td>
 				</c:when>
 			</c:choose>
