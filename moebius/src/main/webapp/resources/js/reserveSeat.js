@@ -46,32 +46,38 @@ $(document).ready(function() {
 		
 		console.log(resultSeat);
 	});
-			
-	
+
+	$('#btnReserveOk').click(function(){
+		var user_id = $('#user_id').val();
+		var location_no = $('#location_no').val();
+		var schedule_no = $('#schedule_no').val();
+		var screen_name = $('#screen_name').val();
+		var screen_no = $('#screen_no').val();
+		var seat_no = $('#seat_no').val();
 		
-		
-		$('#send').click(function(){
-			
-			$.ajax({
-				url:'../reserve/seat/'+seatName,
-				type:'POST',
-				data:{
-					'user_id':user_id,
-					'seatName':seatName
-				},
-				success:function(data) {
-					if(movierLimit == 1){
-						console.log(resultSeat);
-						$('.resultSeat').unbind('click');						
-					} else if(movierLimit == 2) {
-						if(click == 2){
-							console.log(resultSeat);
-							$('.resultSeat').unbind('click');
-						} 
-					}
+		console.log(seat_no);
+		$.ajax({
+			url:'../reserve/seatA/'+resultSeat,
+			type:'POST',
+			data:{
+				'user_id':user_id,
+				'seatName':resultSeat,
+				'location_no':location_no,
+				'schedule_no':schedule_no,
+				'screen_name':screen_name,
+				'screen_no':screen_no,
+				'seat_no':seat_no
+			},
+			success:function(data) {
+				if(data.res == 1) {
+					alert(data.msg);
+					history.back();
+				} else {
+					location.href="/moebius/user/userInfo";
 				}
-			});
+			}
 		});
+	});
 	
 	$('#btnReserveAction').bind('click',function(){
 			//포인트 차감 후 userInfo로 이동

@@ -12,8 +12,16 @@
 
 </head>
 <body>
+
 <div id="reserve_content">
 	<div class="seat_top">
+	<input type="hidden" value="${sitVO.location_no}" id="location_no">
+	<input type="hidden" value="${sitVO.schedule_no}" id="schedule_no">
+	<input type="hidden" value="${sitVO.seat_name}" id="seat_name">
+	<input type="hidden" value="${sitVO.seat_no}" id="seat_no">
+	<input type="hidden" value="${sitVO.screen_name}" id="screen_name">
+	<input type="hidden" value="${sitVO.screen_no}" id="screen_no">
+	<input type="hidden" value="${user_id}" id="user_id">
 		인원 수 : 
 		<select id="movierLimit">
 			<option value="0">0</option>
@@ -39,7 +47,7 @@
 			%>
 		</table>
 	</div>
-
+	<input type="button" value="확인" id="btnReserveOk" >
 </div>
 </body>
 </html>
