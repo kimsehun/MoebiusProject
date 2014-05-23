@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import kr.co.moebius.mail.MailAction;
+import kr.co.moebius.seat.SitVO;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
@@ -236,6 +237,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/userInfo")
-	public void userInfo() throws Exception {
+	public void userInfo(SitVO sitVO, Model model) throws Exception {
+		userService.getReserveInfo(sitVO);
 	}
 }

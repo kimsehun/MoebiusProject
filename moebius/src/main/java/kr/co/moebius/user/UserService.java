@@ -2,6 +2,8 @@ package kr.co.moebius.user;
 
 import java.util.List;
 
+import kr.co.moebius.seat.SitVO;
+
 public interface UserService {
 
 	void registUser(UserVO userVO) throws Exception;
@@ -27,6 +29,8 @@ public interface UserService {
 	void updateUser(UserVO userVO) throws Exception;
 
 	int changePwd(InfoVO infoVO) throws Exception;
+
+	void getReserveInfo(SitVO sitVO) throws Exception;
 
 	
 }

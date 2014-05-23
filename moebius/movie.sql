@@ -530,3 +530,13 @@ insert into m_seat(seat_name, seat_no, screen_no, location_no)
 values ('I10', seq_seat_no.nextval, 1, 1);
 
 
+
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_board_info.nextval, '공지사항','admin');
+
+-- 게시판 준비
+insert into m_board_info(bno, bname, user_id)
+values(seq_board_info.nextval, '자주하는질문','admin');
+

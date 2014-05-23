@@ -2,6 +2,8 @@ package kr.co.moebius.user;
 
 import java.util.List;
 
+import kr.co.moebius.seat.SitVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,5 +83,11 @@ public class UserServiceImpl implements UserService {
 	public int changePwd(InfoVO infoVO) throws Exception {
 		// TODO Auto-generated method stub
 		return userMapper.changePwd(infoVO);
+	}
+	
+	@Override
+	public void getReserveInfo(SitVO sitVO) throws Exception {
+		// TODO Auto-generated method stub
+		userMapper.getReserveInfo(sitVO);
 	}
 }

@@ -111,9 +111,17 @@
 	WHERE user_id=#{user_id} AND user_pwd=#{user_inpwd}
 	</update>
 	
+	<!-- 댓글삽입시 포인트 증가 -->
 	<update id="pointUp" parameterType="String">
 	UPDATE m_user SET
 	user_point = user_point + 5000
 	WHERE user_id=#{user_id}
 	</update>
+	
+	<!-- 예약확인 -->
+	<select id="getReserveInfo" parameterType="SitVO" resultType="UserVO">
+	SELECT u.user_name, s.screen_name,
+	FROM m_user u join m_screen
+	WHERE 
+	</select>
 </mapper>

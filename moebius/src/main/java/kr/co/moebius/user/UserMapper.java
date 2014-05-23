@@ -2,6 +2,8 @@ package kr.co.moebius.user;
 
 import java.util.List;
 
+import kr.co.moebius.seat.SitVO;
+
 public interface UserMapper {
 
 	void registUser(UserVO userVO) throws Exception;
@@ -30,6 +32,8 @@ public interface UserMapper {
 
 	//포인트 증가
 	void pointUp(String user_id);
+
+	void getReserveInfo(SitVO sitVO) throws Exception;
 
 
 }
