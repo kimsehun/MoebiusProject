@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btnRegist').bind('click',function(){
-			location.href='user/regist';
+			location.href='/moebius/user/regist';
 		});
 		
 		$('#btnLoginOk').bind('click',function(){
@@ -49,6 +49,7 @@
 		<td colspan="2" align="center">
 			<input type="submit" value="로그인" id="btnLoginOk"/>
 			<input type="button" value="회원가입" id="btnRegist"/>
+			<div><a href="/moebius/user/searchid">ID</a>/<a href="/moebius/user/searchpwd">PW찾기</a></div>
 		</td>
 	</tr>
 	

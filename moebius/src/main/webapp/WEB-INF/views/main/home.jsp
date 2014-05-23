@@ -9,6 +9,12 @@
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/login.js"/> "></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#btnRegist').bind('click',function(){
+		location.href='/moebius/user/regist';
+	});
+</script>
 <title>Main</title>
 <c:set var="id" value="${sessionScope.user_id}"/>
 </head>
@@ -37,7 +43,7 @@
 				<td colspan="2" align="center">
 					<input type="submit" value="로그인" id="btnLoginOk"/>
 					<input type="button" value="회원가입" id="btnRegist"/>
-				<div>ID/PW찾기</div>
+				<div><a href="/moebius/user/searchid">ID</a>/<a href="/moebius/user/searchpwd">PW찾기</a></div>
 				</td>
 			</tr>
 		</table>
