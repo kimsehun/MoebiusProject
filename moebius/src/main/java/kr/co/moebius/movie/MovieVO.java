@@ -19,6 +19,7 @@ public class MovieVO implements Serializable{
 	private String movie_story;
 	private String movie_poster;
 	private int movie_count;
+	private String movie_video;
 	private String movie_sdate;
 	private String movie_grade;
 	private String movie_point;
@@ -122,6 +123,13 @@ public class MovieVO implements Serializable{
 	public void setDday(int dday) {
 		this.dday = dday;
 	}
+	public String getMovie_video() {
+		return movie_video;
+	}
+	public void setMovie_video(String movie_video) {
+		this.movie_video = movie_video;
+	}
+	
 	@Override
 	public String toString() {
 		return "MovieVO [movie_no=" + movie_no + ", movie_title=" + movie_title
@@ -130,9 +138,10 @@ public class MovieVO implements Serializable{
 				+ ", movie_runningtime=" + movie_runningtime + ", movie_actor="
 				+ movie_actor + ", movie_story=" + movie_story
 				+ ", movie_poster=" + movie_poster + ", movie_count="
-				+ movie_count + ", movie_sdate=" + movie_sdate
-				+ ", movie_grade=" + movie_grade + ", movie_point="
-				+ movie_point + ", movie_edate=" + movie_edate + ", dday="
-				+ dday + ", userVO=" + userVO + "]";
+				+ movie_count + ", movie_video=" + movie_video
+				+ ", movie_sdate=" + movie_sdate + ", movie_grade="
+				+ movie_grade + ", movie_point=" + movie_point
+				+ ", movie_edate=" + movie_edate + ", dday=" + dday
+				+ ", userVO=" + userVO + "]";
 	}
 }

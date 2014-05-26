@@ -61,6 +61,12 @@
 				</td>
 			</tr>
 			<tr>
+				<th>영화 동영상 주소</th>
+				<td>
+					<input type="text" name="movie_video">
+				</td>
+			</tr>
+			<tr>
 				<th>영화 상영 시작일</th>
 				<td>
 					<input type="date" name="movie_sdate"/>

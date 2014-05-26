@@ -159,6 +159,10 @@
 	<tr>		
 		<td colspan="2">${movieVO.movie_story}</td>
 	</tr>
+	<tr>
+		<td colspan="2"><object width="560" height="315"><param name="movie" value="${movieVO.movie_video}"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="${movieVO.movie_video}" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object></td>
+	</tr>
+	
 </table>
 <br/>
 영화 평점 : <div id="avg"></div><br/>	
