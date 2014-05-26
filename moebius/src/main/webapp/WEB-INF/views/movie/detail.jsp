@@ -35,7 +35,7 @@
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
- 				$('#avg').html(data.avg);
+ 				$('#avg').html(data.star + " / ●●●●●");
  			}
  		});
  		
@@ -68,7 +68,7 @@
 					commentList += '</table>';
 					
 					$('#commentDisplay').html(commentList);
-					$('#avg').html(data.avg);
+					$('#avg').html(data.star + " / ●●●●●");
 				}
 			});
 		});
@@ -92,7 +92,7 @@
 				commentList += '</table>';
 				
 				$('#commentDisplay').html(commentList);
-				$('#avg').html(data.avg);
+				$('#avg').html(data.star + " / ●●●●●");
 			}
 		});
 		}

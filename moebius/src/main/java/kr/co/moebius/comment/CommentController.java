@@ -53,9 +53,10 @@ public class CommentController {
 			map.put("msg","오류발생");
 			return avgmap(map,commentVO.getMovie_no());
 		}
+	
 		
 	}
-
+	
 	//처음부터 리스트 뿌려주기
 	@RequestMapping(
 			value="/{movie_no}",
@@ -77,8 +78,35 @@ public class CommentController {
 			sum +=vo.getComment_star();
 		}
 		double avg = sum/cntstar;
+		logger.info(avg +"");
+		
+		String star = null;
+		
+		if(avg == 1) {
+			star = "●○○○○";
+		} else if(1 < avg  && avg < 2){
+			star = "●◐○○○";
+		} else if(avg == 2){
+			star = "●●○○○";
+		} else if(2 < avg  && avg < 3){
+			star = "●●◐○○";
+		} else if(avg == 3){
+			star = "●●●○○";
+		} else if(3 < avg  && avg < 4){
+			star = "●●●◐○";
+		} else if(avg == 4){
+			star = "●●●●○";
+		} else if(4 < avg  && avg < 5){
+			star = "●●●●◐";
+		} else if(avg == 5){
+			star = "●●●●●";
+		} else {
+			star = "○○○○○";
+		}
+	
+		logger.info(star);
 		map.put("list", list);
-		map.put("avg", avg);
+		map.put("star", star);
 		return map;
 	}
 }
