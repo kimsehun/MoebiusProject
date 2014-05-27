@@ -16,6 +16,8 @@ public interface ScreenMapper {
 	
 	void deleteScreen(int movie_no) throws Exception;
 
-	List<ScreenVO> selectScreen(int movie_no) throws Exception;	
+	List<ScreenVO> selectScreen(int movie_no) throws Exception;
+	
+	int cntInsert(ScreenVO screenVO) throws Exception;	
 
 }

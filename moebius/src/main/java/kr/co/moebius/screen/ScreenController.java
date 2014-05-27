@@ -1,5 +1,6 @@
 package kr.co.moebius.screen;
 
+import java.io.IOException;
 import java.util.List;
 
 import kr.co.moebius.location.LocationService;
@@ -64,11 +65,15 @@ public class ScreenController {
 		try {
 			screenService.insertAction(screenVO);
 		} catch (RuntimeException e) {
-			model.addAttribute("msg", "이미 등록된 정보입니다.");
+			model.addAttribute("msg", "해당 영화는 이미 이 지역에 있습니다.");
+			model.addAttribute("url","../screen/insert");
+			return "result";
+		} catch (IOException e) {
+			model.addAttribute("msg", "이미 해당 상영관에 영화가 존재합니다.");
 			model.addAttribute("url","../screen/insert");
 			return "result";
 		} catch (Exception e) {
-			model.addAttribute("msg", "삽입 실패");
+			model.addAttribute("msg", "등록 실패");
 			model.addAttribute("url","../screen/insert");
 			return "result";
 		}
