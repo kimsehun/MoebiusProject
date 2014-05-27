@@ -21,17 +21,29 @@ public class ScreenServiceImpl implements ScreenService{
 	}
 	
 	@Override
-	public int selectNo(ScreenVO screenVO) {
+	public int selectNo(ScreenVO screenVO) throws Exception {
 		return screenMapper.selectNo(screenVO);
 	}
 	
 	@Override
-	public List<ScreenVO> selectReserveScreen(int movie_no) {
+	public List<ScreenVO> selectReserveScreen(int movie_no) throws Exception {
 		return screenMapper.selectReserveScreen(movie_no);
 	}
 	
 	@Override
-	public List<ScreenVO> selectReserveMovie(int location_no) {
+	public List<ScreenVO> selectReserveMovie(int location_no) throws Exception {
 		return screenMapper.selectReserveMovie(location_no);
 	}
+	
+	@Override
+	public void deleteScreen(int movie_no) throws Exception {
+		screenMapper.deleteScreen(movie_no);
+	}
+
+	@Override
+	public List<ScreenVO> selectScreen(int movie_no) throws Exception {
+		return screenMapper.selectScreen(movie_no);
+	}
+	
+	
 }

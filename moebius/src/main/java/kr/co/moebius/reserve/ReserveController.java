@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.bind.ParseConversionEvent;
-
 import kr.co.moebius.location.LocationService;
 import kr.co.moebius.location.LocationVO;
 import kr.co.moebius.movie.MovieService;
@@ -16,7 +14,6 @@ import kr.co.moebius.schedule.ScheduleService;
 import kr.co.moebius.schedule.ScheduleVO;
 import kr.co.moebius.screen.ScreenService;
 import kr.co.moebius.screen.ScreenVO;
-import net.wimpi.telnetd.io.terminal.ansi;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -110,7 +107,7 @@ public class ReserveController {
 	
 	
 	@RequestMapping(value="/reserve/{movie_no}")
-	public String reserveMovieNo(@PathVariable int movie_no, Model model) {
+	public String reserveMovieNo(@PathVariable int movie_no, Model model) throws Exception {
 		List<ScreenVO> locationList = screenService.selectReserveScreen(movie_no);
 		List<MovieVO> movieList = movieService.selectMovie();
 		
@@ -135,7 +132,7 @@ public class ReserveController {
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public List<ScreenVO> reserveMovie(@PathVariable int movie_no) {
+	public List<ScreenVO> reserveMovie(@PathVariable int movie_no) throws Exception {
 		List<ScreenVO> screenList = screenService.selectReserveScreen(movie_no);
 		return screenList;
 	}
@@ -144,7 +141,7 @@ public class ReserveController {
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public List<ScreenVO> location(@PathVariable int location_no) {
+	public List<ScreenVO> location(@PathVariable int location_no) throws Exception {
 		List<ScreenVO> screenList = screenService.selectReserveMovie(location_no);
 		
 		logger.info(screenList.toString());
@@ -155,7 +152,7 @@ public class ReserveController {
 				headers = "Accept=application/json;charset=UTF-8",
 				produces = { MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public Map<String, Object> reserveLocation(@PathVariable int location_no, int movie_no) {
+	public Map<String, Object> reserveLocation(@PathVariable int location_no, int movie_no) throws Exception {
 		
 		Calendar cal = Calendar.getInstance();
 		int endday = cal.getActualMaximum((cal.get(Calendar.MONTH)+1));//getActualMaximum() : 그달의 마지막 달을 알려줌
@@ -197,7 +194,7 @@ public class ReserveController {
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public List<ScheduleVO> reserveSchedule(@PathVariable int day, int movie_no, 
-							int location_no, int year, String month) {
+							int location_no, int year, String month) throws Exception {
 		//월 출력
 		if(month.length() == 2) {
 			month = 0 + month;

@@ -1,23 +1,26 @@
 package kr.co.moebius.movie;
 
 import java.util.List;
-import java.util.Map;
 
 
 public interface MovieService {
 
-	void insertAction(MovieVO movieVO);
+	void insertAction(MovieVO movieVO) throws Exception;
 
-	List<MovieVO> plan(String today);
+	List<MovieVO> plan(String today) throws Exception;
 
-	List<MovieVO> search();
+	List<MovieVO> search() throws Exception;
 
-	MovieVO detail(int movie_no);
+	MovieVO detail(int movie_no) throws Exception;
 
-	List<MovieVO> ranking();
+	List<MovieVO> ranking() throws Exception;
 
-	List<MovieVO> selectMovie();
+	List<MovieVO> selectMovie() throws Exception;
 
-	MovieVO selectDate(int movie_no);
+	MovieVO selectDate(int movie_no) throws Exception;
+
+	List<MovieVO> getMovieList() throws Exception;
+
+	void deleteMovie(int movie_no) throws Exception;
 
 }

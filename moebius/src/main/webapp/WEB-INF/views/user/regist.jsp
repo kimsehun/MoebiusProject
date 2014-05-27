@@ -116,8 +116,8 @@
 			<tr>
 				<th>주민등록번호</th>
 					<td>
-						<input type="text" name="user_jumin1" id="user_jumin1" value="${userVO.user_jumin1 }"/>-
-						<input type="password" name="user_jumin2" id="user_jumin2" value="${userVO.user_jumin2 }"/><br/>
+						<input type="text" name="user_jumin1" id="user_jumin1" value="${userVO.user_jumin1 }" maxlength="6" />-
+						<input type="password" name="user_jumin2" id="user_jumin2" value="${userVO.user_jumin2 }" maxlength="7" /><br/>
 						<div id="user_jumin_msg" ></div>
 					</td>
 			</tr>

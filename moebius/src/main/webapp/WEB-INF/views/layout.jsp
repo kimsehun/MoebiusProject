@@ -49,6 +49,7 @@
 		  	 <ul>
 		         <li><a href='/moebius/movie/insert'><span>영화 등록</span><br></a></li>
 		         <li><a href='/moebius/screen/insert'><span>상영관 등록</span><br></a></li>
+		         <li><a href='/moebius/movie/delete'><span>영화 삭제</span><br></a></li>
 		      </ul>
 		   </li>
 		   </c:when>
