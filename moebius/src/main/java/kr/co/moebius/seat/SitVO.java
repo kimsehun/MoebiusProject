@@ -11,6 +11,7 @@ public class SitVO implements Serializable {
 	private int screen_no;
 	private String user_id;
 	private int movie_no;
+
 	
 	public int getLocation_no() {
 		return location_no;
@@ -69,6 +70,7 @@ public class SitVO implements Serializable {
 				+ screen_no + ", user_id=" + user_id + ", movie_no=" + movie_no
 				+ "]";
 	}
+
 	
 	
 	

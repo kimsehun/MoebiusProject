@@ -51,11 +51,16 @@ public class SitServiceImpl implements SitService{
 
 	
 	@Override
-	public List<String> getReservedSeat(int screen_no) throws Exception {
-		// TODO Auto-generated method stub
-		return reserveMapper.getReservedSeat(screen_no);
+	public List<String> getReservedSeat(SitVO sitVO) throws Exception {
+			return reserveMapper.getReservedSeat(sitVO);
 	}
 	
-	
+	@Override
+	public void insertEleven(SitVO sitVO) throws Exception {
+		// TODO Auto-generated method stub
+		if(reserveMapper.countEleven(sitVO) == 0){ 
+			reserveMapper.insertEleven(sitVO);
+		} 
+	}
 	
 }

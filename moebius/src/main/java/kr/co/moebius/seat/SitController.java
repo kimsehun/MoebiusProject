@@ -36,7 +36,7 @@ public class SitController {
 		sitVO.setUser_id(user_id);
 		
 		sitVO.setScreen_name(sitService.getScreenName(sitVO.getScreen_no()));
-		
+		sitService.insertEleven(sitVO);
 		model.addAttribute("user_id",user_id);
 		model.addAttribute("sitVO",sitVO);
 
@@ -44,7 +44,8 @@ public class SitController {
 			return "redirect:/user/login";
 		
 		} else{
-			List<String> list = sitService.getReservedSeat(sitVO.getScreen_no());
+			List<String> list = sitService.getReservedSeat(sitVO);
+			
 			model.addAttribute("list",list);
 			return "reserve/seat";
 

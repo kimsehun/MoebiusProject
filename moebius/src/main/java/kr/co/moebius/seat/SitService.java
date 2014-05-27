@@ -14,7 +14,9 @@ public interface SitService {
 
 	void updateStatus(String user_id) throws Exception;
 
-	List<String> getReservedSeat(int screen_no) throws Exception;
+	List<String> getReservedSeat(SitVO sitVO) throws Exception;
+
+	void insertEleven(SitVO sitVO) throws Exception;
 
 
 

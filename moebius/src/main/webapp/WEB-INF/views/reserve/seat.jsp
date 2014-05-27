@@ -39,38 +39,46 @@
 	<div class="seat_content">
 		<table border="1" class="seat_table">
 			<%
-				
 				int i,j;
 				int z = 0;
 				char result;
-				List<String> list = (List<String>) pageContext.getAttribute("slist");	
+				List<String> list = (List<String>) pageContext.getAttribute("list");	
 				Logger logger = LoggerFactory.getLogger("seat.jsp");
 
-
-				for(i = 65; i < 74; i++){
-					result = (char)i;
-					out.print("<tr>");
-					for(j = 1; j < 11; j++){
-						String reservedSeat= result+""+ j;
-						outerloop:
-						for(;z<list.size();){
-							logger.info("배열 : "+list.get(z));
-							if(list.get(z).equals(reservedSeat)){
-								out.print("<td class='reservedSeat' id="+result+j+">"+result+j);
-								out.print("</td>");
-								z++;
-								break;
-							} else {
-								out.print("<td class='resultSeat' id="+result+j+">"+result+j);
-								out.print("</td>");
-								break outerloop;
+						if(list.isEmpty() == true){
+							for(i = 65; i < 74; i++){
+								result = (char)i;
+								out.print("<tr>");
+								for(j = 1; j < 11; j++){
+									String reservedSeat= result+""+ j;
+									out.print("<td class='resultSeat' id="+result+j+">"+result+j);
+									out.print("</td>");
+								}
+							}
+						} else {
+							for(i = 65; i < 74; i++){
+								result = (char)i;
+								out.print("<tr>");
+									for(j = 1; j < 11; j++){
+										String reservedSeat= result+""+ j;
+										outbreak:
+										for(;z<list.size();){
+											if(list.get(z).equals(reservedSeat)){							
+												logger.info("배열 : "+list.get(z));
+												out.print("<td class='reservedSeat' id="+result+j+">"+result+j);
+												out.print("</td>");
+												z++;
+												break;
+											} else {
+												out.print("<td class='resultSeat' id="+result+j+">"+result+j);
+												out.print("</td>");
+												break outbreak;
+											}
+										}
+									}
+									out.print("</tr>");	
 							}
 						}
-					}
-					out.print("</tr>");	
-				}
-			
-				 
 			%>
 			
 		</table>

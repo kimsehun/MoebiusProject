@@ -17,6 +17,7 @@
 		select seat_no from m_seat
 		WHERE seat_name = #{seatName}
 	</select>
+
 	
 	<!-- 예약누르면 예약하는거임 -->
 	<insert id="insertReserve" parameterType="SitVO" >
@@ -25,18 +26,18 @@
 						screen_no,
 						reserve_no,
 						seat_no,
-						seat_name)
+						schedule_no)
 			VALUES(
-					#{user_id},#{screen_no},seq_reserve_no.nextval,#{seat_no},#{seat_name}
+					#{user_id},#{screen_no},seq_reserve_no.nextval,#{seat_no},#{schedule_no}
 			)
 	</insert>
-	
+
 	<!-- 예매 여부 확인  -->
 	<select id="count" parameterType="SitVO" resultType="int">
 		select count(*) AS cnt
 		FROM m_reserve r JOIN m_screen s
 		ON r.screen_no = s.screen_no
-		WHERE r.seat_name=#{seat_name} AND s.screen_name = #{screen_name} 
+		WHERE r.seat_no=#{seat_no} AND s.screen_name = #{screen_name} 
 		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no} 
 	</select>
 
@@ -53,14 +54,30 @@
 	</update>
 
 
-	<select id="getReservedSeat" parameterType="int" resultType="String">
-		SELECT sit.seat_name
-		FROM m_seat sit JOIN m_reserve re
-		ON sit.seat_no = re.seat_no
-		WHERE re.screen_no = #{screen_no}
+	<select id="getReservedSeat" parameterType="SitVO" resultType="String">
+		SELECT se.seat_name
+		FROM m_reserve res JOIN m_seat se
+		ON res.seat_no = se.seat_no
+		WHERE res.schedule_no = #{schedule_no} AND se.screen_no = #{screen_no}
+	</select>
+
+	<!-- I11이 있는지 없는지 select로 확인 -->
+	<select id="countEleven" parameterType="SitVO" resultType="int">
+		select count(*) as cnt
+		from m_seat se join m_reserve re
+		on se.seat_no = re.seat_no
+		WHERE se.seat_name = 'I11' AND re.schedule_no = #{schedule_no} AND se.screen_no = #{screen_no}
 	</select>
 	
-	
-
-	
+	<insert id="insertEleven" parameterType="SitVO">
+			INSERT INTO m_reserve(
+						user_id,
+						screen_no,
+						reserve_no,
+						seat_no,
+						schedule_no)
+			VALUES(
+					#{user_id},#{screen_no},seq_reserve_no.nextval,'91',#{schedule_no}
+			)
+	</insert>
 </mapper>
