@@ -1,5 +1,6 @@
 package kr.co.moebius.screen;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,12 @@ public class ScreenServiceImpl implements ScreenService{
 	@Override
 	public void insertAction(ScreenVO screenVO) throws Exception{
 		if(screenMapper.countInsert(screenVO) == 0) {
-		 screenMapper.insertAction(screenVO);
-		} else { 
+			if(screenMapper.cntInsert(screenVO) == 0) {
+				screenMapper.insertAction(screenVO);				
+			} else { 
+				throw new IOException();
+			}
+		} else {
 			throw new RuntimeException();
 		}
 	}
