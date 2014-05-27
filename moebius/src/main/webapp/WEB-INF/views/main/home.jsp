@@ -14,6 +14,7 @@ $(document).ready(function(){
 	$('#btnRegist').bind('click',function(){
 		location.href='/moebius/user/regist';
 	});
+});
 </script>
 <title>Main</title>
 <c:set var="id" value="${sessionScope.user_id}"/>
