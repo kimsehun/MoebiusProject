@@ -3,6 +3,7 @@ package kr.co.moebius.seat;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -43,8 +44,9 @@ public class SitController {
 			return "redirect:/user/login";
 		
 		} else{
-		
-			return "/reserve/seat";
+			List<String> list = sitService.getReservedSeat(sitVO.getScreen_no());
+			model.addAttribute("list",list);
+			return "reserve/seat";
 
 		}
 	}
@@ -59,9 +61,12 @@ public class SitController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		StringTokenizer st1 = new StringTokenizer(seatName.toString(),",");
+
+
 		while(st1.hasMoreTokens()){
 			
 			try {
+				logger.info(sitVO.toString());
 				
 				//seat_no을 where문(seat_name = 선택한 좌석 이름)으로 가져옴
 				//seat_no set 안에 넣음
@@ -70,7 +75,13 @@ public class SitController {
 				sitVO.setSeat_name(seat_name);
 
 				sitService.insertReserve(sitVO);
+
+				sitService.updateReserveCount(sitVO.getMovie_no());
+
+				sitService.updateStatus(sitVO.getUser_id());
 				map.put("res", res);
+				
+				
 			} catch (RuntimeException e) {
 				res = 1;
 				map.put("res", res);
@@ -80,9 +91,7 @@ public class SitController {
 				map.put("msg", e.getMessage());
 			}
 		}
-		
-		//model로 vo전송 후 ajax에서 처리
-		
+
 		map.put("sitVO",sitVO);
 		return map;
 	}

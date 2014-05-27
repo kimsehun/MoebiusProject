@@ -54,8 +54,8 @@ $(document).ready(function() {
 		var screen_name = $('#screen_name').val();
 		var screen_no = $('#screen_no').val();
 		var seat_no = $('#seat_no').val();
-		
-		console.log(seat_no);
+		var movie_no = $('#movie_no').val();
+		console.log(movie_no);
 		$.ajax({
 			url:'../reserve/seatA/'+resultSeat,
 			type:'POST',
@@ -66,13 +66,15 @@ $(document).ready(function() {
 				'schedule_no':schedule_no,
 				'screen_name':screen_name,
 				'screen_no':screen_no,
-				'seat_no':seat_no
+				'seat_no':seat_no,
+				'movie_no':movie_no
 			},
 			success:function(data) {
 				if(data.res == 1) {
 					alert(data.msg);
 					history.back();
-				} else {
+				} 
+				else {
 					location.href="/moebius/user/userInfo";
 				}
 			}

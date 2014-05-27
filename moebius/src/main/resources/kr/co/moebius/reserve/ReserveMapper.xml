@@ -31,11 +31,36 @@
 			)
 	</insert>
 	
+	<!-- 예매 여부 확인  -->
 	<select id="count" parameterType="SitVO" resultType="int">
-	select count(*) AS cnt
-	FROM m_reserve
-	WHERE seat_name=#{seat_name}
+		select count(*) AS cnt
+		FROM m_reserve r JOIN m_screen s
+		ON r.screen_no = s.screen_no
+		WHERE r.seat_name=#{seat_name} AND s.screen_name = #{screen_name} 
+		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no} 
 	</select>
 
 
+	<update id="updateReserveCount" parameterType="int">
+		UPDATE m_movie SET movie_count = movie_count + 1
+		WHERE movie_no = #{movie_no}
+	</update>
+	
+	<update id="updateStatus" parameterType="SitVO">
+		UPDATE m_user
+		SET user_status = user_status + 1
+		WHERE user_id = #{user_id}		
+	</update>
+
+
+	<select id="getReservedSeat" parameterType="int" resultType="String">
+		SELECT sit.seat_name
+		FROM m_seat sit JOIN m_reserve re
+		ON sit.seat_no = re.seat_no
+		WHERE re.screen_no = #{screen_no}
+	</select>
+	
+	
+
+	
 </mapper>

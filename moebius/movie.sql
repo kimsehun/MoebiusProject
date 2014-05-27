@@ -1,4 +1,6 @@
 
+select * from M_RESERVE
+
 /* Drop Tables */
 
 
@@ -92,8 +94,9 @@ CREATE TABLE m_screen
 	PRIMARY KEY (screen_no)
 );
 
-select * from M_SEAT;
+select * from M_Reserve;
 
+select * from m_movie;
 
 CREATE TABLE m_seat
 (
@@ -110,6 +113,7 @@ delete from M_RESERVE;
 
 select * from M_RESERVE;
 
+
 CREATE TABLE m_reserve
 (
 	user_id varchar2(20) NOT NULL,
@@ -120,6 +124,27 @@ CREATE TABLE m_reserve
 	PRIMARY KEY (reserve_no)
 );
 
+
+
+
+		SELECT sit.seat_no, sit.seat_name
+		FROM m_seat
+		WHERE sit_name = #{sit_name}
+
+CREATE TABLE m_screen
+(
+	screen_no number NOT NULL,
+	screen_name varchar2(5) NOT NULL,
+	movie_no number NOT NULL,
+	location_no number NOT NULL,
+	PRIMARY KEY (screen_no)
+);
+
+select * from m_reserve;
+		select count(*) AS cnt
+		FROM m_reserve r join m_screen s
+		ON r.screen_no = s.screen_no
+		WHERE r.seat_name='A1' AND s.screen_name = '1' AND s.location_no = '1'
 
 CREATE TABLE m_schedule
 (
@@ -189,6 +214,11 @@ CREATE TABLE m_user
 	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
+
+UPDATE m_user u join m_movie m  on u.user_id = m.user_id 
+SET u.user_status = u.user_status + 1
+WHERE m.movie_no = '1' AND u.user_id = 'admin'
+
 
 select * from m_user;
 
@@ -530,7 +560,8 @@ insert into m_seat(seat_name, seat_no, screen_no, location_no)
 values ('I10', seq_seat_no.nextval, 1, 1);
 
 
-
+UPDATE m_movie SET movie_count = movie_count + 1
+WHERE movie_no = 1
 
 -- 게시판 준비
 insert into m_board_info(bno, bname, user_id)
