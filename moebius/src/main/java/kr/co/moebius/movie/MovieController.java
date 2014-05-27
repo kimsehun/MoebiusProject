@@ -119,6 +119,7 @@ public class MovieController {
 	// 미개봉 영화 정보를 화면에 뿌려준다.
 	@RequestMapping(value = "/plan")
 	public void plan(Model model) throws Exception {
+		Calendar cal = Calendar.getInstance();
 		// 오늘 날짜 계산해서 넣어준다.
 		String today = calday();
 
@@ -129,8 +130,17 @@ public class MovieController {
 		for (MovieVO vo : list) {
 			if (Integer.parseInt(vo.getMovie_sdate()) > Integer.parseInt(today)) {
 				// 상영날짜까지 남은 시간을 계산
-				vo.setDday(Integer.parseInt(vo.getMovie_sdate())
-						- Integer.parseInt(today));
+				int endday = cal.getActualMaximum((cal.get(Calendar.MONTH)+1));//getActualMaximum() : 그달의 마지막 달을 알려줌
+				String month = vo.getMovie_sdate().substring(5, 6);
+				String day = vo.getMovie_sdate().substring(6);
+				
+				if ((cal.get(Calendar.MONTH) + 1) < Integer.parseInt(month)) {
+					vo.setDday((endday - cal.get(Calendar.DATE))
+							+ Integer.parseInt(day));
+				} else {
+					vo.setDday(Integer.parseInt(vo.getMovie_sdate())
+							- Integer.parseInt(today));
+				}
 				list2.add(vo);
 			}
 		}
