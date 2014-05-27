@@ -1,8 +1,5 @@
 package kr.co.moebius.movie;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.awt.image.renderable.ParameterBlock;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,16 +11,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.imageio.ImageIO;
-import javax.media.jai.JAI;
-import javax.media.jai.RenderedOp;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.co.moebius.location.LocationService;
-import kr.co.moebius.location.LocationVO;
+import kr.co.moebius.schedule.ScheduleService;
 import kr.co.moebius.screen.ScreenService;
+import kr.co.moebius.screen.ScreenVO;
 import kr.co.moebius.user.UserVO;
 
 import org.slf4j.Logger;
@@ -33,6 +26,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -50,6 +44,9 @@ public class MovieController {
 	
 	@Autowired
 	private ScreenService screenService;
+	
+	@Autowired
+	private ScheduleService scheduleService; 
 	
 	private static final Logger logger =LoggerFactory.getLogger(MovieController.class);
 	
@@ -104,7 +101,7 @@ public class MovieController {
 	
 	// 영화정보를 count 순으로 화면에 뿌려준다.
 	@RequestMapping(value = "/ranking")
-	public void ranking(Model model) {
+	public void ranking(Model model) throws Exception {
 		String today = calday();
 		// 영화정보를 가져와서 오늘 날짜와 비교한다.
 		List<MovieVO> list = movieService.ranking();
@@ -121,7 +118,7 @@ public class MovieController {
 	
 	// 미개봉 영화 정보를 화면에 뿌려준다.
 	@RequestMapping(value = "/plan")
-	public void plan(Model model) {
+	public void plan(Model model) throws Exception {
 		// 오늘 날짜 계산해서 넣어준다.
 		String today = calday();
 
@@ -187,5 +184,37 @@ public class MovieController {
 			return year + month + day;
 		}
 
-	
+		// 영화 삭제
+		@RequestMapping(value="/delete")
+		public String delete(Model model) throws Exception {
+			
+			List<MovieVO> list = movieService.getMovieList();
+			model.addAttribute("list", list);
+			
+			logger.info(list.toString());
+			
+			return "movie/delete";
+		}
+		// 영화 삭제 번호 선택
+		@RequestMapping(value="/{movie_no}/delete")
+		public String deleteAction(@PathVariable int movie_no, Model model) throws Exception {
+			
+			logger.info("movie_no : " + movie_no);
+			try {
+				List<ScreenVO> screen_no = screenService.selectScreen(movie_no);
+				logger.info("screen_no : " + screen_no);
+				for (ScreenVO i : screen_no)
+					scheduleService.deleteschedule(i.getScreen_no());
+				screenService.deleteScreen(movie_no);
+				movieService.deleteMovie(movie_no);
+				return "redirect:../delete";
+			} catch (Exception e) {
+				logger.info(e.getMessage());
+				model.addAttribute("msg","삭제 실패!");
+				model.addAttribute("url","javascript:history.back();");
+				return "result";
+			}
+			
+		}
+		
 }

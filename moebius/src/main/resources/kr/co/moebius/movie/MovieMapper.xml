@@ -48,4 +48,16 @@ SELECT movie_no, to_char(movie_sdate,'YYYYMMDD') AS movie_sdate, to_char(movie_e
 FROM m_movie
 WHERE movie_no = #{movie_no}
 </select>
+
+<select id="getMovieList" resultType="MovieVO">
+SELECT movie_no, movie_title, to_char(movie_sdate, 'YYYY-MM-DD') AS movie_sdate, to_char(movie_edate, 'YYYY-MM-DD') AS movie_edate
+FROM m_movie
+ORDER BY movie_edate ASC
+</select>
+
+<delete id="deleteMovie" parameterType="int">
+DELETE FROM m_movie
+WHERE movie_no = #{movie_no}
+</delete>
+
 </mapper>

@@ -173,7 +173,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("main/plan")
-	public String homePlan(Model model) {
+	public String homePlan(Model model) throws Exception {
 		String today = calday();
 
 		// 영화정보를 가져와서 오늘 날짜와 비교한다.

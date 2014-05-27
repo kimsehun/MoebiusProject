@@ -1,6 +1,5 @@
 package kr.co.moebius.screen;
 
-import java.util.Calendar;
 import java.util.List;
 
 import kr.co.moebius.location.LocationService;
@@ -60,7 +59,7 @@ public class ScreenController {
 	}
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	public String screenInsertAction(ScreenVO screenVO, Model model) {
+	public String screenInsertAction(ScreenVO screenVO, Model model) throws Exception {
 		//어느 장소에서 영화를 틀어줄껀지를 정한다.
 		try {
 			screenService.insertAction(screenVO);

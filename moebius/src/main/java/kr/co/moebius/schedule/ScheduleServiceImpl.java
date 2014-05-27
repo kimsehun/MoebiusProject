@@ -21,5 +21,11 @@ public class ScheduleServiceImpl implements ScheduleService{
 	public List<ScheduleVO> selectTime(ScheduleVO scheduleVO) {
 		return scheduleMapper.selectTime(scheduleVO);
 	}
+	
+	@Override
+	public void deleteschedule(int screen_no) throws Exception {
+		scheduleMapper.deleteschedule(screen_no);
+		
+	}
 
 }

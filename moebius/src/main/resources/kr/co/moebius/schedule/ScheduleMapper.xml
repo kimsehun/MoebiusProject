@@ -11,9 +11,16 @@
 	INSERT INTO m_schedule(schedule_no, schedule_date, schedule_time, screen_no)
 	VALUES(seq_schedule_no.nextval, to_date(#{schedule_date},'YYYYMMDD'), to_date(#{schedule_time},'HH24:MI'), #{screen_no})
 </insert>
+
 <select id="selectTime" parameterType="ScheduleVO" resultType="ScheduleVO">
 	SELECT to_char(schedule_time,'HH24:MI') AS schedule_time, to_char(schedule_date,'YYYYMMDD') AS schedule_date, schedule_no, screen_no
 	FROM m_schedule
 	WHERE screen_no=#{screen_no} 
 </select>
+
+<delete id="deleteschedule" parameterType="int">
+	DELETE FROM m_schedule
+	WHERE screen_no = #{screen_no}
+</delete>
+
 </mapper>

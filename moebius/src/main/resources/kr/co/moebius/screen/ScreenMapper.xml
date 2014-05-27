@@ -37,4 +37,16 @@
 	 ON m.movie_no = s.movie_no
 	 WHERE s.location_no = #{location_no}
 </select>
+
+<delete id="deleteScreen" parameterType="int">
+	DELETE FROM m_screen
+	WHERE movie_no = #{movie_no}
+</delete>
+
+<select id="selectScreen" parameterType="int" resultType="ScreenVO">
+	SELECT screen_no
+	FROM m_screen
+	WHERE movie_no = #{movie_no}
+</select>
+
 </mapper>
