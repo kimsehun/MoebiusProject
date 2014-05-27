@@ -86,8 +86,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void getReserveInfo(SitVO sitVO) throws Exception {
+	public List<UserInfoVO> getReserveInfo(UserInfoVO uifVO) throws Exception {
 		// TODO Auto-generated method stub
-		userMapper.getReserveInfo(sitVO);
+		return userMapper.getReserveInfo(uifVO);
 	}
 }
