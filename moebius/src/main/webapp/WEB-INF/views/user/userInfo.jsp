@@ -18,18 +18,34 @@
 	</ul>
 </div>
 <div id="content">
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<table border="2">
+		<caption>상세 정보</caption>
+			<tr>
+				<th>이름</th>
+				<th>예매 상태</th>
+				<th>지역</th>
+				<th>상영관</th>
+				<th>영화 제목</th>
+				<th>좌석 정보</th>
+				<th>일</th>
+				<th>시간</th>
+				<th>사용 포인트</th>
+			</tr>
+			
+			<c:forEach items="${list }" var="list">
+			<tr>
+				<td>${list.user_name }</td>
+				<td>${list.user_status }</td>
+				<td>${list.location_name }</td>
+				<td>${list.screen_name }</td>
+				<td>${list.movie_title }</td>
+				<td>${list.seat_name }</td>
+				<td>${list.schedule_date }</td>
+				<td>${list.schedule_time }</td>
+				<td>${list.movie_point }</td>
+			</tr>
+			</c:forEach>
+	</table>
 </div>
 </body>
 </html>

@@ -237,7 +237,11 @@ public class UserController {
 	}
 	
 	@RequestMapping("/userInfo")
-	public void userInfo(SitVO sitVO, Model model) throws Exception {
-		userService.getReserveInfo(sitVO);
+	public String userInfo(UserInfoVO uifVO, Model model, HttpSession session) throws Exception {
+		uifVO.setUser_id((String)session.getAttribute("user_id"));
+		List<UserInfoVO> list = userService.getReserveInfo(uifVO);
+		model.addAttribute("list", list);
+		
+		return "/user/userInfo";
 	}
 }

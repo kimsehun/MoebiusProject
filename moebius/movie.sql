@@ -67,7 +67,6 @@ CREATE TABLE m_screen
 	location_no number NOT NULL,
 	PRIMARY KEY (screen_no)
 );
-select * from m_reserve;
 
 CREATE TABLE m_comment
 (
@@ -78,7 +77,6 @@ CREATE TABLE m_comment
 	movie_no number NOT NULL,
 	PRIMARY KEY (comment_no)
 );
-
 
 CREATE TABLE m_location
 (
@@ -91,7 +89,6 @@ CREATE TABLE m_location
 	PRIMARY KEY (location_no)
 );
 
-
 CREATE TABLE m_comment_total
 (
 	comment_total_no number NOT NULL,
@@ -100,7 +97,6 @@ CREATE TABLE m_comment_total
 	movie_no number NOT NULL,
 	PRIMARY KEY (comment_total_no)
 );
-
 
 CREATE TABLE m_seat
 (

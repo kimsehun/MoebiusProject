@@ -33,7 +33,7 @@ public interface UserMapper {
 	//포인트 증가
 	void pointUp(String user_id);
 
-	void getReserveInfo(SitVO sitVO) throws Exception;
+	List<UserInfoVO> getReserveInfo(UserInfoVO uifVO) throws Exception;
 
 
 }

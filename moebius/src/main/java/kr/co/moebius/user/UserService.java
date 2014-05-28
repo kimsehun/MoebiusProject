@@ -30,7 +30,7 @@ public interface UserService {
 
 	int changePwd(InfoVO infoVO) throws Exception;
 
-	void getReserveInfo(SitVO sitVO) throws Exception;
+	List<UserInfoVO> getReserveInfo(UserInfoVO uifVO) throws Exception;
 
 	
 }
