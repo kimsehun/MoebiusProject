@@ -50,7 +50,7 @@
 	<update id="updateStatus" parameterType="SitVO">
 		UPDATE m_user
 		SET user_status = user_status + 1
-		WHERE user_id = #{user_id}		
+		WHERE user_id = #{user_id}
 	</update>
 
 
@@ -59,6 +59,7 @@
 		FROM m_reserve res JOIN m_seat se
 		ON res.seat_no = se.seat_no
 		WHERE res.schedule_no = #{schedule_no} AND se.screen_no = #{screen_no}
+		ORDER BY res.seat_no ASC
 	</select>
 
 	<!-- I11이 있는지 없는지 select로 확인 -->

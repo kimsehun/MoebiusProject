@@ -40,45 +40,54 @@
 		<table border="1" class="seat_table">
 			<%
 				int i,j;
-				int z = 0;
+				
 				char result;
 				List<String> list = (List<String>) pageContext.getAttribute("list");	
+				String reservedSeat = null;
+				int start=0;
 				Logger logger = LoggerFactory.getLogger("seat.jsp");
 
-						if(list.isEmpty() == true){
-							for(i = 65; i < 74; i++){
-								result = (char)i;
-								out.print("<tr>");
-								for(j = 1; j < 11; j++){
-									String reservedSeat= result+""+ j;
+				if(list.isEmpty() == false){
+					for(i = 65; i < 74; i++){
+						result = (char)i;
+						out.print("<tr>");
+						for(j = 1; j < 11; j++){
+							reservedSeat= result+""+ j;
+							
+							for(int z = start;z<list.size();z++){
+								if(list.get(z).equals(reservedSeat)){							
+									out.print("<td class='reservedSeat' id="+result+j+">"+result+j);
+									out.print("</td>");
+									start++;
+									if (start == list.size()) {
+										start = list.size() - 1;
+									}
+									z = list.size();
+								} else {
 									out.print("<td class='resultSeat' id="+result+j+">"+result+j);
 									out.print("</td>");
-								}
+									z = list.size();
+								} 
+								
 							}
-						} else {
-							for(i = 65; i < 74; i++){
-								result = (char)i;
-								out.print("<tr>");
-									for(j = 1; j < 11; j++){
-										String reservedSeat= result+""+ j;
-										outbreak:
-										for(;z<list.size();){
-											if(list.get(z).equals(reservedSeat)){							
-												logger.info("배열 : "+list.get(z));
-												out.print("<td class='reservedSeat' id="+result+j+">"+result+j);
-												out.print("</td>");
-												z++;
-												break;
-											} else {
-												out.print("<td class='resultSeat' id="+result+j+">"+result+j);
-												out.print("</td>");
-												break outbreak;
-											}
-										}
-									}
-									out.print("</tr>");	
-							}
+
 						}
+					}
+				} else {
+					for(i = 65; i < 74; i++){
+						result = (char)i;
+						out.print("<tr>");
+						for(j = 1; j < 11; j++){
+							reservedSeat= result+""+ j;
+							out.print("<td class='resultSeat' id="+result+j+">"+result+j);
+							out.print("</td>");
+						}
+								
+					}
+
+				}
+						
+					
 			%>
 			
 		</table>

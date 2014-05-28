@@ -15,15 +15,15 @@ A:active {color:black; text-decoration:none;}
 	font-size:12px;
 }
 
-#first_first {border:1px solid #bdbdbd; width: 800px; float: left; height: 200px; text-align: center;}
-#first_second {border:1px solid #bdbdbd; width: 396px; float: left; height: 200px; text-align: center;}
+#first_first {width: 800px; float: left; height: 200px; text-align: center;}
+#first_second {width: 396px; float: left; height: 200px; text-align: center;}
 
 #second {clear: left; height: 200px; background-color:ivory;}
 
-#third {height: 200px;}
-#third_first {border:1px solid #bdbdbd; width: 392px; float: left; height: 200px; text-align: center; padding-top:0px;}
-#third_second {border:1px solid #bdbdbd;width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
-#third_third {border:1px solid #bdbdbd; width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
+#third {height: 220px;}
+#third_first {width: 392px; float: left; height: 200px; text-align: center; padding-top:0px;}
+#third_second {width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
+#third_third {width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
 
 .main_img {width:750px; height:150px; margin-left: 225px;}
 .ad_img {height:220px; width:392px;}

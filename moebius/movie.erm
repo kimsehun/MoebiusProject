@@ -110,7 +110,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2014-04-19 18:45:31</creation_date>
-			<updated_date>2014-05-27 14:40:26</updated_date>
+			<updated_date>2014-05-27 16:20:55</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -1425,7 +1425,7 @@
 			<connections>
 				<relation>
 					<id>3</id>
-					<source>7</source>
+					<source>10</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1447,7 +1447,7 @@
 				</relation>
 				<relation>
 					<id>4</id>
-					<source>10</source>
+					<source>7</source>
 					<target>2</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -1577,7 +1577,7 @@
 				<normal_column>
 					<id>10</id>
 					<referenced_column>58</referenced_column>
-					<relation>4</relation>
+					<relation>3</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1611,7 +1611,7 @@
 				<normal_column>
 					<id>11</id>
 					<referenced_column>33</referenced_column>
-					<relation>3</relation>
+					<relation>4</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1674,7 +1674,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>16</word_id>
+					<word_id>17</word_id>
 					<id>12</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2200,7 +2200,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>16</word_id>
 					<id>24</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2291,7 +2291,7 @@
 			<connections>
 				<relation>
 					<id>8</id>
-					<source>10</source>
+					<source>0</source>
 					<target>6</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2313,7 +2313,7 @@
 				</relation>
 				<relation>
 					<id>9</id>
-					<source>0</source>
+					<source>10</source>
 					<target>6</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2509,7 +2509,7 @@
 				<normal_column>
 					<id>31</id>
 					<referenced_column>0</referenced_column>
-					<relation>9</relation>
+					<relation>8</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2543,7 +2543,7 @@
 				<normal_column>
 					<id>32</id>
 					<referenced_column>58</referenced_column>
-					<relation>8</relation>
+					<relation>9</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3389,7 +3389,7 @@
 				</relation>
 				<relation>
 					<id>13</id>
-					<source>5</source>
+					<source>1</source>
 					<target>9</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3411,7 +3411,7 @@
 				</relation>
 				<relation>
 					<id>14</id>
-					<source>1</source>
+					<source>5</source>
 					<target>9</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3531,7 +3531,7 @@
 				<normal_column>
 					<id>55</id>
 					<referenced_column>3</referenced_column>
-					<relation>14</relation>
+					<relation>13</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3565,7 +3565,7 @@
 				<normal_column>
 					<id>56</id>
 					<referenced_column>22</referenced_column>
-					<relation>13</relation>
+					<relation>14</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -4407,6 +4407,21 @@
 		</sequence>
 		<sequence>
 			<name>seq_comment_total_no</name>
+			<schema></schema>
+			<increment></increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start></start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>seq_board_info</name>
 			<schema></schema>
 			<increment></increment>
 			<min_value></min_value>

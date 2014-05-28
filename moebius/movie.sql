@@ -13,12 +13,13 @@ DROP TABLE m_comment_total CASCADE CONSTRAINTS;
 DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 
-
+select * from m_user;
 
 /* Drop Sequences */
 
 DROP SEQUENCE seq_movie_no;
 DROP SEQUENCE seq_board_no;
+drop sequence seq_board_info;
 DROP SEQUENCE seq_bno;
 DROP SEQUENCE seq_comment_no;
 DROP SEQUENCE seq_location_no;
@@ -29,12 +30,13 @@ DROP SEQUENCE seq_reserve_no;
 DROP SEQUENCE seq_comment_total_no;
 
 
-
+delete from m_reserve;
 
 /* Create Sequences */
 
 CREATE SEQUENCE seq_movie_no;
 CREATE SEQUENCE seq_board_no;
+CREATE SEQUENCE seq_board_info;
 CREATE SEQUENCE seq_bno;
 CREATE SEQUENCE seq_comment_no;
 CREATE SEQUENCE seq_location_no;
@@ -109,6 +111,7 @@ CREATE TABLE m_seat
 	PRIMARY KEY (seat_no)
 );
 
+select * from m_board;
 
 CREATE TABLE m_reserve
 (
@@ -309,7 +312,7 @@ insert into m_board_info(bno, bname, user_id)
 values(seq_board_info.nextval, '자주하는질문','admin');
 
 
-
+select * from M_BOARD_INFO
 	
 insert into m_seat(seat_name, seat_no, screen_no, location_no)
 values ('A1', seq_seat_no.nextval, 1, 1);

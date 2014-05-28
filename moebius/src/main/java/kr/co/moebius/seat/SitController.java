@@ -36,7 +36,6 @@ public class SitController {
 		sitVO.setUser_id(user_id);
 		
 		sitVO.setScreen_name(sitService.getScreenName(sitVO.getScreen_no()));
-		sitService.insertEleven(sitVO);
 		model.addAttribute("user_id",user_id);
 		model.addAttribute("sitVO",sitVO);
 
