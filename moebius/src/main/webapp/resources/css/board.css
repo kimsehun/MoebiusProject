@@ -27,12 +27,12 @@ A:active {color:black; text-decoration:none;}
 /* /* UI Object */ */
 /* body{_text-align:center} */
 div{margin:0 0 10px;padding:10px 0; font-family:³ª´®°íµñÄÚµù;font-size:14px;font-weight:bold}
-#wrap{width:600px;margin:0 auto;_text-align:left; padding:10px;border:1px solid #bdbdbd;}}
-#header{width:100%; margin-top:10px;}
+#wrap{width:600px;margin:0 auto;_text-align:left;}
+#header{width:100%;}
 #container{width:1200px; display:inline-block}
 #container:after{display:block;clear:both;content:''}
 
-#header,#container{padding:15px;border:2px solid #bfbfbf; width:1200px;}
+#header,#container{padding:15px; width:1200px;}
 
 .snb,#content{margin-top:10px;border:1px solid #bdbdbd;text-align:center}
 

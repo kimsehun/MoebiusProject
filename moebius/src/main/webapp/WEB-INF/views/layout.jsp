@@ -18,6 +18,9 @@
 </head>
 <body>
 <div id="wrap">
+    <div id="logo">
+		<img src='<c:url value="/resources/img/logo.png"/>'>
+    </div>
 	<div id='header'>
 	   <ul>
 		   <li class='active'><a href='/moebius'><span>Home</span></a></li>

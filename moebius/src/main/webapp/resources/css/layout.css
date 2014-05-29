@@ -1,10 +1,12 @@
 @CHARSET "UTF-8";
 
 /* UI Object */
-body{_text-align:center}
+body{_text-align:center; background-color:black;}
 div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:bold}
-#wrap{width:1200px;margin:0 auto;_text-align:left;border:1px solid #bdbdbd; background-color: white;}
-#header{width:100%; background-color:#594d65;}
+#wrap{width:1200px;margin:0 auto;_text-align:left; background-color: white;}
+
+#logo {background-color:black; margin:auto; padding: 0 0 0 394px;}
+#header{width:100%; background-color:#eb362f; margin-bottom: 0px;}
 #container{width:1266px; display:inline-block}
 #container:after{display:block;clear:both;content:''}
 
@@ -16,7 +18,7 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 
 
 /* #content{float:right;width:1200px} */
-#footer{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;text-align:center; background-color:#594d65;}
+#footer{clear:both;margin:0;padding:22px 0 30px;border-top:1px solid #dedede;text-align:center; background-color:#eb362f;}
 
 #footer ul,#footer li,#footer a,#footer strong,#footer img,#footer em,#footer address,#footer span{margin:0;padding:0;color:#afafaf;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,'굴림',Gulim, AppleGothic, Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}
 
@@ -34,7 +36,7 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 
 #footer ul li.frst{padding:0 3px 0 0;background:none}
 
-#footer .info{margin:0 0 11px;color:#646464;font-size:11px;line-height:15px}
+#footer .info{margin:0 0 11px;color:#FFFFFF;font-size:11px;line-height:15px}
 
 #footer .info2{margin:-3px 0 13px;font-size:11px;line-height:18px}
 
@@ -73,9 +75,9 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
   list-style-type: none;
   padding: 0;
   margin: 0;
-  background: #ffffff;
-  border: 1px solid #ece6e8;
-  border-bottom: 3px solid #d9ced2;
+  background: #eb362f;
+  /*border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;*/
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
@@ -87,6 +89,7 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 
 }
 #header > ul li {
+  background-color: #eb362f;
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -118,19 +121,17 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
   padding: 0;
   list-style-type: none;
   background: #ffffff;
-  border: 1px solid #ece6e8;
   border-bottom: 3px solid #d9ced2;
   border-top: 0 none;
 }
 #header > ul li.has-sub-right ul {
   display: none;
-  width: 114px;
+  width: 135px;
   position: absolute;
   margin: 0;
   padding: 0;
   list-style-type: none;
   background: #ffffff;
-  border: 1px solid #ece6e8;
   border-bottom: 3px solid #d9ced2;
   border-top: 0 none;
   float:right;
@@ -164,8 +165,8 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
   display: block;
   padding: 12px 24px 11px 24px;
   text-decoration: none;
-  color: #747474;
-  text-shadow: 0px 1px 0px #fff;
+  color: #FFFFFF;
+  /*text-shadow: 0px 1px 0px #fff;*/
 }
 #header > ul li a.active,
 #header > ul li a:hover {
@@ -200,7 +201,7 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
     display: block;
     position: static;
     width: 100%;
-    background: #ffffff;
+    background: #eb362f;
     border: 0 none;
   }
   #header > ul li.has-sub ul li {

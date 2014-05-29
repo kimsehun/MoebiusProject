@@ -501,5 +501,198 @@ values ('I10', seq_seat_no.nextval, 1, 1);
 insert into m_seat(seat_name, seat_no, screen_no, location_no)
 values ('I11', seq_seat_no.nextval, 1, 1);
 
+select * from M_SEAT
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('A10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('B10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('C10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('D10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('E10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('F10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('G10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('H10', seq_seat_no.nextval, 2, 2);
+
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I1', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I2', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I3', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I4', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I5', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I6', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I7', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I8', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I9', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I10', seq_seat_no.nextval, 2, 2);
+insert into m_seat(seat_name, seat_no, screen_no, location_no)
+values ('I11', seq_seat_no.nextval, 2, 2);
+
 select * from m_seat
 
