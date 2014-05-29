@@ -6,8 +6,11 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 #wrap{width:1200px;margin:0 auto;_text-align:left; background-color: white;}
 
 #logo {background-color:black; margin:auto; padding: 0 0 0 394px;}
-#header{width:100%; background-color:#eb362f; margin-bottom: 0px;}
+
+#header{width:100%; background-color: #000000; margin-bottom: 0px;}
+
 #container{width:1266px; display:inline-block}
+
 #container:after{display:block;clear:both;content:''}
 
 #header,#container{padding:15px;}
@@ -68,13 +71,14 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
   line-height: 15px;
   text-transform: uppercase;
   text-align: left;
-  width: auto;
+  width: 1200px;
+  margin: auto;
 }
 #header > ul {
   width: auto;
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 10px 16px 10px 11px;
   background: #eb362f;
   /*border: 1px solid #ece6e8;
   border-bottom: 3px solid #d9ced2;*/
@@ -126,7 +130,7 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 }
 #header > ul li.has-sub-right ul {
   display: none;
-  width: 135px;
+  width: 112px;
   position: absolute;
   margin: 0;
   padding: 0;
@@ -170,9 +174,9 @@ div{margin:0 0 10px; font-family:나눔고딕코딩;font-size:14px;font-weight:b
 }
 #header > ul li a.active,
 #header > ul li a:hover {
-  background: #d80041;
-  color: #fff;
-  text-shadow: 0px 1px 0px #000;
+  background: #fff;
+  color: #eb362f;
+/*   text-shadow: 0px 1px 0px #000; */
 }
 @media (max-width: 600px) {
   #header > ul {

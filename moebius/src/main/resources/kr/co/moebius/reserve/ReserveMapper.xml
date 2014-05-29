@@ -38,7 +38,7 @@
 		FROM m_reserve r JOIN m_screen s
 		ON r.screen_no = s.screen_no
 		WHERE r.seat_no=#{seat_no} AND s.screen_name = #{screen_name} 
-		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no} 
+		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no}
 	</select>
 
 
@@ -62,23 +62,4 @@
 		ORDER BY res.seat_no ASC
 	</select>
 
-	<!-- I11이 있는지 없는지 select로 확인 -->
-	<select id="countEleven" parameterType="SitVO" resultType="int">
-		select count(*) as cnt
-		from m_seat se join m_reserve re
-		on se.seat_no = re.seat_no
-		WHERE se.seat_name = 'I11' AND re.schedule_no = #{schedule_no} AND se.screen_no = #{screen_no}
-	</select>
-	
-	<insert id="insertEleven" parameterType="SitVO">
-			INSERT INTO m_reserve(
-						user_id,
-						screen_no,
-						reserve_no,
-						seat_no,
-						schedule_no)
-			VALUES(
-					#{user_id},#{screen_no},seq_reserve_no.nextval,'91',#{schedule_no}
-			)
-	</insert>
 </mapper>

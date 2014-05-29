@@ -17,7 +17,7 @@
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 </head>
 <body>
-<div id="wrap">
+
     <div id="logo">
 		<img src='<c:url value="/resources/img/logo.png"/>'>
     </div>
@@ -33,43 +33,62 @@
 		   </li>
 		   
 		   <li class='last'><a href='/moebius/location/place'><span>극장</span></a></li>
-		   <li class='has-sub'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
-		      <ul>
-		         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
-		         <li><a href='/moebius/board/2/1/'><span>자주하는질문</span></a></li>
-		         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
-		      </ul>
-		   </li>
+
 		   
 		   <c:choose>
-		   <c:when test="${id==null }">
-		   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
-		   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
-		   </c:when>
-		   <c:when test="${id == 'admin'}">
-		   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
-		   <li class='has-sub-right'><a href='#'><span>관리자 페이지</span></a>
-		  	 <ul>
-		         <li><a href='/moebius/movie/insert'><span>영화 등록</span><br></a></li>
-		         <li><a href='/moebius/screen/insert'><span>상영관 등록</span><br></a></li>
-		         <li><a href='/moebius/movie/delete'><span>영화 삭제</span><br></a></li>
-		      </ul>
-		   </li>
-		   </c:when>
-		   <c:otherwise>
-		   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
-		   <li class='has-sub-right'><a href='/moebius/user/userInfo'><span>유저정보</span></a>
-		  	 <ul>
-		         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
-		         <li><a href='/moebius/user/delete'><span>정보삭제</span><br></a></li>
-		         <li><a href='#'><span>예매정보</span></a></li>
-		      </ul>
-		   </li>
-		   </c:otherwise>
+		   
+			   <c:when test="${id==null }">
+			   		<li class='has-sub-right'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
+				      <ul>
+				         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+				         <li><a href='/moebius/board/2/1/'><span>질문</span></a></li>
+				         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
+				      </ul>
+				   </li>
+				   <li class='right'><a href='/moebius/user/login'><span>로그인</span></a></li>
+	
+				   <li class='right'><a href='/moebius/user/regist'><span>회원가입</span></a></li>
+			   </c:when>
+			   
+			   <c:when test="${id == 'admin'}">	
+				   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
+				   <li class='has-sub-right'><a href='#'><span>관리자 페이지</span></a>
+				  	 <ul>
+				         <li><a href='/moebius/movie/insert'><span>영화 등록</span><br></a></li>
+				         <li><a href='/moebius/screen/insert'><span>상영관 등록</span><br></a></li>
+				         <li><a href='/moebius/movie/delete'><span>영화 삭제</span><br></a></li>
+				      </ul>
+				   </li>
+				   <li class='has-sub-right'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
+				      <ul>
+				         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+				         <li><a href='/moebius/board/2/1/'><span>질문</span></a></li>
+				         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
+				      </ul>
+				   </li>
+		 	  </c:when>
+		 	  
+		      <c:otherwise>
+			   <li class='right'><a href='/moebius/user/logout'><span>${name}님 로그아웃</span></a></li>
+			   <li class='has-sub-right'><a href='/moebius/user/userInfo'><span>유저정보</span></a>
+			  	 <ul>
+			         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
+			         <li><a href='/moebius/user/delete'><span>정보삭제</span><br></a></li>
+			         <li><a href='#'><span>예매정보</span></a></li>
+			      </ul>
+			   </li>
+			   <li class='has-sub-right'><a href='/moebius/board/1/1/'><span>고객센터</span></a>
+				      <ul>
+				         <li><a href='/moebius/board/1/1/'><span>공지사항</span></a></li>
+				         <li><a href='/moebius/board/2/1/'><span>질문</span></a></li>
+				         <li class='last'><a href='/moebius/mail/email'><span>문의사항</span></a></li>
+				      </ul>
+				</li>
+		     </c:otherwise>
 		   </c:choose>
 		</ul>
 	</div>
-
+	<div id="wrap">
 	<decorator:body />
 	
 	<!-- Footer -->

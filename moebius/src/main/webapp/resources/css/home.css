@@ -29,6 +29,7 @@ A:active {color:black; text-decoration:none;}
 .ad_img {height:220px; width:392px;}
 .login {margin: 0 73px 0;}
 
-.poster_img{width:135px; height:135px}
+.poster_img{width:100px; height:auto;}
 
 
+.rank {width: 350px;align:center;}

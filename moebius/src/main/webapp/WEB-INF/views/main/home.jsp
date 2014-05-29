@@ -74,10 +74,8 @@ $(document).ready(function(){
 </div>
 </div>
 <div id="second" align="center">
-<!-- 	<td height = "200"colspan="3" bgcolor="gray" align="center"> -->
 <iframe src="/moebius/main/rank" width="1000px" height="230px" frameborder="0"></iframe>
 </div>
-<!-- 	<td height = "200"> -->
 	<div id="third">
 		<div id="third_first" align="center"><a href="http://program.interest.me/ocn/quizofgod4" target="newwin"><img src="<c:url value="/resources/img/ocn.JPG"/>" class="ad_img"/></a></div>
 		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="200px" frameborder="0"></iframe> </div>
