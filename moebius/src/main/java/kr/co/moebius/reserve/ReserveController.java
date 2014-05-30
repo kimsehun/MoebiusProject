@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import kr.co.moebius.location.LocationService;
 import kr.co.moebius.location.LocationVO;
 import kr.co.moebius.movie.MovieService;
@@ -14,7 +16,10 @@ import kr.co.moebius.schedule.ScheduleService;
 import kr.co.moebius.schedule.ScheduleVO;
 import kr.co.moebius.screen.ScreenService;
 import kr.co.moebius.screen.ScreenVO;
+import kr.co.moebius.user.UserService;
+import kr.co.moebius.user.UserVO;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +28,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/")
@@ -45,6 +52,9 @@ public class ReserveController {
 	
 	@Autowired
 	private ScheduleService scheduleService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/reserve")
 	public String reserve(Model model) throws Exception{
@@ -127,7 +137,7 @@ public class ReserveController {
 	}
 	
 
-
+	//------------------------------지역 받아가기-------------------------
 	@RequestMapping(value="/reserve/movie/{movie_no}", 
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -137,6 +147,7 @@ public class ReserveController {
 		return screenList;
 	}
 	
+	//------------------------------영화 받아가기-------------------------
 	@RequestMapping(value="/reserve/locationMovie/{location_no}",
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -148,6 +159,7 @@ public class ReserveController {
 		return screenList;
 	}
 	
+	//--------------------------ajax 날짜 받아가기------------------------
 	@RequestMapping(value="/reserve/location/{location_no}",
 				headers = "Accept=application/json;charset=UTF-8",
 				produces = { MediaType.APPLICATION_JSON_VALUE})
@@ -189,6 +201,7 @@ public class ReserveController {
 		return map;
 	}
 	
+	//-------------------------ajax 시간 받아가기-----------------------------
 	@RequestMapping(value="/reserve/schedule/{day}", 
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -233,4 +246,33 @@ public class ReserveController {
 		}
 		return duleList;
 	}
+	
+	//--------------------------예약에서 로그인-------------------------
+		@RequestMapping(value = "/reserve/login", method = RequestMethod.GET)
+		public void login() {}
+
+		@RequestMapping(value = "/reserve/reserveLogin", method=RequestMethod.POST)
+		public ModelAndView reserveLogin(UserVO userVO, HttpSession session) {
+			userVO.setUser_pwd(DigestUtils.md5Hex(userVO.getUser_pwd()));
+			ModelAndView mav = new ModelAndView("result");
+			
+			try {
+				UserVO userInfo = userService.getUser(userVO);
+				
+				//session처리
+				session.setAttribute("user_id", userInfo.getUser_id());
+				session.setAttribute("user_name", userInfo.getUser_name());
+				
+				mav.addObject("msg",userInfo.getUser_id()+ "님이 로그인되었습니다.");
+				mav.addObject("url","../reserve");
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				mav.addObject("msg", "로그인에 실패했습니다.");
+				mav.addObject("url","javascript:history.back();");
+			}
+			
+			return mav;
+		}
 }
