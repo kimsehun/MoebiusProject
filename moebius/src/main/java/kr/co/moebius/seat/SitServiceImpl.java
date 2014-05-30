@@ -43,11 +43,6 @@ public class SitServiceImpl implements SitService{
 		reserveMapper.updateReserveCount(movie_no);
 	}
 	
-	@Override
-	public void updateStatus(String user_id) throws Exception {
-		// TODO Auto-generated method stub
-		reserveMapper.updateStatus(user_id);
-	}
 
 	
 	@Override

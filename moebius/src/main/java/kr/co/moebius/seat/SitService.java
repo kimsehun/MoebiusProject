@@ -12,7 +12,6 @@ public interface SitService {
 
 	void updateReserveCount(int movie_no) throws Exception;
 
-	void updateStatus(String user_id) throws Exception;
 
 	List<String> getReservedSeat(SitVO sitVO) throws Exception;
 

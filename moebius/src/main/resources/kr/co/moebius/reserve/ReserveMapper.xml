@@ -36,13 +36,14 @@
 			)
 	</insert>
 
+	
 	<!-- 예매 여부 확인  -->
 	<select id="count" parameterType="SitVO" resultType="int">
 		select count(*) AS cnt
 		FROM m_reserve r JOIN m_screen s
 		ON r.screen_no = s.screen_no
 		WHERE r.seat_no=#{seat_no} AND s.screen_name = #{screen_name} 
-		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no}
+		      AND s.location_no = #{location_no} AND s.movie_no = #{movie_no} AND r.schedule_no = #{schedule_no}
 	</select>
 
 
@@ -50,13 +51,6 @@
 		UPDATE m_movie SET movie_count = movie_count + 1
 		WHERE movie_no = #{movie_no}
 	</update>
-	
-	<update id="updateStatus" parameterType="SitVO">
-		UPDATE m_user
-		SET user_status = user_status + 1
-		WHERE user_id = #{user_id}
-	</update>
-
 
 	<select id="getReservedSeat" parameterType="SitVO" resultType="String">
 		SELECT se.seat_name

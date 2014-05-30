@@ -1,4 +1,4 @@
-
+select * from m_reserve
 /* Drop Tables */
 
 DROP TABLE m_board CASCADE CONSTRAINTS;
@@ -13,6 +13,7 @@ DROP TABLE m_comment_total CASCADE CONSTRAINTS;
 DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 
+delete from m_reserve;
 
 /* Drop Sequences */
 

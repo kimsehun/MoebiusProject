@@ -65,7 +65,8 @@ public class SitController {
 		
 		StringTokenizer st1 = new StringTokenizer(seatName.toString(),",");
 
-		logger.info(sitVO.toString());
+		logger.info("xdjklfjld"+
+		sitVO.getSchedule_no());
 
 		while(st1.hasMoreTokens()){
 			
@@ -84,7 +85,7 @@ public class SitController {
 
 				sitService.updateReserveCount(sitVO.getMovie_no());
 
-				sitService.updateStatus(sitVO.getUser_id());
+
 				map.put("res", res);
 				
 				

@@ -22,7 +22,6 @@
 		<caption>상세 정보</caption>
 			<tr>
 				<th>이름</th>
-				<th>예매 상태</th>
 				<th>지역</th>
 				<th>상영관</th>
 				<th>영화 제목</th>
@@ -35,7 +34,6 @@
 			<c:forEach items="${list }" var="list">
 			<tr>
 				<td>${list.user_name }</td>
-				<td>${list.user_status }</td>
 				<td>${list.location_name }</td>
 				<td>${list.screen_name }</td>
 				<td>${list.movie_title }</td>

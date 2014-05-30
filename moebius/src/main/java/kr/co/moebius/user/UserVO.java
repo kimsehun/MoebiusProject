@@ -20,7 +20,6 @@ public class UserVO implements Serializable {
 	private String user_addr2;
 	private String user_regdate; 
 	private int user_point;
-	private int user_status;
 	public String getUser_id() {
 		return user_id;
 	}
@@ -123,12 +122,6 @@ public class UserVO implements Serializable {
 	public void setUser_point(int user_point) {
 		this.user_point = user_point;
 	}
-	public int getUser_status() {
-		return user_status;
-	}
-	public void setUser_status(int user_status) {
-		this.user_status = user_status;
-	}
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_name=" + user_name
@@ -140,8 +133,6 @@ public class UserVO implements Serializable {
 				+ ", user_email=" + user_email + ", user_phone=" + user_phone
 				+ ", user_zipcode=" + user_zipcode + ", user_addr1="
 				+ user_addr1 + ", user_addr2=" + user_addr2 + ", user_regdate="
-				+ user_regdate + ", user_point=" + user_point
-				+ ", user_status=" + user_status + "]";
+				+ user_regdate + ", user_point=" + user_point + "]";
 	}
-	
 }
