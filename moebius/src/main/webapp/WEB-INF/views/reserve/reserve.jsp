@@ -11,80 +11,13 @@
 <link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shCore.css"> 
 <link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shThemeDefault.css"> 
 <link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/default.css">
-<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.7.0.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shCore.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushCss.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushXml.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushJScript.js"></script> 
 <script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/default.js"></script>
 <script type="text/javascript">
-// select box 
-
-
-/ Iterate over each select element
-$('select').each(function () {
-
-    // Cache the number of options
-    var $this = $(this),
-        numberOfOptions = $(this).children('option').length;
-
-    // Hides the select element
-    $this.addClass('s-hidden');
-
-    // Wrap the select element in a div
-    $this.wrap('<div class="select"></div>');
-
-    // Insert a styled div to sit over the top of the hidden select element
-    $this.after('<div class="styledSelect"></div>');
-
-    // Cache the styled div
-    var $styledSelect = $this.next('div.styledSelect');
-
-    // Show the first select option in the styled div
-    $styledSelect.text($this.children('option').eq(0).text());
-
-    // Insert an unordered list after the styled div and also cache the list
-    var $list = $('<ul />', {
-        'class': 'options'
-    }).insertAfter($styledSelect);
-
-    // Insert a list item into the unordered list for each select option
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li />', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-    }
-
-    // Cache the list items
-    var $listItems = $list.children('li');
-
-    // Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
-    $styledSelect.click(function (e) {
-        e.stopPropagation();
-        $('div.styledSelect.active').each(function () {
-            $(this).removeClass('active').next('ul.options').hide();
-        });
-        $(this).toggleClass('active').next('ul.options').toggle();
-    });
-
-    // Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
-    // Updates the select element to have the value of the equivalent option
-    $listItems.click(function (e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.hide();
-        /* alert($this.val()); Uncomment this for demonstration! */
-    });
-
-    // Hides the unordered list when clicking outside of it
-    $(document).click(function () {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
-
-});
 
 
 var commentList;
@@ -97,7 +30,7 @@ function selectMovie(no) {
 		success:function(data){
 			commentList = '';
 			$('#movie_no').val(movie_no);
-			commentList += '<select name="location" size="11">';
+			commentList += '<select name="location" size="11" class="wrapper-dropdown">';
 			$.each(data,setCommentLocationList);
 			commentList += '</select>';
 			$('#reserve_second_second').html(commentList);
@@ -120,7 +53,7 @@ function selectLocation(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown-date">';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
@@ -149,7 +82,7 @@ function selectSchedule(day) {
 			$('#year').val(year);
 			$('#month').val(month);
 			$('#day').val(day);
-			commentList += '<select name="day" size="11">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown">';
 			$.each(data, setCommentScheduleList); 
 			commentList += '</select>';
 			$('.reserve_second_forth').html(commentList);
@@ -166,7 +99,7 @@ function selectLocationMovie(no) {
 		success:function(data){
 			commentList = "";
 			$('#location_no').val(location_no);
-			commentList += '<select name="movie" size="11">';
+			commentList += '<select name="movie" size="11" class="wrapper-dropdown">';
 			$.each(data, setCommentMovieList);
 			commentList += '</select>';
 			$('.reserve_second_first').html(commentList);
@@ -190,7 +123,7 @@ function selectMovieDate(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown">';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
@@ -241,7 +174,7 @@ function setCommentLocationList() {
 		</select>
 		</div>
 		<div class="reserve_second_second" id="reserve_second_second">
-		<select name="location" size="11">
+		<select name="location" size="11" class="wrapper-dropdown">
 			<c:forEach items="${locationList}" var="locationVO">
 				<c:choose>
 				<c:when test="${movie_no == 0}">
@@ -258,31 +191,19 @@ function setCommentLocationList() {
 		<div class="reserve_second_third" id="reserve_second_third" align="center">
 			<div class="reserve_year" >${year}</div>
 				<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
-			<select name="day" size="11" >
+			<select name="day" size="11" class="wrapper-dropdown-date">
 				<c:forEach items="${calList}" var="cal">
 				<option value="${cal}" >${cal}</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div class="reserve_second_forth"></div>
-		
+		<form action = "reserve/seat" method="GET">
+			<input type="submit" value="자리선택" class="btnSeat"/>
+		</form>
 	</div>
 <hr>
-<div id="code_origin" class="code_tmpl">
-<!-- UI Object -->
-<div class="progress">
-	<strong class="tit">진행상태</strong>
-	<ol>
-	<li class="on"><span>영화선택</span></li>
-	<li><span>극장선택</span></li>
-	<li><span>날짜</span></li>
-	<li><span>시간</span></li>
-	<li><span onclick="javascript:location.href='/moebius/reserve/seat'">자리선택</span></li>
-	</ol>	
-</div>
-<!-- //UI Object -->
-</div>
-<form action = "reserve/seat" method="GET">
+
 <input type="hidden" id="location_no" name="location_no" value=""/>
 <input type="hidden" id="movie_no" name="movie_no" value="${movie_no}"/>
 <input type="hidden" id="screen_no" name="screen_no" value="" />
@@ -290,7 +211,5 @@ function setCommentLocationList() {
 <input type="hidden" id="month" name="month" value=""/>
 <input type="hidden" id="day" name="day" value=""/>
 <input type="hidden" id="schedule_no" name="schedule_no" value=""/>
-<input type="submit" value="자리선택"/>
-</form>
 </body>
 </html>

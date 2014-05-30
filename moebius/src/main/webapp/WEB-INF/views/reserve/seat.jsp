@@ -37,7 +37,12 @@
 		</select>
 	</div>
 	<div class="seat_content">
-		<table border="1" class="seat_table">
+		<table border="1" class="seat_table"  cellpadding="10" cellspacing="10">
+		<tr>
+			<td colspan="10">
+			스크린 위치
+			</td>
+		</tr>
 			<%
 				int i,j;
 				
@@ -56,7 +61,7 @@
 							
 							for(int z = start;z<list.size();z++){
 								if(list.get(z).equals(reservedSeat)){							
-									out.print("<td class='reservedSeat' id="+result+j+">"+result+j);
+									out.print("<td class='reservedSeat' id="+result+j+" >"+result+j);
 									out.print("</td>");
 									start++;
 									if (start == list.size()) {
@@ -89,7 +94,6 @@
 						
 					
 			%>
-			
 		</table>
 	</div>
 	<input type="button" value="확인" id="btnReserveOk" >

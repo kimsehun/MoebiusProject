@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
-table {border-collapse:collapse;}
-td {padding:20px;}
+/* table {border-collapse:collapse;} */
+td {padding:20px; border-radius: 10px;}
 
 #reserve_content {
 	border:solid 1px gray; 
@@ -15,9 +15,19 @@ td {padding:20px;}
 	}
 
 
-.seat_top {border:solid 1px gray; height:100px; margin-bottom: 0px; text-align:center;}
-.seat_content {border:solid 1px gray; margin-top:0px; text-align:center;}
-.seat_table {margin:auto; }
+.seat_top {
+	padding-top: 69px;
+	height:100px; 
+	margin-bottom: 0px; 
+	text-align:center;
+	background-color:#f9f9f9;
+	}
+.seat_content {
+	margin-top:0px; 
+	text-align:center; 
+	background-color:#f9f9f9;}
+	
+.seat_table {margin:auto; background-color:white; border-radius: 5px;}
 
 .seatSelected { background-color:red; color:white}
 	
