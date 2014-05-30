@@ -14,7 +14,6 @@ DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 
 
-
 /* Drop Sequences */
 
 DROP SEQUENCE seq_movie_no;

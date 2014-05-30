@@ -37,10 +37,10 @@
 		</select>
 	</div>
 	<div class="seat_content">
-		<table border="1" class="seat_table"  cellpadding="10" cellspacing="10">
+		<table border="0" class="seat_table"  cellpadding="10" cellspacing="10">
 		<tr>
 			<td colspan="10">
-			스크린 위치
+				SCREEN
 			</td>
 		</tr>
 			<%
@@ -96,7 +96,7 @@
 			%>
 		</table>
 	</div>
-	<input type="button" value="확인" id="btnReserveOk" >
+	<input type="button" value="예매" id="btnReserveOk" class="btnSeat" >
 </div>
 </body>
 </html>

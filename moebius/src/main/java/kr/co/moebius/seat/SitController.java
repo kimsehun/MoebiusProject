@@ -36,6 +36,9 @@ public class SitController {
 		sitVO.setUser_id(user_id);
 		
 		sitVO.setScreen_name(sitService.getScreenName(sitVO.getScreen_no()));
+
+		logger.info(sitVO.toString());
+		
 		model.addAttribute("user_id",user_id);
 		model.addAttribute("sitVO",sitVO);
 
@@ -62,6 +65,7 @@ public class SitController {
 		
 		StringTokenizer st1 = new StringTokenizer(seatName.toString(),",");
 
+		logger.info(sitVO.toString());
 
 		while(st1.hasMoreTokens()){
 			

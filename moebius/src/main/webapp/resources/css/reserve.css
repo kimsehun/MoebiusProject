@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 /* table {border-collapse:collapse;} */
-td {padding:20px; border-radius: 10px;}
+td {border-radius: 10px; background-color: rgb(224, 224, 224);}
 
 #reserve_content {
 	border:solid 1px gray; 
@@ -9,6 +9,7 @@ td {padding:20px; border-radius: 10px;}
 	text-align:center;
 	/* Opera5.02 will show a space at 
 	right when there is no scroll bar */
+	
 	padding: 10px 2% 10px 2%;
 	voice-family: "\"}\"";
 	voice-family:inherit;
@@ -16,19 +17,41 @@ td {padding:20px; border-radius: 10px;}
 
 
 .seat_top {
-	padding-top: 69px;
-	height:100px; 
+	padding: 20px 0 20px 0;
 	margin-bottom: 0px; 
 	text-align:center;
 	background-color:#f9f9f9;
 	}
 .seat_content {
 	margin-top:0px; 
+	height:500px;
 	text-align:center; 
 	background-color:#f9f9f9;}
 	
-.seat_table {margin:auto; background-color:white; border-radius: 5px;}
+.seat_table {margin:auto; border-radius: 5px; padding: 10px 100px 10px 100px;}
 
 .seatSelected { background-color:red; color:white}
 	
 .reservedSeat {background-color:gray;}
+
+
+.btnSeat {
+	padding:4px 15px 4px 15px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	border: 1px solid #ccc;
+	border-top-color: #B40000;
+	border-right-color: #FF8B8B;
+	border-bottom-color: #FFA9A9;
+	border-left-color: #FFA1A1;
+	
+	font-family: 나눔고딕, "맑은 고딕";
+	font-weight: 800;
+	color: #fff;
+	text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
+	text-align: center;
+	margin-right: 21px;
+	
+}

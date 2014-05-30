@@ -199,17 +199,18 @@ function setCommentLocationList() {
 		</div>
 		<div class="reserve_second_forth"></div>
 		<form action = "reserve/seat" method="GET">
+			<input type="hidden" id="location_no" name="location_no" value=""/>
+			<input type="hidden" id="movie_no" name="movie_no" value="${movie_no}"/>
+			<input type="hidden" id="screen_no" name="screen_no" value="" />
+			<input type="hidden" id="year" name="year" value=""/>
+			<input type="hidden" id="month" name="month" value=""/>
+			<input type="hidden" id="day" name="day" value=""/>
+			<input type="hidden" id="schedule_no" name="schedule_no" value=""/>
 			<input type="submit" value="자리선택" class="btnSeat"/>
+			
 		</form>
 	</div>
 <hr>
 
-<input type="hidden" id="location_no" name="location_no" value=""/>
-<input type="hidden" id="movie_no" name="movie_no" value="${movie_no}"/>
-<input type="hidden" id="screen_no" name="screen_no" value="" />
-<input type="hidden" id="year" name="year" value=""/>
-<input type="hidden" id="month" name="month" value=""/>
-<input type="hidden" id="day" name="day" value=""/>
-<input type="hidden" id="schedule_no" name="schedule_no" value=""/>
 </body>
 </html>
