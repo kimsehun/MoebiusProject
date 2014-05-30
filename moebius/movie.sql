@@ -14,7 +14,8 @@ DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 
 delete from m_reserve;
-
+select * from m_reserve;
+select * from m_user;
 /* Drop Sequences */
 
 DROP SEQUENCE seq_movie_no;
@@ -170,7 +171,7 @@ CREATE TABLE m_reserve
 	PRIMARY KEY (reserve_no)
 );
 
-select * from m_reserve;
+select * from m_user;
 
 CREATE TABLE m_user
 (
@@ -182,8 +183,6 @@ CREATE TABLE m_user
 	user_pwd_hint varchar2(200) NOT NULL,
 	user_pwd_answer varchar2(100) NOT NULL,
 	user_gender number(1) DEFAULT 1 NOT NULL,
-	user_jumin1 number(6) NOT NULL,
-	user_jumin2 number(7),
 	user_email varchar2(60) NOT NULL,
 	user_phone varchar2(16) NOT NULL,
 	user_zipcode varchar2(7) NOT NULL,
@@ -191,7 +190,6 @@ CREATE TABLE m_user
 	user_addr2 varchar2(50) NOT NULL,
 	user_regdate date DEFAULT sysdate NOT NULL,
 	user_point number DEFAULT 5000 NOT NULL,
-	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
 

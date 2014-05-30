@@ -22,11 +22,10 @@ public class MovieVO implements Serializable{
 	private String movie_video;
 	private String movie_sdate;
 	private String movie_grade;
-	private String movie_point;
+	private int movie_point;
 	private String movie_edate;
 	private int dday;
 	private UserVO userVO;
-	
 	public int getMovie_no() {
 		return movie_no;
 	}
@@ -87,6 +86,12 @@ public class MovieVO implements Serializable{
 	public void setMovie_count(int movie_count) {
 		this.movie_count = movie_count;
 	}
+	public String getMovie_video() {
+		return movie_video;
+	}
+	public void setMovie_video(String movie_video) {
+		this.movie_video = movie_video;
+	}
 	public String getMovie_sdate() {
 		return movie_sdate;
 	}
@@ -99,10 +104,10 @@ public class MovieVO implements Serializable{
 	public void setMovie_grade(String movie_grade) {
 		this.movie_grade = movie_grade;
 	}
-	public String getMovie_point() {
+	public int getMovie_point() {
 		return movie_point;
 	}
-	public void setMovie_point(String movie_point) {
+	public void setMovie_point(int movie_point) {
 		this.movie_point = movie_point;
 	}
 	public String getMovie_edate() {
@@ -111,25 +116,18 @@ public class MovieVO implements Serializable{
 	public void setMovie_edate(String movie_edate) {
 		this.movie_edate = movie_edate;
 	}
-	public UserVO getUserVO() {
-		return userVO;
-	}
-	public void setUserVO(UserVO userVO) {
-		this.userVO = userVO;
-	}
 	public int getDday() {
 		return dday;
 	}
 	public void setDday(int dday) {
 		this.dday = dday;
 	}
-	public String getMovie_video() {
-		return movie_video;
+	public UserVO getUserVO() {
+		return userVO;
 	}
-	public void setMovie_video(String movie_video) {
-		this.movie_video = movie_video;
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
 	}
-	
 	@Override
 	public String toString() {
 		return "MovieVO [movie_no=" + movie_no + ", movie_title=" + movie_title
@@ -144,4 +142,5 @@ public class MovieVO implements Serializable{
 				+ ", movie_edate=" + movie_edate + ", dday=" + dday
 				+ ", userVO=" + userVO + "]";
 	}
+	
 }

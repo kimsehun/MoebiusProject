@@ -9,11 +9,11 @@
 	<insert id="registUser" parameterType="UserVO" >
 	INSERT INTO m_user(
 				user_id,user_name,user_pwd,user_pwd_ok,user_age,user_pwd_hint,user_pwd_answer,
-				user_gender,user_jumin1,user_jumin2,user_email,user_phone,user_zipcode,
+				user_gender,user_email,user_phone,user_zipcode,
 				user_addr1,user_addr2)
 	VALUES(		
 				#{user_id},#{user_name},#{user_pwd},#{user_pwd_ok},#{user_age},#{user_pwd_hint},#{user_pwd_answer},
-				#{user_gender},#{user_jumin1},#{user_jumin2},#{user_email},#{user_phone},#{user_zipcode},
+				#{user_gender},#{user_email},#{user_phone},#{user_zipcode},
 				#{user_addr1},#{user_addr2})
 	</insert>
 	
@@ -34,13 +34,13 @@
 	WHERE user_id = #{user_id}
 	</select>
 	
-	<!-- 주민번호 중복 체크 -->
-	<select id="Check" resultType="int" parameterType="UserVO">
-	SELECT count(*) AS cnt
-	FROM m_user
-	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
-	</select>
-	
+	<!--  email 중복 체크  --> 
+  	<select id="Check" resultType="int" parameterType="UserVO">
+  	SELECT count(*) AS cnt 
+  	FROM m_user 
+  	WHERE user_email=#{user_email} AND user_name=#{user_name}
+  	</select> 
+
 	<!-- 로그인 -->
 	<select id="getUser" resultType="UserVO" parameterType="UserVO">
 	SELECT user_id, user_name FROM m_user
@@ -77,25 +77,19 @@
 	WHERE user_id=#{user_id}
 	</select>
 	
-	<!-- 아이디 찾기 -->
-	<select id="searchId" resultType="UserVO" parameterType="UserVO">
-	SELECT user_id,user_email,user_name
-	FROM m_user
-	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
-	</select>
+	<!--  아이디 찾기   --> 
+  	<select id="searchId" resultType="UserVO" parameterType="UserVO">\
+  	SELECT user_id,user_email,user_name 
+  	FROM m_user 
+  	WHERE user_email=#{user_email} AND user_name=#{user_name}
+  	</select> 
+
 	
 	<!-- 비밀번호 찾기 -->
 	<select id="searchPwd" resultType="UserVO" parameterType="UserVO">
 	SELECT user_pwd_ok, user_name, user_email
 	FROM m_user
 	WHERE user_pwd_hint=#{user_pwd_hint} AND user_pwd_answer=#{user_pwd_answer}	
-	</select>
-	
-	<!-- 회원가입 중복 방지를 위한 주민번호 체크 -->
-	<select id="searchJumin">
-	SELECT count(*) AS cnt
-	FROM m_user
-	WHERE user_jumin1=#{user_jumin1} AND user_jumin2=#{user_jumin2} AND user_name=#{user_name}
 	</select>
 	
 	<!-- 비밀번호 변경 시 기존 비밀번호 가져오는거 -->
@@ -118,10 +112,32 @@
 	WHERE user_id=#{user_id}
 	</update>
 	
+	<!--  포인트정보 --> 
+  	<select id="getPoint" parameterType="String" resultType="int">
+  	SELECT user_point 
+  	FROM m_user 
+  	WHERE user_id=#{user_id}
+  	</select> 
+	
 	<!-- 예약확인 -->
 	<select id="getReserveInfo" parameterType="UserInfoVO" resultType="UserInfoVO">
 	SELECT u.user_name, l.location_name, s.screen_name, m.movie_title, t.seat_name, m.movie_point, to_char(h.schedule_time,'HH24:MI') AS schedule_time, to_char(h.schedule_date,'YYYYMMDD') AS schedule_date
 	FROM m_user u, m_movie m, m_location l, m_screen s, m_seat t, m_reserve r, m_schedule h
 	WHERE u.user_id=#{user_id} AND r.user_id=#{user_id} AND s.screen_no=t.screen_no AND t.location_no=l.location_no AND t.seat_no=r.seat_no AND r.schedule_no=h.schedule_no AND m.movie_no=r.movie_no
 	</select>
+	
+	<!--  영화 예매시 포인트 삭감 --> 
+  	<update id="usePoint" parameterType="SitVO">
+  	UPDATE m_user SET 
+  	user_point = user_point - #{movie_point} 
+  	WHERE user_id=#{user_id}
+  	</update> 
+  	
+ 	<!--  예매를 위한 유저 포인트 체크  --> 
+  	<select id="getUserPoint" parameterType="String" resultType="int">
+  	SELECT user_point 
+  	FROM m_user WHERE 
+  	user_id=#{user_id}
+  	</select> 
+	
 </mapper>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import kr.co.moebius.board.BoardController;
 import kr.co.moebius.board.BoardInfoVO;
 import kr.co.moebius.board.BoardService;
@@ -11,6 +13,8 @@ import kr.co.moebius.board.BoardVO;
 import kr.co.moebius.board.Pagination;
 import kr.co.moebius.movie.MovieService;
 import kr.co.moebius.movie.MovieVO;
+import kr.co.moebius.user.UserService;
+import kr.co.moebius.user.UserVO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,11 +33,22 @@ public class HomeController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private UserService userService;
 
-	@RequestMapping("/")
-	public String home() {
-		return "main/home";
-	}
+	//----------------------------- 나의 포인트 정보-------------------------------------------
+		@RequestMapping("/")
+		public String point(UserVO userVO, Model model, HttpSession session)
+				throws Exception {
+			if (session.getAttribute("user_id") != null) {
+				userVO.setUser_id((String) session.getAttribute("user_id"));
+				model.addAttribute("point", userService.getPoint(userVO.getUser_id()));
+				logger.info(userVO.toString());
+				return "main/home";
+			}
+			return "main/home";
+		}
 	
 	//오늘 날짜를 YYYYMMDD 형식으로 반환한다.
 		private String calday() {

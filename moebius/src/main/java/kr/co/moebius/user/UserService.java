@@ -12,7 +12,7 @@ public interface UserService {
 
 	UserVO getUser(UserVO userVO) throws Exception;
 
-	void deleteUser(UserVO userVO) throws Exception;
+	int deleteUser(UserVO userVO) throws Exception;
 
 	int idCheck(String user_id) throws Exception;
 
@@ -32,5 +32,12 @@ public interface UserService {
 
 	List<UserInfoVO> getReserveInfo(UserInfoVO uifVO) throws Exception;
 
-	
+	void deleteInfo(UserInfoVO uifVO) throws Exception;
+
+	int getPoint(String user_id) throws Exception;
+
+	void usePoint(SitVO sitVO) throws Exception;
+
+	int getUserPoint(String user_id) throws Exception;
+
 }

@@ -28,4 +28,6 @@ public interface MovieMapper {
 
 	void deleteMovie(int movie_no) throws Exception;
 
+	int getMoviePoint(int movie_no) throws Exception;
+
 }

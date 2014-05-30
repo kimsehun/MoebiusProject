@@ -60,4 +60,10 @@ DELETE FROM m_movie
 WHERE movie_no = #{movie_no}
 </delete>
 
+<select id="getMoviePoint" parameterType="int" resultType="int">
+SELECT movie_point 
+FROM m_movie 
+WHERE movie_no=#{movie_no}
+</select> 
+
 </mapper>

@@ -11,7 +11,8 @@ public class SitVO implements Serializable {
 	private int screen_no;
 	private String user_id;
 	private int movie_no;
-
+	private int movie_point;
+	private int user_point;
 	
 	public int getLocation_no() {
 		return location_no;
@@ -61,18 +62,26 @@ public class SitVO implements Serializable {
 	public void setMovie_no(int movie_no) {
 		this.movie_no = movie_no;
 	}
-	
+	public int getMovie_point() {
+		return movie_point;
+	}
+	public void setMovie_point(int movie_point) {
+		this.movie_point = movie_point;
+	}
+	public int getUser_point() {
+		return user_point;
+	}
+	public void setUser_point(int user_point) {
+		this.user_point = user_point;
+	}
 	@Override
 	public String toString() {
 		return "SitVO [location_no=" + location_no + ", schedule_no="
 				+ schedule_no + ", seat_name=" + seat_name + ", seat_no="
 				+ seat_no + ", screen_name=" + screen_name + ", screen_no="
 				+ screen_no + ", user_id=" + user_id + ", movie_no=" + movie_no
+				+ ", movie_point=" + movie_point + ", user_point=" + user_point
 				+ "]";
 	}
-
-	
-	
-	
 	
 }

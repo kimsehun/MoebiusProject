@@ -56,6 +56,11 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public void deleteMovie(int movie_no) throws Exception {
 		movieMapper.deleteMovie(movie_no);
-		
+	}
+	
+	@Override
+	public int getMoviePoint(int movie_no) throws Exception {
+		// TODO Auto-generated method stub
+		return movieMapper.getMoviePoint(movie_no);
 	}
 }

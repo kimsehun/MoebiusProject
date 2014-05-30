@@ -9,6 +9,11 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
+import kr.co.moebius.movie.MovieService;
+import kr.co.moebius.movie.MovieVO;
+import kr.co.moebius.user.UserService;
+import kr.co.moebius.user.UserVO;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +32,12 @@ public class SitController {
 	
 	@Autowired
 	private SitService sitService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private MovieService movieService;
 	
 	@RequestMapping(value="/reserve/seat", method=RequestMethod.GET)
 	public String seat(HttpSession session, SitVO sitVO, Model model) throws Exception{
@@ -65,9 +76,6 @@ public class SitController {
 		
 		StringTokenizer st1 = new StringTokenizer(seatName.toString(),",");
 
-		logger.info("xdjklfjld"+
-		sitVO.getSchedule_no());
-
 		while(st1.hasMoreTokens()){
 			
 			try {
@@ -79,12 +87,12 @@ public class SitController {
 				sitVO.setSeat_name(seat_name);
 				logger.info(sitVO.toString());
 				sitVO.setSeat_no(sitService.getSeatno(sitVO));
-				
-
+				sitVO.setMovie_point(movieService.getMoviePoint(sitVO.getMovie_no()));
+				sitVO.setUser_point(userService.getUserPoint(sitVO.getUser_id()));
 				sitService.insertReserve(sitVO);
 
 				sitService.updateReserveCount(sitVO.getMovie_no());
-
+				userService.usePoint(sitVO);
 
 				map.put("res", res);
 				

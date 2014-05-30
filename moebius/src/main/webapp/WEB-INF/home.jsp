@@ -63,6 +63,7 @@ $(document).ready(function(){
 					${point }
 					</c:if>
 				</td>
+
 				<td class="smallfont">무비 캘랜더(준비중)<br/></td>
 			</tr>
 			<tr>

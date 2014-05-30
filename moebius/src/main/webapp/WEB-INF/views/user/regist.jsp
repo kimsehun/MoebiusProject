@@ -36,25 +36,23 @@
 				}
 			});
 		});
-		$('#user_jumin2').blur(function(user_name, user_jumin1, user_jumin2) {
+		$('#user_email').blur(function(user_name, user_email) {
 			var user_name = $('#user_name').val();
-			var user_jumin1 = $('#user_jumin1').val();
-			var user_jumin2 = $('#user_jumin2').val();
+			var user_email = $('#user_email').val();
 			var jmUrl = '<c:url value="/user/Check"/>';
 			$.ajax({
 				url : jmUrl,
 				type : 'POST',
 				data : {
 					user_name : user_name,
-					user_jumin1 : user_jumin1,
-					user_jumin2 : user_jumin2
+					user_email : user_email
 				},
 				success : function(data) {
 					if(data.result == "true") {
-						$('#user_jumin_msg').html(data.msg);
+						$('#user_email_msg').html(data.msg);
 						document.getElementById('btnRegistOk').disabled = false;
 					} else {
-						$('#user_jumin_msg').html(data.msg);
+						$('#user_email_msg').html(data.msg);
 						document.getElementById('btnRegistOk').disabled = true;
 					}
 				}

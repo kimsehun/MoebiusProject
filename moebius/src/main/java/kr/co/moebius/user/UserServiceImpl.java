@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void deleteUser(UserVO userVO) throws Exception {
-		// TODO Auto-generated method stub
-		userMapper.deleteUser(userVO);
+	public int deleteUser(UserVO userVO) throws Exception {
+		return userMapper.deleteUser(userVO);
+			
 	}
 	
 	@Override
@@ -89,5 +89,29 @@ public class UserServiceImpl implements UserService {
 	public List<UserInfoVO> getReserveInfo(UserInfoVO uifVO) throws Exception {
 		// TODO Auto-generated method stub
 		return userMapper.getReserveInfo(uifVO);
+	}
+	
+	@Override
+	public void deleteInfo(UserInfoVO uifVO) throws Exception {
+		// TODO Auto-generated method stub
+		userMapper.deleteInfo(uifVO);
+	}
+	
+	@Override
+	public int getPoint(String user_id) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getPoint(user_id);
+	}
+	
+	@Override
+	public void usePoint(SitVO sitVO) throws Exception {
+		// TODO Auto-generated method stub
+		userMapper.usePoint(sitVO);
+	}
+	
+	@Override
+	public int getUserPoint(String user_id) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getUserPoint(user_id);
 	}
 }

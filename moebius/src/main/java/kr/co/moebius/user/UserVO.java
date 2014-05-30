@@ -11,8 +11,6 @@ public class UserVO implements Serializable {
 	private String user_pwd_hint;
 	private String user_pwd_answer; 
 	private int user_gender;
-	private int user_jumin1;
-	private int user_jumin2;
 	private String user_email;
 	private String user_phone;
 	private String user_zipcode; 
@@ -20,6 +18,7 @@ public class UserVO implements Serializable {
 	private String user_addr2;
 	private String user_regdate; 
 	private int user_point;
+	private int user_status;
 	public String getUser_id() {
 		return user_id;
 	}
@@ -68,18 +67,6 @@ public class UserVO implements Serializable {
 	public void setUser_gender(int user_gender) {
 		this.user_gender = user_gender;
 	}
-	public int getUser_jumin1() {
-		return user_jumin1;
-	}
-	public void setUser_jumin1(int user_jumin1) {
-		this.user_jumin1 = user_jumin1;
-	}
-	public int getUser_jumin2() {
-		return user_jumin2;
-	}
-	public void setUser_jumin2(int user_jumin2) {
-		this.user_jumin2 = user_jumin2;
-	}
 	public String getUser_email() {
 		return user_email;
 	}
@@ -122,17 +109,24 @@ public class UserVO implements Serializable {
 	public void setUser_point(int user_point) {
 		this.user_point = user_point;
 	}
+	public int getUser_status() {
+		return user_status;
+	}
+	public void setUser_status(int user_status) {
+		this.user_status = user_status;
+	}
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_name=" + user_name
 				+ ", user_age=" + user_age + ", user_pwd=" + user_pwd
 				+ ", user_pwd_ok=" + user_pwd_ok + ", user_pwd_hint="
 				+ user_pwd_hint + ", user_pwd_answer=" + user_pwd_answer
-				+ ", user_gender=" + user_gender + ", user_jumin1="
-				+ user_jumin1 + ", user_jumin2=" + user_jumin2
-				+ ", user_email=" + user_email + ", user_phone=" + user_phone
-				+ ", user_zipcode=" + user_zipcode + ", user_addr1="
-				+ user_addr1 + ", user_addr2=" + user_addr2 + ", user_regdate="
-				+ user_regdate + ", user_point=" + user_point + "]";
+				+ ", user_gender=" + user_gender + ", user_email=" + user_email
+				+ ", user_phone=" + user_phone + ", user_zipcode="
+				+ user_zipcode + ", user_addr1=" + user_addr1 + ", user_addr2="
+				+ user_addr2 + ", user_regdate=" + user_regdate
+				+ ", user_point=" + user_point + ", user_status=" + user_status
+				+ "]";
 	}
+	
 }
