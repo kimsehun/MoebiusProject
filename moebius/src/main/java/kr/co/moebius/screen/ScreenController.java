@@ -1,6 +1,8 @@
 package kr.co.moebius.screen;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import kr.co.moebius.location.LocationService;
@@ -61,6 +63,10 @@ public class ScreenController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String screenInsertAction(ScreenVO screenVO, Model model) throws Exception {
+		Calendar cal = Calendar.getInstance();
+		
+		MovieVO movieVO = movieService.selectDate(screenVO.getMovie_no());
+		
 		//어느 장소에서 영화를 틀어줄껀지를 정한다.
 		try {
 			screenService.insertAction(screenVO);
@@ -82,17 +88,52 @@ public class ScreenController {
 		ScheduleVO scheduleVO = new ScheduleVO();
 		
 		//영화번호를 통해 영화 시작일과 마지막일을 받아옴
-		MovieVO movieVO = movieService.selectDate(screenVO.getMovie_no());
-		for(int i = Integer.parseInt(movieVO.getMovie_sdate()); i <= Integer.parseInt(movieVO.getMovie_edate()); i++ ) {
-			logger.info(i+"");
-			int t = (int)(Math.random()*2)+8;//랜덤시
-			int m = (int)(Math.random()*59);// 랜덤분
-			for(; t < 22 ; t=t+3) {
-				String schedule_time = t + ":" + m;
-				scheduleVO.setSchedule_date(i+"");
-				scheduleVO.setSchedule_time(schedule_time);
-				scheduleVO.setScreen_no(screen_no);
-				scheduleService.insertSchedule(scheduleVO);
+		
+		if (Integer.parseInt(movieVO.getMovie_edate().substring(5, 6)) == Integer.parseInt(movieVO.getMovie_sdate().substring(5, 6))) {
+			for (int i = Integer.parseInt(movieVO.getMovie_sdate()); i <= Integer.parseInt(movieVO.getMovie_edate()); i++) {
+				int t = (int) (Math.random() * 2) + 8;// 랜덤시
+				int m = (int) (Math.random() * 59);// 랜덤분
+				for (; t < 22; t = t + 3) {
+					String schedule_time = t + ":" + m;
+					scheduleVO.setSchedule_date(i + "");
+					scheduleVO.setSchedule_time(schedule_time);
+					scheduleVO.setScreen_no(screen_no);
+					scheduleService.insertSchedule(scheduleVO);
+				}
+			}
+		} else {
+			
+			String year = cal.get(Calendar.YEAR) + "";
+			String month = movieVO.getMovie_sdate().substring(4, 6);
+			int endday = cal.getActualMaximum((cal.get(Calendar.MONTH)+1));//getActualMaximum() : 그달의 마지막 달을 알려줌
+			
+			String totalday = year + month +""+endday;
+			
+			for (int i = Integer.parseInt(movieVO.getMovie_sdate()); i <= Integer.parseInt(totalday); i++) {
+				int t = (int) (Math.random() * 2) + 8;// 랜덤시
+				int m = (int) (Math.random() * 59);// 랜덤분
+				for (; t < 22; t = t + 3) {
+					String schedule_time = t + ":" + m;
+					scheduleVO.setSchedule_date(i + "");
+					scheduleVO.setSchedule_time(schedule_time);
+					scheduleVO.setScreen_no(screen_no);
+					scheduleService.insertSchedule(scheduleVO);
+				}
+			}
+			
+			month = movieVO.getMovie_edate().substring(4, 6);
+			
+			totalday = year +""+month+""+ "01";
+			for (int i = Integer.parseInt(totalday); i <= Integer.parseInt(movieVO.getMovie_edate()); i++) {
+				int t = (int) (Math.random() * 2) + 8;// 랜덤시
+				int m = (int) (Math.random() * 59);// 랜덤분
+				for (; t < 22; t = t + 3) {
+					String schedule_time = t + ":" + m;
+					scheduleVO.setSchedule_date(i + "");
+					scheduleVO.setSchedule_time(schedule_time);
+					scheduleVO.setScreen_no(screen_no);
+					scheduleService.insertSchedule(scheduleVO);
+				}
 			}
 		}
 		model.addAttribute("msg","등록 완료");

@@ -90,6 +90,8 @@ CREATE TABLE m_location
 );
 
 
+select * from M_SCHEDULE;
+
 CREATE TABLE m_comment_total
 (
 	comment_total_no number NOT NULL,
@@ -144,7 +146,8 @@ CREATE TABLE m_movie
 	PRIMARY KEY (movie_no)
 );
 
-
+select * from M_SCREEN;
+select * from M_SCHEDULE;
 CREATE TABLE m_schedule
 (
 	schedule_no number NOT NULL,

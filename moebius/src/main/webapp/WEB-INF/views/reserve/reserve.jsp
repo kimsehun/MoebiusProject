@@ -130,7 +130,7 @@ function selectMovieDate(no) {
 }
 
 function setCommentMovieList() {
-	commentList += '<option value='+this['movie_no']+' onmousedown="selectMovieDate('+this['movie_no']+');">'+this['movie_title']+'</option>';
+	commentList += '<option class = "movie_option" value='+this['movie_no']+' onmousedown="selectMovieDate('+this['movie_no']+');">'+this['movie_title']+'</option>';
 }
 
 function selectTime(no) {
@@ -157,7 +157,7 @@ function setCommentLocationList() {
 		<div class="reserve_first_third" align="center">날짜</div>
 		<div class="reserve_first_forth" align="center">시간</div>
 		<div class="reserve_second_first">
-		<select name="movie" size="11">
+		<select name="movie" size="11" class="wrapper-dropdown">
 			<c:forEach items="${rankingList}" var="movieVO">
 				<c:choose>
 					<c:when test="${movie_no == movieVO.movie_no}">
