@@ -43,7 +43,7 @@ public class SitController {
 		model.addAttribute("sitVO",sitVO);
 
 		if(user_id == null){
-			return "redirect:/user/login";
+			return "redirect:/reserve/login";
 		
 		} else{
 			List<String> list = sitService.getReservedSeat(sitVO);

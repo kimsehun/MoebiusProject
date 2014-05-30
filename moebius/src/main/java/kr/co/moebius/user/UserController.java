@@ -112,6 +112,8 @@ public class UserController {
 		return mav;
 	}
 	
+	
+	
 	//--------------------------------로그아웃----------------------------------
 	@RequestMapping("/logout")
 	public String logout(HttpSession session, Model model){
