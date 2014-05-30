@@ -8,14 +8,17 @@
 	
 	<!-- 스크린네임 가져오는거 -->
 	<select id="getScreenName" parameterType="int" resultType="String">
-		select screen_name from m_screen
+		select screen_name 
+		from m_screen
 		WHERE screen_no = #{screen_no}
 	</select>
 	
 	<!-- 좌석번호 가져오는거 -->
-	<select id="getSeatno" parameterType="String" resultType="int">
-		select seat_no from m_seat
-		WHERE seat_name = #{seatName}
+	<select id="getSeatno" parameterType="SitVO" resultType="int">
+		select s.seat_no 
+		from m_seat s JOIN m_schedule c
+		ON s.screen_no = c.screen_no
+		WHERE s.seat_name = #{seat_name} AND c.schedule_no = #{schedule_no}  AND s.location_no=#{location_no}
 	</select>
 
 	
@@ -26,9 +29,10 @@
 						screen_no,
 						reserve_no,
 						seat_no,
-						schedule_no)
+						schedule_no,
+						movie_no)
 			VALUES(
-					#{user_id},#{screen_no},seq_reserve_no.nextval,#{seat_no},#{schedule_no}
+					#{user_id},#{screen_no},seq_reserve_no.nextval,#{seat_no},#{schedule_no},#{movie_no}
 			)
 	</insert>
 

@@ -22,9 +22,9 @@ public class SitServiceImpl implements SitService{
 	}
 
 	@Override
-	public int getSeatno(String seatName) throws Exception {
+	public int getSeatno(SitVO sitVO) throws Exception {
 		// TODO Auto-generated method stub
-		return reserveMapper.getSeatno(seatName);
+		return reserveMapper.getSeatno(sitVO);
 	}
 
 	@Override

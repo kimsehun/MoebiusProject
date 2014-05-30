@@ -70,13 +70,15 @@ public class SitController {
 		while(st1.hasMoreTokens()){
 			
 			try {
-				logger.info(sitVO.toString());
+				
 				
 				//seat_no을 where문(seat_name = 선택한 좌석 이름)으로 가져옴
 				//seat_no set 안에 넣음
 				String seat_name = (String)st1.nextElement();
-				sitVO.setSeat_no(sitService.getSeatno(seat_name));
 				sitVO.setSeat_name(seat_name);
+				logger.info(sitVO.toString());
+				sitVO.setSeat_no(sitService.getSeatno(sitVO));
+				
 
 				sitService.insertReserve(sitVO);
 

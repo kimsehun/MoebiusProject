@@ -9,7 +9,7 @@ public interface ReserveMapper {
 
 	String getScreenName(int screen_no) throws Exception;
 
-	int getSeatno(String seatName) throws Exception;
+	int getSeatno(SitVO sitVO) throws Exception;
 
 	void insertReserve(SitVO sitVO) throws Exception;
 

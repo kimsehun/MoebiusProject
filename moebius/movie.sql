@@ -27,7 +27,7 @@ DROP SEQUENCE seq_seat_no;
 DROP SEQUENCE seq_reserve_no;
 DROP SEQUENCE seq_comment_total_no;
 
-
+select * from m_reserve;
 
 
 /* Create Sequences */
@@ -147,6 +147,7 @@ CREATE TABLE m_movie
 
 select * from M_SCREEN;
 select * from M_SCHEDULE;
+
 CREATE TABLE m_schedule
 (
 	schedule_no number NOT NULL,
@@ -168,6 +169,7 @@ CREATE TABLE m_reserve
 	PRIMARY KEY (reserve_no)
 );
 
+select * from m_reserve;
 
 CREATE TABLE m_user
 (
@@ -191,7 +193,6 @@ CREATE TABLE m_user
 	user_status number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (user_id)
 );
-
 
 
 /* Create Foreign Keys */
