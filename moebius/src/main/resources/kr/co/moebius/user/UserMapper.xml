@@ -38,7 +38,7 @@
   	<select id="Check" resultType="int" parameterType="UserVO">
   	SELECT count(*) AS cnt 
   	FROM m_user 
-  	WHERE user_email=#{user_email} AND user_name=#{user_name}
+  	WHERE user_email=#{user_email}
   	</select> 
 
 	<!-- 로그인 -->

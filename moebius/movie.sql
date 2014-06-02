@@ -13,7 +13,7 @@ DROP TABLE m_comment_total CASCADE CONSTRAINTS;
 DROP TABLE m_movie CASCADE CONSTRAINTS;
 DROP TABLE m_user CASCADE CONSTRAINTS;
 
-delete from m_reserve;
+delete from m_user;
 select * from m_reserve;
 select * from m_user;
 /* Drop Sequences */
