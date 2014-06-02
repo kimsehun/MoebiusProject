@@ -138,6 +138,13 @@
   	SELECT user_point 
   	FROM m_user WHERE 
   	user_id=#{user_id}
-  	</select> 
+  	</select>
+  	
+  	<!-- 영화등급에 필요한 나이 출력 -->
+  	<select id="getAge" parameterType="String" resultType="int">
+  	SELECT user_age
+  	FROM m_user
+  	WHERE user_id=#{user_id}
+  	</select>
 	
 </mapper>

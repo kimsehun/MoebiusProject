@@ -69,13 +69,14 @@ $(document).ready(function(){
 		var currYear = today.getFullYear(); //현재년도
 		var birthYear = user_jumin1.substring(0,2); //년도자리 추출
 		var flag = user_jumin2.substring(0,1); //성별 추출
-		if(flag == 1 || flag == 2) {
-			birthYear = 19 + birthYear;
-		} else if(flag == 3 || flag == 4) {
-			birthYear = 20 + birthYear;
-		}
 		if($('#user_jumin1').val() != '') { //주민번호란에 값이 존재
-			$('#user_age').val(currYear - birthYear + 1);
+			if(flag == 1 || flag == 2) {
+				birth = 19 + birthYear;
+				$('#user_age').val(currYear - birth + 1);
+			} else if(flag == 3 || flag == 4) {
+				birth = 20 + birthYear;
+				$('#user_age').val(currYear - birth + 1);
+			}
 		}
 		if($('#user_jumin2').val() != '') { //주민 뒷자리 입력시 일단 체크 해제
 			$('#user_gender_1').attr('checked',false);

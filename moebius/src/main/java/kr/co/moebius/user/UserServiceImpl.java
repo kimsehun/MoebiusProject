@@ -114,4 +114,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.getUserPoint(user_id);
 	}
+	
+	@Override
+	public int getAge(String user_id) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getAge(user_id);
+	}
 }

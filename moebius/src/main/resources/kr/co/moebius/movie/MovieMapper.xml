@@ -66,4 +66,10 @@ FROM m_movie
 WHERE movie_no=#{movie_no}
 </select> 
 
+<select id="getGrade" parameterType="int" resultType="int">
+SELECT movie_grade
+FROM m_movie
+WHERE movie_no=#{movie_no}
+</select>
+
 </mapper>

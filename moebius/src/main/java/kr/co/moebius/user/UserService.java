@@ -40,4 +40,6 @@ public interface UserService {
 
 	int getUserPoint(String user_id) throws Exception;
 
+	int getAge(String user_id) throws Exception;
+
 }

@@ -63,4 +63,10 @@ public class MovieServiceImpl implements MovieService{
 		// TODO Auto-generated method stub
 		return movieMapper.getMoviePoint(movie_no);
 	}
+	
+	@Override
+	public int getGrade(int movie_no) throws Exception {
+		// TODO Auto-generated method stub
+		return movieMapper.getGrade(movie_no);
+	}
 }

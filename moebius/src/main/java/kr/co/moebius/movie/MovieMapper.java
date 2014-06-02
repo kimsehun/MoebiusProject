@@ -30,4 +30,6 @@ public interface MovieMapper {
 
 	int getMoviePoint(int movie_no) throws Exception;
 
+	int getGrade(int movie_no) throws Exception;
+
 }
