@@ -184,13 +184,16 @@ function setCommentLocationList() {
 			<div class="reserve_year" >${year}</div>
 				<div class="reserve_month"><h1 class="reserve_month_font">${month}월</h1></div>
 			<select name="day" size="11" class="wrapper-dropdown-date">
-				<c:forEach items="${calList}" var="cal">
+				<c:forEach items="${calList}" var="cal" varStatus="st">
+				<c:if test="${st.index <= 10 }">
 				<option value="${cal}" >${cal}</option>
+				${st.index + 1}
+				</c:if>
 				</c:forEach>
 			</select>
 		</div>
 		<div class="reserve_second_forth"></div>
-		<form action = "reserve/seat" method="GET">
+		<form action = "/moebius/reserve/seat" method="GET">
 			<input type="hidden" id="location_no" name="location_no" value=""/>
 			<input type="hidden" id="movie_no" name="movie_no" value="${movie_no}"/>
 			<input type="hidden" id="screen_no" name="screen_no" value="" />

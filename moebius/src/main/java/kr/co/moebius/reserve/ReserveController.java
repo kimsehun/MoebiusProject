@@ -140,6 +140,16 @@ public class ReserveController {
 		List<MovieVO> movieList = movieService.selectMovie();
 		
 		Calendar cal = Calendar.getInstance();
+		
+		// 오늘 날짜부터 그달의 말일까지 계산
+		List<Object> calList = new ArrayList<Object>();
+		model.addAttribute("year", cal.get(Calendar.YEAR));
+		model.addAttribute("month", cal.get(Calendar.MONTH)+1);
+		int endday = cal.getActualMaximum(Calendar.DAY_OF_MONTH);//getActualMaximum() : 洹몃떖��留덉�留��ъ쓣 �뚮젮以�
+		for(int d = cal.get(Calendar.DATE); d <= endday; d++) {
+			calList.add(d);
+		}
+		
 		String today = calday(cal);
 		List<MovieVO> rankingList = new ArrayList<MovieVO>();
 		for (MovieVO vo : movieList) {
@@ -151,6 +161,7 @@ public class ReserveController {
 		model.addAttribute("movie_no", movie_no);
 		model.addAttribute("rankingList", rankingList);
 		model.addAttribute("locationList",locationList);
+		model.addAttribute("calList", calList);
 		return "reserve/reserve";
 	}
 	
