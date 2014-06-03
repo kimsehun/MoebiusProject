@@ -127,6 +127,17 @@ public class HomeController {
 		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
 		for (MovieVO vo : list) {
 			if (Integer.parseInt(vo.getMovie_sdate()) < Integer.parseInt(today)) {
+				
+				//날짜 구분해주기.
+				String year = vo.getMovie_sdate().substring(0,4);
+				logger.info(year);
+				String month = vo.getMovie_sdate().substring(4,6);
+				logger.info(month);
+				String day = vo.getMovie_sdate().substring(6);
+				logger.info(day);
+				vo.setMovie_sdate(year +"."+ month +"."+ day);
+				logger.info(vo.getMovie_sdate());
+				
 				//상영날짜까지 남은 시간을 계산
 				rankinglist.add(vo);
 			}

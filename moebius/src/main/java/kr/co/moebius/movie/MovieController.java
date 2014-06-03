@@ -109,6 +109,13 @@ public class MovieController {
 		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
 		for (MovieVO vo : list) {
 			if (Integer.parseInt(vo.getMovie_sdate()) <= Integer.parseInt(today)) {
+				
+				//날짜 구분해주기.
+				String year = vo.getMovie_sdate().substring(0,4);
+				String month = vo.getMovie_sdate().substring(4,6);
+				String day = vo.getMovie_sdate().substring(6);
+				vo.setMovie_sdate(year +"."+ month +"."+ day);
+				
 				// 상영날짜까지 남은 시간을 계산
 				rankinglist.add(vo);
 			}
@@ -141,6 +148,13 @@ public class MovieController {
 					vo.setDday(Integer.parseInt(vo.getMovie_sdate())
 							- Integer.parseInt(today));
 				}
+				
+				//날짜 구분해주기.
+				String year = vo.getMovie_sdate().substring(0,4);
+				String month1 = vo.getMovie_sdate().substring(4,6);
+				String day1 = vo.getMovie_sdate().substring(6);
+				vo.setMovie_sdate(year +"."+ month1 +"."+ day1);
+				
 				list2.add(vo);
 			}
 		}
