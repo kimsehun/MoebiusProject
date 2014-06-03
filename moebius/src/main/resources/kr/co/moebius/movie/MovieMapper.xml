@@ -31,7 +31,7 @@ WHERE movie_no = #{movie_no}
 </select>
 
 <select id="ranking" resultType="MovieVO">
-SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime,
+SELECT movie_no, movie_title, movie_directer, movie_genre, movie_nation, movie_runningtime, movie_grade,
 		movie_actor, movie_poster, movie_video, to_char(movie_sdate,'YYYYMMDD') AS movie_sdate, movie_grade, to_char(movie_edate,'YYYYMMDD') AS movie_edate
 FROM m_movie
 ORDER BY movie_count DESC

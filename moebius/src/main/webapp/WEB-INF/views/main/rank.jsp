@@ -17,6 +17,19 @@
 					<td class="rank">
 						${st.index +1}
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img" id="btninsert"/>
+						<p>
+							<c:if test="${movieVO.movie_grade == 1 }">
+								(15세) 
+							</c:if>
+							<c:if test="${movieVO.movie_grade == 2 }">
+								(19세)
+							</c:if>
+							<c:if test="${movieVO.movie_grade == 3 }">
+								(전체관람)
+							</c:if>
+							${movieVO.movie_title}
+						</p>
+						<p>${movieVO.movie_sdate} 개봉</p>
 						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank">상세보기</a> </p>
 					</td>
 				</c:when>
