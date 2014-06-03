@@ -44,7 +44,7 @@ color: white;}
 .rank {width: auto; height: 300px; align:center; margin: 0px;}
 
 
-.userInfo {border: 1px solid #CECECE;}
+.userInfo {border: 1px solid #CECECE; width: 375px; height: 290px;}
 
 
 .img {margin-left: 65px;}

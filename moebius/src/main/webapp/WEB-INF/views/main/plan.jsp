@@ -7,16 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Insert title here</title>
 <!-- CSS -->
-<style type="text/css">
- ul {list-style-type:none;margin:0;padding:0;}
-   li {margin:0;padding:0;}
-   div.gallery_rolling .arrow_prev {position:relative;width:15px;height:35px;cursor:pointer;z-index:1; left: -135px;}
-   div.gallery_rolling .arrow_next {position:relative;width:15px;height:35px;cursor:pointer;z-index:1; left: 585px;}
-   div.gallery_rolling div.carrousel_box {top:10px;overflow:hidden; width:800px; left: 54px;}
-   div.gallery_rolling li {float:left; width:auto; height: 300px;}
-   .planBody {overflow: hidden;}
-   .plan {margin:auto; margin-left: 160px;}
-</style>
+<link rel="stylesheet" href="<c:url value="/resources/css/rolling.css" />" type="text/css" />
 <!-- JavaScripts-->
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-2.0.2.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery.rolling.js'/>"></script>

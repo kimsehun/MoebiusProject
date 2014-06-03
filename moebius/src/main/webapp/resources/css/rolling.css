@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+ ul {list-style-type:none;margin:0;padding:0;}
+   li {margin:0;padding:0;}
+   div.gallery_rolling .arrow_prev {position:relative;width:15px;height:35px;cursor:pointer;z-index:1; left: -135px;}
+   div.gallery_rolling .arrow_next {position:relative;width:15px;height:35px;cursor:pointer;z-index:1; left: 585px;}
+   div.gallery_rolling div.carrousel_box {top:10px;overflow:hidden; width:800px; left: 54px;}
+   div.gallery_rolling li {float:left; width:auto; height: 300px;}
+   .planBody {overflow: hidden;}
+   .plan {margin:auto; margin-left: 160px;}
