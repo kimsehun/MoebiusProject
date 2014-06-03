@@ -8,15 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/reserve1.css" />" type="text/css" />
 <link rel="stylesheet" href="<c:url value="/resources/css/process.css" />" type="text/css" />
-<link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shCore.css"> 
-<link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/shThemeDefault.css"> 
-<link rel="stylesheet" type="text/css" href="http://html.nhndesign.com/ui_library/css/default.css">
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
-<script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shCore.js"></script> 
-<script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushCss.js"></script> 
-<script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushXml.js"></script> 
-<script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/shBrushJScript.js"></script> 
-<script type="text/javascript" src="http://html.nhndesign.com/ui_library/js/default.js"></script>
 <script type="text/javascript">
 
 

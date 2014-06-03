@@ -21,9 +21,8 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="first">
-<!-- <table align="center" width="1200" height="700"> -->
 <div id="first_first">
-<iframe src="/moebius/main/plan" width="800px" height="200px" frameborder="0" ></iframe>
+<iframe src="/moebius/main/plan" width="800px" height="300px" frameborder="0" ></iframe>
 </div>
 <div id="first_second">
 	<c:choose>
@@ -50,7 +49,7 @@ $(document).ready(function(){
 		</table>
 		</c:when>
 		<c:otherwise>
-		<table>
+		<table class="userInfo">
 			<tr>
 				<td colspan="2" align="left">${sessionScope.user_name}<br/></td>
 				<td align="right"><input type="button" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
@@ -79,14 +78,14 @@ $(document).ready(function(){
 </div>
 </div>
 <div id="second" align="center">
-<iframe src="/moebius/main/rank" width="1000px" height="230px" frameborder="0"></iframe>
+<iframe src="/moebius/main/rank" width="1200px" height="300px" frameborder="0"></iframe>
 </div>
 	<div id="third">
 		<div id="third_first" align="center"><a href="http://program.interest.me/ocn/quizofgod4" target="newwin"><img src="<c:url value="/resources/img/ocn.JPG"/>" class="ad_img"/></a></div>
 		<div id="third_second"><iframe src="/moebius/main/notice" width="400px" height="200px" frameborder="0"></iframe> </div>
 		<div id="third_third"><iframe src="/moebius/main/question" width="400px" height="200px" frameborder="0"></iframe></div>
 	</div>
-	<div><img src="<c:url value="/resources/img/image1.jpg"/>" class="main_img"/></div>
+	<div class="img"><img src="<c:url value="/resources/img/mainImg.jpg"/>" class="main_img" align="middle"/></div>
 	
 </body>
 </html>

@@ -19,16 +19,16 @@
 </div>
 <div id="content" align="center">
 <form action="email" method="post">
-	<table>
+	<table class="email">
 	<caption>E-MAIL 문의</caption>
 	<tr>
-		<th>보내는 이</th>
-		<td><input type="text" name="user_email" class="mailTitle" value="${userVO.user_email }"/></td>
+		<th class="email">보내는 이</th>
+		<td class="email"><input type="text" name="user_email" class="mailTitle" value="${userVO.user_email }"/></td>
 	</tr>
 	
 	<tr>
-		<th>문의 내용</th>
-		<td><textarea rows="5" name="board_content" class="mailContent"></textarea>
+		<th class="email">문의 내용</th>
+		<td class="email"><textarea rows="5" name="board_content" class="mailContent"></textarea>
 		</td>
 	</tr>
 	<tr>

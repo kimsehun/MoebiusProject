@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/home.css" />" type="text/css" />
 <title>Insert title here</title>
 </head>
-<body>
-<table>
+<body class="rankBody">
+<table class="rank">
 	<tr>
 		<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>

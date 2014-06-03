@@ -1,9 +1,13 @@
 @CHARSET "UTF-8";
-
+body.rankBody{overflow:hidden;}
+.rank {font:12px gulim, tahoma; margin: auto; padding: 0 0 0 85px; text-align:center;}
 table .login {border-collapse:collapse; align:center;}
 table caption .login {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
-table th, table td .login{font-family: monospace; padding:10px; padding-bottom:10px; background-color: cornflowerblue;}
-
+table th, table td .login{
+	font-family: monospace; padding:10px; padding-bottom:10px;
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+}
 /* 링크 메시지를 계속해서 검정으로 보이게한다.*/
 A:link {color:black; text-decoration:none;}
 A:visited {color:black; text-decoration:none;}
@@ -15,21 +19,32 @@ A:active {color:black; text-decoration:none;}
 	font-size:12px;
 }
 
-#first_first {width: 800px; float: left; height: 200px; text-align: center;}
-#first_second {width: 396px; float: left; height: 200px; text-align: center;}
+#first_first {width: 800px; float: left; height: 300px; text-align: center;}
+#first_second {width: 396px; float: left; height: 300px; text-align: center; margin-top: 9px; }
 
-#second {clear: left; height: 200px; background-color:ivory;}
+#second {clear: left; height: 300px; margin:auto;}
 
-#third {height: 220px;}
-#third_first {width: 392px; float: left; height: 200px; text-align: center; padding-top:0px;}
-#third_second {width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
-#third_third {width: 400px; float: left; height: 200px; text-align: center; overflow:hidden;}
+#third {height: 300px;margin:5px;}
+#third_first {width: auto; float: left; height: 300px text-align: center; padding-top:0px;}
+#third_second {width: 388px; float: left; height: 300px text-align: center; overflow:hidden;}
+#third_third {width: auto; float: left; height: 300px; text-align: center; overflow:hidden;}
 
-.main_img {width:750px; height:150px; margin-left: 225px;}
-.ad_img {height:220px; width:392px;}
-.login {margin: 0 73px 0;}
+.main_img {width:auto; height: 180px; margin:auto;}
+.ad_img {height: 200px; width:auto;}
+.login {
+padding: 46px;
+width: 350px;
+height: 200px;
+margin: auto;
+color: white;}
 
-.poster_img{width:100px; height:auto;}
+.poster_img{width:auto; height:180px}
 
 
-.rank {width: 350px;align:center;}
+.rank {width: auto; height: 300px; align:center; margin: 0px;}
+
+
+.userInfo {border: 1px solid #CECECE;}
+
+
+.img {margin-left: 65px;}
