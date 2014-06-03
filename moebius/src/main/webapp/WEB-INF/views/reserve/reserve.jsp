@@ -10,6 +10,14 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/process.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	$('.btnSeat').click(function(){
+		if($('#schedule_no').val() == '') {
+			alert('영화, 극장, 날짜, 시간을 모두 선택해 주세요');
+			return false;
+		}
+	});
+});
 
 
 var commentList;
