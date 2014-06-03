@@ -68,7 +68,7 @@ public class ReserveController {
 		List<Object> calList = new ArrayList<Object>();
 		model.addAttribute("year", cal.get(Calendar.YEAR));
 		model.addAttribute("month", cal.get(Calendar.MONTH)+1);
-		int endday = cal.getActualMaximum((cal.get(Calendar.MONTH)+1));//getActualMaximum() : 그달의 마지막 달을 알려줌
+		int endday = cal.getActualMaximum(Calendar.DAY_OF_MONTH);//getActualMaximum() : 그달의 마지막 달을 알려줌
 		for(int d = cal.get(Calendar.DATE); d <= endday; d++) {
 			calList.add(d);
 		}
@@ -224,7 +224,7 @@ public class ReserveController {
 			headers = "Accept=application/json;charset=UTF-8", 
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public List<ScheduleVO> reserveSchedule(@PathVariable int day, int movie_no, 
+	public List<ScheduleVO> reserveSchedule(@PathVariable String day, int movie_no, 
 							int location_no, int year, String month) throws Exception {
 		//월 출력
 		if(month.length() == 2) {
@@ -232,6 +232,11 @@ public class ReserveController {
 			month = month.substring(0,2);
 		} else {
 			month = month.substring(0,2);
+		}
+		
+		// 날짜가 한자리 숫자일때 0을 붙여서 db와 비교할때 알아서 받아드리도록한다.
+		if (day.length() == 1) {
+			day = 0 + day;
 		}
 		
 		String schedule_date = year + month + day;
