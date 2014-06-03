@@ -42,8 +42,28 @@ public class SitController {
 	@RequestMapping(value="/reserve/seat", method=RequestMethod.GET)
 	public String seat(HttpSession session, SitVO sitVO, Model model) throws Exception{
 
-		
+		//상영관 등급 처리
 		String user_id = (String) session.getAttribute("user_id");
+		if(user_id != null) {
+			int grade = movieService.getGrade(sitVO.getMovie_no());
+			int age = 0;
+			switch (grade) {
+			case 1:
+				age = 15;
+				break;
+			case 2:
+				age = 19;
+				break;
+			default:
+				break;
+			}
+			if(age > userService.getAge(user_id)) {
+				model.addAttribute("msg", "상영 관람 등급에 해당하지 않습니다.");
+				model.addAttribute("url", "/moebius/reserve");
+				return "result";
+			}
+		}
+		
 		sitVO.setUser_id(user_id);
 		
 		sitVO.setScreen_name(sitService.getScreenName(sitVO.getScreen_no()));

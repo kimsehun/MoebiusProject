@@ -58,6 +58,7 @@ public class ReserveController {
 	
 	@RequestMapping(value="/reserve")
 	public String reserve(Model model) throws Exception{
+		
 		//영화 제목 리스트 가져오기
 		List<MovieVO> movieList = null;
 		//극장 리스트 가져오기 
@@ -116,25 +117,8 @@ public class ReserveController {
 	
 	
 	@RequestMapping(value="/reserve/{movie_no}")
-	public String reserveMovieNo(@PathVariable int movie_no, Model model, String user_id, HttpSession session ) throws Exception {
-		user_id = (String) session.getAttribute("user_id");
-		int grade = movieService.getGrade(movie_no);
-		int age = 0;
-		switch (grade) {
-		case 1:
-			age = 15;
-			break;
-		case 2:
-			age = 19;
-			break;
-		default:
-			break;
-		}
-		if(age > userService.getAge(user_id)) {
-			model.addAttribute("msg", "상영 관람 등급에 해당하지 않습니다.");
-			model.addAttribute("url", "..");
-			return "result";
-		}
+	public String reserveMovieNo(@PathVariable int movie_no, Model model) throws Exception {
+		
 		
 		List<ScreenVO> locationList = screenService.selectReserveScreen(movie_no);
 		List<MovieVO> movieList = movieService.selectMovie();
