@@ -80,6 +80,8 @@ $(document).ready(function(){
 	
 	<div id="second" align="center">
 		<iframe src="/moebius/main/rank" width="1200px" height="300px" frameborder="0"></iframe>
+		
+
 	</div>
 	
 	<div id="third">

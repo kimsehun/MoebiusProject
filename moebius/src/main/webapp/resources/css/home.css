@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
-body.rankBody{overflow:hidden;}
-.rank {font:12px gulim, tahoma; margin: auto; padding: 0 0 0 85px; text-align:center;}
+body.rankBody{overflow:hidden; margin: 5px;}
 table .login {border-collapse:collapse; align:center;}
 table caption .login {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
 table th, table td .login{
@@ -9,10 +8,10 @@ table th, table td .login{
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
 }
 /* 링크 메시지를 계속해서 검정으로 보이게한다.*/
-A:link {color:black; text-decoration:none;}
-A:visited {color:black; text-decoration:none;}
-A:hover {color:black; text-decoration:none;}
-A:active {color:black; text-decoration:none;}
+A:link {color:white; text-decoration:none;}
+A:visited {color:white; text-decoration:none;}
+A:hover {color:white; text-decoration:none;}
+A:active {color:white; text-decoration:none;}
 
 .smallfont{
 	font-family:'돋움체';
@@ -32,19 +31,56 @@ A:active {color:black; text-decoration:none;}
 .main_img {width:auto; height: 180px; margin:auto;}
 .ad_img {height: 200px; width:auto;}
 .login {
-padding: 46px;
-width: 350px;
-height: 200px;
-margin: auto;
-color: white;}
+	padding: 46px;
+	width: 350px;
+	height: 200px;
+	margin: auto;
+	color: white;
+}
 
 .poster_img{width:auto; height:180px}
 
 
-.rank {width: auto; height: 300px; align:center; margin: 0px;}
+.rank {
+	width: auto; background-color: rgb(230, 230, 230); border-radius: 24px;
+	margin: auto; text-align:center;
+	font: 10pt 'Malgun Gothic';
+	padding: 3px 40px 0 40px;
+	}
 
 
-.userInfo {border: 1px solid #CECECE; width: 375px; height: 290px;}
+.userInfo {width: 375px; height: 290px; padding: 47px;}
 
 
 .img {margin-left: 65px;}
+
+
+.ranknum {
+	width: 122px;
+	margin: auto;
+	padding: 2px;
+	color:white;
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	}
+	
+.movie_title {
+	font-weight: bold;
+	font-size: 14pt;
+	margin: 0px;
+	}
+	
+.movie_opendate {margin: 0px;}
+
+.movie_btnreserve {
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	board-radius: 45px;
+	border-radius: 8px;
+	padding: 1px 5px 1px 5px;
+	
+}
+
+.btn {margin: 4px 0 4px 0;}
+.age19 {background-color:red; border-radius:20px; width: 18px; color: white; float: left;}
+.age15 {background-color:rgb(101, 101, 177); border-radius:20px; width: 18px; color: white; float: left;}

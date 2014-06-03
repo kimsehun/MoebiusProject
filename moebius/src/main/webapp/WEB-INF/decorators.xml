@@ -3,7 +3,7 @@
 	<decorator name="basic" page="layout.jsp">
 		<pattern>/*</pattern>
 	</decorator>	
-	
+
 	<excludes>
 		<pattern>/main/notice</pattern>
 		<pattern>/main/question</pattern>
