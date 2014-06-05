@@ -62,6 +62,13 @@ public class SitController {
 				model.addAttribute("url", "/moebius/reserve");
 				return "result";
 			}
+			int userPoint = userService.getPoint(user_id);
+			int moviePoint = movieService.getMoviePoint(sitVO.getMovie_no());
+			if(userPoint < moviePoint) {
+				model.addAttribute("msg", "사용가능한 포인트가 부족합니다.");
+				model.addAttribute("url", "/moebius/reserve");
+				return "result";
+			}
 		}
 		
 		sitVO.setUser_id(user_id);
