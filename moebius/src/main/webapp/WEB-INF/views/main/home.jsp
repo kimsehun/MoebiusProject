@@ -53,8 +53,8 @@ $(document).ready(function(){
 					<c:otherwise>
 						<table class="userInfo">
 							<tr>
-								<td colspan="2" align="left">${sessionScope.user_name}<br/></td>
-								<td align="right"><input type="button" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
+								<td colspan="2" class="name">${sessionScope.user_name}<br/></td>
+								<td class="btn"><input type="button" class="logoutbtn" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
 							</tr>
 							<tr>
 								<td class="smallfont">예매내역<br/></td>

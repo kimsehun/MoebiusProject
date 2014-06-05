@@ -25,7 +25,7 @@
 								<div class="age19">19</div>
 							</c:if>
 							<c:if test="${movieVO.movie_grade == 3 }">
-								(전체관람)
+								<div class="ageAll">ALL</div>
 							</c:if>
 						<p class="movie_title">
 							${movieVO.movie_title}
