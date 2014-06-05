@@ -30,6 +30,7 @@ var name, addx, addy, addr, ph;
 					addx = data.vo.location_addx;
 					addy = data.vo.location_addy;
 					ph = data.vo.location_phone;
+					document.getElementById("screen").style.display = "none";
 					document.getElementById("view").style.display = "block";
 					$('#td1').html(name);
 					$('#td2').html(addr);
@@ -94,7 +95,9 @@ var name, addx, addy, addr, ph;
 </select>
 <input type="button" id="btnLocation" value="확인"><br/>
 </h3>
+<div id="screen" style="display:block">
 <img src="<c:url value="/resources/img/screen.jpg" />" width="657" height="292"><br/>
+</div>
 	<!--  <input type="submit" value="확인" onclick="mapApi()" > -->
 	<div id="view" style="display:none">
 		<table class="theaterInfo">
