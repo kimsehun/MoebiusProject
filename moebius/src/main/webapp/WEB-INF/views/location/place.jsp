@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/board1.css" />" type="text/css" />
 <!-- 숨겨진 테이블 보이기 -->
 <script type="text/javascript" src="/moebius/resources/js/jquery-2.0.2.js"></script>
 <script type="text/javascript">

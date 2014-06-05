@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/movie.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
 /**
@@ -26,11 +27,6 @@
  				} 
  				$('#taComment').val('');
  				commentList='<table>';
- 				commentList += '<tr>';
- 		 		commentList += '<td>' + '아이디' + '</td>';
- 		 		commentList += '<td>' + '내용' + '</td>';
- 		 		commentList += '<td>' + '별점' + '</td>';
- 		 		commentList += '<td>' + '삭제' + '</td></tr>';
  				$.each(data.list, setCommentList);
  				commentList += '</table>';
  				
@@ -59,11 +55,6 @@
 					$('#comment_star').val('');
 					$('#taComment').val('');
 					commentList='<table>';
-					commentList += '<tr>';
-	 		 		commentList += '<td>' + '아이디' + '</td>';
-	 		 		commentList += '<td>' + '내용' + '</td>';
-	 		 		commentList += '<td>' + '별점' + '</td>';
-	 		 		commentList += '<td>' + '삭제' + '</td></tr>';
 					$.each(data.list, setCommentList);
 					commentList += '</table>';
 					
@@ -83,11 +74,6 @@
 			success:function(data){
 				$('#taComment').val('');
 				commentList='<table>';
-				commentList += '<tr>';
- 		 		commentList += '<td>' + '아이디' + '</td>';
- 		 		commentList += '<td>' + '내용' + '</td>';
- 		 		commentList += '<td>' + '별점' + '</td>';
- 		 		commentList += '<td>' + '삭제' + '</td></tr>';
 				$.each(data.list, setCommentList);
 				commentList += '</table>';
 				
@@ -101,14 +87,16 @@
  	//리스트 부분을 테이블 형식을 빌어 뿌려준다.
  	function setCommentList() {
  		commentList += '<tr>';
- 		commentList += '<td>' + this['user_id'] + '</td>';
- 		commentList += '<td>' + this['comment_review'] + '</td>';
- 		commentList += '<td>' + this['comment_star'] + '</td><td>';
-		if (this['user_id'] == '${sessionScope.user_id}') {
+ 		commentList += '<td>' + this['comment_starShape'] +'   '+ this['comment_star']+ '</td><td>';
+ 		commentList += '<td> ' + this['user_id'] + '</td>';
+ 		
+ 		if (this['user_id'] == '${sessionScope.user_id}') {
 			var _cno = this['comment_no'];
-			commentList += '<input type="button" value="삭제" onclick="javascript:deleteComment('+_cno+');" />';
+			commentList += '<td><input type="button" value="삭제" onclick="javascript:deleteComment('+_cno+');" />';
+			commentList += '</td></tr>';
 		}
-		commentList += '</td></tr>';
+ 		commentList += '<tr><td colspan="3">' + this['comment_review'] + '</td></tr>';
+ 		commentList += '<tr><td colspan="4"><hr></td></tr>'
  	}
 
 </script>
@@ -116,13 +104,13 @@
 <body>
 <table align="center">
 	<tr>
-		<td rowspan="4" align="center">
+		<td rowspan="5" align="center" >
 <!-- css style -->
-		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:300px"/>
+		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:230px;"/>
 		</td>
-		<th>
+		<td id="title">
 			${movieVO.movie_title}
-		</th>
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -154,7 +142,7 @@
 		</td>
 	</tr>
 	<tr>
-		<th colspan="2">줄거리</th>
+		<th colspan="2" style="padding-top: 50px;">줄거리</th>
 	</tr>
 	<tr>		
 		<td colspan="2">${movieVO.movie_story}</td>
@@ -165,9 +153,10 @@
 	
 </table>
 <br/>
-영화 평점 : <div id="avg"></div><br/>	
+<div id="avgText">영화 평점 : </div>
+<div id="avg"></div><br/>	
 	<c:if test="${sessionScope.user_id != null }">
-	<table>
+	<table align="center">
 		<tr>
 			<td colspan="2">별점<input type="number" id="comment_star" min="0" max="5" step="0.5"/></td>
 		</tr>

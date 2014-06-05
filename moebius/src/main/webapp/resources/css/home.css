@@ -49,10 +49,50 @@ A:active {color:white; text-decoration:none;}
 	}
 
 
-.userInfo {width: 375px; height: 290px; padding: 47px;}
+.userInfo {
+	border-collapse:collapse;
+	width: 285px;
+	height: 132px;
+	margin: auto;
+	margin-top: 82px;
+	font-weight: normal;
+}
+.userInfo td {border: gray solid 1px; text-align: center; border-collapse:collapse;}
+.userInfo td.name {
+	font-weight: bold;
+	font-size:25px;
+	border:0px;
+	text-align: left;
+	
+	}
+.userInfo td.btn {
+	border-top: 0px;
+	border-right: 0px;
+	border:0px;
+	text-align: right;
+	}
+
+.logoutbtn {
+	padding:4px 15px 4px 15px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	background-color: rgb(172, 172, 172);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(87, 87, 87, 0.8)), to(rgba(138, 138, 138, 0.9)));
+	border: 1px solid #ccc;
+
+	
+	font-family: 나눔고딕, "맑은 고딕";
+	font-weight: 800;
+	color: #fff;
+	text-align: center;
+	
+}
 
 
 .img {margin-left: 65px;}
+
+
+
 
 
 .ranknum {
@@ -68,6 +108,10 @@ A:active {color:white; text-decoration:none;}
 	font-weight: bold;
 	font-size: 14pt;
 	margin: 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 115px;
 	}
 	
 .movie_opendate {margin: 0px;}
@@ -84,3 +128,4 @@ A:active {color:white; text-decoration:none;}
 .btn {margin: 4px 0 4px 0;}
 .age19 {background-color:red; border-radius:20px; width: 18px; color: white; float: left;}
 .age15 {background-color:rgb(101, 101, 177); border-radius:20px; width: 18px; color: white; float: left;}
+.ageAll {background-color:green; border-radius:20px; width: 25px; color: white; float: left;}

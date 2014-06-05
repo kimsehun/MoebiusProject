@@ -1,6 +1,7 @@
 package kr.co.moebius.comment;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +54,6 @@ public class CommentController {
 			map.put("msg","오류발생");
 			return avgmap(map,commentVO.getMovie_no());
 		}
-	
-		
 	}
 	
 	//처음부터 리스트 뿌려주기
@@ -74,39 +73,49 @@ public class CommentController {
 		double sum = 0;
 		//평점평균 구하기
 		List<CommentVO> list = commentService.getCommentList(movie_no);
+		List<CommentVO> list2 = new ArrayList<CommentVO>();
 		for(CommentVO vo : list) {
 			sum +=vo.getComment_star();
+			//등록된 별점을 모형으로 변경
+			vo.setComment_starShape(shape(vo.getComment_star()));
+			list2.add(vo);
 		}
 		double avg = sum/cntstar;
 		logger.info(avg +"");
 		
-		String star = null;
+		// 모형으로 뿌려주기
+		String star = shape(avg);
 		
-		if(avg == 1) {
-			star = "●○○○○";
-		} else if(1 < avg  && avg < 2){
-			star = "●◐○○○";
-		} else if(avg == 2){
-			star = "●●○○○";
-		} else if(2 < avg  && avg < 3){
-			star = "●●◐○○";
-		} else if(avg == 3){
-			star = "●●●○○";
-		} else if(3 < avg  && avg < 4){
-			star = "●●●◐○";
-		} else if(avg == 4){
-			star = "●●●●○";
-		} else if(4 < avg  && avg < 5){
-			star = "●●●●◐";
-		} else if(avg == 5){
-			star = "●●●●●";
-		} else {
-			star = "○○○○○";
-		}
-	
 		logger.info(star);
-		map.put("list", list);
+		map.put("list", list2);
 		map.put("star", star);
 		return map;
+	}
+
+	private String shape(double avg) {
+		String star;
+		if(avg == 1) {
+			star = "1";
+		} else if(1 < avg  && avg < 2){
+			star = "1.5";
+		} else if(avg == 2){
+			star = "2";
+		} else if(2 < avg  && avg < 3){
+			star = "2.5";
+		} else if(avg == 3){
+			star = "3";
+		} else if(3 < avg  && avg < 4){
+			star = "3.5";
+		} else if(avg == 4){
+			star = "4";
+		} else if(4 < avg  && avg < 5){
+			star = "4.5";
+		} else if(avg == 5){
+			star = "5";
+		} else {
+			star = "0";
+		}
+		return star;
+		
 	}
 }

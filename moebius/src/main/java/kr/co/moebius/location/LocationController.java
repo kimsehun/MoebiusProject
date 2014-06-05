@@ -25,7 +25,8 @@ public class LocationController {
 	@RequestMapping(value="/place", method=RequestMethod.GET)
 	public Map<String, Object> select() throws Exception {
 		
-		Map<String, Object> map = new HashMap<String, Object>();		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
 		List<LocationVO> list = locationService.selectLocation();
 		map.put("list", list);
 		

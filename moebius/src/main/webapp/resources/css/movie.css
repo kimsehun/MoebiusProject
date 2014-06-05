@@ -1,3 +1,7 @@
 @CHARSET "UTF-8";
 
 #video_alt {padding-top: 0; padding-bottom: 0; color: red;}
+#avg {padding-left: 20%;}
+#avgText{padding-left: 20%; padding-top:50px;}
+#title{font: bold italic 50px/100px "궁서";}
+#commentDisplay{padding-left:20%;}

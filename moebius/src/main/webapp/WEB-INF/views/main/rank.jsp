@@ -25,13 +25,13 @@
 								<div class="age19">19</div>
 							</c:if>
 							<c:if test="${movieVO.movie_grade == 3 }">
-								(전체관람)
+								<div class="ageAll">ALL</div>
 							</c:if>
 						<p class="movie_title">
 							${movieVO.movie_title}
 						</p>
 						<p class="movie_opendate">${movieVO.movie_sdate} 개봉</p>
-						<p class="btn"><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin" class="movie_btnreserve">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank" class="movie_btnreserve">상세보기</a> </p>
+						<p class="btn"><a href ="/moebius/reserve/${movieVO.movie_no}" target="_blank" class="movie_btnreserve">예매</a> / <a href="/moebius/movie/detail/${movieVO.movie_no}/" target="_blank" class="movie_btnreserve">상세보기</a> </p>
 					</td>
 				</c:when>
 			</c:choose>
