@@ -55,4 +55,12 @@
 	WHERE movie_no = #{movie_no}
 </select>
 
+<!-- 영화 상영관 지정된 목록 -->
+<select id="screenList" resultType="ScreenVO">
+	SELECT s.location_no, l.location_name, s.screen_name, m.movie_title
+	FROM m_screen s, m_movie m, m_location l
+	WHERE s.movie_no = m.movie_no AND s.location_no = l.location_no
+	ORDER BY l.location_name, s.screen_name ASC;
+</select>
+
 </mapper>

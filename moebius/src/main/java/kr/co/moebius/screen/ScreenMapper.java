@@ -18,6 +18,8 @@ public interface ScreenMapper {
 
 	List<ScreenVO> selectScreen(int movie_no) throws Exception;
 	
-	int cntInsert(ScreenVO screenVO) throws Exception;	
+	int cntInsert(ScreenVO screenVO) throws Exception;
+
+	List<ScreenVO> screenList() throws Exception;	
 
 }

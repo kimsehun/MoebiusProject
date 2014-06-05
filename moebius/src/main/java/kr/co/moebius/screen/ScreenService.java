@@ -16,4 +16,6 @@ public interface ScreenService {
 
 	List<ScreenVO> selectScreen(int movie_no) throws Exception;
 
+	List<ScreenVO> screenList() throws Exception;
+
 }

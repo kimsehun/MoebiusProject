@@ -47,5 +47,20 @@
 		</tr>
 	</table>
 </form>
+<br>
+	<table border="1" cellspacing="1" cellpadding="5">
+		<tr>
+			<th>극장(지역)</th>
+			<th>상영관</th>
+			<th>개봉영화 제목</th>
+		</tr>
+		<c:forEach items="${screenList}" var="screenVO">
+		<tr>		
+			<td align="center">${screenVO.location_name}</td>
+			<td align="center">${screenVO.screen_name}</td>
+			<td align="center">${screenVO.movie_title}</td>
+		</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

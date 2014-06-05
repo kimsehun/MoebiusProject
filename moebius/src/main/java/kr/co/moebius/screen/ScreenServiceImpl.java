@@ -50,5 +50,9 @@ public class ScreenServiceImpl implements ScreenService{
 		return screenMapper.selectScreen(movie_no);
 	}
 	
+	@Override
+	public List<ScreenVO> screenList() throws Exception {
+		return screenMapper.screenList();
+	}
 	
 }

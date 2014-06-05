@@ -1,7 +1,6 @@
 package kr.co.moebius.screen;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -44,13 +43,16 @@ public class ScreenController {
 		//영화 정보 가져오기
 		List<MovieVO> movieList = null; 
 		List<LocationVO> locationList = null;
+		List<ScreenVO> screenList = null;
 		
 		try {
 			movieList = movieService.selectMovie();
 			locationList = locationService.selectLocation();
+			screenList = screenService.screenList();			
 			
 			model.addAttribute("movieList",movieList);
 			model.addAttribute("locationList", locationList);
+			model.addAttribute("screenList", screenList);
 			
 			return "/screen/insert";
 		} catch (Exception e) {
