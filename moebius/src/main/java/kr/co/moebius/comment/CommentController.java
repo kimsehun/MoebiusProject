@@ -54,8 +54,6 @@ public class CommentController {
 			map.put("msg","오류발생");
 			return avgmap(map,commentVO.getMovie_no());
 		}
-	
-		
 	}
 	
 	//처음부터 리스트 뿌려주기
@@ -81,7 +79,6 @@ public class CommentController {
 			//등록된 별점을 모형으로 변경
 			vo.setComment_starShape(shape(vo.getComment_star()));
 			list2.add(vo);
-			
 		}
 		double avg = sum/cntstar;
 		logger.info(avg +"");
@@ -98,25 +95,25 @@ public class CommentController {
 	private String shape(double avg) {
 		String star;
 		if(avg == 1) {
-			star = "●○○○○";
+			star = "1";
 		} else if(1 < avg  && avg < 2){
-			star = "●◐○○○";
+			star = "1.5";
 		} else if(avg == 2){
-			star = "●●○○○";
+			star = "2";
 		} else if(2 < avg  && avg < 3){
-			star = "●●◐○○";
+			star = "2.5";
 		} else if(avg == 3){
-			star = "●●●○○";
+			star = "3";
 		} else if(3 < avg  && avg < 4){
-			star = "●●●◐○";
+			star = "3.5";
 		} else if(avg == 4){
-			star = "●●●●○";
+			star = "4";
 		} else if(4 < avg  && avg < 5){
-			star = "●●●●◐";
+			star = "4.5";
 		} else if(avg == 5){
-			star = "●●●●●";
+			star = "5";
 		} else {
-			star = "○○○○○";
+			star = "0";
 		}
 		return star;
 		

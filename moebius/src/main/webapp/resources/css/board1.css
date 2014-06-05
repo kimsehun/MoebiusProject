@@ -1,0 +1,189 @@
+/*게시판 CSS*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@CHARSET "UTF-8";
+table {border-collapse:collapse;}
+table caption {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
+table th, table td {font-family: monospace; padding:10px; padding-bottom:10px;}
+
+table.clientCenter {background-color:white; clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #DBDBDB;}
+table td.clientCenter{font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #D1D1D1;}
+table th.clientCenter{font:bold 12px gulim, tahoma; background-color: #ECECEC;}
+/* border-top:1px solid rgb(142, 230, 212); border-bottom: 1px solid rgb(142, 230, 212); */
+
+/* board detail.css */ 
+table.boardDetail {clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #DBDBDB;}
+table td.boardDetail{border-top: 1px solid #D1D1D1; font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em;}
+table th.boardDetail{font:bold 12px gulim, tahoma; background-color: #ECECEC; border-top: 1px solid #D1D1D1;}
+
+
+
+
+/* 링크 메시지를 계속해서 검정으로 보이게한다.*/
+A:link {color:black; text-decoration:none;}
+A:visited {color:black; text-decoration:none;}
+A:hover {color:black; text-decoration:none;}
+A:active {color:black; text-decoration:none;}
+
+/* /* UI Object */ */
+/* body{_text-align:center} */
+div{margin:0 0 10px;padding:10px 0; font-family:나눔고딕코딩;font-size:14px;font-weight:bold}
+#wrap{width:600px;margin:0 auto;_text-align:left;}
+#header{width:100%;}
+#container{width:1200px; display:inline-block}
+#container:after{display:block;clear:both;content:''}
+
+#header,#container{padding:15px; width:1200px;}
+
+.snb,#content{margin-top:10px;border:1px solid #ece6e8;text-align:center}
+
+.snb{float:left;width:180px}
+#content{float:right;width:1200px}
+
+#content {
+	float: left; 
+	/* Opera5.02 will show a space at 
+	right when there is no scroll bar */
+	padding: 10px 2% 10px 2%;
+	margin: 0px;
+	width: 76%; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 81%;
+	height: 100%;
+	}
+html>body #content {
+	width: 75%; /* ie5win fudge ends */
+	height: 1000px;
+	float: right;
+	padding-top: 35px;
+	margin-right: 5px;
+	}
+
+
+.snb {
+	float: left;
+	margin: 0px;
+	border: 1px;
+	width: 50%; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 15%;
+	font-family: 'Nanum Gothic', Dotum, sans-serif;
+	font-size: 15px;
+	line-height: 60px;
+	text-transform: uppercase;
+	text-align: left;
+	padding-top: 10px;
+	}
+html>body .snb {
+	width: 19%; /* ie5win fudge ends */
+	margin: 0 0 10px 9px;
+	}
+	
+.snb_info {
+	padding: 10px 2% 10px 2%;
+}
+
+.snb > ul {
+  width: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.snb > ul li#responsive-tab {
+  display: none;
+  /* Hide for large screens */
+
+}
+.snb > ul li {
+  width: 100%;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+.snb > ul li a {
+  display: block;
+  padding: 12px 24px 11px 24px;
+  text-decoration: none;
+  color: #747474;
+  text-shadow: 0px 1px 0px #fff;
+}
+.snb > ul li a.active,
+.snb > ul li a:hover {
+  background-color: rgb(255, 0, 0);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+  color: #fff;
+  text-shadow: 0px 1px 0px #000;
+}
+@media (max-width: 600px) {
+  .snb > ul {
+    width: 100%;
+  }
+  .snb > ul li#responsive-tab {
+    display: block;
+  }
+  .snb > ul li#responsive-tab a {
+    background-position: 95% -35%;
+  }
+  .snb > ul li#responsive-tab a:hover {
+    background-color: #d80041;
+    background-position: 95% 135%;
+  }
+  .snb > ul li {
+    display: none;
+  }
+}
+/* Make sure they show even if hidden in mobile view by JS */
+@media (min-width: 600px) {
+  .snb > ul > li.collapsed {
+    display: inline-block !important;
+    *display: inline;
+    zoom: 1;
+  }
+  .snb > ul ul li.collapsed {
+    display: block !important;
+  }
+}
+
+
+#btninsert {
+	background-color: antiquewhite;
+	width: 100px;
+	height: 100px;
+}
+
+
+.mailContent {
+	width:600px;
+	height:268px;
+}
+
+.mailTitle {
+	width:600px;
+}
+
+.theaterInfo {
+	border:1px;
+	cellpadding:0;
+	margin:auto;
+}
+
+
+.tableCenter {margin: auto;}
+
+
+.textarea {width:645px; height:268px;}
+
+
+/* Email CSS */
+table td.email{border-top: 1px solid #D1D1D1; font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em;}
+table th.email{font:bold 12px gulim, tahoma; background-color: #ECECEC;}
+
+.email {border-top: 1px solid #D1D1D1;  margin:auto; border-bottom: 1px solid #DBDBDB;}
