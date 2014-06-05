@@ -8,7 +8,7 @@ public class CommentVO implements Serializable{
 	private double comment_star;
 	private String comment_review; 
 	private int movie_no;
-	private double comment_avgstar;
+	private String comment_starShape;
 	private int comment_no;
 	private int comment_count;
 	
@@ -36,11 +36,11 @@ public class CommentVO implements Serializable{
 	public void setMovie_no(int movie_no) {
 		this.movie_no = movie_no;
 	}
-	public double getComment_avgstar() {
-		return comment_avgstar;
+	public String getComment_starShape() {
+		return comment_starShape;
 	}
-	public void setComment_avgstar(double comment_avgstar) {
-		this.comment_avgstar = comment_avgstar;
+	public void setComment_starShape(String comment_starShape) {
+		this.comment_starShape = comment_starShape;
 	}
 	public int getComment_no() {
 		return comment_no;
@@ -55,13 +55,13 @@ public class CommentVO implements Serializable{
 	public void setComment_count(int comment_count) {
 		this.comment_count = comment_count;
 	}
-	
 	@Override
 	public String toString() {
 		return "CommentVO [user_id=" + user_id + ", comment_star="
 				+ comment_star + ", comment_review=" + comment_review
-				+ ", movie_no=" + movie_no + ", comment_avgstar="
-				+ comment_avgstar + ", comment_no=" + comment_no
+				+ ", movie_no=" + movie_no + ", comment_starShape="
+				+ comment_starShape + ", comment_no=" + comment_no
 				+ ", comment_count=" + comment_count + "]";
 	}
+	
 }

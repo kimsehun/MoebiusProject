@@ -58,7 +58,7 @@ public class SitController {
 				break;
 			}
 			if(age > userService.getAge(user_id)) {
-				model.addAttribute("msg", "상영 관람 등급에 해당하지 않습니다.");
+				model.addAttribute("msg", "상영을 관람 하시기에 적절하지 못합니다.");
 				model.addAttribute("url", "/moebius/reserve");
 				return "result";
 			}
@@ -100,7 +100,6 @@ public class SitController {
 			
 			try {
 				
-				
 				//seat_no을 where문(seat_name = 선택한 좌석 이름)으로 가져옴
 				//seat_no set 안에 넣음
 				String seat_name = (String)st1.nextElement();
@@ -115,7 +114,6 @@ public class SitController {
 				userService.usePoint(sitVO);
 
 				map.put("res", res);
-				
 				
 			} catch (RuntimeException e) {
 				res = 1;
