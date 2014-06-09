@@ -3,7 +3,13 @@
 @CHARSET "UTF-8";
 table {border-collapse:collapse;}
 table caption {font-family:³ª´®°íµñÄÚµù; font-size:1.5em; padding-bottom:5px;}
-table th, table td {font-family: monospace; padding:10px; padding-bottom:10px;}
+table th, table td {
+	border-bottom: 1px solid #DBDBDB;
+	padding:10px; 
+	padding-bottom:10px;
+	font: 10pt 'Malgun Gothic';
+	padding: 3px 28px 0 28px;
+	}
 
 table.clientCenter {background-color:white; clear:both; width:80%; table-layout:fixed; margin:auto; border-bottom: 2px solid #DBDBDB;}
 table td.clientCenter{font:12px gulim, tahoma; margin:0 0 0 0 ; padding:.5em; border-top: 1px solid #D1D1D1;}
@@ -55,7 +61,7 @@ html>body #content {
 	width: 75%; /* ie5win fudge ends */
 	height: 700px;
 	float: right;
-	padding-top: 35px;
+/* 	padding-top: 35px; */
 	margin-right: 5px;
 	}
 
@@ -155,8 +161,8 @@ html>body .snb {
 
 #btninsert {
 	background-color: antiquewhite;
-	width: 100px;
-	height: 100px;
+	width:auto; 
+	height:180px;
 }
 
 
@@ -187,3 +193,27 @@ table td.email{border-top: 1px solid #D1D1D1; font:12px gulim, tahoma; margin:0 
 table th.email{font:bold 12px gulim, tahoma; background-color: #ECECEC;}
 
 .email {border-top: 1px solid #D1D1D1;  margin:auto; border-bottom: 1px solid #DBDBDB;}
+
+.btnMovieReserve { 
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	border-radius: 24px;
+	margin: auto; 
+	text-align:center;
+	color: white;
+	padding:2px;
+	}
+	
+A.btnMovieReserve:link {color:white; text-decoration:none;}
+A.btnMovieReserve:visited {color:white; text-decoration:none;}
+A.btnMovieReserve:hover {color:white; text-decoration:none;}
+A.btnMovieReserve:active {color:white; text-decoration:none;}
+
+.poster_img {	
+	width:auto; 
+	height:180px;
+	}
+	
+.age19 {background-color:red; border-radius:20px; width: 18px; color: white; float: left;}
+.age15 {background-color:rgb(101, 101, 177); border-radius:20px; width: 18px; color: white; float: left;}
+.ageAll {background-color:green; border-radius:20px; width: 25px; color: white; float: left;}

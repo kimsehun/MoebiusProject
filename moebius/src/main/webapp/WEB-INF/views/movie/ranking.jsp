@@ -26,16 +26,16 @@
 			<c:when test="${st.index%5 == 0 }">
 				<tr>
 					<td align="center">
-						${st.index +1}
-						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px" id="btninsert"/>
-						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+						${st.index +1}<br>
+						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" id="btninsert"/>
+						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin" class="btnMovieReserve">예매</a> / <a href="detail/${movieVO.movie_no}/"  class="btnMovieReserve">상세보기</a> </p>
 					</td>
 			</c:when>
 			<c:otherwise>
 				<td align="center">
-					${st.index +1}
-					<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px" id="btninsert"/>
-					<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin">예매</a> / <a href="detail/${movieVO.movie_no}/">상세보기</a> </p>
+					${st.index +1}<br>
+					<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" id="btninsert"/>
+					<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin" class="btnMovieReserve">예매</a> / <a href="detail/${movieVO.movie_no}/"  class="btnMovieReserve">상세보기</a> </p>
 				</td>
 			</c:otherwise>
 		</c:choose>
