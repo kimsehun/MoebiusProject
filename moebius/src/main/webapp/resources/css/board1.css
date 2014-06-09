@@ -53,7 +53,7 @@ div{margin:0 0 10px;padding:10px 0; font-family:³ª´®°íµñÄÚµù;font-size:14px;font
 	}
 html>body #content {
 	width: 75%; /* ie5win fudge ends */
-	height: 1000px;
+	height: auto;
 	float: right;
 	padding-top: 35px;
 	margin-right: 5px;

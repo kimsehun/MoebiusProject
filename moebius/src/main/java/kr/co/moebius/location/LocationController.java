@@ -28,6 +28,10 @@ public class LocationController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		List<LocationVO> list = locationService.selectLocation();
+		
+		LocationVO vo = locationService.getSelect(1);
+		
+		map.put("vo", vo);
 		map.put("list", list);
 		
 		return map;
