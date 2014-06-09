@@ -57,7 +57,7 @@ $(document).ready(function(){
 								<td class="btn"><input type="button" class="logoutbtn" value="로그아웃" onclick="javascript:location.href='user/logout';"/><br/></td>
 							</tr>
 							<tr>
-								<td class="smallfont">예매내역<br/></td>
+								<td class="smallfont"><a href ="user/userInfo">예매내역</a><br/></td>
 								<td class="smallfont">
 									나의 포인트<br/>
 									<c:if test="${sessionScope.user_id != null }">
