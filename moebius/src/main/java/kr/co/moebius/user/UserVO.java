@@ -2,6 +2,11 @@ package kr.co.moebius.user;
 
 import java.io.Serializable;
 
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.Length;
+import org.springframework.stereotype.Service;
+
 public class UserVO implements Serializable {
 	private String user_id;
 	private String user_name; 
@@ -12,6 +17,7 @@ public class UserVO implements Serializable {
 	private String user_pwd_answer; 
 	private int user_gender;
 	private String user_email;
+	@Length(max=13)
 	private String user_phone;
 	private String user_zipcode; 
 	private String user_addr1;

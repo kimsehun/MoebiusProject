@@ -144,7 +144,8 @@
 			<tr>
 				<th>전화번호</th>
 					<td>
-						<input type="text" name="user_phone" value="${userVO.user_phone }" /><br/>
+						<input type="text" name="user_phone" value="${userVO.user_phone }"  id="user_phone"/><br/>
+						<div id="user_phone_msg" class="msg_warn">
 						<form:errors path="user_phone" cssClass="msg_warn" /><br/>
 					</td>
 			</tr>

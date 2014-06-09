@@ -57,18 +57,13 @@ public class SitController {
 			default:
 				break;
 			}
-			if(age > userService.getAge(user_id)) {
-				model.addAttribute("msg", "상영을 관람 하시기에 적절하지 못합니다.");
+			int userPoint = userService.getPoint(user_id);
+			int moviePoint = movieService.getMoviePoint(sitVO.getMovie_no());
+			if(age > userService.getAge(user_id) || userPoint < moviePoint) {
+				model.addAttribute("msg", "상영을 관람 하시기에 적절하지 못하거나 사용 포인트가 부족합니다.");
 				model.addAttribute("url", "/moebius/reserve");
 				return "result";
 			}
-			int userPoint = userService.getPoint(user_id);
-			int moviePoint = movieService.getMoviePoint(sitVO.getMovie_no());
-//			if(userPoint < moviePoint) {
-//				model.addAttribute("msg", "사용가능한 포인트가 부족합니다.");
-//				model.addAttribute("url", "/moebius/reserve");
-//				return "result";
-//			}
 		}
 		
 		sitVO.setUser_id(user_id);

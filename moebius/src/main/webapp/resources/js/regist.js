@@ -16,6 +16,11 @@ $(document).ready(function(){
 			$('#user_email').focus();
 			return false;
 		}
+		if ($('#user_phone').val().search(/(\S+)-(\S+)-(\S+)/)){
+			$('#user_phone_msg').html('전화번호 형식을 맞춰주세요. ex.012-1234-1234');
+			$('#user_phone').focus();
+			return false;
+		}
 		if ($('#user_jumin_msg').val().length >= 25) {
 			return false;
 		}
