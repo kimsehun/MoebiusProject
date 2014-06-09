@@ -15,10 +15,9 @@
 	
 	<!-- 좌석번호 가져오는거 -->
 	<select id="getSeatno" parameterType="SitVO" resultType="int">
-		select s.seat_no 
-		from m_seat s JOIN m_schedule c
-		ON s.screen_no = c.screen_no
-		WHERE s.seat_name = #{seat_name} AND c.schedule_no = #{schedule_no}  AND s.location_no=#{location_no}
+		select seat_no 
+		from m_seat
+		WHERE seat_name = #{seat_name} AND screen_no = #{screen_name}  AND location_no=#{location_no}
 	</select>
 
 	
@@ -56,7 +55,7 @@
 		SELECT se.seat_name
 		FROM m_reserve res JOIN m_seat se
 		ON res.seat_no = se.seat_no
-		WHERE res.schedule_no = #{schedule_no} AND se.screen_no = #{screen_no}
+		WHERE res.schedule_no = #{schedule_no} AND se.screen_no = #{screen_name}
 		ORDER BY res.seat_no ASC
 	</select>
 

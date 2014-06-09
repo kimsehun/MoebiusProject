@@ -38,6 +38,7 @@ public class SitVO implements Serializable {
 	public void setSeat_no(int seat_no) {
 		this.seat_no = seat_no;
 	}
+	
 	public String getScreen_name() {
 		return screen_name;
 	}

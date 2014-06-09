@@ -67,7 +67,6 @@ CREATE TABLE m_screen
 	PRIMARY KEY (screen_no)
 );
 
-
 CREATE TABLE m_comment
 (
 	comment_star number DEFAULT 0 NOT NULL,
@@ -111,8 +110,8 @@ CREATE TABLE m_seat
 	screen_no number NOT NULL,
 	PRIMARY KEY (seat_no)
 );
-
-
+select * from M_SCHEDULE;
+select * from m_seat;
 CREATE TABLE m_board
 (
 	board_no number NOT NULL,
@@ -158,6 +157,10 @@ CREATE TABLE m_schedule
 	screen_no number NOT NULL,
 	PRIMARY KEY (schedule_no)
 );
+
+select * from M_RESERVE;
+		
+select * from m_seat;
 
 
 CREATE TABLE m_reserve
@@ -297,6 +300,9 @@ ALTER TABLE m_board
 	REFERENCES m_user (user_id)
 ;
 
+select seat_no 
+from m_seat
+WHERE seat_name = 'A3' AND screen_no = 1  AND location_no= 1;
 
 
 insert into m_seat(seat_name, seat_no, screen_no, location_no)

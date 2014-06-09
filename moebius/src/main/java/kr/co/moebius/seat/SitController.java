@@ -64,11 +64,11 @@ public class SitController {
 			}
 			int userPoint = userService.getPoint(user_id);
 			int moviePoint = movieService.getMoviePoint(sitVO.getMovie_no());
-			if(userPoint < moviePoint) {
-				model.addAttribute("msg", "사용가능한 포인트가 부족합니다.");
-				model.addAttribute("url", "/moebius/reserve");
-				return "result";
-			}
+//			if(userPoint < moviePoint) {
+//				model.addAttribute("msg", "사용가능한 포인트가 부족합니다.");
+//				model.addAttribute("url", "/moebius/reserve");
+//				return "result";
+//			}
 		}
 		
 		sitVO.setUser_id(user_id);
@@ -112,9 +112,14 @@ public class SitController {
 				String seat_name = (String)st1.nextElement();
 				sitVO.setSeat_name(seat_name);
 				logger.info(sitVO.toString());
+				logger.info("1");
 				sitVO.setSeat_no(sitService.getSeatno(sitVO));
+				logger.info(sitVO.toString());
+				logger.info("2");
 				sitVO.setMovie_point(movieService.getMoviePoint(sitVO.getMovie_no()));
+				logger.info("3");
 				sitVO.setUser_point(userService.getUserPoint(sitVO.getUser_id()));
+				logger.info("4");
 				sitService.insertReserve(sitVO);
 
 				sitService.updateReserveCount(sitVO.getMovie_no());
@@ -131,7 +136,6 @@ public class SitController {
 				map.put("msg", e.getMessage());
 			}
 		}
-
 		map.put("sitVO",sitVO);
 		return map;
 	}
