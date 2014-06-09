@@ -30,18 +30,43 @@
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
- 				$('#avg').html('<div class="star">'+ 
- 						switch(data.star){
- 						case 0 :
- 							for(int i=0;i<5;i++){
- 								'<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">'
- 							}
- 							break;
- 						}
- 						 + '</div> / <img src="<c:url value="/resources/img/star.png"/>" class="star">'
-					);
+ 				$('#avg').html('<div class="star">'+setStar(data.star)+'</div> / ' + data.star);
  			}
  		});
+ 
+ 		//평점 별로 나타내는 부분
+ 		function setStar(star) {
+ 			var temp;
+			var full = star / 1;
+			var half = star % 1;
+			
+ 			if(half == 0 && full != 0) {
+ 				for(var i=0; i<full; i++) {
+ 					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
+ 				}
+ 				if(full != 5) {
+ 					for(var j=0; j<5-full; j++) {
+ 						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+ 					}
+ 				}
+ 				return temp;
+ 				
+ 				
+ 			} else if(half != 0 && full != 0) {
+ 				for(var k=1; k<full; k++) {
+ 					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
+ 				}
+ 				if(half!=0){
+ 					temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
+ 				}
+ 				if(full < 4) {
+ 					for(var j=0; j<4-full; j++) {
+ 						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+ 					}
+ 				}
+ 				return temp;
+ 			}
+ 		}
  		
  		//댓글 insert부분
  		$('#btnCommentOk').bind('click', function(){
@@ -67,7 +92,9 @@
 					commentList += '</table>';
 					
 					$('#commentDisplay').html(commentList);
-					$('#avg').html(data.star + " / ●●●●●");
+					$('#avg').html('<div class="star">'+setStar(data.star)+'</div> / ' + data.star);
+					
+					location.reload();
 				}
 			});
 		});
@@ -86,7 +113,9 @@
 				commentList += '</table>';
 				
 				$('#commentDisplay').html(commentList);
-				$('#avg').html(data.star + " / ●●●●●");
+				$('#avg').html('<div class="star">'+setStar(data.star)+'</div> /' + data.star);
+				
+				location.reload();
 			}
 		});
 		}
