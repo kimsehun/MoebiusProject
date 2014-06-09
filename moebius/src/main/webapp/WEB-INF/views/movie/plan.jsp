@@ -20,17 +20,17 @@
 	<c:forEach items="${list2}" var="movieVO">
 	<tr>
 		<td rowspan="4">
-		<img src="download?fileName=${movieVO.movie_poster}" style="width:150px;height:150px"/>
+			<img src="download?fileName=${movieVO.movie_poster}" class="poster_img"/>
 		</td>
 		<th>
 		<c:if test="${movieVO.movie_grade == 1 }">
-			(15세)
+			<div class="age15">15</div>
 		</c:if>
 		<c:if test="${movieVO.movie_grade == 2 }">
-			(19세)
+			<div class="age19">19</div>
 		</c:if>
 		<c:if test="${movieVO.movie_grade == 3 }">
-			(전체관람)
+			<div class="ageAll">ALL</div>
 		</c:if>
 			<a href="detail/${movieVO.movie_no}/">${movieVO.movie_title}</a>
 		</th>
@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<td>
-			기본 ${movieVO.movie_genre} | ${movieVO.movie_nation} | ${movieVO.movie_runningtime} | 개봉일 : ${movieVO.movie_sdate}
+			${movieVO.movie_genre} | ${movieVO.movie_nation} | ${movieVO.movie_runningtime}분 | 개봉일 : ${movieVO.movie_sdate}
 		</td>
 	</tr>
 	<tr>

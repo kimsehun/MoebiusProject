@@ -8,10 +8,17 @@ table th, table td .login{
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
 }
 /* 링크 메시지를 계속해서 검정으로 보이게한다.*/
-A:link {color:white; text-decoration:none;}
-A:visited {color:white; text-decoration:none;}
-A:hover {color:white; text-decoration:none;}
-A:active {color:white; text-decoration:none;}
+A:link {color:black; text-decoration:none;}
+A:visited {color:black; text-decoration:none;}
+A:hover {color:black; text-decoration:none;}
+A:active {color:black; text-decoration:none;}
+
+
+/* 링크 메시지를 계속해서 흰색으로 보이게한다.*/
+A.movie_btnreserve:link {color:white; text-decoration:none;}
+A.movie_btnreserve:visited {color:white; text-decoration:none;}
+A.movie_btnreserve:hover {color:white; text-decoration:none;}
+A.movie_btnreserve:active {color:white; text-decoration:none;}
 
 .smallfont{
 	font-family:'돋움체';
@@ -19,7 +26,7 @@ A:active {color:white; text-decoration:none;}
 }
 
 #first_first {width: 800px; float: left; height: 300px; text-align: center;}
-#first_second {width: 396px; float: left; height: 300px; text-align: center; margin-top: 9px; }
+#first_second {width: 396px; float: left; height: 300px; text-align: center;}
 
 #second {clear: left; height: 300px; margin:auto;}
 
@@ -54,7 +61,7 @@ A:active {color:white; text-decoration:none;}
 	width: 285px;
 	height: 132px;
 	margin: auto;
-	margin-top: 82px;
+	margin-top: 75px;
 	font-weight: normal;
 }
 .userInfo td {border: gray solid 1px; text-align: center; border-collapse:collapse;}
@@ -80,7 +87,6 @@ A:active {color:white; text-decoration:none;}
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(87, 87, 87, 0.8)), to(rgba(138, 138, 138, 0.9)));
 	border: 1px solid #ccc;
 
-	
 	font-family: 나눔고딕, "맑은 고딕";
 	font-weight: 800;
 	color: #fff;
