@@ -3,5 +3,21 @@
 #video_alt {padding-top: 0; padding-bottom: 0; color: red;}
 #avg {padding-left: 20%;}
 #avgText{padding-left: 20%; padding-top:50px;}
-#title{font: bold italic 50px/100px "궁서";}
+#title{font: bold 50px/100px 'Malgun Gothic';}
 #commentDisplay{padding-left:20%;}
+
+
+
+table td, th {
+	border-bottom: 1px solid #DBDBDB;
+	font: 15px 'Malgun Gothic';
+	}
+table th {
+	padding-top: 50px;
+	font: bold 15px 'Malgun Gothic';
+}
+.poster_img {width:auto; height:300px;}
+
+.star {
+	width: 80px;
+}

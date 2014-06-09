@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 <link rel="stylesheet" href="<c:url value="/resources/css/movie.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
@@ -31,7 +30,16 @@
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
- 				$('#avg').html(data.star + " / ●●●●●");
+ 				$('#avg').html('<div class="star">'+ 
+ 						switch(data.star){
+ 						case 0 :
+ 							for(int i=0;i<5;i++){
+ 								'<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">'
+ 							}
+ 							break;
+ 						}
+ 						 + '</div> / <img src="<c:url value="/resources/img/star.png"/>" class="star">'
+					);
  			}
  		});
  		
@@ -102,11 +110,11 @@
 </script>
 </head>
 <body>
-<table align="center">
+<table align="center" cellpadding="20">
 	<tr>
 		<td rowspan="5" align="center" >
 <!-- css style -->
-		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" style="width:230px;"/>
+		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img"/>
 		</td>
 		<td id="title">
 			${movieVO.movie_title}
@@ -114,22 +122,22 @@
 	</tr>
 	<tr>
 		<td>
-			기본 ${movieVO.movie_genre} | ${movieVO.movie_nation} | ${movieVO.movie_runningtime} | 개봉일 : ${movieVO.movie_sdate}
+			${movieVO.movie_genre} | ${movieVO.movie_nation} | ${movieVO.movie_runningtime} | 개봉일 : ${movieVO.movie_sdate}
 		</td>
 	</tr>
 	<tr>
 		<td>
-			감독 ${movieVO.movie_directer}
+			<b>감독</b> ${movieVO.movie_directer}
 		</td>
 	</tr>
 	<tr>
 		<td>
-			출연 ${movieVO.movie_actor}
+			<b>출연</b> ${movieVO.movie_actor}
 		</td>
 	</tr>
 	<tr>
 		<td>
-			등급
+			<b>등급</b>
 		<c:if test="${movieVO.movie_grade == 1 }">
 			15세 미만 관람불가
 		</c:if>
@@ -142,7 +150,7 @@
 		</td>
 	</tr>
 	<tr>
-		<th colspan="2" style="padding-top: 50px;">줄거리</th>
+		<th colspan="2">줄거리</th>
 	</tr>
 	<tr>		
 		<td colspan="2">${movieVO.movie_story}</td>

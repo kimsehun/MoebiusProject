@@ -72,6 +72,7 @@ public class BoardController {
 		model.addAttribute("boardInfo",boardInfo);
 		model.addAttribute("user_id",user_id);
 		
+		
 		return "board/list";
 	}
 
