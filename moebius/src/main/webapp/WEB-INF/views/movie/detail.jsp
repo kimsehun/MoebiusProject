@@ -28,7 +28,7 @@
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
- 				$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star.png"/>" class="star">' + data.star);
+ 				$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star.png"/>" class="star"> ' + data.star);
  			}
  		});
  
@@ -55,7 +55,7 @@
 					$.each(data.list, setCommentList);
 					commentList += '</table>';
 					
-					$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star_full.png"/>" class="star">' + data.star);
+					$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star_full.png"/>" class="star"> ' + data.star);
 					$('#commentDisplay').html(commentList);
 				}
 			});
@@ -96,38 +96,51 @@
  	}
  	
  	//평점 별로 나타내는 부분
-		function setStar(star) {
-		var temp = '';
-		var full = star / 1;
-		var half = star % 1;
-		
-			if(half == 0 && full != 0) {
-				for(var i=0; i<full; i++) {
-					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
-				}
-				if(full != 5) {
-					for(var j=0; j<5-full; j++) {
-						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
-					}
-				}
-				return temp;
-				
-				
-			} else if(half != 0 && full != 0) {
-				for(var k=1; k<full; k++) {
-					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
-				}
-				if(half!=0){
-					temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
-				}
-				if(full < 4) {
-					for(var j=0; j<4-full; j++) {
-						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
-					}
-				}
-				return temp;
+	function setStar(star) {
+	var temp = '';
+	var full = star / 1;
+	var half = star % 1;
+	
+		if(half == 0 && full != 0) {
+			for(var i=0; i<full; i++) {
+				temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
 			}
+			if(full != 5) {
+				for(var j=0; j<5-full; j++) {
+					temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+				}
+			}
+			return temp;
+			
+			
+		} else if(half != 0 && full != 0) {
+			for(var k=1; k<full; k++) {
+				temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
+			}
+			if(half!=0){
+				temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
+			}
+			if(full < 4) {
+				for(var j=0; j<4-full; j++) {
+					temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+				}
+			}
+			return temp;
+		} else if(half != 0 && full ==0){
+			
+			temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
+			
+			for(var j=0; j<4; j++) {
+				temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+			}
+			return temp;
+		} else if(half == 0 && full == 0){
+			for(var j=0; j<5; j++) {
+				temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+			}
+			return temp;
 		}
+	}
 
 </script>
 </head>
