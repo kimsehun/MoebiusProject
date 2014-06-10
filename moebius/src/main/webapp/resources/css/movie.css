@@ -4,7 +4,7 @@
 #avg {padding-left: 20%;}
 #avgText{padding-left: 20%; padding-top:50px;}
 #title{font: bold 50px/100px 'Malgun Gothic';}
-#commentDisplay{padding-left:20%;}
+#commentDisplay{margin: 0 0 0 245px;}
 
 
 
@@ -19,5 +19,28 @@ table th {
 .poster_img {width:auto; height:300px;}
 
 .star {
-	width: 80px;
+	width: auto;
+	height: 15px;
+}
+
+.commentUser{
+	font: bold 15px 'Malgun Gothic';
+	text-align:center;
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	color:white;
+	width: 94px;
+}
+
+.commentContent {
+	width: 553px;
+}
+
+.comment {
+	font: bold 15px 'Malgun Gothic';
+	text-align:center;
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	color:white;
+	width: 94px;
 }

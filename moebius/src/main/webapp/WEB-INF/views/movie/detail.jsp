@@ -90,8 +90,8 @@
 					$.each(data.list, setCommentList);
 					commentList += '</table>';
 					
-					$('#commentDisplay').html(commentList);
 					$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star_full.png"/>" class="star">' + data.star);
+					$('#commentDisplay').html(commentList);
 				}
 			});
 		});
@@ -119,16 +119,15 @@
  	//리스트 부분을 테이블 형식을 빌어 뿌려준다.
  	function setCommentList() {
  		commentList += '<tr>';
- 		commentList += '<td>' + this['comment_starShape'] +'   '+ this['comment_star']+ '</td><td>';
- 		commentList += '<td> ' + this['user_id'] + '</td>';
+ 		commentList += '<td class="commentUser"> ' + this['user_id'] + '</td>';
+ 		commentList += '<td class="commentContent">' + this['comment_review'] + '</td>';
+ 		commentList += '<td>' + this['comment_star']+ '</td>';
  		
  		if (this['user_id'] == '${sessionScope.user_id}') {
 			var _cno = this['comment_no'];
 			commentList += '<td><input type="button" value="삭제" onclick="javascript:deleteComment('+_cno+');" />';
 			commentList += '</td></tr>';
 		}
- 		commentList += '<tr><td colspan="3">' + this['comment_review'] + '</td></tr>';
- 		commentList += '<tr><td colspan="4"><hr></td></tr>'
  	}
 
 </script>
@@ -137,7 +136,7 @@
 <table align="center" cellpadding="20">
 	<tr>
 		<td rowspan="5" align="center" >
-		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img"/>
+			<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img"/>
 		</td>
 		<td id="title">
 			${movieVO.movie_title}
@@ -178,9 +177,12 @@
 	<tr>		
 		<td colspan="2">${movieVO.movie_story}</td>
 	</tr>
+	<c:if test="${movieVO.movie_video != null}">	
 	<tr>
 		<td colspan="2"><object width="560" height="315"><param name="movie" value="${movieVO.movie_video}"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="${movieVO.movie_video}" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object></td>
 	</tr>
+	</c:if>
+	
 	
 </table>
 <br/>
@@ -189,11 +191,11 @@
 	<c:if test="${sessionScope.user_id != null }">
 	<table align="center">
 		<tr>
-			<td colspan="2">별점<input type="number" id="comment_star" min="0" max="5" step="0.5"/></td>
+			<td colspan="2">별점 <input type="number" id="comment_star" min="0" max="5" step="0.5" value="5"/></td>
 		</tr>
 		<tr>
 			<td class="comment" name="user_id">${sessionScope.user_id}</td>
-			<td class="commentcontent"><textarea rows="5" name="bcomment" id="taComment" style="width: 560px; height: 50px"></textarea></td>
+			<td class="commentcontent"><textarea rows="5" name="bcomment" id="taComment" style="width: 550px; height: 50px"></textarea></td>
 			<td><input type="button" id="btnCommentOk" value="확인" /></td>
 		</tr>
 	</table>
