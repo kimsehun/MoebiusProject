@@ -13,6 +13,7 @@
 var name, addx=${vo.location_addx}, addy=${vo.location_addy}, addr, ph;
 	$(document).ready(function() {
 		
+		name="구로 디지털";
 		naverMap(addy, addx);
 		
 		$('#btnLocation').click(function() {
