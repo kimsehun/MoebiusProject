@@ -21,7 +21,6 @@
  			type:'POST',
  			success:function(data){
  				if(data.result=="false") {
-//***alert을 발생시키지 못함!!!!
  					alert('data.msg');
  				} 
  				$('#taComment').val('');
@@ -30,13 +29,13 @@
  				commentList += '</table>';
  				
  				$('#commentDisplay').html(commentList);
- 				$('#avg').html('<div class="star">'+setStar(data.star)+'</div> / ' + data.star);
+ 				$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star.png"/>" class="star">' + data.star);
  			}
  		});
  
  		//평점 별로 나타내는 부분
  		function setStar(star) {
- 			var temp;
+ 			var temp = '';
 			var full = star / 1;
 			var half = star % 1;
 			
@@ -92,9 +91,7 @@
 					commentList += '</table>';
 					
 					$('#commentDisplay').html(commentList);
-					$('#avg').html('<div class="star">'+setStar(data.star)+'</div> / ' + data.star);
-					
-					location.reload();
+					$('#avg').html(setStar(data.star)+' / <img src="<c:url value="/resources/img/star_full.png"/>" class="star">' + data.star);
 				}
 			});
 		});
@@ -113,8 +110,6 @@
 				commentList += '</table>';
 				
 				$('#commentDisplay').html(commentList);
-				$('#avg').html('<div class="star">'+setStar(data.star)+'</div> /' + data.star);
-				
 				location.reload();
 			}
 		});
@@ -142,7 +137,6 @@
 <table align="center" cellpadding="20">
 	<tr>
 		<td rowspan="5" align="center" >
-<!-- css style -->
 		<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img"/>
 		</td>
 		<td id="title">
@@ -199,8 +193,7 @@
 		</tr>
 		<tr>
 			<td class="comment" name="user_id">${sessionScope.user_id}</td>
-			<td class="commentcontent"><textarea rows="5" name="bcomment"
-					id="taComment" style="width: 560px; height: 50px"></textarea></td>
+			<td class="commentcontent"><textarea rows="5" name="bcomment" id="taComment" style="width: 560px; height: 50px"></textarea></td>
 			<td><input type="button" id="btnCommentOk" value="확인" /></td>
 		</tr>
 	</table>
