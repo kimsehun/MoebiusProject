@@ -14,7 +14,6 @@
  */
  	var commentList;
  	$(document).ready(function(){
- 		 		
  		//상세보기 페이지 읽어오는 순간 ajax를 읽어서 댓글 리스트를 뿌려준다.
  		$.ajax({
  			url:'<c:url value="/comment/${movieVO.movie_no}" />',
@@ -33,40 +32,6 @@
  			}
  		});
  
- 		//평점 별로 나타내는 부분
- 		function setStar(star) {
- 			var temp = '';
-			var full = star / 1;
-			var half = star % 1;
-			
- 			if(half == 0 && full != 0) {
- 				for(var i=0; i<full; i++) {
- 					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
- 				}
- 				if(full != 5) {
- 					for(var j=0; j<5-full; j++) {
- 						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
- 					}
- 				}
- 				return temp;
- 				
- 				
- 			} else if(half != 0 && full != 0) {
- 				for(var k=1; k<full; k++) {
- 					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
- 				}
- 				if(half!=0){
- 					temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
- 				}
- 				if(full < 4) {
- 					for(var j=0; j<4-full; j++) {
- 						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
- 					}
- 				}
- 				return temp;
- 			}
- 		}
- 		
  		//댓글 insert부분
  		$('#btnCommentOk').bind('click', function(){
 			var user_id = '${sessionScope.user_id}';
@@ -121,7 +86,7 @@
  		commentList += '<tr>';
  		commentList += '<td class="commentUser"> ' + this['user_id'] + '</td>';
  		commentList += '<td class="commentContent">' + this['comment_review'] + '</td>';
- 		commentList += '<td>' + this['comment_star']+ '</td>';
+ 		commentList += '<td>' + setStar(this['comment_star']) + '</td>';
  		
  		if (this['user_id'] == '${sessionScope.user_id}') {
 			var _cno = this['comment_no'];
@@ -129,6 +94,40 @@
 			commentList += '</td></tr>';
 		}
  	}
+ 	
+ 	//평점 별로 나타내는 부분
+		function setStar(star) {
+		var temp = '';
+		var full = star / 1;
+		var half = star % 1;
+		
+			if(half == 0 && full != 0) {
+				for(var i=0; i<full; i++) {
+					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
+				}
+				if(full != 5) {
+					for(var j=0; j<5-full; j++) {
+						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+					}
+				}
+				return temp;
+				
+				
+			} else if(half != 0 && full != 0) {
+				for(var k=1; k<full; k++) {
+					temp += '<img src="<c:url value="/resources/img/star_full.png"/>" class="star">';
+				}
+				if(half!=0){
+					temp += '<img src="<c:url value="/resources/img/star_half.png"/>" class="star">';
+				}
+				if(full < 4) {
+					for(var j=0; j<4-full; j++) {
+						temp += '<img src="<c:url value="/resources/img/star_blank.png"/>" class="star">';
+					}
+				}
+				return temp;
+			}
+		}
 
 </script>
 </head>
