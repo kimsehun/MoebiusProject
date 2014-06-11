@@ -1,4 +1,4 @@
-select * from m_reserve
+select * from m_reserve;
 
 /* Drop Tables */
 

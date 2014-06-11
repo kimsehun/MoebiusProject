@@ -228,7 +228,7 @@ A.btnMovieReserve:active {color:white; text-decoration:none;}
 	border: 1px solid #ece6e8;
 	}
 	
-table th.tableCenter{
+table th{
 	border: 1px solid #DBDBDB;
 	padding:10px; 
 	font: 10pt 'Malgun Gothic';
