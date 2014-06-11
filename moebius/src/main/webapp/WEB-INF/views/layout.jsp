@@ -74,7 +74,7 @@
 			  	 <ul>
 			         <li><a href='/moebius/user/update'><span>정보수정</span><br></a></li>
 			         <li><a href='/moebius/user/delete'><span>정보삭제</span><br></a></li>
-			         <li><a href='#'><span>예매정보</span></a></li>
+			         <li><a href='/moebius/user/userInfo'><span>예매정보</span></a></li>
 			      </ul>
 			   </li>
 			   <li class='has-sub-right'><a href='/moebius/board/1/1/'><span>고객센터</span></a>

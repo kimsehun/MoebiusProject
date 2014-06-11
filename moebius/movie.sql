@@ -1,3 +1,5 @@
+select * from m_reserve
+
 /* Drop Tables */
 
 DROP TABLE m_board CASCADE CONSTRAINTS;

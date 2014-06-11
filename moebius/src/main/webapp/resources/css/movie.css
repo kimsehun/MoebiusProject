@@ -3,10 +3,10 @@
 #video_alt {padding-top: 0; padding-bottom: 0; color: red;}
 #avg {padding-left: 20%;}
 #avgText{padding-left: 20%; padding-top:50px;}
-#title{font: bold 50px/100px 'Malgun Gothic';}
+#title{font: bold 2em 'Malgun Gothic';}
 #commentDisplay{margin: 0 0 0 245px;}
 
-
+table.detail {width:710px;}
 
 table td, th {
 	border-bottom: 1px solid #DBDBDB;

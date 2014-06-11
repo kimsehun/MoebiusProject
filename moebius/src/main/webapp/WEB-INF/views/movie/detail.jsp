@@ -145,7 +145,7 @@
 </script>
 </head>
 <body>
-<table align="center" cellpadding="20">
+<table align="center" cellpadding="20" class="detail">
 	<tr>
 		<td rowspan="5" align="center" >
 			<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" class="poster_img"/>

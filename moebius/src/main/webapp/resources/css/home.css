@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 body.rankBody{overflow:hidden; margin: 5px;}
-table .login {border-collapse:collapse; align:center;}
-table caption .login {font-family:나눔고딕코딩; font-size:1.5em; padding-bottom:5px;}
-table th, table td .login{
-	font-family: monospace; padding:10px; padding-bottom:10px;
+table.login {border-collapse:collapse; margin: 100px 0 0 100px;}
+table caption.login {font: bold 3em 'Malgun Gothic'; padding-bottom:5px;}
+table th.login {
+	border-bottom: 1px solid #DBDBDB;
+	padding:10px;
 	background-color: rgb(255, 0, 0);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
 }
@@ -38,9 +39,6 @@ A.movie_btnreserve:active {color:white; text-decoration:none;}
 .main_img {width:auto; height: 180px; margin:auto;}
 .ad_img {height: 200px; width:auto;}
 .login {
-	padding: 46px;
-	width: 350px;
-	height: 200px;
 	margin: auto;
 	color: white;
 }
@@ -93,6 +91,29 @@ A.movie_btnreserve:active {color:white; text-decoration:none;}
 	text-align: center;
 	
 }
+
+.findUserInfo {
+	padding:3px;
+	margin:auto;
+	text-align:center;
+}
+
+.btnFind{
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	border-radius: 8px;
+	padding: 2px 5px 2px 5px;
+	font-size: 0.87em;
+	
+}
+
+
+
+/* 링크 메시지를 계속해서 흰색으로 보이게한다.*/
+A.btnFind:link {color:white; text-decoration:none;}
+A.btnFind:visited {color:white; text-decoration:none;}
+A.btnFind:hover {color:white; text-decoration:none;}
+A.btnFind:active {color:white; text-decoration:none;}
 
 
 .img {margin-left: 65px;}

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CGV - 내 정보</title>
+<title>CGV - 내 정보</title>`
 <link rel="stylesheet" href="<c:url value="/resources/css/board.css" />" type="text/css" />
 </head>
 <body>
@@ -31,17 +31,17 @@
 				<th>사용 포인트</th>
 			</tr>
 			
-			<c:forEach items="${list }" var="list">
-			<tr>
-				<td>${list.user_name }</td>
-				<td>${list.location_name }</td>
-				<td>${list.screen_name }</td>
-				<td>${list.movie_title }</td>
-				<td>${list.seat_name }</td>
-				<td>${list.schedule_date }</td>
-				<td>${list.schedule_time }</td>
-				<td>${list.movie_point }</td>
-			</tr>
+			<c:forEach items="${list}" var="list">
+				<tr>
+					<td>${list.user_name }</td>
+					<td>${list.location_name }</td>
+					<td>${list.screen_name }</td>
+					<td>${list.movie_title }</td>
+					<td>${list.seat_name }</td>
+					<td>${list.schedule_date }</td>
+					<td>${list.schedule_time }</td>
+					<td>${list.movie_point }</td>
+				</tr>
 			</c:forEach>
 	</table>
 </div>
