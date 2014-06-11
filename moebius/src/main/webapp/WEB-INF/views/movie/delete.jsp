@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>영화 관리</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/admin.css" />" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.2.js"/>"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -20,7 +21,7 @@
 </head>
 <body>
 <form action="delete" method="post">
-<table border="1" cellspacing="0">
+<table border="1" cellspacing="0" class="deleteMovie">
 <caption>영화 삭제하기</caption>
 <tr>
 	<th>번호</th>

@@ -10,9 +10,7 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpSession;
 
 import kr.co.moebius.movie.MovieService;
-import kr.co.moebius.movie.MovieVO;
 import kr.co.moebius.user.UserService;
-import kr.co.moebius.user.UserVO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,15 +104,9 @@ public class SitController {
 				//seat_no set 안에 넣음
 				String seat_name = (String)st1.nextElement();
 				sitVO.setSeat_name(seat_name);
-				logger.info(sitVO.toString());
-				logger.info("1");
 				sitVO.setSeat_no(sitService.getSeatno(sitVO));
-				logger.info(sitVO.toString());
-				logger.info("2");
 				sitVO.setMovie_point(movieService.getMoviePoint(sitVO.getMovie_no()));
-				logger.info("3");
 				sitVO.setUser_point(userService.getUserPoint(sitVO.getUser_id()));
-				logger.info("4");
 				sitService.insertReserve(sitVO);
 
 				sitService.updateReserveCount(sitVO.getMovie_no());
