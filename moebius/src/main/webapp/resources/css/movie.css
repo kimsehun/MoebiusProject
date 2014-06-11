@@ -44,3 +44,23 @@ table th {
 	color:white;
 	width: 94px;
 }
+
+.t_registMovie {
+	margin:auto;
+	padding: 0 0 120px 0;
+}
+table.t_registMovie caption {
+	font: bold 37pt 'Malgun Gothic';
+	padding: 20px;
+}
+table.t_registMovie th {
+	font: bold 12pt 'Malgun Gothic';
+	background-color: rgb(255, 0, 0);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 71, 71, 0.8)), to(rgba(255, 84, 84, 0.9)));
+	color:white;
+	padding: 5px;
+}
+
+
+
+.center {text-align:center; margin:auto;}

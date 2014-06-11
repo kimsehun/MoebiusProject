@@ -11,7 +11,7 @@
 </head>
 <body>
 <form action="insert" method="post" enctype="multipart/form-data">
-	<table>
+	<table class="t_registMovie">
 			<caption>영화 등록</caption>
 			<tr>
 				<th>제목</th>
@@ -81,9 +81,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<th>
 					영화 등급
-				</td>
+				</th>
 				<td>
 					<select name="movie_grade">
 						<option value="1">15</option>
@@ -93,7 +93,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>영화 포인트 가격</td>
+				<th>영화 포인트 가격</th>
 				<td>
 					<input type="number" min="3000" max="5000" step="500" name="movie_point"/>
 				</td>

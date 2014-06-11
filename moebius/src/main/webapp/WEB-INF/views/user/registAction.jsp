@@ -20,8 +20,10 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-축하합니다. 가입되셨습니다.<br>
-아래 항목을 확인하세요<br/>
+<div class="centerjoin">
+	축하합니다. 가입되셨습니다.<br>
+	아래 항목을 확인하세요<br/>
+</div>
 	<table>
 		<caption>회원 가입 결과</caption>
 		<tr>

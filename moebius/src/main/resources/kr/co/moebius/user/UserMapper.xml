@@ -121,9 +121,9 @@
 	
 	<!-- 예약확인 -->
 	<select id="getReserveInfo" parameterType="UserInfoVO" resultType="UserInfoVO">
-	SELECT u.user_name, l.location_name, s.screen_name, m.movie_title, t.seat_name, m.movie_point, to_char(h.schedule_time,'HH24:MI') AS schedule_time, to_char(h.schedule_date,'YYYYMMDD') AS schedule_date
-	FROM m_user u, m_movie m, m_location l, m_screen s, m_seat t, m_reserve r, m_schedule h
-	WHERE u.user_id=#{user_id} AND r.user_id=#{user_id} AND s.screen_name=t.screen_no AND t.location_no=l.location_no AND t.seat_no=r.seat_no AND r.schedule_no=h.schedule_no AND m.movie_no=r.movie_no
+		SELECT u.user_name, l.location_name, s.screen_name, m.movie_title, t.seat_name, m.movie_point, to_char(h.schedule_time,'HH24:MI') AS schedule_time, to_char(h.schedule_date,'YYYYMMDD') AS schedule_date
+		FROM m_user u, m_movie m, m_location l, m_screen s, m_seat t, m_reserve r, m_schedule h
+		WHERE u.user_id=#{user_id} AND r.user_id=#{user_id} AND s.screen_no=t.screen_no AND t.location_no=l.location_no AND t.seat_no=r.seat_no AND r.schedule_no=h.schedule_no AND m.movie_no=r.movie_no
 	</select>
 	
 	<!--  영화 예매시 포인트 삭감 --> 
