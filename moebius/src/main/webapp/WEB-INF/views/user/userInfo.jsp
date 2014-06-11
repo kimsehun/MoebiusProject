@@ -18,8 +18,8 @@
 	</ul>
 </div>
 <div id="content">
-	<table border="2">
-		<caption>상세 정보</caption>
+	<table>
+		<caption>예매 정보</caption>
 			<tr>
 				<th>이름</th>
 				<th>지역</th>
@@ -30,7 +30,6 @@
 				<th>시간</th>
 				<th>사용 포인트</th>
 			</tr>
-			
 			<c:forEach items="${list}" var="list">
 				<tr>
 					<td>${list.user_name }</td>
@@ -44,6 +43,7 @@
 				</tr>
 			</c:forEach>
 	</table>
+
 </div>
 </body>
 </html>

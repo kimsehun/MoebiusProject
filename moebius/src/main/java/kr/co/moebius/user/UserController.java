@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import kr.co.moebius.mail.MailAction;
-import kr.co.moebius.seat.SitVO;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
@@ -242,6 +241,7 @@ public class UserController {
 	public String userInfo(UserInfoVO uifVO, Model model, HttpSession session) throws Exception {
 		uifVO.setUser_id((String)session.getAttribute("user_id"));
 		List<UserInfoVO> list = userService.getReserveInfo(uifVO);
+		logger.info("list 정보"+list);
 		model.addAttribute("list", list);
 		
 		return "/user/userInfo";
