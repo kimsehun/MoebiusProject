@@ -53,7 +53,7 @@ function selectLocation(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11" class="wrapper-dropdown" >';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown-date">';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
@@ -123,7 +123,7 @@ function selectMovieDate(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11" class="wrapper-dropdown" style="width:100px;">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown" style="width:99px;">';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
@@ -210,10 +210,7 @@ function setCommentLocationList() {
 			<input type="hidden" id="day" name="day" value=""/>
 			<input type="hidden" id="schedule_no" name="schedule_no" value=""/>
 			<input type="submit" value="자리선택" class="btnSeat"/>
-			
 		</form>
 	</div>
-<hr>
-
 </body>
 </html>

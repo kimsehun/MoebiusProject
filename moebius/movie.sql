@@ -1,4 +1,4 @@
-update M_USER set user_point=user_point+8000 where user_id='test'
+update M_USER set user_point=600000 where user_id='admin'
 delete from M_RESERVE
 /* Drop Tables */
 
