@@ -221,6 +221,10 @@ public class ReserveController {
 	@ResponseBody
 	public List<ScheduleVO> reserveSchedule(@PathVariable String day, int movie_no, 
 							int location_no, int year, String month) throws Exception {
+		
+		Calendar cal = Calendar.getInstance();
+		logger.info("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+		logger.info(cal.get(Calendar.HOUR_OF_DAY)+"");
 		//월 출력
 		if(month.length() == 2) {
 			month = 0 + month;
@@ -235,8 +239,6 @@ public class ReserveController {
 		}
 		
 		String schedule_date = year + month + day;
-		
-		logger.info(schedule_date);
 		
 		ScheduleVO scheduleVO = new ScheduleVO();
 		ScreenVO screenVO = new ScreenVO();
@@ -254,12 +256,25 @@ public class ReserveController {
 		List<ScheduleVO> scheduleList = scheduleService.selectTime(scheduleVO);
 		for(ScheduleVO vo : scheduleList) {
 			ScheduleVO schedule = new ScheduleVO();
+			// db날짜와 jsp에서 선택된 날짜 비교
 			if(Integer.parseInt(vo.getSchedule_date()) == Integer.parseInt(schedule_date)) {
-				schedule.setSchedule_time(vo.getSchedule_time());
-				logger.info(schedule.getSchedule_time());
-				schedule.setSchedule_no(vo.getSchedule_no());
-				schedule.setScreen_no(vo.getScreen_no());
-				duleList.add(schedule);
+				//오늘 날짜와 jsp에서 선택된 날짜 비교
+				if(cal.get(Calendar.DATE) == Integer.parseInt(day)) {
+				String hour = vo.getSchedule_time().substring(0,2);
+				//지금시간과 db 시간 비교
+					if(cal.get(Calendar.HOUR_OF_DAY) < Integer.parseInt(hour)) {
+					schedule.setSchedule_time(vo.getSchedule_time());
+					logger.info(schedule.getSchedule_time());
+					schedule.setSchedule_no(vo.getSchedule_no());
+					schedule.setScreen_no(vo.getScreen_no());
+					duleList.add(schedule);
+					}
+				} else {
+						schedule.setSchedule_time(vo.getSchedule_time());
+						schedule.setSchedule_no(vo.getSchedule_no());
+						schedule.setScreen_no(vo.getScreen_no());
+						duleList.add(schedule);
+				}
 			}
 		}
 		return duleList;
