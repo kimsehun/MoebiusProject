@@ -23,16 +23,16 @@
 <table align="center" cellspacing="50" >
 	<c:forEach items="${rankinglist}" var="movieVO" varStatus="st">
 		<c:choose>
-			<c:when test="${st.index%5 == 0 }">
+			<c:when test="${st.index%3 == 0 }">
 				<tr>
-					<td align="center">
+					<td align="center" style="padding-top:20px;">
 						${st.index +1}<br>
 						<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" id="btninsert"/>
 						<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin" class="btnMovieReserve">예매</a> / <a href="detail/${movieVO.movie_no}/"  class="btnMovieReserve">상세보기</a> </p>
 					</td>
 			</c:when>
 			<c:otherwise>
-				<td align="center">
+				<td align="center" style="padding-top:20px;">
 					${st.index +1}<br>
 					<img src="/moebius/movie/download?fileName=${movieVO.movie_poster}" id="btninsert"/>
 					<p><a href ="/moebius/reserve/${movieVO.movie_no}" target="newwin" class="btnMovieReserve">예매</a> / <a href="detail/${movieVO.movie_no}/"  class="btnMovieReserve">상세보기</a> </p>

@@ -126,7 +126,7 @@ public class HomeController {
 		//상영작만 따로 저장할 list를 만든다.
 		List<MovieVO> rankinglist = new ArrayList<MovieVO>();
 		for (MovieVO vo : list) {
-			if (Integer.parseInt(vo.getMovie_sdate()) < Integer.parseInt(today)) {
+			if (Integer.parseInt(vo.getMovie_sdate()) <= Integer.parseInt(today)) {
 				
 				//날짜 구분해주기.
 				String year = vo.getMovie_sdate().substring(0,4);
