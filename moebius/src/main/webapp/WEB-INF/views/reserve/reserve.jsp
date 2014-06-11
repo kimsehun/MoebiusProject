@@ -53,7 +53,7 @@ function selectLocation(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11" class="wrapper-dropdown-date">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown" >';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
@@ -82,7 +82,7 @@ function selectSchedule(day) {
 			$('#year').val(year);
 			$('#month').val(month);
 			$('#day').val(day);
-			commentList += '<select name="day" size="11" class="wrapper-dropdown">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown" >';
 			$.each(data, setCommentScheduleList); 
 			commentList += '</select>';
 			$('.reserve_second_forth').html(commentList);
@@ -99,7 +99,7 @@ function selectLocationMovie(no) {
 		success:function(data){
 			commentList = "";
 			$('#location_no').val(location_no);
-			commentList += '<select name="movie" size="11" class="wrapper-dropdown">';
+			commentList += '<select name="movie" size="11" class="wrapper-dropdown" >';
 			$.each(data, setCommentMovieList);
 			commentList += '</select>';
 			$('.reserve_second_first').html(commentList);
@@ -123,7 +123,7 @@ function selectMovieDate(no) {
 			$('#screen_no').val(data.screen_no);
 			commentList += '<div class="reserve_year">'+data.year+'</div>';
 			commentList += '<div class="reserve_month"><h1 class="reserve_month_font">'+data.month+'월</h1></div>';
-			commentList += '<select name="day" size="11" class="wrapper-dropdown">';
+			commentList += '<select name="day" size="11" class="wrapper-dropdown" style="width:100px;">';
 			$.each(data.calList, setCommentDateList); 
 			commentList += '</select>';
 			$('.reserve_second_third').html(commentList);
