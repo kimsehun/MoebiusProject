@@ -1,4 +1,5 @@
-
+update M_USER set user_point=user_point+8000 where user_id='test'
+delete from M_RESERVE
 /* Drop Tables */
 
 DROP TABLE m_board CASCADE CONSTRAINTS;

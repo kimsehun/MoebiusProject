@@ -98,7 +98,7 @@ public class SitController {
 
 		while(st1.hasMoreTokens()){
 			
-			try {
+try {
 				
 				//seat_no을 where문(seat_name = 선택한 좌석 이름)으로 가져옴
 				//seat_no set 안에 넣음
@@ -107,13 +107,24 @@ public class SitController {
 				sitVO.setSeat_no(sitService.getSeatno(sitVO));
 				sitVO.setMovie_point(movieService.getMoviePoint(sitVO.getMovie_no()));
 				sitVO.setUser_point(userService.getUserPoint(sitVO.getUser_id()));
-				sitService.insertReserve(sitVO);
-
-				sitService.updateReserveCount(sitVO.getMovie_no());
-				userService.usePoint(sitVO);
-
-				map.put("res", res);
-				
+				if(sitVO.getpCount() == 2) {
+					int m_point = sitVO.getMovie_point();
+					logger.info("영화 포인트 = " + m_point);
+					int u_point = sitVO.getUser_point();
+					logger.info("유저 포인트 = " + u_point);
+					if(m_point * 2 >= u_point) {
+						res=1;
+						map.put("res", res);
+						map.put("msg", "예약 ㄴㄴ해");
+					}
+				} else {
+					sitService.insertReserve(sitVO);
+					sitService.updateReserveCount(sitVO.getMovie_no());
+					userService.usePoint(sitVO);
+					map.put("res", res);
+					logger.info("현재 유저 포인트 : " + sitVO.getUser_point());
+					logger.info("현재 옵션값 : " + sitVO.getpCount());
+				}
 			} catch (RuntimeException e) {
 				res = 1;
 				map.put("res", res);
@@ -127,4 +138,3 @@ public class SitController {
 		return map;
 	}
 }
-

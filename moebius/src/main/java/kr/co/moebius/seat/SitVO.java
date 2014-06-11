@@ -13,7 +13,15 @@ public class SitVO implements Serializable {
 	private int movie_no;
 	private int movie_point;
 	private int user_point;
+	private int pCount;
 	
+	
+	public int getpCount() {
+		return pCount;
+	}
+	public void setpCount(int pCount) {
+		this.pCount = pCount;
+	}
 	public int getLocation_no() {
 		return location_no;
 	}
@@ -82,7 +90,7 @@ public class SitVO implements Serializable {
 				+ seat_no + ", screen_name=" + screen_name + ", screen_no="
 				+ screen_no + ", user_id=" + user_id + ", movie_no=" + movie_no
 				+ ", movie_point=" + movie_point + ", user_point=" + user_point
-				+ "]";
+				+ ", pCount=" + pCount + "]";
 	}
 	
 }

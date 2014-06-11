@@ -55,6 +55,7 @@ $(document).ready(function() {
 		var screen_no = $('#screen_no').val();
 		var seat_no = $('#seat_no').val();
 		var movie_no = $('#movie_no').val();
+		var pCount = $('#movierLimit').val();
 		console.log(movie_no);
 		$.ajax({
 			url:'../reserve/seatA/'+resultSeat,
@@ -67,7 +68,8 @@ $(document).ready(function() {
 				'screen_name':screen_name,
 				'screen_no':screen_no,
 				'seat_no':seat_no,
-				'movie_no':movie_no
+				'movie_no':movie_no,
+				'pCount':pCount
 			},
 			success:function(data) {
 				if(data.res == 1) {
