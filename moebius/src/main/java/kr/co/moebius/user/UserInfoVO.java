@@ -12,8 +12,12 @@ public class UserInfoVO implements Serializable {
 	private String movie_title;
 	private String seat_name;
 	private int schedule_no;
+	private int movie_no;
+	private int seat_no;
+	private int screen_no;
 	private String schedule_time;
 	private String schedule_date;
+	
 	public String getUser_id() {
 		return user_id;
 	}
@@ -80,6 +84,25 @@ public class UserInfoVO implements Serializable {
 	public void setSchedule_date(String schedule_date) {
 		this.schedule_date = schedule_date;
 	}
+	
+	public int getMovie_no() {
+		return movie_no;
+	}
+	public void setMovie_no(int movie_no) {
+		this.movie_no = movie_no;
+	}
+	public int getSeat_no() {
+		return seat_no;
+	}
+	public void setSeat_no(int seat_no) {
+		this.seat_no = seat_no;
+	}
+	public int getScreen_no() {
+		return screen_no;
+	}
+	public void setScreen_no(int screen_no) {
+		this.screen_no = screen_no;
+	}
 	@Override
 	public String toString() {
 		return "UserInfoVO [user_id=" + user_id + ", user_name=" + user_name
@@ -87,7 +110,8 @@ public class UserInfoVO implements Serializable {
 				+ user_status + ", location_name=" + location_name
 				+ ", screen_name=" + screen_name + ", movie_title="
 				+ movie_title + ", seat_name=" + seat_name + ", schedule_no="
-				+ schedule_no + ", schedule_time=" + schedule_time
-				+ ", schedule_date=" + schedule_date + "]";
+				+ schedule_no + ", movie_no=" + movie_no + ", seat_no="
+				+ seat_no + ", screen_no=" + screen_no + ", schedule_time="
+				+ schedule_time + ", schedule_date=" + schedule_date + "]";
 	}
 }

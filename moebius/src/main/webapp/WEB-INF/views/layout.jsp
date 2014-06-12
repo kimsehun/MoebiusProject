@@ -19,7 +19,7 @@
 <body>
 
     <div id="logo">
-		<img src='<c:url value="/resources/img/logo_shape.png"/>'>
+		<img src='<c:url value="/resources/img/logo.png"/>'>
     </div>
 	<div id='header'>
 	   <ul>

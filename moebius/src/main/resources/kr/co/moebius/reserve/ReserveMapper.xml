@@ -58,5 +58,10 @@
 		WHERE res.schedule_no = #{schedule_no} AND se.screen_no = #{screen_name}
 		ORDER BY res.seat_no ASC
 	</select>
+	
+	<delete id="cancel" parameterType="ReserveVO" >
+	DELETE FROM m_reserve
+	WHERE seat_no=#{seat_no} AND schedule_no=#{schedule_no} AND movie_no=#{movie_no}
+	</delete>
 
 </mapper>

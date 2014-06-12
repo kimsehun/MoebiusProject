@@ -21,7 +21,6 @@
 	<table>
 		<caption>예매 정보</caption>
 			<tr>
-				<th>이름</th>
 				<th>지역</th>
 				<th>상영관</th>
 				<th>영화 제목</th>
@@ -29,10 +28,10 @@
 				<th>일</th>
 				<th>시간</th>
 				<th>사용 포인트</th>
+				<th>예매 취소</th>
 			</tr>
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>${list.user_name }</td>
 					<td>${list.location_name }</td>
 					<td>${list.screen_name }</td>
 					<td>${list.movie_title }</td>
@@ -40,6 +39,7 @@
 					<td>${list.schedule_date }</td>
 					<td>${list.schedule_time }</td>
 					<td>${list.movie_point }</td>
+					<td><a href="cancel/${list.movie_no}/${list.schedule_no}/${list.seat_no}"  class="btnMovieReserve">예매취소</a></td>
 				</tr>
 			</c:forEach>
 	</table>

@@ -10,4 +10,6 @@ public interface ScheduleMapper {
 	
 	void deleteschedule(int screen_no) throws Exception;
 
+	ScheduleVO selectTime1(int schedule_no);
+
 }

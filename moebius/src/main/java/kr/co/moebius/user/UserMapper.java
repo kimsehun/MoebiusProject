@@ -2,6 +2,7 @@ package kr.co.moebius.user;
 
 import java.util.List;
 
+import kr.co.moebius.reserve.ReserveVO;
 import kr.co.moebius.seat.SitVO;
 
 public interface UserMapper {
@@ -44,5 +45,8 @@ public interface UserMapper {
 	int getUserPoint(String user_id) throws Exception;
 
 	int getAge(String user_id) throws Exception;
+	
+	//예약 취소로 인한 포인트 반환
+	void rePoint(ReserveVO vo);
 
 }

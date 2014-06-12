@@ -23,4 +23,10 @@
 	WHERE screen_no = #{screen_no}
 </delete>
 
+<select id="selectTime1" parameterType="int" resultType="ScheduleVO">
+	SELECT to_char(schedule_time,'HH24') AS schedule_time, to_char(schedule_date,'DD') AS schedule_date, schedule_no, screen_no
+	FROM m_schedule
+	WHERE schedule_no=#{schedule_no}
+</select>
+
 </mapper>

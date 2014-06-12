@@ -22,6 +22,6 @@ public interface ReserveMapper {
 	void insertEleven(SitVO sitVO) throws Exception;
 
 	int countEleven(SitVO sitVO) throws Exception;
-
-
+	
+	void cancel(ReserveVO vo);
 }

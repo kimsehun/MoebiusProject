@@ -11,4 +11,6 @@ public interface ScheduleService {
 	
 	void deleteschedule(int screen_no) throws Exception;
 
+	ScheduleVO selectTime1(int schedule_no);
+
 }
